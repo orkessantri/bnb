@@ -44,3 +44,17 @@ window.onload = function(){
     '<span class="chord">$1</span>'
   );
 };
+
+function toggleLive(){
+  document.body.classList.toggle("live");
+
+  if(document.body.classList.contains("live")){
+    if(document.documentElement.requestFullscreen){
+      document.documentElement.requestFullscreen();
+    }
+  } else {
+    if(document.exitFullscreen){
+      document.exitFullscreen();
+    }
+  }
+}
