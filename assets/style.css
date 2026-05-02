@@ -54,15 +54,21 @@ button {
 body.live {
   background: #000;
   color: #fff;
+  padding: 0;
+  margin: 0;
 }
 
 body.live .song {
-  font-size: 32px;
+  font-size: 34px;
   line-height: 1.8;
+  padding: 20px;
 }
 
 body.live .toolbar {
-  opacity: 0.3;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.2;
 }
 
 body.live .toolbar:hover {
