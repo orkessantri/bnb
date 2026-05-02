@@ -11,7 +11,19 @@
 
 <h1>BASS NOT BOSS 🎸</h1>
 
-<a href="songs/lagu1.html">Lagu 1</a>
+<div id="list"></div>
+
+<script>
+fetch('songs.json')
+  .then(res => res.json())
+  .then(data => {
+    let html = '';
+    data.forEach(song => {
+      html += `<a href="songs/${song.file}">${song.title}</a>`;
+    });
+    document.getElementById('list').innerHTML = html;
+  });
+</script>
 
 </body>
 </html>
