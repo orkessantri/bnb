@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+
+<h2 data-title="Lagu 2">Lagu 2</h2>
+
+<div class="toolbar">
+<button onclick="transpose(-1)">-</button>
+<button onclick="transpose(1)">+</button>
+<button onclick="zoomIn()">A+</button>
+<button onclick="zoomOut()">A-</button>
+<button onclick="toggleDark()">🌙</button>
+</div>
+
+<div class="song">
+C G Am F
+Ini lirik baris pertama
+</div>
+
+<script src="../assets/app.js"></script>
+
+</body>
+</html>
