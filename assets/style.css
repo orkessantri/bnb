@@ -50,3 +50,21 @@ button {
   padding: 10px;
   font-size: 16px;
 }
+
+body.live {
+  background: #000;
+  color: #fff;
+}
+
+body.live .song {
+  font-size: 32px;
+  line-height: 1.8;
+}
+
+body.live .toolbar {
+  opacity: 0.3;
+}
+
+body.live .toolbar:hover {
+  opacity: 1;
+}
