@@ -19,7 +19,7 @@ fetch('songs.json')
   .then(data => {
     let html = '';
     data.forEach(song => {
-      html += `<a href="songs/${song.file}">${song.title}</a>`;
+      html += `<div><a href="songs/${song.file}">${song.title}</a></div>`;
     });
     document.getElementById('list').innerHTML = html;
   });
