@@ -74,3 +74,7 @@ body.live .toolbar {
 body.live .toolbar:hover {
   opacity: 1;
 }
+
+body.live {
+  overflow: hidden;
+}
