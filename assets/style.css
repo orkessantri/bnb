@@ -14,6 +14,19 @@ h1, h2 {
   margin-bottom: 10px;
 }
 
+
+a {
+  display: block;
+  margin: 12px 0;
+  font-size: 20px;
+  text-decoration: none;
+  color: #2196f3;
+}
+
+a:hover {
+  color: #ff9800;
+}
+
 .song {
   font-size: 22px;
   line-height: 1.6;
