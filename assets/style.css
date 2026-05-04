@@ -38,6 +38,10 @@ body.home {
   gap: 8px; /* atur jarak teks & tombol */
 }
 
+.home-screen {
+  transform: translateY(-10px);
+}
+
 .title {
   font-size: 120px;
   line-height: 1.1;
