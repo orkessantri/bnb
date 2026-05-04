@@ -1,7 +1,19 @@
-<div class="header">Semua Lagu</div>
+<script>
+let allSongs = [];
 
-<input type="text" id="search" placeholder="Cari lagu...">
+fetch('songs.json')
+  .then(res => res.json())
+  .then(data => {
+    allSongs = data;
 
-<div id="list"></div>
+    const urlParams = new URLSearchParams(window.location.search);
+    const cat = urlParams.get('cat');
 
-<script src="assets/app.js"></script>
+    if(cat){
+      const filtered = data.filter(song => song.category === cat);
+      renderList(filtered);
+    } else {
+      renderList(data);
+    }
+  });
+</script>
