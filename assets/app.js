@@ -106,3 +106,6 @@ function toggleCategory(el){
   content.classList.toggle("open");
 }
 
+if(document.getElementById('kategori-list')){
+  renderKategori();
+}
