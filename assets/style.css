@@ -1,15 +1,3 @@
-body {
-  font-family: Arial;
-  background: #ffffff;
-  color: #111;
-  padding: 16px;
-}
-
-body.dark {
-  background: #111;
-  color: #eee;
-}
-
 /* RESET DASAR */
 html, body {
   margin: 0;
@@ -91,46 +79,97 @@ body.home {
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* HEADER */
-.header {
-  background: #000;
-  color: #fff;
-  padding: 14px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 40px;
+/* =========================
+   GLOBAL CONTROL (EDIT DI SINI)
+========================= */
+:root {
+  --menu-gap: 10px;        /* 🔥 jarak antar tombol */
+  --menu-font: 18px;       /* 🔥 ukuran font menu */
+  --header-font: 20px;     /* 🔥 ukuran font header */
 }
 
-/* CONTAINER */
+/* =========================
+   BODY
+========================= */
+body {
+  background: #000;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 14px;
+  font-size: var(--header-font);
+  font-weight: bold;
+}
+
+/* =========================
+   CONTAINER
+========================= */
 .menu-container {
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--menu-gap); /* 🔥 atur jarak di sini */
 }
 
-/* CARD BUTTON */
+/* =========================
+   MENU CARD
+========================= */
 .menu-card {
-  display: block;
-  padding: 20px;
-  background: #000;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px;
+  background: #fff;
+  color: #000;
   text-decoration: none;
-  color: #fff;
-  font-size: 18px;
+
+  font-size: var(--menu-font);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  /* animasi masuk */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease forwards;
 }
 
-/* TAP EFFECT */
+/* delay animasi biar berurutan */
+.menu-card:nth-child(1) { animation-delay: 0.1s; }
+.menu-card:nth-child(2) { animation-delay: 0.2s; }
+.menu-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* icon */
+.icon {
+  font-size: 20px;
+}
+
+/* tap effect */
 .menu-card:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
+  background: #eaeaea;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1, h2 {
   margin-bottom: 10px;
 }
-
 
 a {
   display: block;
