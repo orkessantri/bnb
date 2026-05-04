@@ -344,3 +344,67 @@ h2 {
 .btn-remove {
   color: red;
 }
+
+.btn-add {
+  font-size: 14px;
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+  border: none;
+
+  background: #222;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+/* CATEGORY BOX */
+.category {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 360px; /* 🔥 fix width */
+}
+
+/* TITLE */
+.category-title {
+  padding: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+
+  border-bottom: 1px solid #eee;
+}
+
+/* CONTENT */
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* OPEN */
+.category-content.open {
+  max-height: 500px;
+}
+
+/* SONG ITEM */
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-container {
+  gap: 12px;
+  align-items: center;
+}
