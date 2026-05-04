@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Lagu 1</title>
-
-  <link rel="stylesheet" href="../assets/style.css">
-  <script src="../assets/app.js" defer></script>
+<link rel="manifest" href="/bassnotboss/manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
 
+<h2 data-title="Lagu 2">Lagu 2</h2>
+
 <div class="toolbar">
-  <button onclick="transpose(1)">T+</button>
-  <button onclick="transpose(-1)">T-</button>
-  <button onclick="zoomIn()">A+</button>
-  <button onclick="zoomOut()">A-</button>
-  <button onclick="toggleLive()">LIVE</button>
+<button onclick="transpose(1)">T+</button>
+<button onclick="transpose(-1)">T-</button>
+<button onclick="zoomIn()">A+</button>
+<button onclick="zoomOut()">A-</button>
+<button onclick="toggleDark()">🌙</button>
 </div>
 
-<div class="song-container">
-  <div class="section">Intro</div>
-  G D Em C
-
-  <div class="section">Verse</div>
-  G D
-  Ini lirik baris pertama
+<div class="song">
+C G Am F
+Ini lirik baris pertama
 </div>
+
+<script src="../assets/app.js"></script>
 
 </body>
 </html>
