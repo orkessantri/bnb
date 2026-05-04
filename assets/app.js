@@ -115,3 +115,35 @@ document.addEventListener("DOMContentLoaded", function(){
     renderKategori();
   }
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  if(document.getElementById('setlist')){
+    loadSetlist();
+  }
+
+  if(document.getElementById('kategori-list')){
+    renderKategori();
+  }
+
+});
+
+let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
+
+function addSetlist(title, file){
+  setlist.push({title, file});
+  localStorage.setItem("setlist", JSON.stringify(setlist));
+  renderSetlist();
+}
+
+function removeSetlist(i){
+  setlist.splice(i, 1);
+  localStorage.setItem("setlist", JSON.stringify(setlist));
+  renderSetlist();
+}
+
+function loadSetlist(){
+  setlist = JSON.parse(localStorage.getItem("setlist")) || [];
+  renderSetlist();
+}
+
