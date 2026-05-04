@@ -10,29 +10,44 @@ body.dark {
   color: #eee;
 }
 
+/* RESET DASAR */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* HOMEPAGE */
 body.home {
   background: #000;
   color: #fff;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+
+  min-height: 100vh;   /* lebih aman dari height */
+  overflow: hidden;    /* 🔥 ini kunci anti scroll */
 }
 
+/* CONTAINER */
 .home-screen {
   text-align: center;
+  padding: 20px;
+  max-width: 90%;
 }
 
+/* BUTTON */
 .enter-btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 24px;
-  background: white;
-  color: black;
+  padding: 14px 28px;
+  background: #fff;
+  color: #000;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 18px;
 }
-
 .header {
   background: #000;
   color: #fff;
