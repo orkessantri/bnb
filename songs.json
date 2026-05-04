@@ -1,10 +1,12 @@
 [
   {
     "title": "Lagu 1",
-    "file": "lagu1.html"
+    "file": "lagu1.html",
+    "category": "Sholawat"
   },
   {
     "title": "Lagu 2",
-    "file": "lagu2.html"
+    "file": "lagu2.html",
+    "category": "Pop"
   }
 ]
