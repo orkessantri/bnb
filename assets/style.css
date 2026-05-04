@@ -117,6 +117,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--menu-gap); /* 🔥 atur jarak di sini */
+  align-items: center; /* 🔥 penting */
 }
 
 /* =========================
