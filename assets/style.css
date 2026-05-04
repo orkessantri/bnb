@@ -203,6 +203,11 @@ body {
   float: right;
 }
 
+.menu-container {
+  gap: 12px;
+  align-items: center;
+}
+
 /* CONTENT (HIDDEN DEFAULT) */
 .category-content {
   max-height: 0;
@@ -221,6 +226,10 @@ body {
   justify-content: space-between;
   padding: 10px 14px;
   border-bottom: 1px solid #f0f0f0;
+}
+
+.category-title:active {
+  background: #f0f0f0;
 }
 
 h1, h2 {
