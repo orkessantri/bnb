@@ -123,3 +123,28 @@ h2 {
 .remove-btn:active {
   background: #ddd;
 }
+
+.btn-add,
+.btn-remove {
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add {
+  background: #222;
+  color: white;
+  border: none;
+}
+
+.btn-remove {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+}
