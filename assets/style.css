@@ -83,8 +83,8 @@ body.home {
    GLOBAL CONTROL (EDIT DI SINI)
 ========================= */
 :root {
-  --menu-gap: 10px;        /* 🔥 jarak antar tombol */
-  --menu-font: 18px;       /* 🔥 ukuran font menu */
+  --menu-gap: 8px;        /* 🔥 jarak antar tombol */
+  --menu-font: 20px;       /* 🔥 ukuran font menu */
   --header-font: 30px;     /* 🔥 ukuran font header */
 }
 
