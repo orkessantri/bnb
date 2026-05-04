@@ -155,14 +155,62 @@ function loadSetlist(){
   renderSetlist();
 }
 
-if(setlist.length === 0){
-  document.getElementById('setlist').innerHTML = "<p style='text-align:center;'>Belum ada lagu</p>";
+function renderSetlist(){
+  const el = document.getElementById("setlist");
+  if(!el) return;
+
+  if(setlist.length === 0){
+    el.innerHTML = "<p style='text-align:center;'>Belum ada lagu</p>";
+    return;
+  }
+
+  let html = '';
+
+  setlist.forEach((song, i) => {
+    html += `
+      <div class="song-item">
+        <a href="songs/${song.file}">${i+1}. ${song.title}</a>
+        <button class="btn-remove" data-index="${i}">−</button>
+      </div>
+    `;
+  });
+
+  el.innerHTML = html;
+
+  // tombol remove
+  document.querySelectorAll('.btn-remove').forEach(btn => {
+    btn.addEventListener('click', function(){
+      removeSetlist(parseInt(this.dataset.index));
+    });
+  });
 }
 
-function addSetlist(title, file){
-  console.log("ADD:", title);
+let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 
+function addSetlist(title, file){
   setlist.push({title, file});
+  localStorage.setItem("setlist", JSON.stringify(setlist));
+}
+
+function removeSetlist(i){
+  setlist.splice(i, 1);
   localStorage.setItem("setlist", JSON.stringify(setlist));
   renderSetlist();
 }
+
+function loadSetlist(){
+  setlist = JSON.parse(localStorage.getItem("setlist")) || [];
+  renderSetlist();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  if(document.getElementById('setlist')){
+    loadSetlist();
+  }
+
+  if(document.getElementById('kategori-list')){
+    renderKategori();
+  }
+
+});
