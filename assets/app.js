@@ -128,6 +128,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
+function addSetlist(title, file){
+  console.log("ADD:", title);
+
+  setlist.push({title, file});
+  localStorage.setItem("setlist", JSON.stringify(setlist));
+  renderSetlist();
+}
+
 let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 
 function addSetlist(title, file){
@@ -149,4 +157,12 @@ function loadSetlist(){
 
 if(setlist.length === 0){
   document.getElementById('setlist').innerHTML = "<p style='text-align:center;'>Belum ada lagu</p>";
+}
+
+function addSetlist(title, file){
+  console.log("ADD:", title);
+
+  setlist.push({title, file});
+  localStorage.setItem("setlist", JSON.stringify(setlist));
+  renderSetlist();
 }
