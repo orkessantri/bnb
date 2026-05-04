@@ -54,26 +54,55 @@ function renderKategori(){
     .then(res => res.json())
     .then(data => {
 
-      let kategoriSet = new Set();
+      let grouped = {};
 
       data.forEach(song => {
-        kategoriSet.add(song.category);
+        if(!grouped[song.category]){
+          grouped[song.category] = [];
+        }
+        grouped[song.category].push(song);
       });
 
       let html = '';
 
-      kategoriSet.forEach(cat => {
+      for(let cat in grouped){
         html += `
-          <a href="list.html?cat=${encodeURIComponent(cat)}" class="menu-card">
-            ${cat}
-          </a>
+          <div class="category">
+            <div class="category-title" onclick="toggleCategory(this)">
+              ${cat}
+            </div>
+
+            <div class="category-content">
         `;
-      });
+
+        grouped[cat].forEach(song => {
+          html += `
+            <div class="song-item">
+              <a href="songs/${song.file}">${song.title}</a>
+              <button class="btn-add" data-title="${song.title}" data-file="${song.file}">+</button>
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+      }
 
       document.getElementById('kategori-list').innerHTML = html;
+
+      // tombol tambah
+      document.querySelectorAll('.btn-add').forEach(btn => {
+        btn.addEventListener('click', function(){
+          addSetlist(this.dataset.title, this.dataset.file);
+        });
+      });
     });
 }
 
-if(document.getElementById('kategori-list')){
-  renderKategori();
+function toggleCategory(el){
+  const content = el.nextElementSibling;
+  content.classList.toggle("open");
 }
+
