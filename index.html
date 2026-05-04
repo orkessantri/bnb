@@ -23,10 +23,26 @@
 fetch('songs.json')
   .then(res => res.json())
   .then(data => {
-    let html = '';
+
+    let grouped = {};
+
     data.forEach(song => {
-      html += `<div><a href="songs/${song.file}">${song.title}</a></div>`;
+      if(!grouped[song.category]){
+        grouped[song.category] = [];
+      }
+      grouped[song.category].push(song);
     });
+
+    let html = '';
+
+    for(let cat in grouped){
+      html += `<h2>${cat}</h2>`;
+
+      grouped[cat].forEach(song => {
+        html += `<div><a href="songs/${song.file}">${song.title}</a></div>`;
+      });
+    }
+
     document.getElementById('list').innerHTML = html;
   });
 </script>
