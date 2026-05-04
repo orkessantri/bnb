@@ -17,34 +17,86 @@
 
 <h1>BASS NOT BOSS 🎸</h1>
 
+  <input type="text" id="search" placeholder="Cari lagu..." style="width:100%;padding:10px;font-size:16px;">
+  <h2>Setlist 🎸</h2>
+<div id="setlist"></div>
+  
 <div id="list"></div>
 
 <script>
+let allSongs = [];
+let setlist = [];
+
 fetch('songs.json')
   .then(res => res.json())
   .then(data => {
-
-    let grouped = {};
-
-    data.forEach(song => {
-      if(!grouped[song.category]){
-        grouped[song.category] = [];
-      }
-      grouped[song.category].push(song);
-    });
-
-    let html = '';
-
-    for(let cat in grouped){
-      html += `<h2>${cat}</h2>`;
-
-      grouped[cat].forEach(song => {
-        html += `<div><a href="songs/${song.file}">${song.title}</a></div>`;
-      });
-    }
-
-    document.getElementById('list').innerHTML = html;
+    allSongs = data;
+    renderList(data);
   });
+
+function renderList(data){
+  let grouped = {};
+
+  data.forEach(song => {
+    if(!grouped[song.category]){
+      grouped[song.category] = [];
+    }
+    grouped[song.category].push(song);
+  });
+
+  let html = '';
+
+  for(let cat in grouped){
+    html += `<h2>${cat}</h2>`;
+
+    grouped[cat].forEach(song => {
+      html += `
+        <div>
+          <a href="songs/${song.file}">${song.title}</a>
+          <button onclick="addSetlist('${song.title}','${song.file}')">➕</button>
+        </div>
+      `;
+    });
+  }
+
+  document.getElementById('list').innerHTML = html;
+}
+
+function addSetlist(title, file){
+  setlist.push({title, file});
+  renderSetlist();
+}
+
+function renderSetlist(){
+  let html = '';
+
+  setlist.forEach((song, i) => {
+    html += `
+      <div>
+        ${i+1}. <a href="songs/${song.file}">${song.title}</a>
+        <button onclick="removeSetlist(${i})">❌</button>
+      </div>
+    `;
+  });
+
+  document.getElementById('setlist').innerHTML = html;
+}
+
+function removeSetlist(i){
+  setlist.splice(i,1);
+  renderSetlist();
+}
+
+// SEARCH
+document.getElementById('search').addEventListener('input', function(){
+  let q = this.value.toLowerCase();
+
+  let filtered = allSongs.filter(song =>
+    song.title.toLowerCase().includes(q)
+  );
+
+  renderList(filtered);
+});
 </script>
 
 </body>
