@@ -36,14 +36,20 @@ body.home {
   padding: 20px;
   max-width: 90%;
 }
+.home-screen {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; /* atur jarak teks & tombol */
+}
 
 .title {
   font-size: 120px;
   line-height: 1.1;
   font-weight: bold;
-}
-
-.title {
+  margin: 0; /* 🔥 ini penting */
   letter-spacing: 2px;
 }
 
@@ -70,7 +76,15 @@ body.home {
 }
 
 body.home {
-  height: 100dvh; /* 🔥 lebih akurat di mobile modern */
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .home-screen {
