@@ -88,16 +88,17 @@ function renderSetlist(){
 
   document.getElementById('setlist').innerHTML = html;
 
-  // event tombol remove
-  document.querySelectorAll('.remove-btn').forEach(btn => {
+  // 🔥 PASANG EVENT SETELAH RENDER
+  document.querySelectorAll('.btn-remove').forEach(btn => {
     btn.addEventListener('click', function(){
-      removeSetlist(this.dataset.index);
+      const index = parseInt(this.dataset.index); // WAJIB parseInt
+      removeSetlist(index);
     });
   });
 }
-
+  
 function removeSetlist(i){
-  setlist.splice(i,1);
+  setlist.splice(i, 1);
   renderSetlist();
 }
 
