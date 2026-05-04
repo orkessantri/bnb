@@ -98,32 +98,6 @@ h2 {
   font-size: 16px;
 }
 
-.add-btn {
-  font-size: 14px;
-  padding: 2px 8px;
-  border: 
-  background: #f5f5f5;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.add-btn:active {
-  background: #ddd;
-}
-
-.remove-btn {
-  font-size: 14px;
-  padding: 2px 8px;
-  border: 1px solid #ccc;
-  background: #ff4d4d;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.remove-btn:active {
-  background: #ddd;
-}
-
 .btn-add,
 .btn-remove {
   font-size: 14px;
@@ -147,4 +121,14 @@ h2 {
   background: #ff4d4d;
   color: white;
   border: none;
+}
+
+.btn-add,
+.btn-remove {
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.btn-remove {
+  color: red;
 }
