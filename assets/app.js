@@ -109,3 +109,9 @@ function toggleCategory(el){
 if(document.getElementById('kategori-list')){
   renderKategori();
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+  if(document.getElementById('kategori-list')){
+    renderKategori();
+  }
+});
