@@ -78,3 +78,9 @@ body.live .toolbar:hover {
 body.live {
   overflow: hidden;
 }
+
+h2 {
+  margin-top: 24px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 4px;
+}
