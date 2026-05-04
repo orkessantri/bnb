@@ -21,21 +21,14 @@ html, body {
 body.home {
   background: #000;
   color: #fff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-height: 100vh;   /* lebih aman dari height */
   overflow: hidden;    /* 🔥 ini kunci anti scroll */
 }
 
 /* CONTAINER */
-.home-screen {
-  text-align: center;
-  padding: 20px;
-  max-width: 90%;
-}
 .home-screen {
   text-align: center;
   display: flex;
