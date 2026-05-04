@@ -10,6 +10,29 @@ body.dark {
   color: #eee;
 }
 
+body.home {
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.home-screen {
+  text-align: center;
+}
+
+.enter-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
 h1, h2 {
   margin-bottom: 10px;
 }
