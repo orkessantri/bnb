@@ -51,16 +51,22 @@ function renderList(data){
 
     grouped[cat].forEach(song => {
       html += `
-        html += `
-  <div class="song-item">
-    <a href="songs/${song.file}">${song.title}</a>
-    <button class="add-btn" onclick="addSetlist('${song.title}','${song.file}')">+</button>
-  </div>
-`;
+        <div class="song-item">
+          <a href="songs/${song.file}">${song.title}</a>
+          <button class="add-btn" data-title="${song.title}" data-file="${song.file}">+</button>
+        </div>
+      `;
     });
   }
 
   document.getElementById('list').innerHTML = html;
+
+  // 🔥 PASANG EVENT SETELAH RENDER
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', function(){
+      addSetlist(this.dataset.title, this.dataset.file);
+    });
+  });
 }
 
 function addSetlist(title, file){
