@@ -37,6 +37,22 @@ body.home {
   max-width: 90%;
 }
 
+.title {
+  font-size: 60px;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+.title span {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 42px;
+  }
+}
+
 /* BUTTON */
 .enter-btn {
   display: inline-block;
