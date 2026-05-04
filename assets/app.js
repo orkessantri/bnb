@@ -147,3 +147,6 @@ function loadSetlist(){
   renderSetlist();
 }
 
+if(setlist.length === 0){
+  document.getElementById('setlist').innerHTML = "<p style='text-align:center;'>Belum ada lagu</p>";
+}
