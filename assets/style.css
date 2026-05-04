@@ -188,13 +188,19 @@ body {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
+
+  width: 100%;
+  max-width: 320px;   /* 🔥 samakan dengan menu */
+  margin: 0 auto;     /* 🔥 center */
 }
 
 /* TITLE */
 .category-title {
-  padding: 14px;
-  font-weight: bold;
+  padding: 16px;
+  font-weight: 700;
+  text-align: center;
   cursor: pointer;
+  font-size: var(--menu-font);
   border-bottom: 1px solid #eee;
 }
 
@@ -204,8 +210,10 @@ body {
 }
 
 .menu-container {
-  gap: 12px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 biar semua center */
+  gap: var(--menu-gap);
 }
 
 /* CONTENT (HIDDEN DEFAULT) */
