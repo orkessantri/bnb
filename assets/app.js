@@ -48,3 +48,32 @@ window.onload = function(){
 function toggleLive(){
   document.body.classList.toggle("live");
 }
+
+function renderKategori(){
+  fetch('songs.json')
+    .then(res => res.json())
+    .then(data => {
+
+      let kategoriSet = new Set();
+
+      data.forEach(song => {
+        kategoriSet.add(song.category);
+      });
+
+      let html = '';
+
+      kategoriSet.forEach(cat => {
+        html += `
+          <a href="list.html?cat=${encodeURIComponent(cat)}" class="menu-card">
+            ${cat}
+          </a>
+        `;
+      });
+
+      document.getElementById('kategori-list').innerHTML = html;
+    });
+}
+
+if(document.getElementById('kategori-list')){
+  renderKategori();
+}
