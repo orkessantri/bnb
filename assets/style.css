@@ -180,6 +180,49 @@ body {
   }
 }
 
+/* =========================
+   MENU KATEGORI
+========================= */
+/* CATEGORY BOX */
+.category {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* TITLE */
+.category-title {
+  padding: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.category-title::after {
+  content: "▼";
+  float: right;
+}
+
+/* CONTENT (HIDDEN DEFAULT) */
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* OPEN STATE */
+.category-content.open {
+  max-height: 500px; /* cukup besar */
+}
+
+/* SONG ITEM */
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
 h1, h2 {
   margin-bottom: 10px;
 }
