@@ -51,11 +51,12 @@ function renderList(data){
 
     grouped[cat].forEach(song => {
       html += `
-        <div>
-          <a href="songs/${song.file}">${song.title}</a>
-          <button onclick="addSetlist('${song.title}','${song.file}')">➕</button>
-        </div>
-      `;
+        html += `
+  <div class="song-item">
+    <a href="songs/${song.file}">${song.title}</a>
+    <button class="add-btn" onclick="addSetlist('${song.title}','${song.file}')">+</button>
+  </div>
+`;
     });
   }
 
