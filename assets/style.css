@@ -240,6 +240,40 @@ body {
   background: #f0f0f0;
 }
 
+.category {
+  margin-bottom: 10px; /* sebelumnya terlalu jauh */
+}
+.category-content {
+  margin-top: 8px;
+}
+
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255,255,255,0.08); /* putih transparan */
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  margin: 6px 0; /* lebih rapat */
+}
+
+.song-item a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.song-item:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.song-item a:hover {
+  text-decoration: underline;
+}
+
 .song-item.added a {
   text-decoration: line-through;
   opacity: 0.5;
@@ -270,12 +304,17 @@ body {
 }
 
 .nav-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+
+  padding: 10px 15px;
+  background: #000; /* biar nyatu sama background */
+  z-index: 1000;
 }
 
 .btn-nav {
@@ -286,6 +325,10 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
+}
+
+.menu-container {
+  padding-bottom: 80px; /* ruang buat tombol bawah */
 }
 
 /* =========================
