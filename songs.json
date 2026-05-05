@@ -2,21 +2,21 @@
   {
     "title": "Lagu 1",
     "file": "lagu1.html",
-    "category": "Sholawat"
+    "category": "SHOLAWAT"
   },
   {
     "title": "Lagu 2",
     "file": "lagu2.html",
-    "category": "Gambus"
+    "category": "ARABIC"
   },
   {
     "title": "Lagu 3",
     "file": "lagu3.html",
-    "category": "Pop"
+    "category": "DUNGDAT"
   },
   {
     "title": "Lagu 4",
     "file": "lagu4.html",
-    "category": "DungDat"
+    "category": "POPULER"
   }
 ]
