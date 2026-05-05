@@ -128,33 +128,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-function addSetlist(title, file){
-  console.log("ADD:", title);
-
-  setlist.push({title, file});
-  localStorage.setItem("setlist", JSON.stringify(setlist));
-  renderSetlist();
-}
-
-let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
-
-function addSetlist(title, file){
-  setlist.push({title, file});
-  localStorage.setItem("setlist", JSON.stringify(setlist));
-  renderSetlist();
-}
-
-function removeSetlist(i){
-  setlist.splice(i, 1);
-  localStorage.setItem("setlist", JSON.stringify(setlist));
-  renderSetlist();
-}
-
-function loadSetlist(){
-  setlist = JSON.parse(localStorage.getItem("setlist")) || [];
-  renderSetlist();
-}
-
 function renderSetlist(){
   const el = document.getElementById("setlist");
   if(!el) return;
