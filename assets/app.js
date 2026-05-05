@@ -123,8 +123,6 @@ if(activeCategory){
     });
 }
 
-let activeCategory = null;
-
 function toggleCategory(el){
   const content = el.nextElementSibling;
   const catName = el.innerText;
