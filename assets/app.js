@@ -49,6 +49,8 @@ function toggleLive(){
   document.body.classList.toggle("live");
 }
 
+let activeCategory = null;
+
 function renderKategori(){
   fetch('songs.json')
     .then(res => res.json())
@@ -103,6 +105,15 @@ data.forEach(song => {
 
       document.getElementById('kategori-list').innerHTML = html;
 
+      // buka kembali kategori aktif setelah render ulang
+if(activeCategory){
+  document.querySelectorAll(".category-title").forEach(title => {
+    if(title.innerText === activeCategory){
+      title.nextElementSibling.classList.add("open");
+    }
+  });
+}
+      
       // tombol tambah
       document.querySelectorAll('.btn-add').forEach(btn => {
         btn.addEventListener('click', function(){
@@ -112,20 +123,28 @@ data.forEach(song => {
     });
 }
 
+let activeCategory = null;
+
 function toggleCategory(el){
   const content = el.nextElementSibling;
-  content.classList.toggle("open");
-}
+  const catName = el.innerText;
 
-if(document.getElementById('kategori-list')){
-  renderKategori();
-}
-
-document.addEventListener("DOMContentLoaded", function(){
-  if(document.getElementById('kategori-list')){
-    renderKategori();
+  // klik kategori yang sama → toggle
+  if(activeCategory === catName){
+    content.classList.toggle("open");
+    activeCategory = content.classList.contains("open") ? catName : null;
+    return;
   }
-});
+
+  // tutup semua dulu
+  document.querySelectorAll(".category-content").forEach(c => {
+    c.classList.remove("open");
+  });
+
+  // buka yang dipilih
+  content.classList.add("open");
+  activeCategory = catName;
+}
 
 document.addEventListener("DOMContentLoaded", function(){
 
