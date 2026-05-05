@@ -146,18 +146,6 @@ function toggleCategory(el){
   activeCategory = catName;
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-
-  if(document.getElementById('setlist')){
-    loadSetlist();
-  }
-
-  if(document.getElementById('kategori-list')){
-    renderKategori();
-  }
-
-});
-
 function renderPreviewSetlist(){
   const el = document.getElementById("preview-setlist");
   if(!el) return;
@@ -250,3 +238,19 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
 });
+
+function init(){
+  if(document.getElementById('setlist')){
+    loadSetlist();
+  }
+
+  if(document.getElementById('kategori-list')){
+    renderKategori();
+  }
+
+  if(document.getElementById('preview-setlist')){
+    renderPreviewSetlist();
+  }
+}
+
+init();
