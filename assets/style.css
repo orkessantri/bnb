@@ -311,6 +311,7 @@ body {
 
   display: flex;
   justify-content: space-between;
+  gap: 10px; /* 🔥 ini yang bikin jarak antar tombol */
 
   padding: 10px 15px;
   background: #000; /* biar nyatu sama background */
@@ -318,6 +319,9 @@ body {
 }
 
 .btn-nav {
+  flex: 1; /* 🔥 biar dua tombol sama lebar */
+  text-align: center;
+
   background: #fff;
   color: #000;
   padding: 10px 14px;
