@@ -3,12 +3,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: auto;
-  overflow-x: hidden;
-}
-
-body:not(.home):not(.live) {
-  overflow-y: auto;
-}
 
 /* HOMEPAGE */
 body.home {
@@ -218,7 +212,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;   /* 🔥 biar semua center */
-  gap: var(--menu-gap);
+  gap: 12px(--menu-gap);
 }
 
 /* CONTENT (HIDDEN DEFAULT) */
@@ -293,7 +287,7 @@ body {
 }
 
 .setlist-preview {
-  margin-top: 25px;
+  margin-top: 10px;
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
@@ -606,4 +600,14 @@ body:not(.home):not(.live) {
 
 .song-item {
   margin: 6px 0;
+}
+
+body {
+  overflow-y: auto !important;
+}
+
+.menu-container {
+  gap: 8px !important;
+  height: auto !important;
+  min-height: auto !important;
 }
