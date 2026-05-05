@@ -54,14 +54,17 @@ function renderKategori(){
     .then(res => res.json())
     .then(data => {
 
-      let grouped = {};
+    let grouped = {};
 
-      data.forEach(song => {
-        if(!grouped[song.category]){
-          grouped[song.category] = [];
-        }
-        grouped[song.category].push(song);
-      });
+data.forEach(song => {
+  let catName = song.category || "Lainnya";
+
+  if(!grouped[catName]){
+    grouped[catName] = [];
+  }
+
+  grouped[catName].push(song);
+});
 
       let html = '';
 
