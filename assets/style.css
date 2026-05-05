@@ -2,7 +2,12 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
+  overflow-x: hidden;
+}
+
+body:not(.home):not(.live) {
+  overflow-y: auto;
 }
 
 /* HOMEPAGE */
@@ -453,6 +458,7 @@ body.live .toolbar:hover {
 
 body.live {
   overflow: hidden;
+  height: 100vh;
 }
 
 h2 {
@@ -571,4 +577,33 @@ h2 {
 .menu-container {
   gap: 12px;
   align-items: center;
+}
+
+/* =========================
+   FINAL FIX (JANGAN DIUBAH)
+========================= */
+
+html, body {
+  height: auto;
+  overflow-x: hidden;
+}
+
+body:not(.home):not(.live) {
+  overflow-y: auto;
+}
+
+.menu-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  padding-bottom: 100px;
+}
+
+.category {
+  width: 100%;
+  max-width: 320px;
+}
+
+.song-item {
+  margin: 6px 0;
 }
