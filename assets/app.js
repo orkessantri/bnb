@@ -78,14 +78,22 @@ data.forEach(song => {
             <div class="category-content">
         `;
 
-        grouped[cat].forEach(song => {
-          html += `
-            <div class="song-item">
-              <a href="songs/${song.file}">${song.title}</a>
-              <button class="btn-add" data-title="${song.title}" data-file="${song.file}">+</button>
-            </div>
-          `;
-        });
+      grouped[cat].forEach(song => {
+
+  let isAdded = setlist.some(s => s.file === song.file);
+
+  html += `
+    <div class="song-item ${isAdded ? 'added' : ''}">
+      <a href="songs/${song.file}">${song.title}</a>
+      <button class="btn-add"
+        data-title="${song.title}"
+        data-file="${song.file}"
+        ${isAdded ? 'disabled' : ''}>
+        ${isAdded ? '✓' : '+'}
+      </button>
+    </div>
+  `;
+});
 
         html += `
             </div>
@@ -131,6 +139,36 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
+function renderPreviewSetlist(){
+  const el = document.getElementById("preview-setlist");
+  if(!el) return;
+
+  if(setlist.length === 0){
+    el.innerHTML = "<p style='text-align:center;'>Belum ada lagu</p>";
+    return;
+  }
+
+  let html = '';
+
+  setlist.forEach((song, i) => {
+    html += `<div class="preview-item">${i+1}. ${song.title}</div>`;
+  });
+
+  el.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  if(document.getElementById('kategori-list')){
+    renderKategori();
+  }
+
+  if(document.getElementById('preview-setlist')){
+    renderPreviewSetlist();
+  }
+
+});
+
 function renderSetlist(){
   const el = document.getElementById("setlist");
   if(!el) return;
@@ -166,6 +204,9 @@ let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 function addSetlist(title, file){
   setlist.push({title, file});
   localStorage.setItem("setlist", JSON.stringify(setlist));
+
+  renderKategori();         // 🔥 update coret
+  renderPreviewSetlist();   // 🔥 update preview
 }
 
 function removeSetlist(i){
