@@ -7,6 +7,16 @@
   {
     "title": "Lagu 2",
     "file": "lagu2.html",
+    "category": "Gambus"
+  },
+  {
+    "title": "Lagu 3",
+    "file": "lagu3.html",
     "category": "Pop"
-  }
+  },
+    {
+    "title": "Lagu 4",
+    "file": "lagu4.html",
+    "category": "DungDat"
+  },
 ]
