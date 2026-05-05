@@ -196,7 +196,7 @@ body {
 
 /* TITLE */
 .category-title {
-  padding: 16px;
+  padding: 12px;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
@@ -243,7 +243,7 @@ body {
 }
 
 .category {
-  margin-bottom: 10px; /* sebelumnya terlalu jauh */
+  margin-bottom: 8px; /* sebelumnya terlalu jauh */
 }
 
 .category-content {
