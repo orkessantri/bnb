@@ -2,7 +2,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: auto;
+  height: 100%;
+}
 
 /* HOMEPAGE */
 body.home {
@@ -11,6 +12,7 @@ body.home {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;   /* lebih aman dari height */
   overflow: hidden;    /* 🔥 ini kunci anti scroll */
 }
 
@@ -194,7 +196,7 @@ body {
 
 /* TITLE */
 .category-title {
-  padding: 12px;
+  padding: 16px;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
@@ -211,7 +213,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;   /* 🔥 biar semua center */
-  gap: 12px(--menu-gap);
+  gap: var(--menu-gap);
 }
 
 /* CONTENT (HIDDEN DEFAULT) */
@@ -236,14 +238,11 @@ body {
 
 .category-title:active {
   background: #f0f0f0;
-  padding: 12px;
-  border-radius: 10px;
 }
 
 .category {
-  margin-bottom: 8px; /* sebelumnya terlalu jauh */
+  margin-bottom: 10px; /* sebelumnya terlalu jauh */
 }
-
 .category-content {
   margin-top: 8px;
 }
@@ -286,7 +285,7 @@ body {
 }
 
 .setlist-preview {
-  margin-top: 10px;
+  margin-top: 25px;
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
@@ -307,24 +306,16 @@ body {
 .nav-bottom {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* 🔥 center beneran */
-
+  left: 0;
   width: 100%;
-  max-width: 400px; /* 🔥 biar sama kaya layout kamu */
 
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 10px; /* 🔥 ini yang bikin jarak antar tombol */
 
-  padding: 10px;
-  box-sizing: border-box;
-  background: #000;
-}
-
-body {
-  margin: 0;
-  overflow-y: auto; /* 🔥 pastikan bisa scroll */
+  padding: 10px 15px;
+  background: #000; /* biar nyatu sama background */
+  z-index: 1000;
 }
 
 .btn-nav {
@@ -333,7 +324,7 @@ body {
 
   background: #fff;
   color: #000;
-  padding: 10px;
+  padding: 10px 14px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -341,7 +332,7 @@ body {
 }
 
 .menu-container {
-  padding-bottom: 100px; /* ruang buat tombol bawah */
+  padding-bottom: 80px; /* ruang buat tombol bawah */
 }
 
 /* =========================
@@ -451,7 +442,6 @@ body.live .toolbar:hover {
 
 body.live {
   overflow: hidden;
-  height: 100vh;
 }
 
 h2 {
