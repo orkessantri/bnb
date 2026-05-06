@@ -236,12 +236,17 @@ body {
   border-bottom: 1px solid #f0f0f0;
 }
 
+.category-title {
+  padding: 12px;
+  border-radius: 10px;
+}
+
 .category-title:active {
   background: #f0f0f0;
 }
 
 .category {
-  margin-bottom: 10px; /* sebelumnya terlalu jauh */
+  margin-bottom: 8px; /* sebelumnya terlalu jauh */
 }
 .category-content {
   margin-top: 8px;
@@ -306,33 +311,37 @@ body {
 .nav-bottom {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%); /* 🔥 center beneran */
+
   width: 100%;
+  max-width: 400px; /* 🔥 biar sama kaya layout kamu */
 
   display: flex;
   justify-content: space-between;
-  gap: 10px; /* 🔥 ini yang bikin jarak antar tombol */
+  gap: 10px;
 
-  padding: 10px 15px;
-  background: #000; /* biar nyatu sama background */
-  z-index: 1000;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #000;
 }
 
 .btn-nav {
-  flex: 1; /* 🔥 biar dua tombol sama lebar */
+  flex: 1;
   text-align: center;
 
   background: #fff;
   color: #000;
-  padding: 10px 14px;
+  padding: 10px;
   border-radius: 8px;
-  text-decoration: none;
   font-weight: bold;
-  font-size: 14px;
 }
 
 .menu-container {
   padding-bottom: 80px; /* ruang buat tombol bawah */
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 /* =========================
