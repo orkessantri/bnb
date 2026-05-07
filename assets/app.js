@@ -89,7 +89,7 @@ data.forEach(song => {
       <a href="song.html?id=${song.id}">${song.title}</a>
       <button class="btn-add"
         data-title="${song.title}"
-        data-file="${song.file}"
+        data-id="${song.id}"
         ${isAdded ? 'disabled' : ''}>
         ${isAdded ? '✓' : '+'}
       </button>
