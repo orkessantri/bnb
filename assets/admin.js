@@ -1,25 +1,35 @@
-let nextID = 1;
+<script>
 
-fetch('../songs.json')
-  .then(res => res.json())
-  .then(data => {
+document.addEventListener("DOMContentLoaded", function(){
 
-    if(data.length > 0){
-      nextID = data[data.length - 1].id + 1;
-    }
+  fetch('songs.json')
+    .then(res => res.json())
+    .then(data => {
 
-    document.getElementById('song-id').value =
-      `Song ID - ${nextID}`;
+      let maxId = 0;
 
-  })
-  .catch(() => {
+      data.forEach(song => {
 
-    document.getElementById('song-id').value =
-      'Song ID - 1';
+        if(song.id > maxId){
+          maxId = song.id;
+        }
 
-  });
+      });
 
+document.getElementById('song-id').value =
+  "Song ID - " + (maxId + 1);
+
+    });
+
+});
+
+/* GENERATE JSON */
 function generateJSON(){
+
+const id =
+  document.getElementById('song-id')
+    .value
+    .replace("Song ID - ","");
 
   const title =
     document.getElementById('song-title').value;
@@ -28,29 +38,33 @@ function generateJSON(){
     document.getElementById('song-category').value;
 
   const content =
-    document.getElementById('song-content').value;
+    document.getElementById('song-content')
+      .value
+      .replace(/\n/g, '\\n');
 
-  const song = {
-    id: nextID,
-    title,
-    category,
-    content
-  };
+  const result =
+`{
+  "id": ${id},
+  "title": "${title}",
+  "category": "${category}",
+  "content": "${content}"
+},`;
 
-  document.getElementById('json-output').value =
-    JSON.stringify(song, null, 2) + ',';
+  document.getElementById('output')
+    .innerText = result;
 
 }
 
+/* COPY */
 function copyJSON(){
 
-  const output =
-    document.getElementById('json-output');
+  const text =
+    document.getElementById('output')
+      .innerText;
 
-  output.select();
+  navigator.clipboard.writeText(text);
 
-  document.execCommand('copy');
-
-  alert('JSON copied');
-
+  alert("JSON copied 🔥");
 }
+
+</script>
