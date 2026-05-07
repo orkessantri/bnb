@@ -181,6 +181,67 @@ body {
 }
 
 /* =========================
+   ADMIN
+========================= */
+.admin-container{
+  width:90%;
+  max-width:700px;
+
+  margin:30px auto;
+
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.admin-container input,
+.admin-container textarea{
+  width:100%;
+
+  border:none;
+  border-radius:16px;
+
+  padding:16px;
+
+  font-size:18px;
+
+  box-sizing:border-box;
+}
+
+#song-content{
+  height:420px;
+
+  resize:none;
+
+  line-height:1.7;
+}
+
+#json-output{
+  height:220px;
+
+  resize:none;
+}
+
+.admin-buttons{
+  display:flex;
+  gap:12px;
+}
+
+.admin-buttons button{
+  flex:1;
+
+  border:none;
+  border-radius:14px;
+
+  padding:14px;
+
+  font-size:18px;
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+/* =========================
    MENU KATEGORI
 ========================= */
 /* CATEGORY BOX */
