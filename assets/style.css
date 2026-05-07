@@ -344,47 +344,6 @@ body {
   padding: 10px;
 }
 
-/* =========================
-   SETLIST
-========================= */
-/* SETLIST ITEM */
-#setlist .song-item {
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 12px;
-  background: #fff;
-  border-radius: 8px;
-}
-
-/* LINK */
-#setlist a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-}
-
-/* REMOVE BUTTON */
-.btn-remove {
-  width: 28px;
-  height: 28px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-  border-radius: 6px;
-
-  background: #ff4d4d;
-  color: #fff;
-}
-
 h1, h2 {
   margin-bottom: 10px;
 }
@@ -606,13 +565,13 @@ body.page-setlist{
 .setlist-item a{
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 14px;
 }
 
 /* tombol remove */
 .btn-remove{
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 
   border: none;
   border-radius: 8px;
@@ -620,7 +579,7 @@ body.page-setlist{
   background: #000;
   color: #fff;
 
-  font-weight: bold;
+  font-weight: 12px;
   cursor: pointer;
 }
 
