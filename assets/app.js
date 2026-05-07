@@ -80,21 +80,35 @@ data.forEach(song => {
             <div class="category-content">
         `;
 
-      grouped[cat].forEach(song => {
+    grouped[cat].forEach(song => {
 
-  let isAdded = setlist.some(s => s.id === song.id);
+  let isAdded =
+    setlist.some(s => s.id == song.id);
 
   html += `
-    <div class="song-item ${isAdded ? 'added' : ''}">
-      <a href="song.html?id=${song.id}">${song.title}</a>
-      <button class="btn-add"
+    <div class="song-item">
+
+      <a href="song.html?id=${song.id}"
+        class="${isAdded ? 'added-song' : ''}">
+
+        ${song.title}
+
+      </a>
+
+      <button
+        class="btn-add"
         data-title="${song.title}"
-        data-id="${song.id}">
+        data-id="${song.id}"
+
         ${isAdded ? 'disabled' : ''}>
+
         ${isAdded ? '✓' : '+'}
+
       </button>
+
     </div>
   `;
+
 });
 
         html += `
@@ -207,13 +221,28 @@ function renderSetlist(){
 let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 
 function addSetlist(title, id){
+
+  // cegah duplicate
+  let exists = setlist.some(s => s.id == id);
+
+  if(exists) return;
+
   setlist.push({title, id});
-  localStorage.setItem("setlist", JSON.stringify(setlist));
 
-  renderKategori();         // 🔥 update coret
-  renderPreviewSetlist();   // 🔥 update preview
+  localStorage.setItem(
+    "setlist",
+    JSON.stringify(setlist)
+  );
+
+  renderKategori();         
+  renderPreviewSetlist();   
+
+  // kalau ada halaman setlist
+  if(document.getElementById('setlist')){
+    renderSetlist();
+  }
+
 }
-
 function removeSetlist(i){
   setlist.splice(i, 1);
   localStorage.setItem("setlist", JSON.stringify(setlist));
