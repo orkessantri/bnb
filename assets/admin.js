@@ -1,41 +1,44 @@
-<script>
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
 
-document.addEventListener("DOMContentLoaded", function(){
+    fetch('songs.json')
+      .then(res => res.json())
+      .then(data => {
 
-  fetch('songs.json')
-    .then(res => res.json())
-    .then(data => {
+        let maxId = 0;
 
-      let maxId = 0;
+        data.forEach(song => {
 
-      data.forEach(song => {
+          if(song.id > maxId){
+            maxId = song.id;
+          }
 
-        if(song.id > maxId){
-          maxId = song.id;
-        }
+        });
+
+        document.getElementById('song-id').value =
+          "Song ID - " + (maxId + 1);
 
       });
 
-document.getElementById('song-id').value =
-  "Song ID - " + (maxId + 1);
-
-    });
-
-});
+  }
+);
 
 /* GENERATE JSON */
 function generateJSON(){
 
-const id =
-  document.getElementById('song-id')
-    .value
-    .replace("Song ID - ","");
+  const id =
+    document.getElementById('song-id')
+      .value
+      .replace("Song ID - ","");
 
   const title =
-    document.getElementById('song-title').value;
+    document.getElementById('song-title')
+      .value;
 
   const category =
-    document.getElementById('song-category').value;
+    document.getElementById('song-category')
+      .value;
 
   const content =
     document.getElementById('song-content')
@@ -54,8 +57,8 @@ const id =
     .innerText = result;
 
 }
- 
-/* COPY */
+
+/* COPY JSON */
 function copyJSON(){
 
   const text =
@@ -65,6 +68,5 @@ function copyJSON(){
   navigator.clipboard.writeText(text);
 
   alert("JSON copied 🔥");
-}
 
-</script>
+}
