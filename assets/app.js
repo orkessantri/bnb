@@ -156,25 +156,6 @@ function renderKategori(){
     });
 
 }
-      document.getElementById('kategori-list').innerHTML = html;
-
-      // buka kembali kategori aktif setelah render ulang
-if(activeCategory){
-  document.querySelectorAll(".category-title").forEach(title => {
-    if(title.innerText === activeCategory){
-      title.nextElementSibling.classList.add("open");
-    }
-  });
-}
-      
-      // tombol tambah
-      document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.addEventListener('click', function(){
-          addSetlist(this.dataset.title, this.dataset.id);
-        });
-      });
-    });
-}
 
 function toggleCategory(el){
 
@@ -282,7 +263,6 @@ function addSetlist(title, id){
     renderSetlist();
   }
 
-}
 function removeSetlist(i){
   setlist.splice(i, 1);
   localStorage.setItem("setlist", JSON.stringify(setlist));
@@ -325,48 +305,6 @@ function init(){
 }
 
 init();
-
-function renderSetlist(){
-
-  const el = document.getElementById('setlist');
-
-  if(!el) return;
-
-  let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
-
-  if(setlist.length === 0){
-    el.innerHTML = `
-      <p style="text-align:center;">
-        Belum ada lagu
-      </p>
-    `;
-    return;
-  }
-
-  let html = '';
-
-  setlist.forEach((song, i) => {
-
-    html += `
-      <div class="setlist-item">
-
-        <a href="song.html?id=${song.id}">
-          ${song.title}
-        </a>
-
-        <button 
-          class="btn-remove"
-          onclick="removeSetlist(${i})"
-        >
-          −
-        </button>
-
-      </div>
-    `;
-  });
-
-  el.innerHTML = html;
-}
 
 function removeSetlist(i){
 
