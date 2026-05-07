@@ -69,10 +69,11 @@
 
   <h1>ADMIN SONG</h1>
 
-  <input
-    type="number"
-    id="song-id"
-    placeholder="ID Lagu">
+ <input
+  type="number"
+  id="song-id"
+  placeholder="ID Lagu"
+  readonly>
 
   <input
     type="text"
@@ -110,11 +111,34 @@
 
 </div>
 
+  
   <script>
 
 let nextId = localStorage.getItem("nextSongId") || 1;
 
 document.getElementById('song-id').value = nextId;
+
+    <script>
+
+/* AUTO NEXT ID */
+fetch('songs.json')
+  .then(res => res.json())
+  .then(data => {
+
+    let maxId = 0;
+
+    data.forEach(song => {
+
+      if(song.id > maxId){
+        maxId = song.id;
+      }
+
+    });
+
+    document.getElementById('song-id')
+      .value = maxId + 1;
+
+  });
     
   <script>
 
