@@ -593,9 +593,9 @@ body.page-setlist{
 /* item lagu */
 .setlist-item{
   background: #fff;
-  border-radius: 14px;
-  padding: 12px 14px;
-  margin-bottom: 10px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-bottom: 6px;
 
   display: flex;
   justify-content: space-between;
@@ -617,8 +617,8 @@ body.page-setlist{
   border: none;
   border-radius: 8px;
 
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
 
   font-weight: bold;
   cursor: pointer;
@@ -657,5 +657,5 @@ body.page-setlist{
 
 /* tombol clear */
 .nav-btn.danger{
-  background: #fff;
+  background: #ffcc00;
 }
