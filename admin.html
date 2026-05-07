@@ -1,26 +1,100 @@
 <!DOCTYPE html>
-</div>
+<html lang="id">
 
-<div class="admin-container">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <input
-    type="text"
-    id="song-id"
-    readonly>
+  <title>ADMIN</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+
+    body{
+      background:black;
+      color:white;
+      font-family:Arial;
+      padding:20px;
+    }
+
+    .admin-box{
+      max-width:600px;
+      margin:auto;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      margin-bottom:15px;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      font-size:16px;
+      box-sizing:border-box;
+    }
+
+    textarea{
+      min-height:250px;
+      resize:vertical;
+    }
+
+    button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    pre{
+      margin-top:20px;
+      background:#111;
+      padding:15px;
+      border-radius:12px;
+      overflow:auto;
+      white-space:pre-wrap;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="admin-box">
+
+  <h1>ADMIN SONG</h1>
+
+ <input
+  type="text"
+  id="song-id"
+  readonly>
 
   <input
     type="text"
     id="song-title"
     placeholder="Judul Lagu">
 
-  <input
-    type="text"
-    id="song-category"
-    placeholder="Kategori Lagu">
+<input
+  type="text"
+  id="song-category"
+  list="category-list"
+  placeholder="Kategori">
 
-  <textarea
-    id="song-content">[Intro]
+<datalist id="category-list">
 
+  <option value="Sholawat">
+  <option value="Arabic">
+  <option value="Dungdat">
+  <option value="Populer">
+
+</datalist>
+
+<textarea id="song-content">[Intro]
 [Verse]
 
 [Pre Chorus]
@@ -31,26 +105,87 @@
 
 [Outro]</textarea>
 
-  <div class="admin-buttons">
+<button onclick="generateJSON()">
+  GENERATE JSON
+</button>
 
-    <button onclick="generateJSON()">
-      Generate JSON
-    </button>
+<button onclick="copyJSON()" style="margin-top:10px;">
+  COPY JSON
+</button>
 
-    <button onclick="copyJSON()">
-      Copy JSON
-    </button>
-
-  </div>
-
-  <textarea
-    id="json-output"
-    readonly
-    placeholder="Hasil JSON muncul di sini"></textarea>
+  <pre id="output"></pre>
 
 </div>
 
-<script src="assets/admin.js"></script>
+<script>
 
+document.addEventListener("DOMContentLoaded", function(){
+
+  fetch('songs.json')
+    .then(res => res.json())
+    .then(data => {
+
+      let maxId = 0;
+
+      data.forEach(song => {
+
+        if(song.id > maxId){
+          maxId = song.id;
+        }
+
+      });
+
+document.getElementById('song-id').value =
+  "Song ID - " + (maxId + 1);
+
+    });
+
+});
+
+/* GENERATE JSON */
+function generateJSON(){
+
+const id =
+  document.getElementById('song-id')
+    .value
+    .replace("Song ID - ","");
+
+  const title =
+    document.getElementById('song-title').value;
+
+  const category =
+    document.getElementById('song-category').value;
+
+  const content =
+    document.getElementById('song-content')
+      .value
+      .replace(/\n/g, '\\n');
+
+  const result =
+`{
+  "id": ${id},
+  "title": "${title}",
+  "category": "${category}",
+  "content": "${content}"
+},`;
+
+  document.getElementById('output')
+    .innerText = result;
+
+}
+
+/* COPY */
+function copyJSON(){
+
+  const text =
+    document.getElementById('output')
+      .innerText;
+
+  navigator.clipboard.writeText(text);
+
+  alert("JSON copied 🔥");
+}
+
+</script>
 </body>
 </html>
