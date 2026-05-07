@@ -592,7 +592,7 @@ body.page-setlist{
 
 /* item lagu */
 .setlist-item{
-  background: rgba(255,255,255,0.08);
+  background: #fff;
   border-radius: 14px;
   padding: 12px 14px;
   margin-bottom: 10px;
