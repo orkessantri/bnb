@@ -82,14 +82,14 @@ data.forEach(song => {
 
       grouped[cat].forEach(song => {
 
-  let isAdded = setlist.some(s => s.file === song.file);
+  let isAdded = setlist.some(s => s.id === song.id);
 
   html += `
     <div class="song-item ${isAdded ? 'added' : ''}">
       <a href="song.html?id=${song.id}">${song.title}</a>
       <button class="btn-add"
         data-title="${song.title}"
-        data-id="${song.id}"
+        data-id="${song.id}">
         ${isAdded ? 'disabled' : ''}>
         ${isAdded ? '✓' : '+'}
       </button>
@@ -117,7 +117,7 @@ if(activeCategory){
       // tombol tambah
       document.querySelectorAll('.btn-add').forEach(btn => {
         btn.addEventListener('click', function(){
-          addSetlist(this.dataset.title, this.dataset.file);
+          addSetlist(this.dataset.title, this.dataset.id);
         });
       });
     });
@@ -207,7 +207,7 @@ function renderSetlist(){
 let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 
 function addSetlist(title, id){
-  setlist.push({title, file});
+  setlist.push({title, id});
   localStorage.setItem("setlist", JSON.stringify(setlist));
 
   renderKategori();         // 🔥 update coret
