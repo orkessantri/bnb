@@ -52,71 +52,110 @@ function toggleLive(){
 let activeCategory = null;
 
 function renderKategori(){
+
   fetch('songs.json')
     .then(res => res.json())
     .then(data => {
 
-    let grouped = {};
+      let grouped = {};
 
-data.forEach(song => {
-  let catName = song.category || "Lainnya";
+      // grouping category otomatis
+      data.forEach(song => {
 
-  if(!grouped[catName]){
-    grouped[catName] = [];
-  }
+        let cat =
+          song.category || "Lainnya";
 
-  grouped[catName].push(song);
-});
+        if(!grouped[cat]){
+          grouped[cat] = [];
+        }
+
+        grouped[cat].push(song);
+
+      });
 
       let html = '';
 
+      // render category
       for(let cat in grouped){
+
         html += `
           <div class="category">
-            <div class="category-title" onclick="toggleCategory(this)">
+
+            <div class="category-title"
+              onclick="toggleCategory(this)">
+
               ${cat}
+
             </div>
 
             <div class="category-content">
         `;
 
-    grouped[cat].forEach(song => {
+        grouped[cat].forEach(song => {
 
-  let isAdded =
-    setlist.some(s => s.id == song.id);
+          let isAdded =
+            setlist.some(
+              s => s.id == song.id
+            );
 
-  html += `
-    <div class="song-item">
+          html += `
+            <div class="song-item">
 
-      <a href="song.html?id=${song.id}"
-        class="${isAdded ? 'added-song' : ''}">
+              <a href="song.html?id=${song.id}"
+                class="${isAdded ? 'added-song' : ''}">
 
-        ${song.title}
+                ${song.title}
 
-      </a>
+              </a>
 
-      <button
-        class="btn-add"
-        data-title="${song.title}"
-        data-id="${song.id}"
+              <button
+                class="btn-add"
 
-        ${isAdded ? 'disabled' : ''}>
+                data-title="${song.title}"
+                data-id="${song.id}"
 
-        ${isAdded ? '✓' : '+'}
+                ${isAdded ? 'disabled' : ''}>
 
-      </button>
+                ${isAdded ? '✓' : '+'}
 
-    </div>
-  `;
+              </button>
 
-});
+            </div>
+          `;
+
+        });
 
         html += `
             </div>
+
           </div>
         `;
       }
 
+      document.getElementById('kategori-list')
+        .innerHTML = html;
+
+      // event add button
+      document.querySelectorAll('.btn-add')
+        .forEach(btn => {
+
+          btn.addEventListener(
+            'click',
+            function(){
+
+              addSetlist(
+                this.dataset.title,
+                this.dataset.id
+              );
+
+            }
+          );
+
+        });
+
+    });
+
+}
       document.getElementById('kategori-list').innerHTML = html;
 
       // buka kembali kategori aktif setelah render ulang
@@ -138,24 +177,22 @@ if(activeCategory){
 }
 
 function toggleCategory(el){
-  const content = el.nextElementSibling;
-  const catName = el.innerText;
 
-  // klik kategori yang sama → toggle
-  if(activeCategory === catName){
-    content.classList.toggle("open");
-    activeCategory = content.classList.contains("open") ? catName : null;
-    return;
-  }
+  // tutup semua kategori lain
+  document
+    .querySelectorAll('.category-content')
+    .forEach(content => {
 
-  // tutup semua dulu
-  document.querySelectorAll(".category-content").forEach(c => {
-    c.classList.remove("open");
-  });
+      if(content !== el.nextElementSibling){
+        content.classList.remove('open');
+      }
 
-  // buka yang dipilih
-  content.classList.add("open");
-  activeCategory = catName;
+    });
+
+  // toggle current
+  el.nextElementSibling
+    .classList.toggle('open');
+
 }
 
 function renderPreviewSetlist(){
