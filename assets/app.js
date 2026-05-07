@@ -86,7 +86,7 @@ data.forEach(song => {
 
   html += `
     <div class="song-item ${isAdded ? 'added' : ''}">
-      <a href="songs/${song.file}">${song.title}</a>
+      <a href="song.html?id=${song.id}">${song.title}</a>
       <button class="btn-add"
         data-title="${song.title}"
         data-file="${song.file}"
@@ -188,7 +188,7 @@ function renderSetlist(){
   setlist.forEach((song, i) => {
     html += `
       <div class="song-item">
-        <a href="songs/${song.file}">${i+1}. ${song.title}</a>
+        <a href="song.html?id=${song.id}">${i+1}. ${song.title}</a>
         <button class="btn-remove" data-index="${i}">−</button>
       </div>
     `;
@@ -249,6 +249,10 @@ function init(){
   if(document.getElementById('preview-setlist')){
     renderPreviewSetlist();
   }
+
+  if(document.getElementById('song-content')){
+  loadSong();
+}
 }
 
 init();
@@ -277,7 +281,7 @@ function renderSetlist(){
     html += `
       <div class="setlist-item">
 
-        <a href="songs/${song.file}">
+        <a href="song.html?id=${song.id}">
           ${song.title}
         </a>
 
@@ -324,3 +328,31 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
 });
+
+function loadSong(){
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const id = params.get('id');
+
+  if(!id) return;
+
+  fetch('songs.json')
+    .then(res => res.json())
+    .then(data => {
+
+      const song =
+        data.find(s => s.id == id);
+
+      if(!song) return;
+
+      document.getElementById('song-title')
+        .innerText = song.title;
+
+      document.getElementById('song-content')
+        .innerText = song.content;
+
+    });
+
+}
