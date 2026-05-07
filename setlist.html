@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setlist</title>
+
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body>
+<body class="page-setlist">
 
-<div class="header">NOT - LIVE SETLIST</div>
+  <div class="header">
+    LIVE SETLIST
+  </div>
 
-<div class="menu-container">
-  <div id="setlist"></div>
-</div>
+  <div class="setlist-container">
 
-<script src="assets/app.js"></script>
+    <div id="setlist"></div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a href="kategori.html" class="nav-btn">← Kategori</a>
+    <button onclick="clearSetlist()" class="nav-btn danger">
+      Clear
+    </button>
+  </div>
+
+  <script src="assets/app.js"></script>
 
 </body>
 </html>
