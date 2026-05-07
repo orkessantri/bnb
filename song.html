@@ -3,24 +3,56 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Song</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="assets/style.css">
+  <title>SONG</title>
+
+  <link
+    rel="stylesheet"
+    href="assets/style.css">
+
 </head>
 
-<body class="song-page">
+<body>
 
-  <div class="header" id="song-title">
-    Loading...
+<div class="song-header">
+
+  <button onclick="history.back()">
+    ← BACK
+  </button>
+
+  <div class="song-tools">
+
+    <button onclick="zoomOut()">
+      A-
+    </button>
+
+    <button onclick="zoomIn()">
+      A+
+    </button>
+
+    <button onclick="transpose(-1)">
+      -♭
+    </button>
+
+    <button onclick="transpose(1)">
+      +#
+    </button>
+
   </div>
 
-  <div class="song-container">
-  <div id="song-content" class="song-content"></div>
-  </div>
+</div>
 
-  <script src="assets/app.js"></script>
+<div id="song-title"></div>
+
+<div
+  id="song-content"
+  class="song-content"></div>
+
+<script src="assets/song.js"></script>
 
 </body>
 </html>
