@@ -379,9 +379,81 @@ function loadSong(){
       document.getElementById('song-title')
         .innerText = song.title;
 
-      document.getElementById('song-content')
-        .innerText = song.content;
+      renderSong(song.content);
 
     });
+
+}
+
+function renderSong(content){
+
+  const container =
+    document.getElementById('song-content');
+
+  const lines =
+    content.split('\n');
+
+  let html = '';
+
+  lines.forEach(line => {
+
+    line = line.trim();
+
+    // kosong
+    if(line === ''){
+      html += `<div style="height:12px"></div>`;
+      return;
+    }
+
+    // SECTION
+    if(line.startsWith('[') && line.endsWith(']')){
+
+      html += `
+        <div class="section-title">
+          ${line}
+        </div>
+      `;
+
+      return;
+    }
+
+    // CHORD LINE
+    const chordPattern =
+      /^([A-G][#bmM7susdimaug0-9\/ -]*)$/;
+
+    if(chordPattern.test(line)){
+
+      const chords = line.split(' ');
+
+      let chordHTML = '';
+
+      chords.forEach(ch => {
+
+        chordHTML += `
+          <span class="chord">
+            ${ch}
+          </span>
+        `;
+      });
+
+      html += `
+        <div class="chord-line">
+          ${chordHTML}
+        </div>
+      `;
+
+      return;
+    }
+
+    // LYRIC
+    html += `
+      <div class="lyric-line">
+        ${line}
+      </div>
+    `;
+
+  });
+
+  container.innerHTML = html;
 
 }
