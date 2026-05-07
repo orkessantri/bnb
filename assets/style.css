@@ -563,7 +563,7 @@ body.page-setlist{
 
 /* link lagu */
 .setlist-item a{
-  color: #fff;
+  color: #111;
   text-decoration: none;
   font-weight: 14px;
 }
