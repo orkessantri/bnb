@@ -206,7 +206,7 @@ function renderSetlist(){
 
 let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 
-function addSetlist(title, file){
+function addSetlist(title, id){
   setlist.push({title, file});
   localStorage.setItem("setlist", JSON.stringify(setlist));
 
