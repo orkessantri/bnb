@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ADMIN</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+
+    body{
+      background:black;
+      color:white;
+      font-family:Arial;
+      padding:20px;
+    }
+
+    .admin-box{
+      max-width:600px;
+      margin:auto;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      margin-bottom:15px;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      font-size:16px;
+      box-sizing:border-box;
+    }
+
+    textarea{
+      min-height:250px;
+      resize:vertical;
+    }
+
+    button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    pre{
+      margin-top:20px;
+      background:#111;
+      padding:15px;
+      border-radius:12px;
+      overflow:auto;
+      white-space:pre-wrap;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="admin-box">
+
+  <h1>ADMIN SONG</h1>
+
+  <input
+    type="number"
+    id="song-id"
+    placeholder="ID Lagu">
+
+  <input
+    type="text"
+    id="song-title"
+    placeholder="Judul Lagu">
+
+  <select id="song-category">
+
+    <option>Sholawat</option>
+    <option>Arabic</option>
+    <option>Dungdat</option>
+    <option>Populer</option>
+
+  </select>
+
+  <textarea
+    id="song-content"
+    placeholder="Isi chord & lirik"></textarea>
+
+  <button onclick="generateJSON()">
+    GENERATE JSON
+  </button>
+
+  <pre id="output"></pre>
+
+</div>
+
+<script>
+
+function generateJSON(){
+
+  const id =
+    document.getElementById('song-id').value;
+
+  const title =
+    document.getElementById('song-title').value;
+
+  const category =
+    document.getElementById('song-category').value;
+
+  const content =
+    document.getElementById('song-content')
+      .value
+      .replace(/\n/g, '\\n');
+
+  const result =
+`{
+  "id": ${id},
+  "title": "${title}",
+  "category": "${category}",
+  "content": "${content}"
+},`;
+
+  document.getElementById('output')
+    .innerText = result;
+}
+
+</script>
+
+</body>
+</html>
