@@ -220,10 +220,11 @@ function renderSetlist(){
 
 let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
 
+
 function addSetlist(title, id){
 
-  // cegah duplicate
-  let exists = setlist.some(s => s.id == id);
+  const exists =
+    setlist.some(song => song.id == id);
 
   if(exists) return;
 
@@ -234,8 +235,10 @@ function addSetlist(title, id){
     JSON.stringify(setlist)
   );
 
-  renderKategori();         
-  renderPreviewSetlist();   
+  renderKategori();
+  renderPreviewSetlist();
+
+}
 
   // kalau ada halaman setlist
   if(document.getElementById('setlist')){
