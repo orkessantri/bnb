@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Lagu 1",
+    "category": "Sholawat",
+    "content": "[C]Ini lirik lagu\n[G]Baris kedua"
+  },
+
+  {
+    "id": 2,
+    "title": "Lagu 2",
+    "category": "Pop",
+    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
+  },
+
+    {
+    "id": 3,
+    "title": "Lagu 3",
+    "category": "Dungdat",
+    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
+  },
+
+    {
+    "id": 4,
+    "title": "Lagu 4",
+    "category": "Gambus",
+    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
+  }
+]
