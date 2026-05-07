@@ -112,12 +112,6 @@
 </div>
 
   
-  <script>
-
-let nextId = localStorage.getItem("nextSongId") || 1;
-
-document.getElementById('song-id').value = nextId;
-
     <script>
 
 /* AUTO NEXT ID */
@@ -169,14 +163,6 @@ function generateJSON(){
   document.getElementById('output')
     .innerText = result;
 
-  nextId++;
-
-localStorage.setItem(
-  "nextSongId",
-  nextId
-);
-
-document.getElementById('song-id').value = nextId;
 }
 
 /* COPY */
