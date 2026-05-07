@@ -252,3 +252,75 @@ function init(){
 }
 
 init();
+
+function renderSetlist(){
+
+  const el = document.getElementById('setlist');
+
+  if(!el) return;
+
+  let setlist = JSON.parse(localStorage.getItem("setlist")) || [];
+
+  if(setlist.length === 0){
+    el.innerHTML = `
+      <p style="text-align:center;">
+        Belum ada lagu
+      </p>
+    `;
+    return;
+  }
+
+  let html = '';
+
+  setlist.forEach((song, i) => {
+
+    html += `
+      <div class="setlist-item">
+
+        <a href="songs/${song.file}">
+          ${song.title}
+        </a>
+
+        <button 
+          class="btn-remove"
+          onclick="removeSetlist(${i})"
+        >
+          −
+        </button>
+
+      </div>
+    `;
+  });
+
+  el.innerHTML = html;
+}
+
+function removeSetlist(i){
+
+  let setlist =
+    JSON.parse(localStorage.getItem("setlist")) || [];
+
+  setlist.splice(i,1);
+
+  localStorage.setItem(
+    "setlist",
+    JSON.stringify(setlist)
+  );
+
+  renderSetlist();
+}
+
+function clearSetlist(){
+
+  localStorage.removeItem("setlist");
+
+  renderSetlist();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  if(document.getElementById('setlist')){
+    renderSetlist();
+  }
+
+});
