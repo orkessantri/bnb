@@ -1,0 +1,104 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f4f4f4;
+  color:#111;
+  font-family:
+    Arial,
+    sans-serif;
+  min-height:100vh;
+}
+
+body.dark-mode{
+  background:#111;
+  color:white;
+}
+
+/* =====================
+   HEADER
+===================== */
+.top-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:black;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 12px;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.2);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.header-logo{
+  width:37px;
+  height:37px;
+  object-fit:contain;
+  display:block;
+}
+
+.brand-title{
+  color:white;
+  font-family:'Rubik Marker Hatch', sans-serif;
+  font-size:28px;
+  letter-spacing:2px;
+  line-height:1;
+}
+/* =====================
+   PAGE WRAPPER
+===================== */
+.page-wrapper{
+  padding:8px;
+}
+
+.page-title{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+body.dark-mode .page-title{
+  color:white;
+}
+
+/* =====================
+   FOOTER
+===================== */
+.bottom-footer{
+  background:black;
+  color:white;
+  text-align:center;
+  font-size:11px;
+  font-style:italic;
+  letter-spacing:1px;
+  padding:6px 10px;
+  opacity:.9;
+}
+
+/* =====================
+   BUTTON
+===================== */
+.main-btn{
+  border:none;
+  background:black;
+  color:white;
+  border-radius:10px;
+  padding:10px 16px;
+  cursor:pointer;
+}
+
+body.dark-mode .main-btn{
+  background:white;
+  color:black;
+}
+
