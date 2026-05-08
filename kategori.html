@@ -1,45 +1,40 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
-  <title>CATEGORY</title>
-
-  <!-- CSS -->
-  <link
-    rel="stylesheet"
-    href="css/global.css">
-
-  <link
-    rel="stylesheet"
-    href="css/kategori.css">
-
-</head>
-
 <body>
 
-  <header class="top-header">
+  <!-- HEADER -->
+  <header class="page-header">
+    <h1>KATEGORI</h1>
+  </header>
 
-    <div class="header-inner">
+  <!-- CONTENT -->
+  <main class="kategori-page">
 
-      <img
-        src="assets/logo.png"
-        class="header-logo">
+    <!-- kategori auto render -->
+    <div id="kategori-container"></div>
 
-      <div class="brand-title">
-        Bass -not- ssoB
-      </div>
+    <!-- preview -->
+    <div class="setlist-preview">
+
+      <h2>SETLIST PREVIEW</h2>
+
+      <div id="preview-list"></div>
 
     </div>
 
-  </header>
+  </main>
+
+  <!-- bottom nav -->
+  <div class="bottom-nav">
+
+    <button onclick="history.back()">
+      ← Back
+    </button>
+
+    <button onclick="location.href='setlist.html'">
+      Setlist →
+    </button>
+
+  </div>
+
+  <script src="js/app.js"></script>
 
 </body>
-
-</html>
