@@ -371,23 +371,16 @@ function loadSong(){
 
   if(!id) return;
 
-  fetch('songs.json')
-    .then(res => res.json())
-    .then(data => {
+fetch("songs.json")
+  .then(res => res.json())
+  .then(data => {
 
-      const song =
-        data.find(s => s.id == id);
+    songs = data;
 
-      if(!song) return;
+    renderKategori();
+    renderPreviewSetlist();
 
-      document.getElementById('song-title')
-        .innerText = song.title;
-
-      renderSong(song.content);
-
-    });
-
-}
+  });
 
 function renderSong(content){
 
