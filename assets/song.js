@@ -130,54 +130,34 @@ function zoomOut(){
 /* TRANSPOSE */
 function transpose(step){
 
-  const map = {
-    "C":"C#",
-    "C#":"D",
-    "D":"D#",
-    "D#":"E",
-    "E":"F",
-    "F":"F#",
-    "F#":"G",
-    "G":"G#",
-    "G#":"A",
-    "A":"A#",
-    "A#":"B",
-    "B":"C"
-  };
-
-  const reverse = {};
-
-  Object.keys(map).forEach(key => {
-    reverse[map[key]] = key;
-  });
+  const notes = [
+    "C","C#","D","D#","E",
+    "F","F#","G","G#","A","A#","B"
+  ];
 
   document.querySelectorAll('.chord')
     .forEach(el => {
 
       let text = el.innerText;
 
-      let regex =
-        /\b[A-G]#?m?\b/g;
+      text = text.replace(
+        /\b([A-G]#?)(m?)\b/g,
+        function(match, root, minor){
 
-      text = text.replace(regex, chord => {
+          let index =
+            notes.indexOf(root);
 
-        let result = chord;
-
-        for(let i=0;i<Math.abs(step);i++){
-
-          if(step > 0){
-            result =
-              map[result] || result;
-          }else{
-            result =
-              reverse[result] || result;
+          if(index === -1){
+            return match;
           }
 
+          let newIndex =
+            (index + step + 12) % 12;
+
+          return notes[newIndex] + minor;
+
         }
-
-        return result;
-
-      });
+      );
 
       el.innerText = text;
 
