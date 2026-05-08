@@ -3,7 +3,7 @@
   top:0;
   z-index:999;
   background:black;
-  height:45px;
+  height:50px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -20,28 +20,30 @@
 }
 
 .header-logo{
-  width:24px;
-  height:24px;
+  width:30px;
+  height:30px;
   object-fit:contain;
   display:block;
 }
 
 .brand-title{
   color:white;
-  font-size:16px;
-  font-weight:700;
-  letter-spacing:1px;
+  font-family:'Rubik Marker Hatch', sans-serif;
+  font-size:28px;
+  letter-spacing:2px;
   line-height:1;
 }
 
 .song-wrapper{
-  padding-top:10px;
+  background:transparent;
+  padding-top:8px;
 }
 
 .song-content{
   background:white;
   color:black;
   min-height:100vh;
+  margin-top:8px;
   padding:
     10px
     30px
@@ -56,12 +58,15 @@
 }
 
 #song-title{
-  text-align:center;
-  font-size:32px;
-  font-weight:bold;
-  margin-top:10px;
-  margin-bottom:20px;
+  background:none !important;
   color:black;
+  font-size:40px;
+  font-weight:700;
+  text-align:center;
+  margin-top:8px;
+  margin-bottom:8px;
+  padding:0;
+  line-height:1.1;
 }
 
 .section{
