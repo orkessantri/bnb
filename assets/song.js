@@ -40,9 +40,7 @@ async function loadSong(){
 /* RENDER */
 function renderSong(text){
 
-  if(!text){
-    return;
-  }
+  if(!text) return;
 
   const lines = text.split('\n');
 
@@ -50,13 +48,9 @@ function renderSong(text){
 
   lines.forEach(line => {
 
-    if(!line){
-      return;
-    }
-
     line = line.trim();
 
-    // skip kosong
+    // kosong
     if(line === ''){
       return;
     }
@@ -76,14 +70,11 @@ function renderSong(text){
       return;
     }
 
-    // CHORD LINE
-    const chordRegex =
-      /^([A-G][#bm0-9\s\/\-]*)$/;
+    // DETEKSI CHORD
+    const chordPattern =
+      /^([A-G][#b]?m?(maj7|7|sus4|dim|aug)?\s?)+$/;
 
-    const isChord =
-      chordRegex.test(line);
-
-    if(isChord){
+    if(chordPattern.test(line)){
 
       html += `
         <div class="chord">
@@ -154,37 +145,28 @@ function transpose(step){
   document.querySelectorAll('.chord')
     .forEach(el => {
 
-      let words =
-        el.innerText.split(' ');
+      let text = el.innerText;
 
-      words = words.map(chord => {
+      text = text.replace(
+        /\b([A-G]#?)(m?)\b/g,
+        function(match, root, minor){
 
-        let match =
-          chord.match(/^([A-G]#?)(m?)/);
+          let index =
+            notes.indexOf(root);
 
-        if(!match){
-          return chord;
+          if(index === -1){
+            return match;
+          }
+
+          let newIndex =
+            (index + step + 12) % 12;
+
+          return notes[newIndex] + minor;
+
         }
+      );
 
-        let root = match[1];
-        let minor = match[2];
-
-        let index =
-          notes.indexOf(root);
-
-        if(index === -1){
-          return chord;
-        }
-
-        let newIndex =
-          (index + step + 12) % 12;
-
-        return notes[newIndex] + minor;
-
-      });
-
-      el.innerText =
-        words.join(' ');
+      el.innerText = text;
 
     });
 
