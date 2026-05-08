@@ -189,83 +189,44 @@ function toggleTheme(){
 }
 
 function toggleFullscreen(){
-  if(!document.fullscreenElement){
-    document.documentElement.requestFullscreen();
-  }else{
-    document.exitFullscreen();
-  }
-}
 
-let touchStartX = 0;
-let touchEndX = 0;
+  const elem = document.documentElement;
 
-document.addEventListener(
-  'touchstart',
-  e => {
+  // masuk fullscreen
+  if(
+    !document.fullscreenElement &&
+    !document.webkitFullscreenElement &&
+    !document.msFullscreenElement
+  ){
 
-    touchStartX =
-      e.changedTouches[0].screenX;
-  }
-);
+    if(elem.requestFullscreen){
 
-document.addEventListener(
-  'touchend',
-  e => {
+      elem.requestFullscreen();
 
-    touchEndX =
-      e.changedTouches[0].screenX;
+    }else if(elem.webkitRequestFullscreen){
 
-    handleSwipe();
-  }
-);
+      elem.webkitRequestFullscreen();
 
-function handleSwipe(){
+    }else if(elem.msRequestFullscreen){
 
-  const diff =
-    touchEndX - touchStartX;
-
-  // swipe kanan
-  if(diff > 80){
-
-    prevSong();
-
+      elem.msRequestFullscreen();
+    }
   }
 
-  // swipe kiri
-  if(diff < -80){
+  // keluar fullscreen
+  else{
 
-    nextSong();
+    if(document.exitFullscreen){
+
+      document.exitFullscreen();
+
+    }else if(document.webkitExitFullscreen){
+
+      document.webkitExitFullscreen();
+
+    }else if(document.msExitFullscreen){
+
+      document.msExitFullscreen();
+    }
   }
-}
-
-function nextSong(){
-
-  const params =
-    new URLSearchParams(window.location.search);
-
-  let id =
-    parseInt(params.get('id'));
-
-  id++;
-
-  window.location.href =
-    `song.html?id=${id}`;
-
-}
-
-function prevSong(){
-
-  const params =
-    new URLSearchParams(window.location.search);
-
-  let id =
-    parseInt(params.get('id'));
-
-  if(id > 1){
-      id--;
-  }
-
-  window.location.href =
-    `song.html?id=${id}`;
-
 }
