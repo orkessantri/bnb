@@ -18,31 +18,31 @@
 
 <body>
 
-<div class="song-header">
+<div class="floating-tools">
 
-  <button onclick="history.back()">
-    ← BACK
+  <button onclick="transpose(1)">
+    #
   </button>
 
-  <div class="song-tools">
+  <button onclick="transpose(-1)">
+    b
+  </button>
 
-    <button onclick="zoomIn()">
-      A+
-    </button>
-    
-    <button onclick="zoomOut()">
-      A-
-    </button>
+  <button onclick="zoomIn()">
+    A+
+  </button>
 
-    <button onclick="transpose(1)">
-      T+
-    </button>
-    
-    <button onclick="transpose(-1)">
-      T-
-    </button>
+  <button onclick="zoomOut()">
+    A-
+  </button>
 
-  </div>
+  <button onclick="toggleTheme()">
+    ☀
+  </button>
+
+  <button onclick="history.back()">
+    ←
+  </button>
 
 </div>
 
