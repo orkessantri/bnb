@@ -649,7 +649,7 @@ body.page-setlist{
 .section{
   color:#777;
   font-weight:bold;
-  margin-top:16px;
+  margin-top:8px;
   margin-bottom:4px;
   font-size:18px;
 }
@@ -694,7 +694,7 @@ body.page-setlist{
 
 .dark-mode .floating-tools button{
   background:#222;
-  color:white;
+  color:#ffdd00;
 }
 
 body{
@@ -723,9 +723,17 @@ body{
 
 .dark-mode .floating-tools button{
   background:#222;
-  color:white;
+  color:#ffdd00;
+}
+
+.dark-mode .chord{
+  color:#fff;
+}
+
+.dark-mode .lyric{
+  color:#eee;
 }
 
 .dark-mode .section{
-  color:#aaa;
+  color:#ededed;
 }
