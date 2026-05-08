@@ -20,8 +20,8 @@
 }
 
 .header-logo{
-  width:30px;
-  height:30px;
+  width:37px;
+  height:37px;
   object-fit:contain;
   display:block;
 }
@@ -35,8 +35,9 @@
 }
 
 .song-wrapper{
-  background:transparent;
+  background:white;
   padding-top:8px;
+  min-height:100vh;
 }
 
 .song-content{
@@ -58,13 +59,12 @@
 }
 
 #song-title{
-  background:none !important;
+  background:transparent !important;
   color:black;
-  font-size:40px;
+  font-size:26px;
   font-weight:700;
   text-align:center;
-  margin-top:8px;
-  margin-bottom:8px;
+  margin:0 0 8px;
   padding:0;
   line-height:1.1;
 }
@@ -132,6 +132,10 @@ body{
 .dark-mode{
   background:#111;
   color:white;
+}
+
+.dark-mode .song-wrapper{
+  background:#111;
 }
 
 .dark-mode #song-title{
