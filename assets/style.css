@@ -635,9 +635,9 @@ body.page-setlist{
   min-height:100vh;
   padding:
     10px
-    80px
-    100px
-    20px;
+    30px
+    20px
+    15px;
   line-height:1.2;
 }
 
