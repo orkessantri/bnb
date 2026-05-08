@@ -145,28 +145,37 @@ function transpose(step){
   document.querySelectorAll('.chord')
     .forEach(el => {
 
-      let text = el.innerText;
+      let chords =
+        el.innerText.split(/\s+/);
 
-      text = text.replace(
-        /\b([A-G]#?)(m?)\b/g,
-        function(match, root, minor){
+      let result = chords.map(chord => {
 
-          let index =
-            notes.indexOf(root);
+        let match =
+          chord.match(/^([A-G]#?)(.*)$/);
 
-          if(index === -1){
-            return match;
-          }
-
-          let newIndex =
-            (index + step + 12) % 12;
-
-          return notes[newIndex] + minor;
-
+        if(!match){
+          return chord;
         }
-      );
 
-      el.innerText = text;
+        let root = match[1];
+        let suffix = match[2];
+
+        let index =
+          notes.indexOf(root);
+
+        if(index === -1){
+          return chord;
+        }
+
+        let newIndex =
+          (index + step + 12) % 12;
+
+        return notes[newIndex] + suffix;
+
+      });
+
+      el.innerText =
+        result.join(' ');
 
     });
 
