@@ -365,11 +365,6 @@ a:hover {
   line-height: 1.6;
 }
 
-.chord {
-  color: #ff9800;
-  font-weight: bold;
-}
-
 .toolbar {
   position: fixed;
   right: 10px;
@@ -659,46 +654,68 @@ body.page-setlist{
 .chord{
   color:#160436;
   font-weight:bold;
+  font-size:24px;
   margin-bottom:6px;
 }
 
 .floating-tools{
-
   position:fixed;
-
-  right:14px;
-  bottom:20px;
-
+  right:10px;
+  bottom:14px;
   display:flex;
   flex-direction:column-reverse;
-
-  gap:10px;
-
+  gap:6px;
   z-index:999;
 }
 
 .floating-tools button{
-
-  width:52px;
-  height:52px;
-
+  width:44px;
+  height:44px;
   border:none;
-  border-radius:16px;
-
+  border-radius:12px;
   background:black;
   color:white;
-
-  font-size:18px;
+  font-size:16px;
   font-weight:bold;
-
   cursor:pointer;
-
   box-shadow:
-    0 4px 12px rgba(0,0,0,.25);
+    0 2px 8px rgba(0,0,0,.25);
 }
 
 .dark-mode .floating-tools button{
-
   background:#222;
   color:white;
+}
+
+body{
+  transition:.25s;
+}
+
+.song-content,
+#song-title{
+  transition:.25s;
+}
+
+.dark-mode{
+  background:#111;
+  color:white;
+}
+
+.dark-mode #song-title{
+  background:#111;
+  color:white;
+}
+
+.dark-mode .song-content{
+  background:#111;
+  color:white;
+}
+
+.dark-mode .floating-tools button{
+  background:#222;
+  color:white;
+}
+
+.dark-mode .section{
+  color:#aaa;
 }
