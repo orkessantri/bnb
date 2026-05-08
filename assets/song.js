@@ -186,5 +186,86 @@ loadSong();
 function toggleTheme(){
 
   document.body.classList.toggle('dark-mode');
+}
+
+function toggleFullscreen(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen();
+  }else{
+    document.exitFullscreen();
+  }
+}
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener(
+  'touchstart',
+  e => {
+
+    touchStartX =
+      e.changedTouches[0].screenX;
+  }
+);
+
+document.addEventListener(
+  'touchend',
+  e => {
+
+    touchEndX =
+      e.changedTouches[0].screenX;
+
+    handleSwipe();
+  }
+);
+
+function handleSwipe(){
+
+  const diff =
+    touchEndX - touchStartX;
+
+  // swipe kanan
+  if(diff > 80){
+
+    prevSong();
+
+  }
+
+  // swipe kiri
+  if(diff < -80){
+
+    nextSong();
+  }
+}
+
+function nextSong(){
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  let id =
+    parseInt(params.get('id'));
+
+  id++;
+
+  window.location.href =
+    `song.html?id=${id}`;
+
+}
+
+function prevSong(){
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  let id =
+    parseInt(params.get('id'));
+
+  if(id > 1){
+      id--;
+  }
+
+  window.location.href =
+    `song.html?id=${id}`;
 
 }
