@@ -634,12 +634,11 @@ body.page-setlist{
   color:black;
   min-height:100vh;
   padding:
-    0px
+    10px
     80px
     100px
     20px;
-  line-height:1.5;
-  white-space:pre-wrap;
+  line-height:1.2;
 }
 
 .song-tools{
@@ -650,8 +649,8 @@ body.page-setlist{
 .section{
   color:#777;
   font-weight:bold;
-  margin-top:18px;
-  margin-bottom:6px;
+  margin-top:16px;
+  margin-bottom:4px;
   font-size:18px;
 }
 
@@ -659,14 +658,14 @@ body.page-setlist{
   color:#160436;
   font-weight:bold;
   font-size:24px;
-  line-height:1.4;
-  margin-bottom:2px;
+  line-height:1.2;
+  margin-bottom:0px;
 }
 
 .lyric{
   font-size:18px;
-  line-height:1.4;
-  margin-bottom:10px;
+  line-height:1.2;
+  margin-bottom:4px;
 }
 
 .floating-tools{
