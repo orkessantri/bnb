@@ -737,3 +737,11 @@ body{
 .dark-mode .section{
   color:#ffdd00;
 }
+
+body{
+
+  margin:0;
+  padding:0;
+
+  overflow-x:hidden;
+}
