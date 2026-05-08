@@ -7,30 +7,23 @@
   },
 
   {
-    "id": 2,
-    "title": "Lagu 2",
-    "category": "Pop",
-    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
-  },
+  "id": 2,
+  "title": "MAGADIR",
+  "category": "Gambuz",
+  "content": "[Intro]\nC A F G C A F G\n[Verse]\nG F G F G G G C\n[Pre Chorus]\nF G\n[Chorus]\nC G F G C A F G\n[Interlude]\nG F G F G\n[Outro]\nA G F G C"
+},
 
     {
     "id": 3,
     "title": "Lagu 3",
-    "category": "Dungdat",
-    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
-  },
-
-    {
-    "id": 4,
-    "title": "Lagu 4",
-    "category": "Gambus",
+    "category": "Dungdats",
     "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
   },
 
   {
-  "id": 5,
-  "title": "MAGADIR",
-  "category": "Arabic",
-  "content": "[Intro]\nC A F G C A F G\n[Verse]\nG F G F G G G C\n[Pre Chorus]\nF G\n[Chorus]\nC G F G C A F G\n[Interlude]\nG F G F G\n[Outro]\nA G F G C"
-}
+    "id": 4,
+    "title": "Lagu 2",
+    "category": "Pops",
+    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
+  }
 ]
