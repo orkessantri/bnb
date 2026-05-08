@@ -53,84 +53,110 @@ let activeCategory = null;
 
 function renderKategori(){
 
-  fetch('songs.json')
-    .then(res => res.json())
-    .then(data => {
+  const container =
+    document.getElementById(
+      "kategori-container"
+    );
 
-      let grouped = {};
+  if(!container) return;
 
-      // grouping category otomatis
-      data.forEach(song => {
+  container.innerHTML = "";
 
-        let cat =
-          song.category || "Lainnya";
+  // ambil semua kategori unik
+  const kategoriList =
+    [...new Set(
+      songs.map(song => song.category)
+    )];
 
-        if(!grouped[cat]){
-          grouped[cat] = [];
-        }
+  kategoriList.forEach(kategori => {
 
-        grouped[cat].push(song);
+    // lagu per kategori
+    const laguKategori =
+      songs.filter(
+        song => song.category === kategori
+      );
 
-      });
+    const box =
+      document.createElement("div");
 
-      let html = '';
+    box.className = "kategori-box";
 
-      // render category
-      for(let cat in grouped){
+    box.innerHTML = `
 
-        html += `
-          <div class="category">
+      <div class="kategori-header">
 
-            <div class="category-title"
-              onclick="toggleCategory(this)">
+        <span>${kategori}</span>
 
-              ${cat}
+        <span>▼</span>
 
-            </div>
+      </div>
 
-            <div class="category-content">
-        `;
+      <div class="kategori-list">
 
-        grouped[cat].forEach(song => {
+        ${laguKategori.map(song => {
 
-          let isAdded =
+          const isAdded =
             setlist.some(
               s => s.id == song.id
             );
 
-          html += `
+          return `
+
             <div class="song-item">
 
-              <a href="song.html?id=${song.id}"
-                class="${isAdded ? 'added-song' : ''}">
-
+              <span>
                 ${song.title}
-
-              </a>
+              </span>
 
               <button
-                class="btn-add"
+                class="add-btn"
+                onclick="addSetlist(
+                  '${song.title}',
+                  '${song.id}'
+                )"
 
-                data-title="${song.title}"
-                data-id="${song.id}"
+                ${isAdded ? "disabled" : ""}
 
-                ${isAdded ? 'disabled' : ''}>
+              >
 
-                ${isAdded ? '✓' : '+'}
+                ${isAdded ? "✓" : "+"}
 
               </button>
 
             </div>
+
           `;
 
-        });
+        }).join("")}
 
-        html += `
-            </div>
+      </div>
 
-          </div>
-        `;
-      }
+    `;
+
+    // accordion
+    const header =
+      box.querySelector(
+        ".kategori-header"
+      );
+
+    const list =
+      box.querySelector(
+        ".kategori-list"
+      );
+
+    header.onclick = () => {
+
+      list.classList.toggle(
+        "active"
+      );
+
+    };
+
+    container.appendChild(box);
+
+  });
+
+}
 
       document.getElementById('kategori-list')
         .innerHTML = html;
