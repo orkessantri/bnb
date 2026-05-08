@@ -1,8 +1,9 @@
 {
-  "name": "Bass Not Boss",
-  "short_name": "ChordApp",
-  "start_url": "/bassnotboss/index.html",
+  "name": "BNB Live",
+  "short_name": "BNB",
+  "start_url": "/bnb/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
+  "icons": []
 }
