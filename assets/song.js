@@ -96,44 +96,85 @@ function renderSong(text){
 }
 
 /* ZOOM */
+let chordSize = 24;
+
 function zoomIn(){
 
-  currentSize += 2;
+  chordSize += 2;
 
-  document.getElementById('song-content')
-    .style.fontSize =
-      currentSize + 'px';
+  document.querySelectorAll('.chord')
+    .forEach(el => {
+
+      el.style.fontSize =
+        chordSize + 'px';
+
+    });
 
 }
 
 function zoomOut(){
 
-  currentSize -= 2;
+  chordSize -= 2;
 
-  document.getElementById('song-content')
-    .style.fontSize =
-      currentSize + 'px';
+  document.querySelectorAll('.chord')
+    .forEach(el => {
+
+      el.style.fontSize =
+        chordSize + 'px';
+
+    });
 
 }
 
 /* TRANSPOSE */
 function transpose(step){
 
+  const map = {
+    "C":"C#",
+    "C#":"D",
+    "D":"D#",
+    "D#":"E",
+    "E":"F",
+    "F":"F#",
+    "F#":"G",
+    "G":"G#",
+    "G#":"A",
+    "A":"A#",
+    "A#":"B",
+    "B":"C"
+  };
+
+  const reverse = {};
+
+  Object.keys(map).forEach(key => {
+    reverse[map[key]] = key;
+  });
+
   document.querySelectorAll('.chord')
     .forEach(el => {
 
       let text = el.innerText;
 
-      chords.forEach((chord, i) => {
+      let regex =
+        /\b[A-G]#?m?\b/g;
 
-        const next =
-          chords[(i + step + 12) % 12];
+      text = text.replace(regex, chord => {
 
-        const regex =
-          new RegExp(`\\b${chord}\\b`, 'g');
+        let result = chord;
 
-        text =
-          text.replace(regex, next);
+        for(let i=0;i<Math.abs(step);i++){
+
+          if(step > 0){
+            result =
+              map[result] || result;
+          }else{
+            result =
+              reverse[result] || result;
+          }
+
+        }
+
+        return result;
 
       });
 
@@ -144,3 +185,9 @@ function transpose(step){
 }
 
 loadSong();
+
+function toggleTheme(){
+
+  document.body.classList.toggle('dark-mode');
+
+}
