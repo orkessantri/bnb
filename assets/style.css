@@ -648,7 +648,7 @@ body.page-setlist{
 
 .section{
   color:#777;
-  font-weight:bold;
+  font-weight:normal;
   margin-top:8px;
   margin-bottom:4px;
   font-size:18px;
@@ -735,5 +735,5 @@ body{
 }
 
 .dark-mode .section{
-  color:#ededed;
+  color:#ffdd00;
 }
