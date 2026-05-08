@@ -40,13 +40,14 @@ async function loadSong(){
 /* RENDER */
 function renderSong(text){
 
-  const lines = text.split('\\n');
+lines.forEach(line => {
 
-  let html = '';
+  line = line.trim();
 
-  lines.forEach(line => {
-
-    line = line.trim();
+  // SKIP EMPTY LINE
+  if(line === ''){
+    return;
+  }
 
     // SECTION
     if(
