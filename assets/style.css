@@ -618,3 +618,71 @@ body.page-setlist{
 .nav-btn.danger{
   background: #ffcc00;
 }
+
+/* =========================
+   PAGE SONG
+========================= */
+
+.song-header{
+  position:sticky;
+  top:0;
+
+  background:black;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:12px;
+
+  z-index:100;
+}
+
+.song-header button{
+  border:none;
+  border-radius:10px;
+
+  padding:10px 14px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+.song-tools{
+  display:flex;
+  gap:8px;
+}
+
+#song-title{
+  text-align:center;
+
+  font-size:28px;
+  font-weight:bold;
+
+  margin-top:20px;
+  margin-bottom:30px;
+}
+
+.song-content{
+  padding:20px;
+
+  font-size:24px;
+  line-height:1.8;
+
+  white-space:pre-wrap;
+}
+
+.section{
+  color:#999;
+
+  font-weight:bold;
+
+  margin-top:24px;
+}
+
+.chord{
+  color:#00ff99;
+
+  font-weight:bold;
+}
