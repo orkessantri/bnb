@@ -632,6 +632,7 @@ body.page-setlist{
 .song-content{
   background:white;
   color:black;
+  min-height:80vh;
   padding:
     10px
     30px
