@@ -1,3 +1,47 @@
+let songs = [];
+
+let setlist =
+  JSON.parse(
+    localStorage.getItem("setlist")
+  ) || [];
+
+async function loadSongs(){
+
+  const res =
+    await fetch("assets/songs.json");
+
+  songs = await res.json();
+
+}
+
+function saveSetlist(){
+
+  localStorage.setItem(
+    "setlist",
+    JSON.stringify(setlist)
+  );
+
+}
+
+function addSetlist(title,id){
+
+  const exists =
+    setlist.some(s => s.id == id);
+
+  if(exists) return;
+
+  setlist.push({
+    title,
+    id
+  });
+
+  saveSetlist();
+
+  renderKategori();
+  renderPreviewSetlist();
+
+}
+
 function renderKategori(){
 
   const container =
@@ -9,23 +53,16 @@ function renderKategori(){
 
   container.innerHTML = "";
 
-  // kategori unik
-  const categories = [
+  const kategoriList =
+    [...new Set(
+      songs.map(song => song.category)
+    )];
 
-    ...new Set(
-      songs.map(
-        song => song.category
-      )
-    )
-
-  ];
-
-  categories.forEach(category => {
+  kategoriList.forEach(kategori => {
 
     const laguKategori =
       songs.filter(
-        song =>
-          song.category === category
+        song => song.category === kategori
       );
 
     const box =
@@ -38,7 +75,7 @@ function renderKategori(){
 
       <div class="kategori-header">
 
-        <span>${category}</span>
+        <span>${kategori}</span>
 
         <span>▼</span>
 
@@ -63,13 +100,10 @@ function renderKategori(){
 
               <button
                 class="add-btn"
-
-                onclick="
-                  addSetlist(
-                    '${song.title}',
-                    '${song.id}'
-                  )
-                "
+                onclick="addSetlist(
+                  '${song.title}',
+                  '${song.id}'
+                )"
 
                 ${isAdded ? "disabled" : ""}
 
@@ -89,7 +123,6 @@ function renderKategori(){
 
     `;
 
-    // accordion
     const header =
       box.querySelector(
         ".kategori-header"
@@ -116,28 +149,35 @@ function renderKategori(){
 
 function renderPreviewSetlist(){
 
-  const preview =
+  const el =
     document.getElementById(
-      "preview-list"
+      "preview-setlist"
     );
 
-  if(!preview) return;
+  if(!el) return;
 
-  preview.innerHTML = "";
+  if(setlist.length === 0){
 
-  setlist.forEach(song => {
+    el.innerHTML =
+      "<p>Belum ada lagu</p>";
 
-    preview.innerHTML += `
+    return;
 
+  }
+
+  let html = "";
+
+  setlist.forEach((song,i)=>{
+
+    html += `
       <div class="preview-item">
-
-        ${song.title}
-
+        ${i+1}. ${song.title}
       </div>
-
     `;
 
   });
+
+  el.innerHTML = html;
 
 }
 
