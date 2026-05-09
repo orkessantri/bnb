@@ -1,65 +1,9 @@
-.kategori-box{
-  font-size:22px;
-  font-weight:700;
-  padding:
-    14px 16px;
-  border-bottom:
-    1px solid rgba(0,0,0,.08);
-}
-
-body.dark-mode .kategori-title{
-  border-color:
-    rgba(255,255,255,.08);
-}
-
-.song-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:
-    12px 16px;
-  border-bottom:
-    1px solid rgba(0,0,0,.05);
-}
-
-.song-item:last-child{
-  border-bottom:none;
-}
-
-.song-link{
-  text-decoration:none;
-  color:#111;
-  font-size:17px;
-}
-
-body.dark-mode .song-link{
-  color:white;
-}
-
-.add-btn{
-  border:none;
-  background:black;
-  color:white;
-  width:34px;
-  height:34px;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-/* =========================
-   PAGE
-========================= */
-
 body{
   margin:0;
   background:#000;
   color:#fff;
   font-family:Arial,sans-serif;
 }
-
-/* =========================
-   HEADER
-========================= */
 
 .page-header{
   background:#fff;
@@ -74,20 +18,12 @@ body{
   font-weight:900;
 }
 
-/* =========================
-   CONTENT
-========================= */
-
 .kategori-page{
   width:90%;
   max-width:700px;
   margin:auto;
   padding:20px 0 120px;
 }
-
-/* =========================
-   KATEGORI CARD
-========================= */
 
 .kategori-box{
   background:#fff;
@@ -101,11 +37,12 @@ body{
   padding:18px;
   font-size:20px;
   font-weight:700;
-  cursor:pointer;
 
   display:flex;
   justify-content:space-between;
   align-items:center;
+
+  cursor:pointer;
 }
 
 .kategori-list{
@@ -117,16 +54,13 @@ body{
   display:block;
 }
 
-/* =========================
-   SONG ITEM
-========================= */
-
 .song-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
 
   padding:12px 0;
+
   border-bottom:1px solid #ddd;
 }
 
@@ -135,48 +69,46 @@ body{
 }
 
 .add-btn{
-  background:#000;
-  color:#fff;
-  border:none;
-  border-radius:8px;
   width:34px;
   height:34px;
+
+  border:none;
+  border-radius:8px;
+
+  background:#000;
+  color:#fff;
+
   cursor:pointer;
 }
-
-/* =========================
-   PREVIEW
-========================= */
 
 .setlist-preview{
   margin-top:30px;
 }
 
-.setlist-preview h2{
-  font-size:18px;
-}
-
-/* =========================
-   BOTTOM NAV
-========================= */
-
 .bottom-nav{
+
   position:fixed;
+
   bottom:20px;
   left:50%;
+
   transform:translateX(-50%);
 
   display:flex;
   gap:14px;
+
 }
 
 .bottom-nav button{
-  background:#fff;
-  color:#000;
+
   border:none;
-  padding:14px 28px;
   border-radius:12px;
+
+  padding:14px 28px;
+
   font-size:18px;
   font-weight:700;
+
   cursor:pointer;
+
 }
