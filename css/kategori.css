@@ -139,18 +139,12 @@ body{
   display:grid;
   grid-template-columns:
     1fr 1fr;
-  gap:12px;
+  gap:10px 80px;
   max-width:700px;
-  margin:0 auto;
-}
-
-.preview-item{
-  background:#111;
-  border:1px solid #333;
-  border-radius:12px;
-  padding:10px 14px;
+  margin:20px auto;
   color:white;
-  font-size:14px;
+  font-size:22px;
+  line-height:1.8;
 }
 
 .bottom-nav{
@@ -176,5 +170,13 @@ body{
     min-height:52px;
     font-size:20px;
     border-radius:14px;
+  }
+}
+
+@media(max-width:768px){
+  #preview-setlist{
+    gap:6px 30px;
+    font-size:18px;
+    padding:0 20px;
   }
 }
