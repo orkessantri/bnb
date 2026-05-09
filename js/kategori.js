@@ -92,30 +92,27 @@ function renderKategori(){
 
           return `
 
-            <div class="song-item">
+            html += `
+  <div class="song-item">
 
-              <span>
-                ${song.title}
-              </span>
+    <a
+      href="song.html?id=${song.id}"
+      class="song-link"
+    >
+      ${song.title}
+    </a>
 
-              <button
-                class="add-btn"
-                onclick="addSetlist(
-                  '${song.title}',
-                  '${song.id}'
-                )"
+    <button
+      onclick="addSetlist(
+        '${song.title}',
+        ${song.id}
+      )"
+    >
+      +
+    </button>
 
-                ${isAdded ? "disabled" : ""}
-
-              >
-
-                ${isAdded ? "✓" : "+"}
-
-              </button>
-
-            </div>
-
-          `;
+  </div>
+`;
 
         }).join("")}
 
