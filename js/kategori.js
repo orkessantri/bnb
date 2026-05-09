@@ -180,10 +180,10 @@ function renderPreviewSetlist(){
   setlist.forEach((song,i)=>{
 
     html += `
-      <div class="preview-item">
-        ${i+1}. ${song.title}
-      </div>
-    `;
+  <div>
+    ${i+1}. ${song.title}
+  </div>
+`;
 
   });
 
