@@ -34,15 +34,17 @@ body{
 }
 
 .kategori-header{
-  padding:18px;
-  font-size:20px;
-  font-weight:700;
-
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:center;
+  position:relative;
+  font-weight:bold;
+  font-size:18px;
+}
 
-  cursor:pointer;
+.kategori-header span:last-child{
+  position:absolute;
+  right:20px;
 }
 
 .kategori-list{
