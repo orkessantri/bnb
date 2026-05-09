@@ -1,62 +1,154 @@
-async function loadKategori(){
+function renderKategori(){
 
-  const res = await fetch('data/songs.json');
+  const container =
+    document.getElementById(
+      "kategori-container"
+    );
 
-  const songs = await res.json();
+  if(!container) return;
 
-  const wrap =
-    document.getElementById('kategori-list');
+  container.innerHTML = "";
 
-  wrap.innerHTML = '';
+  // kategori unik
+  const categories = [
 
-  const kategoriMap = {};
+    ...new Set(
+      songs.map(
+        song => song.category
+      )
+    )
 
-  songs.forEach(song=>{
+  ];
 
-    if(!kategoriMap[song.category]){
-      kategoriMap[song.category] = [];
-    }
+  categories.forEach(category => {
 
-    kategoriMap[song.category].push(song);
-  });
+    const laguKategori =
+      songs.filter(
+        song =>
+          song.category === category
+      );
 
-  Object.keys(kategoriMap).forEach(cat=>{
+    const box =
+      document.createElement("div");
 
-    const box = document.createElement('div');
+    box.className =
+      "kategori-box";
 
-    box.className = 'kategori-box';
+    box.innerHTML = `
 
-    let html = `
-      <div class="kategori-title">
-        ${cat}
+      <div class="kategori-header">
+
+        <span>${category}</span>
+
+        <span>▼</span>
+
       </div>
+
+      <div class="kategori-list">
+
+        ${laguKategori.map(song => {
+
+          const isAdded =
+            setlist.some(
+              s => s.id == song.id
+            );
+
+          return `
+
+            <div class="song-item">
+
+              <span>
+                ${song.title}
+              </span>
+
+              <button
+                class="add-btn"
+
+                onclick="
+                  addSetlist(
+                    '${song.title}',
+                    '${song.id}'
+                  )
+                "
+
+                ${isAdded ? "disabled" : ""}
+
+              >
+
+                ${isAdded ? "✓" : "+"}
+
+              </button>
+
+            </div>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
     `;
 
-    kategoriMap[cat].forEach(song=>{
+    // accordion
+    const header =
+      box.querySelector(
+        ".kategori-header"
+      );
 
-      html += `
-        <div class="song-item">
+    const list =
+      box.querySelector(
+        ".kategori-list"
+      );
 
-          <a
-            class="song-link"
-            href="song.html?id=${song.id}">
-            ${song.title}
-          </a>
+    header.onclick = () => {
 
-          <button
-            class="add-btn"
-            onclick="addSetlist(${song.id})">
-            +
-          </button>
+      list.classList.toggle(
+        "active"
+      );
 
-        </div>
-      `;
-    });
+    };
 
-    box.innerHTML = html;
+    container.appendChild(box);
 
-    wrap.appendChild(box);
   });
+
 }
 
-loadKategori();
+function renderPreviewSetlist(){
+
+  const preview =
+    document.getElementById(
+      "preview-list"
+    );
+
+  if(!preview) return;
+
+  preview.innerHTML = "";
+
+  setlist.forEach(song => {
+
+    preview.innerHTML += `
+
+      <div class="preview-item">
+
+        ${song.title}
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+async function initKategori(){
+
+  await loadSongs();
+
+  renderKategori();
+
+  renderPreviewSetlist();
+
+}
+
+initKategori();
