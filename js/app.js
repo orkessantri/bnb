@@ -453,9 +453,6 @@ function renderSong(content){
 
   container.innerHTML = html;
 
-}
-
-
 let songs = [];
 
 let setlist =
