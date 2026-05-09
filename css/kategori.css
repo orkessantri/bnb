@@ -150,12 +150,18 @@ body{
   display:grid;
   grid-template-columns:
     1fr 1fr;
-  gap:10px 80px;
+  gap:40px;
   max-width:700px;
   margin:20px auto;
   color:white;
   font-size:14px;
-  line-height:1.1;
+  line-height:1.2;
+}
+
+.preview-column{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
 .bottom-nav{
@@ -174,6 +180,29 @@ body{
   font-size:18px;
   font-weight:700;
   cursor:pointer;
+}
+
+.floating-buttons{
+  position:fixed;
+  right:16px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:999;
+}
+
+.floating-buttons button{
+  width:58px;
+  height:58px;
+  border:none;
+  border-radius:16px;
+  background:#111;
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.4);
 }
 
 @media(max-width:768px){
