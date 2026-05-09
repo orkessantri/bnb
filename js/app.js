@@ -454,3 +454,52 @@ function renderSong(content){
   container.innerHTML = html;
 
 }
+
+
+let songs = [];
+
+let setlist =
+  JSON.parse(
+    localStorage.getItem("setlist")
+  ) || [];
+
+async function loadSongs(){
+
+  const res =
+    await fetch(
+      "assets/songs.json"
+    );
+
+  songs = await res.json();
+
+}
+
+function saveSetlist(){
+
+  localStorage.setItem(
+    "setlist",
+    JSON.stringify(setlist)
+  );
+
+}
+
+function addSetlist(title,id){
+
+  const exists =
+    setlist.some(
+      s => s.id == id
+    );
+
+  if(exists) return;
+
+  setlist.push({
+    title,
+    id
+  });
+
+  saveSetlist();
+
+  renderKategori();
+  renderPreviewSetlist();
+
+}
