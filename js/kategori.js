@@ -135,11 +135,21 @@ function renderKategori(){
 
     header.onclick = () => {
 
-      list.classList.toggle(
-        "active"
-      );
+  document
+    .querySelectorAll(".kategori-list")
+    .forEach(el => {
 
-    };
+      if(el !== list){
+
+        el.classList.remove("active");
+
+      }
+
+    });
+
+  list.classList.toggle("active");
+
+};
 
     container.appendChild(box);
 
