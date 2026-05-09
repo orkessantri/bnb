@@ -127,10 +127,21 @@ body{
   cursor:pointer;
 }
 
+.song-link{
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:500;
+}
+
+.song-link:hover{
+  color:#ffd54f;
+}
+
 .preview-title{
   text-align:center;
-  margin-top:40px;
-  margin-bottom:20px;
+  margin-top:15px;
+  margin-bottom:15px;
   font-size:20px;
   font-weight:bold;
 }
@@ -144,7 +155,7 @@ body{
   margin:20px auto;
   color:white;
   font-size:22px;
-  line-height:1.8;
+  line-height:1.3;
 }
 
 .bottom-nav{
