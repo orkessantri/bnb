@@ -71,13 +71,24 @@ body{
   align-items:center;
   justify-content:center;
   position:relative;
-  font-weight:bold;
-  font-size:18px;
+  background:#f1f1f1;
+  border-radius:18px;
+  min-height:58px;
+  padding:0 20px;
+  font-size:24px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.kategori-header:hover{
+  transform:scale(1.01);
 }
 
 .kategori-header span:last-child{
   position:absolute;
   right:20px;
+  font-size:20px;
 }
 
 .kategori-list{
@@ -158,5 +169,12 @@ body{
   font-size:18px;
   font-weight:700;
   cursor:pointer;
+}
 
+@media(max-width:768px){
+  .kategori-header{
+    min-height:52px;
+    font-size:20px;
+    border-radius:14px;
+  }
 }
