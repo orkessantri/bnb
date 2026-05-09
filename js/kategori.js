@@ -156,36 +156,58 @@ function renderKategori(){
 
 function renderPreviewSetlist(){
 
-  const el =
+  const container =
     document.getElementById(
       "preview-setlist"
     );
 
-  if(!el) return;
+  if(!container) return;
 
-  if(setlist.length === 0){
+  const half =
+    Math.ceil(setlist.length / 2);
 
-    el.innerHTML =
-      "<p>Belum ada lagu</p>";
+  const left =
+    setlist.slice(0, half);
 
-    return;
+  const right =
+    setlist.slice(half);
 
-  }
+  let html = `
 
-  let html = "";
+    <div class="preview-column">
+  `;
 
-  setlist.forEach((song,i)=>{
+  left.forEach((song,i)=>{
 
     html += `
-  <div>
-    ${i+1}. ${song.title}
-  </div>
-`;
+      <div>
+        ${i+1}. ${song.title}
+      </div>
+    `;
 
   });
 
-  el.innerHTML = html;
+  html += `
+    </div>
 
+    <div class="preview-column">
+  `;
+
+  right.forEach((song,i)=>{
+
+    html += `
+      <div>
+        ${i+1+half}. ${song.title}
+      </div>
+    `;
+
+  });
+
+  html += `
+    </div>
+  `;
+
+  container.innerHTML = html;
 }
 
 async function initKategori(){
