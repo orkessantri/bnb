@@ -205,6 +205,11 @@ body{
     0 4px 10px rgba(0,0,0,.4);
 }
 
+.kategori-page{
+  flex:1;
+
+}
+
 @media(max-width:768px){
   .kategori-header{
     min-height:52px;
