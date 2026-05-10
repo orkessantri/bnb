@@ -2,28 +2,35 @@
   {
     "id": 1,
     "title": "Lagu 1",
-    "category": "ISLAMICS",
+    "category": "ISLAMIC",
     "content": "[C]Ini lirik lagu\n[G]Baris kedua"
   },
 
   {
   "id": 2,
   "title": "MAGADIR",
-  "category": "ARABICS",
+  "category": "ARABIC",
   "content": "[Intro]\nC A F G C A F G\n[Verse]\nG F G F G G G C\n[Pre Chorus]\nF G\n[Chorus]\nC G F G C A F G\n[Interlude]\nG F G F G\n[Outro]\nA G F G C"
 },
 
     {
     "id": 3,
     "title": "Lagu 3",
-    "category": "DUNGDATS",
+    "category": "DUNGDAT",
     "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
   },
 
   {
     "id": 4,
     "title": "Lagu 2",
-    "category": "INDO HITS",
+    "category": "INDO",
+    "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
+  },
+
+    {
+    "id": 5,
+    "title": "Lagu 4",
+    "category": "MANCA",
     "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
   }
 ]
