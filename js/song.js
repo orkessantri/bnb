@@ -21,6 +21,9 @@ async function loadSong(){
 
   const song =
     songs.find(s => s.id == songId);
+  
+  console.log(songId);
+console.log(song);
 
   if(!song){
 
