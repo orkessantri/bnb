@@ -17,15 +17,12 @@ rel="stylesheet">
   
   <meta charset="UTF-8">
 
-<head>
-  <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>ALL SONGS</title>
+  <title>Daftar Lagu</title>
 
   <link
     rel="stylesheet"
@@ -39,28 +36,32 @@ rel="stylesheet">
 
 </head>
 
-<body>
+<body class="dark-mode">
 
   <!-- HEADER -->
-  <header class="main-header">
+  <header class="top-header">
 
-    <img
-      src="assets/logo.png"
-      class="header-logo"
-    >
+    <div class="header-inner">
 
-    <div class="header-title">
-      BASS -not- BOSS
+      <img
+        src="assets/logo.png"
+        class="header-logo"
+      >
+
+      <div class="brand-title">
+        BASS -not- BOSS
+      </div>
+
     </div>
 
   </header>
 
   <!-- CONTENT -->
-  <main class="daftar-wrapper">
+  <div class="daftar-wrapper">
 
-    <h1 class="page-title">
+    <h2 class="page-title">
       DAFTAR LAGU
-    </h1>
+    </h2>
 
     <!-- SEARCH -->
     <input
@@ -75,27 +76,27 @@ rel="stylesheet">
     <!-- LIST -->
     <div id="daftar-container"></div>
 
-  </main>
+  </div>
 
   <!-- FLOAT BUTTON -->
   <div class="floating-buttons">
 
-   <button onclick="location.href='kategori.html'">
-      ☰
+    <button onclick="location.href='menu.html'">
+      🏠
+    </button>
+
+    <button onclick="history.back()">
+      «
     </button>
     
-    <button onclick="history.back()">
-      ←
-    </button>
-
   </div>
 
-  
-<footer class="bottom-footer">
-  Developed by Phyton Not 2026
-</footer>
-  
-      <script src="js/daftar.js"></script>
-  
+  <!-- FOOTER -->
+  <footer class="bottom-footer">
+    Developed by Phyton Not 2026
+  </footer>
+
+  <script src="js/daftar.js"></script>
+
 </body>
 </html>
