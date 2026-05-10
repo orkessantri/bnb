@@ -8,17 +8,12 @@
 .setlist-item{
   background:#111;
   color:#fff;
-
   border-radius:18px;
-
   padding:18px 20px;
-
   margin-bottom:14px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:12px;
 }
 
