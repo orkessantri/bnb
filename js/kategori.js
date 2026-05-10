@@ -43,6 +43,16 @@ function addSetlist(title,id){
 
 }
 
+function removeSetlist(id){
+  setlist =
+    setlist.filter(
+      song => song.id != id
+    );
+
+  saveSetlist();
+  renderPreviewSetlist();
+}
+
 function renderKategori(){
 
   const container =
@@ -212,9 +222,20 @@ function renderPreviewSetlist(){
   left.forEach((song,i)=>{
 
     html += `
-      <div>
-        ${i+1}. ${song.title}
-      </div>
+<div class="preview-song">
+
+  <span>
+    ${i+1}. ${song.title}
+  </span>
+
+  <button
+    class="remove-btn"
+    onclick="removeSetlist(${song.id})"
+  >
+    −
+  </button>
+
+</div>
     `;
 
   });
@@ -228,9 +249,20 @@ function renderPreviewSetlist(){
   right.forEach((song,i)=>{
 
     html += `
-      <div>
-        ${i+1+half}. ${song.title}
-      </div>
+<div class="preview-song">
+
+  <span>
+    ${i+1+half}. ${song.title}
+  </span>
+
+  <button
+    class="remove-btn"
+    onclick="removeSetlist(${song.id})"
+  >
+    −
+  </button>
+
+</div>
     `;
 
   });
@@ -253,3 +285,10 @@ async function initKategori(){
 }
 
 initKategori();
+
+function goToSetlist(){
+
+  window.location.href =
+    "setlist.html";
+
+}
