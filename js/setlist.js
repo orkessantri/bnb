@@ -21,55 +21,32 @@ function renderSetlist(){
 
   if(!container) return;
 
-  if(setlist.length === 0){
-
-    container.innerHTML = `
-      <div style="
-        text-align:center;
-        opacity:.7;
-      ">
-        Setlist kosong
-      </div>
-    `;
-
-    return;
-  }
-
   let html = "";
 
-  setlist.forEach((song,index)=>{
+  setlist.forEach((song,i)=>{
 
-html += `
-  <div class="setlist-item">
+    html += `
 
-    <div
-      class="song-title"
-      onclick="openSong(${song.id})"
-    >
-      ${i+1}. ${song.title}
-    </div>
+      <div class="setlist-item">
 
-    <div class="setlist-actions">
-`
+        <div
+          class="setlist-song"
+          onclick="openSong(${song.id})"
+        >
+          ${i + 1}. ${song.title}
+        </div>
 
-          <button
-            class="action-btn"
-            onclick="moveUp(${index})"
-          >
+        <div class="setlist-actions">
+
+          <button onclick="moveUp(${i})">
             ↑
           </button>
 
-          <button
-            class="action-btn"
-            onclick="moveDown(${index})"
-          >
+          <button onclick="moveDown(${i})">
             ↓
           </button>
 
-          <button
-            class="action-btn"
-            onclick="removeSong(${song.id})"
-          >
+          <button onclick="removeSong(${song.id})">
             ×
           </button>
 
