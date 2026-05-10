@@ -1,33 +1,85 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Setlist</title>
+<html lang="en">
 
-  <link rel="stylesheet" href="assets/style.css">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Setlist
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/global.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/setlist.css"
+  >
+
 </head>
 
-<body class="page-setlist">
+<body>
 
-  <div class="header">
-    LIVE SETLIST
-  </div>
+  <!-- HEADER -->
+  <header class="topbar">
 
-  <div class="setlist-container">
+    <div class="brand">
 
-    <div id="setlist"></div>
+      <img
+        src="assets/logo.png"
+        class="brand-logo"
+      >
 
-  </div>
+      <span class="brand-title">
+        Bass -not- ssoB
+      </span>
 
-  <div class="bottom-nav">
-    <a href="kategori.html" class="nav-btn">← Kategori</a>
-    <button onclick="clearSetlist()" class="nav-btn danger">
-      Clear
+    </div>
+
+  </header>
+
+
+  <!-- CONTENT -->
+  <main class="setlist-page">
+
+    <h1 class="page-title">
+      SETLIST
+    </h1>
+
+    <div id="setlist-container">
+
+    </div>
+
+  </main>
+
+
+  <!-- FLOAT BUTTON -->
+  <div class="floating-buttons">
+
+    <button onclick="history.back()">
+      ←
     </button>
+
   </div>
 
-  <script src="assets/app.js"></script>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    Developed by Phyton Not 2026
+
+  </footer>
+
+
+  <script src="js/setlist.js"></script>
 
 </body>
 </html>
