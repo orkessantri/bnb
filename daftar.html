@@ -17,64 +17,79 @@ rel="stylesheet">
   
   <meta charset="UTF-8">
 
+<head>
+  <meta charset="UTF-8">
+
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>Setlist</title>
+  <title>ALL SONGS</title>
 
   <link
     rel="stylesheet"
-    href="css/global.css">
+    href="css/global.css"
+  >
 
   <link
-  rel="stylesheet"
-  href="css/daftar.css">
-  
+    rel="stylesheet"
+    href="css/daftar.css"
+  >
+
 </head>
 
-<body class="dark-mode">
+<body>
 
   <!-- HEADER -->
-  <header class="top-header">
-
-  <div class="header-inner">
+  <header class="main-header">
 
     <img
       src="assets/logo.png"
       class="header-logo"
     >
 
-    <div class="brand-title">
+    <div class="header-title">
       BASS -not- BOSS
     </div>
 
-  </div>
-
-</header>
+  </header>
 
   <!-- CONTENT -->
-<div class="setlist-wrapper">
+  <main class="daftar-wrapper">
 
-  <h2 class="setlist-title">
-    ALL SONGS
-  </h2>
+    <h1 class="page-title">
+      DAFTAR LAGU
+    </h1>
 
-  <div id="setlist-container"></div>
+    <!-- SEARCH -->
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Cari lagu..."
+    >
 
-</div>
+    <!-- FILTER -->
+    <div id="kategori-filter"></div>
 
+    <!-- LIST -->
+    <div id="daftar-container"></div>
+
+  </main>
+
+  <!-- FLOAT BUTTON -->
   <div class="floating-buttons">
 
-      <button onclick="clearSetlist()">
-    x
-  </button>
+   <button onclick="location.href='kategori.html'">
+      ☰
+    </button>
     
-  <button onclick="history.back()">
-    «
-  </button>
+    <button onclick="history.back()">
+      ←
+    </button>
 
-</div>
+  </div>
+
   
 <footer class="bottom-footer">
   Developed by Phyton Not 2026
