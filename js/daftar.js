@@ -104,29 +104,18 @@ function renderSongs(){
 
   filtered.forEach((song,i)=>{
 
-    html += `
-      <div
-        class="song-item"
+html += `
+  <div
+    class="song-item"
+    onclick="openSong(${song.id})"
+  >
 
-        onclick="
-          openSong(${song.id})
-        "
-      >
+    <div class="song-name">
+      ${index + 1}. ${song.title}
+    </div>
 
-        <div>
-
-          <div class="song-name">
-            ${i+1}. ${song.title}
-          </div>
-
-          <div class="song-category">
-            ${song.category}
-          </div>
-
-        </div>
-
-      </div>
-    `;
+  </div>
+`;
 
   });
 
