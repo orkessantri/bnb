@@ -6,6 +6,14 @@ const chords = [
 ];
 
 /* LOAD SONG */
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const songId =
+  params.get("id");
+
 async function loadSong(){
 
   const params =
@@ -20,7 +28,7 @@ async function loadSong(){
     await res.json();
 
   const song =
-    songs.find(s => s.id == id);
+    songs.find(s => s.id == songId);
   
   console.log(songId);
 console.log(song);
