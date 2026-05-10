@@ -12,10 +12,107 @@ function saveSetlist(){
 
 }
 
-function openSong(id){
+function renderSetlist(){
 
-  window.location.href =
-    `song.html?id=${id}`;
+  const container =
+    document.getElementById(
+      "setlist-container"
+    );
+
+  if(!container) return;
+
+  if(setlist.length === 0){
+
+    container.innerHTML = `
+      <div style="
+        text-align:center;
+        opacity:.7;
+        padding:40px;
+      ">
+        Setlist masih kosong
+      </div>
+    `;
+
+    return;
+  }
+
+  let html = "";
+
+  setlist.forEach((song,index)=>{
+
+    html += `
+      <div class="setlist-item">
+
+        <div class="song-name">
+          ${index + 1}. ${song.title}
+        </div>
+
+        <div class="song-actions">
+
+          <button
+            class="song-btn"
+            onclick="moveUp(${index})"
+          >
+            ↑
+          </button>
+
+          <button
+            class="song-btn"
+            onclick="moveDown(${index})"
+          >
+            ↓
+          </button>
+
+          <button
+            class="song-btn"
+            onclick="removeSong(${song.id})"
+          >
+            ×
+          </button>
+
+        </div>
+
+      </div>
+    `;
+
+  });
+
+  container.innerHTML = html;
+
+}
+
+function moveUp(index){
+
+  if(index === 0) return;
+
+  [
+    setlist[index - 1],
+    setlist[index]
+  ] = [
+    setlist[index],
+    setlist[index - 1]
+  ];
+
+  saveSetlist();
+  renderSetlist();
+
+}
+
+function moveDown(index){
+
+  if(index >= setlist.length - 1)
+    return;
+
+  [
+    setlist[index + 1],
+    setlist[index]
+  ] = [
+    setlist[index],
+    setlist[index + 1]
+  ];
+
+  saveSetlist();
+  renderSetlist();
 
 }
 
@@ -27,109 +124,7 @@ function removeSong(id){
     );
 
   saveSetlist();
-
   renderSetlist();
-
-}
-
-function moveUp(index){
-
-  if(index <= 0) return;
-
-  [
-    setlist[index],
-    setlist[index - 1]
-  ] = [
-    setlist[index - 1],
-    setlist[index]
-  ];
-
-  saveSetlist();
-
-  renderSetlist();
-
-}
-
-function moveDown(index){
-
-  if(index >= setlist.length - 1)
-    return;
-
-  [
-    setlist[index],
-    setlist[index + 1]
-  ] = [
-    setlist[index + 1],
-    setlist[index]
-  ];
-
-  saveSetlist();
-
-  renderSetlist();
-
-}
-
-function renderSetlist(){
-
-  const container =
-    document.getElementById(
-      "setlist-container"
-    );
-
-  if(!container) return;
-
-  let html = "";
-
-  setlist.forEach((song,index)=>{
-
-    html += `
-
-      <div class="setlist-item">
-
-        <div
-          class="song-info"
-          onclick="openSong(${song.id})"
-        >
-
-          <span class="song-number">
-            ${index + 1}.
-          </span>
-
-          <span class="song-title">
-            ${song.title}
-          </span>
-
-        </div>
-
-        <div class="song-actions">
-
-          <button
-            onclick="moveUp(${index})"
-          >
-            ↑
-          </button>
-
-          <button
-            onclick="moveDown(${index})"
-          >
-            ↓
-          </button>
-
-          <button
-            onclick="removeSong(${song.id})"
-          >
-            ×
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
-
-  container.innerHTML = html;
 
 }
 
