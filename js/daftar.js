@@ -117,14 +117,13 @@ function renderSongs(){
 
   /* AUTO COLORS */
   const autoColors = [
-    "#22c55e",
-    "#f97316",
+    "#03fce1",
+    "#f98816",
     "#3b82f6",
     "#eab308",
-    "#ec4899",
+    "#ff368d",
     "#a855f7",
-    "#14b8a6",
-    "#ef4444"
+    "#e60505"
   ];
 
   let html = "";
