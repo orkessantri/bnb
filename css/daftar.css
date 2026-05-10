@@ -17,7 +17,7 @@
 /* SEARCH */
 #search-input{
   width:100%;
-  padding:14px 16px;
+  padding:10px 16px;
   border:none;
   border-radius:14px;
   font-size:16px;
@@ -59,7 +59,7 @@
 .song-item{
   background:white;
   border-radius:14px;
-  padding:6px 12px;
+  padding:6px 16px;
   cursor:pointer;
   transition:.2s;
 }
@@ -116,7 +116,7 @@
 .song-item{
   background:white;
   border-radius:14px;
-  padding:10px 12px;
+  padding:10px 16px;
   display:flex;
   align-items:center;
   gap:10px;
