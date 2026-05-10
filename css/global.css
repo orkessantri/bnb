@@ -60,13 +60,18 @@ body.dark-mode{
    PAGE WRAPPER
 ===================== */
 .page-wrapper{
-  padding:8px;
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  padding:10px 16px 100px;
+  flex:1;
 }
 
 .page-title{
   text-align:center;
   font-size:26px;
-  margin-bottom:8px;
+  margin-top:10px;
+  margin-bottom:24px;
 }
 
 body.dark-mode .page-title{
