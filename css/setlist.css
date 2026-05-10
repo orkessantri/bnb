@@ -2,15 +2,15 @@
   width:100%;
   max-width:900px;
   margin:auto;
-  padding:4px 16x 16px;
+  padding:0px 16x 16px;
 }
 
 .setlist-title{
   text-align:center;
-  font-size:24px;
-  font-weight:700;
-  margin-bottom:14px;
-  color:white;
+  font-size:44px;
+  font-weight:800;
+  margin-top:6px;
+  margin-bottom:18px;
 }
 
 /* LIST */
@@ -36,6 +36,8 @@
   color:black;
   font-size:22px;
   font-weight:700;
+  cursor:pointer;
+  flex:1;
 }
 
 /* BUTTON AREA */
