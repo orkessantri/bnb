@@ -181,8 +181,6 @@ function renderKategori(){
         "active"
       );
 
-    };
-
     container.appendChild(box);
 
   });
