@@ -5,14 +5,21 @@ let activeCategory = "ALL";
 async function loadSongs(){
 
   const res =
-    await fetch(
-      "assets/songs.json"
-    );
+    await fetch("assets/songs.json");
 
   songs = await res.json();
 
 }
 
+/* OPEN SONG */
+function openSong(id){
+
+  window.location.href =
+    `song.html?id=${id}`;
+
+}
+
+/* RENDER FILTER */
 function renderFilter(){
 
   const container =
@@ -20,33 +27,34 @@ function renderFilter(){
       "kategori-filter"
     );
 
+  if(!container) return;
+
   const kategori =
     [
       "ALL",
       ...new Set(
-        songs.map(
-          s => s.category
-        )
+        songs.map(s => s.category)
       )
     ];
 
   let html = "";
 
-  kategori.forEach(cat => {
+  kategori.forEach(kat => {
 
     html += `
+
       <button
         class="
           filter-btn
-          ${activeCategory === cat ? "active" : ""}
+          ${activeCategory === kat ? "active" : ""}
         "
-
         onclick="
-          setCategory('${cat}')
+          setCategory('${kat}')
         "
       >
-        ${cat}
+        ${kat}
       </button>
+
     `;
 
   });
@@ -55,9 +63,10 @@ function renderFilter(){
 
 }
 
-function setCategory(cat){
+/* CHANGE CATEGORY */
+function setCategory(kategori){
 
-  activeCategory = cat;
+  activeCategory = kategori;
 
   renderFilter();
 
@@ -65,6 +74,7 @@ function setCategory(cat){
 
 }
 
+/* RENDER SONGS */
 function renderSongs(){
 
   const container =
@@ -76,7 +86,7 @@ function renderSongs(){
 
   let filtered = songs;
 
-  // SEARCH
+  /* SEARCH */
   const keyword =
     document
       .getElementById("search-input")
@@ -94,7 +104,7 @@ function renderSongs(){
 
   }
 
-  // CATEGORY
+  /* FILTER CATEGORY */
   if(activeCategory !== "ALL"){
 
     filtered =
@@ -105,21 +115,21 @@ function renderSongs(){
 
   }
 
-  // HTML HARUS ADA
+  /* AUTO COLORS */
+  const autoColors = [
+    "#22c55e",
+    "#f97316",
+    "#3b82f6",
+    "#eab308",
+    "#ec4899",
+    "#a855f7",
+    "#14b8a6",
+    "#ef4444"
+  ];
+
   let html = "";
 
   filtered.forEach((song,index)=>{
-
-    const autoColors = [
-      "#22c55e",
-      "#f97316",
-      "#3b82f6",
-      "#eab308",
-      "#ec4899",
-      "#a855f7",
-      "#14b8a6",
-      "#ef4444"
-    ];
 
     const kategoriIndex =
       [...new Set(
@@ -159,16 +169,7 @@ function renderSongs(){
 
 }
 
-  container.innerHTML = html;
-
-}
-function openSong(id){
-
-  window.location.href =
-    `song.html?id=${id}`;
-
-}
-
+/* INIT */
 async function initDaftar(){
 
   await loadSongs();
@@ -187,3 +188,4 @@ async function initDaftar(){
 }
 
 initDaftar();
+
