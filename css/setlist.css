@@ -1,46 +1,51 @@
-#setlist-container{
+.setlist-wrapper{
   width:100%;
   max-width:900px;
   margin:auto;
-  padding:12px;
+  padding:20px;
+}
+
+.setlist-title{
+  text-align:center;
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+#setlist-container{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
 }
 
 .setlist-item{
   background:#111;
-  color:#fff;
   border-radius:18px;
   padding:18px 20px;
-  margin-bottom:14px;
+
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:12px;
+  align-items:center;
 }
 
-.song-name{
-  font-size:20px;
-  font-weight:bold;
+.song-title{
+  color:white;
+  font-size:24px;
+  font-weight:700;
 }
 
-.song-actions{
+.setlist-actions{
   display:flex;
-  gap:8px;
+  gap:10px;
 }
 
-.song-btn{
+.action-btn{
   width:42px;
   height:42px;
-
   border:none;
   border-radius:12px;
-
-  background:#1d1d1d;
-  color:#fff;
-
+  background:#1f1f1f;
+  color:white;
   font-size:18px;
   cursor:pointer;
-}
-
-.song-btn:hover{
-  opacity:.8;
 }
