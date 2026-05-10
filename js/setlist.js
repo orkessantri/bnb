@@ -27,9 +27,8 @@ function renderSetlist(){
       <div style="
         text-align:center;
         opacity:.7;
-        padding:40px;
       ">
-        Setlist masih kosong
+        Setlist kosong
       </div>
     `;
 
@@ -41,30 +40,31 @@ function renderSetlist(){
   setlist.forEach((song,index)=>{
 
     html += `
+    
       <div class="setlist-item">
 
-        <div class="song-name">
-          ${index + 1}. ${song.title}
+        <div class="song-title">
+          ${index+1}. ${song.title}
         </div>
 
-        <div class="song-actions">
+        <div class="setlist-actions">
 
           <button
-            class="song-btn"
+            class="action-btn"
             onclick="moveUp(${index})"
           >
             ↑
           </button>
 
           <button
-            class="song-btn"
+            class="action-btn"
             onclick="moveDown(${index})"
           >
             ↓
           </button>
 
           <button
-            class="song-btn"
+            class="action-btn"
             onclick="removeSong(${song.id})"
           >
             ×
@@ -73,46 +73,12 @@ function renderSetlist(){
         </div>
 
       </div>
+
     `;
 
   });
 
   container.innerHTML = html;
-
-}
-
-function moveUp(index){
-
-  if(index === 0) return;
-
-  [
-    setlist[index - 1],
-    setlist[index]
-  ] = [
-    setlist[index],
-    setlist[index - 1]
-  ];
-
-  saveSetlist();
-  renderSetlist();
-
-}
-
-function moveDown(index){
-
-  if(index >= setlist.length - 1)
-    return;
-
-  [
-    setlist[index + 1],
-    setlist[index]
-  ] = [
-    setlist[index],
-    setlist[index + 1]
-  ];
-
-  saveSetlist();
-  renderSetlist();
 
 }
 
@@ -122,6 +88,41 @@ function removeSong(id){
     setlist.filter(
       song => song.id != id
     );
+
+  saveSetlist();
+  renderSetlist();
+
+}
+
+function moveUp(index){
+
+  if(index === 0) return;
+
+  [
+    setlist[index-1],
+    setlist[index]
+  ] = [
+    setlist[index],
+    setlist[index-1]
+  ];
+
+  saveSetlist();
+  renderSetlist();
+
+}
+
+function moveDown(index){
+
+  if(index === setlist.length-1)
+    return;
+
+  [
+    setlist[index+1],
+    setlist[index]
+  ] = [
+    setlist[index],
+    setlist[index+1]
+  ];
 
   saveSetlist();
   renderSetlist();
