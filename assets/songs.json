@@ -2,28 +2,28 @@
   {
     "id": 1,
     "title": "Lagu 1",
-    "category": "Sholawat",
+    "category": "ISLAMICS",
     "content": "[C]Ini lirik lagu\n[G]Baris kedua"
   },
 
   {
   "id": 2,
   "title": "MAGADIR",
-  "category": "Gambuz",
+  "category": "ARABICS",
   "content": "[Intro]\nC A F G C A F G\n[Verse]\nG F G F G G G C\n[Pre Chorus]\nF G\n[Chorus]\nC G F G C A F G\n[Interlude]\nG F G F G\n[Outro]\nA G F G C"
 },
 
     {
     "id": 3,
     "title": "Lagu 3",
-    "category": "Dungdats",
+    "category": "DUNGDATS",
     "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
   },
 
   {
     "id": 4,
     "title": "Lagu 2",
-    "category": "Pops",
+    "category": "INDO HITS",
     "content": "[Am]Contoh lagu\n[F]Baris berikutnya"
   }
 ]
