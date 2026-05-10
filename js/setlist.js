@@ -39,15 +39,18 @@ function renderSetlist(){
 
   setlist.forEach((song,index)=>{
 
-    html += `
-    
-      <div class="setlist-item">
+html += `
+  <div class="setlist-item">
 
-        <div class="song-title">
-          ${index+1}. ${song.title}
-        </div>
+    <div
+      class="song-title"
+      onclick="openSong(${song.id})"
+    >
+      ${i+1}. ${song.title}
+    </div>
 
-        <div class="setlist-actions">
+    <div class="setlist-actions">
+`
 
           <button
             class="action-btn"
@@ -138,5 +141,12 @@ function clearSetlist(){
   saveSetlist();
 
   renderSetlist();
+
+}
+
+function openSong(id){
+
+  window.location.href =
+    `song.html?id=${id}`;
 
 }
