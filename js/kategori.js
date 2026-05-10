@@ -75,46 +75,42 @@ function renderKategori(){
 
       <div class="kategori-header">
 
-        <span>${kategori}</span>
+        <span>
+          ${kategori}
+        </span>
 
-        <span>▼</span>
+        <span class="arrow">
+          ▼
+        </span>
 
       </div>
 
       <div class="kategori-list">
 
-        ${laguKategori.map(song => {
+        ${laguKategori.map(song => `
 
-          const isAdded =
-            setlist.some(
-              s => s.id == song.id
-            );
+          <div class="song-item">
 
-          return `
+            <span
+              class="song-title"
+              onclick="openSong(${song.id})"
+            >
+              ${song.title}
+            </span>
 
-            html += `
-  <div class="song-item">
+            <button
+              class="add-btn"
+              onclick="addSetlist(
+                '${song.title}',
+                ${song.id}
+              )"
+            >
+              +
+            </button>
 
-    <a
-      href="song.html?id=${song.id}"
-      class="song-link"
-    >
-      ${song.title}
-    </a>
+          </div>
 
-    <button
-      onclick="addSetlist(
-        '${song.title}',
-        ${song.id}
-      )"
-    >
-      +
-    </button>
-
-  </div>
-`;
-
-        }).join("")}
+        `).join("")}
 
       </div>
 
@@ -132,25 +128,36 @@ function renderKategori(){
 
     header.onclick = () => {
 
-  document
-    .querySelectorAll(".kategori-list")
-    .forEach(el => {
+      document
+        .querySelectorAll(".kategori-list")
+        .forEach(el => {
 
-      if(el !== list){
+          if(el !== list){
 
-        el.classList.remove("active");
+            el.classList.remove(
+              "active"
+            );
 
-      }
+          }
 
-    });
+        });
 
-  list.classList.toggle("active");
+      list.classList.toggle(
+        "active"
+      );
 
-};
+    };
 
     container.appendChild(box);
 
   });
+
+}
+
+function openSong(id){
+
+  window.location.href =
+    `song.html?id=${id}`;
 
 }
 
