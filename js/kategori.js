@@ -1,5 +1,7 @@
 let songs = [];
 
+let activeKategori = null;
+
 let setlist =
   JSON.parse(
     localStorage.getItem("setlist")
@@ -36,8 +38,7 @@ function addSetlist(title,id){
   });
 
   saveSetlist();
-
-  renderKategori();
+  
   renderPreviewSetlist();
 
 }
@@ -126,22 +127,46 @@ function renderKategori(){
         ".kategori-list"
       );
 
-    header.onclick = () => {
+    if(activeKategori === kategori){
 
-      document
-        .querySelectorAll(".kategori-list")
-        .forEach(el => {
+  list.classList.add("active");
 
-          if(el !== list){
+}
+    
+   header.onclick = () => {
 
-            el.classList.remove(
-              "active"
-            );
+  const isActive =
+    list.classList.contains(
+      "active"
+    );
 
-          }
+  document
+    .querySelectorAll(".kategori-list")
+    .forEach(el => {
 
-        });
+      el.classList.remove(
+        "active"
+      );
 
+    });
+
+  if(!isActive){
+
+    list.classList.add(
+      "active"
+    );
+
+    activeKategori =
+      kategori;
+
+  }else{
+
+    activeKategori = null;
+
+  }
+
+};
+    
       list.classList.toggle(
         "active"
       );
