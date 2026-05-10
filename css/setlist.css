@@ -1,0 +1,57 @@
+.setlist-page{
+
+  flex:1;
+
+  padding:
+    20px
+    20px
+    100px;
+
+}
+
+.page-title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:24px;
+}
+
+#setlist-container{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.setlist-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#111;
+  border:1px solid #333;
+  border-radius:16px;
+  padding:14px;
+}
+
+.song-info{
+  display:flex;
+  gap:10px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.song-actions{
+  display:flex;
+  gap:8px;
+
+}
+
+.song-actions button{
+  width:36px;
+  height:36px;
+  border:none;
+  border-radius:10px;
+  background:#222;
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+
+}
