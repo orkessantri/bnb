@@ -199,7 +199,7 @@ body{
 .floating-buttons{
   position:fixed;
   right:16px;
-  bottom:20px;
+  bottom:30px;
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -207,13 +207,13 @@ body{
 }
 
 .floating-buttons button{
-  width:58px;
-  height:58px;
+  width:56px;
+  height:56px;
   border:none;
   border-radius:16px;
-  background:#111;
+  background:#1f1f1f;
   color:white;
-  font-size:24px;
+  font-size:22px;
   cursor:pointer;
   box-shadow:
     0 4px 10px rgba(0,0,0,.4);
