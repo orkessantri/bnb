@@ -137,52 +137,53 @@ function renderKategori(){
         ".kategori-list"
       );
 
-if(
-  activeKategori &&
-  activeKategori === kategori
-){
+    // restore active category
+    if(
+      activeKategori &&
+      activeKategori === kategori
+    ){
 
-  list.classList.add("active");
-
-}
-    
-   header.onclick = () => {
-
-  const isActive =
-    list.classList.contains(
-      "active"
-    );
-
-  document
-    .querySelectorAll(".kategori-list")
-    .forEach(el => {
-
-      el.classList.remove(
+      list.classList.add(
         "active"
       );
 
-    });
+    }
 
-  if(!isActive){
+    header.onclick = () => {
 
-    list.classList.add(
-      "active"
-    );
+      const isActive =
+        list.classList.contains(
+          "active"
+        );
 
-    activeKategori =
-      kategori;
+      document
+        .querySelectorAll(
+          ".kategori-list"
+        )
+        .forEach(el => {
 
-  }else{
+          el.classList.remove(
+            "active"
+          );
 
-    activeKategori = null;
+        });
 
-  }
+      if(!isActive){
 
-};
-    
-      list.classList.toggle(
-        "active"
-      );
+        list.classList.add(
+          "active"
+        );
+
+        activeKategori =
+          kategori;
+
+      }else{
+
+        activeKategori = null;
+
+      }
+
+    };
 
     container.appendChild(box);
 
