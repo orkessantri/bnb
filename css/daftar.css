@@ -29,13 +29,13 @@
 #kategori-filter{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:5px;
   margin-bottom:10px;
 }
 
 .filter-btn{
   border:none;
-  padding:10px 10px;
+  padding:5px 5px;
   border-radius:12px;
   background:#1f1f1f;
   color:white;
@@ -44,7 +44,7 @@
 }
 
 .filter-btn.active{
-  background:white;
+  background:#ff6600;
   color:black;
 }
 
