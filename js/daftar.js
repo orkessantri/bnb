@@ -106,57 +106,52 @@ function renderSongs(){
   }
 
   // COLOR CATEGORY
- const autoColors = [
-  "#22c55e",
-  "#f97316",
-  "#3b82f6",
-  "#eab308",
-  "#ec4899",
-  "#a855f7",
-  "#14b8a6",
-  "#ef4444"
-];
+filtered.forEach((song,index)=>{
 
-const kategoriIndex =
-  [...new Set(
-    songs.map(s => s.category)
-  )].indexOf(song.category);
-
-const color =
-  autoColors[
-    kategoriIndex % autoColors.length
+  const autoColors = [
+    "#22c55e",
+    "#f97316",
+    "#3b82f6",
+    "#eab308",
+    "#ec4899",
+    "#a855f7",
+    "#14b8a6",
+    "#ef4444"
   ];
 
-  let html = "";
+  const kategoriIndex =
+    [...new Set(
+      songs.map(s => s.category)
+    )].indexOf(song.category);
 
-  filtered.forEach((song,index)=>{
+  const color =
+    autoColors[
+      kategoriIndex % autoColors.length
+    ];
 
-    const color =
-      colors[song.category] || "#ffffff";
+  html += `
 
-    html += `
+    <div
+      class="song-item"
+      onclick="openSong(${song.id})"
+    >
 
       <div
-        class="song-item"
-        onclick="openSong(${song.id})"
-      >
+        class="song-strip"
+        style="
+          background:${color};
+        "
+      ></div>
 
-        <div
-          class="song-strip"
-          style="
-            background:${color};
-          "
-        ></div>
-
-        <div class="song-name">
-          ${index + 1}. ${song.title}
-        </div>
-
+      <div class="song-name">
+        ${index + 1}. ${song.title}
       </div>
 
-    `;
+    </div>
 
-  });
+  `;
+
+});
 
   container.innerHTML = html;
 
