@@ -106,14 +106,26 @@ function renderSongs(){
   }
 
   // COLOR CATEGORY
-  const colors = {
+ const autoColors = [
+  "#22c55e",
+  "#f97316",
+  "#3b82f6",
+  "#eab308",
+  "#ec4899",
+  "#a855f7",
+  "#14b8a6",
+  "#ef4444"
+];
 
-    "ISLAMICS":"#22c55e",
-    "ARABICS":"#f97316",
-    "DUNGDATS":"#3b82f6",
-    "INDO HITS":"#eab308",
+const kategoriIndex =
+  [...new Set(
+    songs.map(s => s.category)
+  )].indexOf(song.category);
 
-  };
+const color =
+  autoColors[
+    kategoriIndex % autoColors.length
+  ];
 
   let html = "";
 
