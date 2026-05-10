@@ -14,7 +14,7 @@ async function loadSong(){
   const id = params.get('id');
 
   const res =
-    await fetch('songs.json');
+    await fetch("assets/songs.json");
 
   const songs =
     await res.json();
