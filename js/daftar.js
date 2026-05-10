@@ -76,7 +76,7 @@ function renderSongs(){
 
   let filtered = songs;
 
-  // FILTER SEARCH
+  // SEARCH
   const keyword =
     document
       .getElementById("search-input")
@@ -94,7 +94,7 @@ function renderSongs(){
 
   }
 
-  // FILTER CATEGORY
+  // CATEGORY
   if(activeCategory !== "ALL"){
 
     filtered =
@@ -105,53 +105,59 @@ function renderSongs(){
 
   }
 
-  // COLOR CATEGORY
-filtered.forEach((song,index)=>{
+  // HTML HARUS ADA
+  let html = "";
 
-  const autoColors = [
-    "#22c55e",
-    "#f97316",
-    "#3b82f6",
-    "#eab308",
-    "#ec4899",
-    "#a855f7",
-    "#14b8a6",
-    "#ef4444"
-  ];
+  filtered.forEach((song,index)=>{
 
-  const kategoriIndex =
-    [...new Set(
-      songs.map(s => s.category)
-    )].indexOf(song.category);
-
-  const color =
-    autoColors[
-      kategoriIndex % autoColors.length
+    const autoColors = [
+      "#22c55e",
+      "#f97316",
+      "#3b82f6",
+      "#eab308",
+      "#ec4899",
+      "#a855f7",
+      "#14b8a6",
+      "#ef4444"
     ];
 
-  html += `
+    const kategoriIndex =
+      [...new Set(
+        songs.map(s => s.category)
+      )].indexOf(song.category);
 
-    <div
-      class="song-item"
-      onclick="openSong(${song.id})"
-    >
+    const color =
+      autoColors[
+        kategoriIndex % autoColors.length
+      ];
+
+    html += `
 
       <div
-        class="song-strip"
-        style="
-          background:${color};
-        "
-      ></div>
+        class="song-item"
+        onclick="openSong(${song.id})"
+      >
 
-      <div class="song-name">
-        ${index + 1}. ${song.title}
+        <div
+          class="song-strip"
+          style="
+            background:${color};
+          "
+        ></div>
+
+        <div class="song-name">
+          ${index + 1}. ${song.title}
+        </div>
+
       </div>
 
-    </div>
+    `;
 
-  `;
+  });
 
-});
+  container.innerHTML = html;
+
+}
 
   container.innerHTML = html;
 
