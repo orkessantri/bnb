@@ -20,7 +20,7 @@ async function loadSong(){
     await res.json();
 
   const song =
-    songs.find(s => s.id == id);
+    songs.find(s => s.id == songId);
 
   if(!song){
 
