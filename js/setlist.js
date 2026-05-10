@@ -130,3 +130,13 @@ function moveDown(index){
 }
 
 renderSetlist();
+
+function clearSetlist(){
+
+  setlist = [];
+
+  saveSetlist();
+
+  renderSetlist();
+
+}
