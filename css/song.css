@@ -94,7 +94,7 @@
 .floating-tools{
   position:fixed;
   right:10px;
-  bottom:14px;
+  bottom:30px;
   display:flex;
   flex-direction:column-reverse;
   gap:6px;
