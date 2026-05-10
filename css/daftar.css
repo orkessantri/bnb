@@ -1,0 +1,95 @@
+.daftar-wrapper{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  padding:
+    10px
+    16px
+    100px;
+}
+
+/* TITLE */
+.page-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+/* SEARCH */
+#search-input{
+  width:100%;
+  padding:14px 16px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  margin-bottom:18px;
+  outline:none;
+}
+
+/* FILTER */
+#kategori-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.filter-btn{
+  border:none;
+  padding:10px 16px;
+  border-radius:12px;
+  background:#1f1f1f;
+  color:white;
+  cursor:pointer;
+}
+
+.filter-btn.active{
+  background:white;
+  color:black;
+}
+
+/* LIST */
+#daftar-container{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* ITEM */
+.song-item{
+  background:white;
+  border-radius:16px;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.song-item:hover{
+  transform:scale(1.01);
+}
+
+/* TITLE */
+.song-name{
+  color:black;
+  font-size:20px;
+  font-weight:700;
+}
+
+/* CATEGORY */
+.song-category{
+  color:#666;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .song-name{
+    font-size:18px;
+  }
+
+}
