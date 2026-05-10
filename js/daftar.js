@@ -72,57 +72,83 @@ function renderSongs(){
       "daftar-container"
     );
 
+  if(!container) return;
+
+  let filtered = songs;
+
+  // FILTER SEARCH
   const keyword =
     document
       .getElementById("search-input")
       .value
       .toLowerCase();
 
-  let filtered = songs;
+  if(keyword){
+
+    filtered =
+      filtered.filter(song =>
+        song.title
+          .toLowerCase()
+          .includes(keyword)
+      );
+
+  }
 
   // FILTER CATEGORY
   if(activeCategory !== "ALL"){
 
     filtered =
       filtered.filter(
-        s =>
-          s.category === activeCategory
+        song =>
+          song.category === activeCategory
       );
 
   }
 
-  // SEARCH
-  filtered =
-    filtered.filter(
-      s =>
-        s.title
-          .toLowerCase()
-          .includes(keyword)
-    );
+  // COLOR CATEGORY
+  const colors = {
+
+    "ISLAMICS":"#22c55e",
+    "ARABICS":"#f97316",
+    "DUNGDATS":"#3b82f6",
+    "INDO HITS":"#eab308",
+
+  };
 
   let html = "";
 
-  filtered.forEach((song,i)=>{
+  filtered.forEach((song,index)=>{
 
-html += `
-  <div
-    class="song-item"
-    onclick="openSong(${song.id})"
-  >
+    const color =
+      colors[song.category] || "#ffffff";
 
-    <div class="song-name">
-      ${index + 1}. ${song.title}
-    </div>
+    html += `
 
-  </div>
-`;
+      <div
+        class="song-item"
+        onclick="openSong(${song.id})"
+      >
+
+        <div
+          class="song-strip"
+          style="
+            background:${color};
+          "
+        ></div>
+
+        <div class="song-name">
+          ${index + 1}. ${song.title}
+        </div>
+
+      </div>
+
+    `;
 
   });
 
   container.innerHTML = html;
 
 }
-
 function openSong(id){
 
   window.location.href =
