@@ -137,7 +137,10 @@ function renderKategori(){
         ".kategori-list"
       );
 
-    if(activeKategori === kategori){
+if(
+  activeKategori &&
+  activeKategori === kategori
+){
 
   list.classList.add("active");
 
