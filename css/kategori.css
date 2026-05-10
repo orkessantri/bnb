@@ -93,7 +93,7 @@ body{
 
 .kategori-list{
   display:none;
-  padding:0 18px 18px;
+  padding:16px;
 }
 
 .kategori-list.active{
