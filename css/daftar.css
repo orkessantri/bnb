@@ -107,9 +107,38 @@
 
 /* MOBILE */
 @media(max-width:600px){
-
   .song-name{
     font-size:18px;
   }
+}
 
+/* SONG ITEM */
+.song-item{
+  background:white;
+  border-radius:14px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.song-item:hover{
+  transform:scale(1.01);
+}
+
+/* STRIP */
+.song-strip{
+  width:6px;
+  height:30px;
+  border-radius:999px;
+  flex-shrink:0;
+}
+
+/* TITLE */
+.song-name{
+  color:black;
+  font-size:22px;
+  font-weight:700;
 }
