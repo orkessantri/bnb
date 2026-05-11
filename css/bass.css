@@ -1,0 +1,54 @@
+.bass-wrapper{
+  width:100%;
+  max-width:1000px;
+  margin:auto;
+  padding:0 16px 100px;
+}
+
+#fretboard{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:20px;
+}
+
+.string-row{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.string-label{
+  width:20px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.fret{
+  width:48px;
+  height:48px;
+  border-radius:10px;
+  background:#1f1f1f;
+  border:1px solid #333;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  color:white;
+}
+
+.fret.open{
+  background:#ff6600;
+  color:black;
+  font-weight:bold;
+}
+
+@media(max-width:768px){
+
+  .fret{
+    width:38px;
+    height:38px;
+    font-size:12px;
+  }
+
+}
