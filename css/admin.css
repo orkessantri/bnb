@@ -55,7 +55,7 @@ pre{
 .floating-buttons{
   position:fixed;
   right:16px;
-  top:30px;
+  top:20px;
   display:flex;
   flex-direction:column;
   gap:10px;
