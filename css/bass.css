@@ -111,6 +111,41 @@
   font-weight:600;
 }
 
+/* =========================
+   ACTIVE SCALE NOTE
+========================= */
+.active-note{
+  background:#296dff;
+  border-color:#4d88ff;
+  color:white;
+  box-shadow:
+    0 0 12px rgba(41,109,255,.35);
+}
+
+/* =========================
+   ROOT NOTE
+========================= */
+.root-note{
+  background:#ff7a00;
+  border-color:#ff9d42;
+  color:black;
+  font-weight:700;
+  box-shadow:
+    0 0 14px rgba(255,122,0,.45);
+
+}
+
+.fret{
+  transition:
+    background .2s,
+    border-color .2s,
+    transform .15s;
+}
+
+.fret:hover{
+  transform:scale(1.05);
+}
+
 @media(max-width:768px){
 
   .fret{
