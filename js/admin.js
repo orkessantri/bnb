@@ -164,3 +164,35 @@ function copyJSON(){
   alert("JSON copied 🔥");
 
 }
+
+/* CLEAR JSON */
+function clearForm(){
+
+  document.getElementById(
+    'song-title'
+  ).value = '';
+
+  document.getElementById(
+    'song-category'
+  ).value = '';
+
+  document.getElementById(
+    'song-content'
+  ).value =
+`[Intro]
+
+[Verse]
+
+[Pre Chorus]
+
+[Chorus]
+
+[Interlude]
+
+[Outro]`;
+
+  document.getElementById(
+    'output'
+  ).innerText = '';
+
+}
