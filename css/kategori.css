@@ -1,9 +1,3 @@
-.brand-title{
-  color:white;
-  font-size:24px;
-  font-weight:bold;
-}
-
 .kategori-wrapper{
   width:100%;
   max-width:900px;
@@ -13,6 +7,7 @@
 
 .kategori-page{
   padding-bottom:20px;
+  flex:1;
 }
 
 .kategori-box{
@@ -175,11 +170,6 @@
   cursor:pointer;
   box-shadow:
     0 4px 10px rgba(0,0,0,.4);
-}
-
-.kategori-page{
-  flex:1;
-
 }
 
 @media(max-width:768px){
