@@ -1,15 +1,18 @@
-
 .brand-title{
   color:white;
   font-size:24px;
   font-weight:bold;
 }
 
-.kategori-page{
-  width:90%;
-  max-width:700px;
+.kategori-wrapper{
+  width:100%;
+  max-width:900px;
   margin:auto;
-  padding:20px 0 120px;
+  padding:0 16px 100px;
+}
+
+.kategori-page{
+  padding-bottom:20px;
 }
 
 .kategori-box{
