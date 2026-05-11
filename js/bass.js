@@ -24,18 +24,48 @@ const rootSelect =
 const scaleSelect =
   document.getElementById('scale-select')
 
+let scalesData = []
+
 /* =========================
-   SCALE FORMULAS
+   LOAD JSON
 ========================= */
 
-const scales = {
+async function loadScales(){
 
-  major: [0,2,4,5,7,9,11],
+  const response =
+    await fetch(
+      'data/scales.json'
+    )
 
-  minor: [0,2,3,5,7,8,10],
+  scalesData =
+    await response.json()
 
-  pentatonic: [0,3,5,7,10]
+  populateScaleSelector()
 
+  renderFretboard()
+}
+
+/* =========================
+   POPULATE SELECT
+========================= */
+
+function populateScaleSelector(){
+
+  scaleSelect.innerHTML = ''
+
+  scalesData.forEach(scale => {
+
+    const option =
+      document.createElement('option')
+
+    option.value = scale.id
+
+    option.textContent =
+      scale.name
+
+    scaleSelect.appendChild(option)
+
+  })
 }
 
 /* =========================
@@ -56,12 +86,17 @@ function getNextNote(note, step){
    BUILD SCALE
 ========================= */
 
-function buildScale(root, formula){
+function buildScale(root, scaleType){
 
   const rootIndex =
     notes.indexOf(root)
 
-  return formula.map(interval => {
+  const scale =
+    scalesData.find(
+      s => s.id === scaleType
+    )
+
+  return scale.intervals.map(interval => {
 
     return notes[
       (rootIndex + interval) % 12
@@ -82,11 +117,34 @@ function renderFretboard(){
   const scaleType =
     scaleSelect.value
 
+  const scale =
+    scalesData.find(
+      s => s.id === scaleType
+    )
+
+  if(!scale) return
+
   const scaleNotes =
     buildScale(
       root,
-      scales[scaleType]
+      scaleType
     )
+
+  /* SCALE INFO */
+  document.getElementById(
+    'scale-name'
+  ).textContent =
+    `${root} ${scale.name}`
+
+  document.getElementById(
+    'scale-notes'
+  ).textContent =
+    scaleNotes.join(' - ')
+
+  document.getElementById(
+    'scale-formula'
+  ).textContent =
+    scale.formula.join('  ')
 
   fretboard.innerHTML = ''
 
@@ -95,7 +153,8 @@ function renderFretboard(){
     const row =
       document.createElement('div')
 
-    row.className = 'string-row'
+    row.className =
+      'string-row'
 
     /* LABEL */
     const label =
@@ -124,7 +183,7 @@ function renderFretboard(){
       fretDiv.className =
         'fret'
 
-      /* ACTIVE SCALE NOTE */
+      /* ACTIVE NOTE */
       if(scaleNotes.includes(note)){
 
         fretDiv.classList.add(
@@ -142,22 +201,6 @@ function renderFretboard(){
 
       fretDiv.textContent =
         note
-
-const markerFrets = [3,5,7,9,12]
-
-if(markerFrets.includes(fret)){
-
-  const marker =
-    document.createElement('div')
-
-  marker.className = 'fret-marker'
-
-  if(fret === 12){
-    marker.classList.add('double')
-  }
-
-  fretDiv.appendChild(marker)
-}
 
       row.appendChild(fretDiv)
     }
@@ -182,5 +225,4 @@ scaleSelect.addEventListener(
 )
 
 /* INIT */
-renderFretboard()
-
+loadScales()
