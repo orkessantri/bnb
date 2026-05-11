@@ -131,12 +131,7 @@ function renderFretboard(){
     )
 
   /* SCALE INFO */
-  document.getElementById(
-    'scale-name'
-  ).textContent =
-    `${root} ${scale.name}`
-
-document.getElementById(
+ document.getElementById(
   'scale-notes'
 ).innerHTML =
   `<span class="scale-label">
