@@ -5,19 +5,6 @@
   font-weight:bold;
 }
 
-.page-header{
-  background:#fff;
-  color:#000;
-  text-align:center;
-  padding:14px;
-}
-
-.page-header h1{
-  margin:0;
-  font-size:28px;
-  font-weight:900;
-}
-
 .kategori-page{
   width:90%;
   max-width:700px;
