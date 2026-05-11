@@ -136,15 +136,30 @@ function renderFretboard(){
   ).textContent =
     `${root} ${scale.name}`
 
-  document.getElementById(
-    'scale-notes'
-  ).textContent =
-    scaleNotes.join(' - ')
+document.getElementById(
+  'scale-notes'
+).innerHTML =
+  `<span class="scale-label">
+    Notes:
+  </span>
+  ${scaleNotes.join(' - ')}`
+
+document.getElementById(
+  'scale-formula'
+).innerHTML =
+  `<span class="scale-label">
+    Formula:
+  </span>
+  ${scale.formula.join(' - ')}`
 
   document.getElementById(
-    'scale-formula'
-  ).textContent =
-    scale.formula.join('  ')
+  'scale-intervals'
+).innerHTML =
+  `<span class="scale-label">
+    Intervals:
+  </span>
+  ${scale.intervals.join(' - ')}`
+
 
   fretboard.innerHTML = ''
 
