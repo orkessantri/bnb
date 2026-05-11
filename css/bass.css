@@ -87,6 +87,31 @@
   background:rgba(255,255,255,.35);
 }
 
+#scale-info{
+  margin:16px 0 22px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:#151515;
+  border:1px solid #242424;
+}
+
+#scale-name{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+#scale-notes{
+  font-size:15px;
+  color:#ffcc66;
+  margin-bottom:4px;
+}
+
+#scale-formula{
+  font-size:13px;
+  color:#888;
+}
+
 @media(max-width:768px){
 
   .fret{
