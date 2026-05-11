@@ -1,4 +1,3 @@
-```js
 const notes = [
   'C',
   'C#',
@@ -74,4 +73,3 @@ function renderFretboard(){
 }
 
 renderFretboard()
-```
