@@ -10,9 +10,9 @@ document.addEventListener(
       .then(res => res.json())
       .then(data => {
 
-  songs = data;
-        
-          renderSongList();
+        songs = data;
+
+        renderSongList();
 
         let maxId = 0;
 
@@ -27,6 +27,22 @@ document.addEventListener(
         document.getElementById('song-id').value =
           "Song ID - " + (maxId + 1);
 
+        // TAMBAHAN BARU
+        document.getElementById(
+          "song-select"
+        ).addEventListener(
+          "change",
+          function(){
+
+            if(this.value){
+
+              editSong(this.value);
+
+            }
+
+          }
+        );
+
       });
 
   }
@@ -34,33 +50,36 @@ document.addEventListener(
 
 function renderSongList(){
 
-  const container =
+  const select =
     document.getElementById(
-      "song-list"
+      "song-select"
     );
 
-  if(!container) return;
+  if(!select) return;
 
-  let html = "";
+  let html = `
+
+    <option value="">
+      Pilih Lagu
+    </option>
+
+  `;
 
   songs.forEach(song => {
 
     html += `
 
-      <div
-        class="song-item-admin"
-        onclick="editSong(${song.id})"
-      >
+      <option value="${song.id}">
 
         ${song.id}. ${song.title}
 
-      </div>
+      </option>
 
     `;
 
   });
 
-  container.innerHTML = html;
+  select.innerHTML = html;
 
 }
 
