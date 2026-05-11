@@ -5,6 +5,11 @@
   padding:0 16px 100px;
 }
 
+.kategori-page{
+  padding-bottom:20px;
+  flex:1;
+}
+
 /* TITLE */
 .page-title{
   text-align:center;
@@ -14,16 +19,11 @@
   margin-bottom:18px;
 }
 
-.kategori-page{
-  padding-bottom:20px;
-  flex:1;
-}
-
 .kategori-box{
   background:#fff;
   color:#000;
   border-radius:12px;
-  margin-bottom:16px;
+  margin-bottom:12px;
   overflow:hidden;
 }
 
@@ -33,10 +33,10 @@
   justify-content:center;
   position:relative;
   background:#f1f1f1;
-  border-radius:18px;
-  min-height:58px;
+  border-radius:12px;
+  min-height:40px;
   padding:0 20px;
-  font-size:24px;
+  font-size:20px;
   font-weight:700;
   cursor:pointer;
   transition:0.2s;
@@ -74,8 +74,8 @@
 }
 
 .add-btn{
-  width:34px;
-  height:34px;
+  width:24px;
+  height:24px;
   border:none;
   border-radius:8px;
   background:#000;
@@ -96,7 +96,7 @@
 
 .preview-title{
   text-align:center;
-  margin-top:15px;
+  margin-top:12px;
   margin-bottom:10px;
   font-size:18px;
   font-weight:bold;
@@ -125,12 +125,12 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:8px;
 }
 
 .remove-btn{
-  width:24px;
-  height:24px;
+  width:20px;
+  height:20px;
   border:none;
   border-radius:50%;
   background:#aa2222;
@@ -180,14 +180,6 @@
   cursor:pointer;
   box-shadow:
     0 4px 10px rgba(0,0,0,.4);
-}
-
-@media(max-width:768px){
-  .kategori-header{
-    min-height:52px;
-    font-size:20px;
-    border-radius:14px;
-  }
 }
 
 @media(max-width:768px){
