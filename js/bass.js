@@ -143,6 +143,22 @@ function renderFretboard(){
       fretDiv.textContent =
         note
 
+const markerFrets = [3,5,7,9,12]
+
+if(markerFrets.includes(fret)){
+
+  const marker =
+    document.createElement('div')
+
+  marker.className = 'fret-marker'
+
+  if(fret === 12){
+    marker.classList.add('double')
+  }
+
+  fretDiv.appendChild(marker)
+}
+
       row.appendChild(fretDiv)
     }
 
