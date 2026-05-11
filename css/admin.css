@@ -32,6 +32,29 @@ textarea{
   resize:vertical;
 }
 
+#song-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-height:300px;
+  overflow-y:auto;
+  margin-bottom:18px;
+}
+
+.song-item-admin{
+  background:white;
+  color:black;
+  padding:12px 16px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.song-item-admin:hover{
+  transform:scale(1.01);
+}
+
 button{
   width:100%;
   padding:10px;
