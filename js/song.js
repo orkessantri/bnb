@@ -83,7 +83,7 @@ function renderSong(text){
 
     // DETEKSI CHORD
 const chordPattern =
-/^([A-G][#bmsusdimaugM0-9\/()xX+ -]*)$/;
+  /^([A-G][#bmM7susdimaug0-9\/ -]*)$/;
 
     if(chordPattern.test(line)){
 
