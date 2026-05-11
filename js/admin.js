@@ -1,3 +1,7 @@
+let songs = [];
+
+let editingID = null;
+
 document.addEventListener(
   "DOMContentLoaded",
   function(){
@@ -5,6 +9,10 @@ document.addEventListener(
     fetch("assets/songs.json")
       .then(res => res.json())
       .then(data => {
+
+  songs = data;
+        
+          renderSongList();
 
         let maxId = 0;
 
@@ -24,13 +32,80 @@ document.addEventListener(
   }
 );
 
+function renderSongList(){
+
+  const container =
+    document.getElementById(
+      "song-list"
+    );
+
+  if(!container) return;
+
+  let html = "";
+
+  songs.forEach(song => {
+
+    html += `
+
+      <div
+        class="song-item-admin"
+        onclick="editSong(${song.id})"
+      >
+
+        ${song.id}. ${song.title}
+
+      </div>
+
+    `;
+
+  });
+
+  container.innerHTML = html;
+
+}
+
+function editSong(id){
+
+  const song =
+    songs.find(
+      s => s.id == id
+    );
+
+  if(!song) return;
+
+  editingID = id;
+
+  document.getElementById(
+    'song-id'
+  ).value =
+    "Song ID - " + song.id;
+
+  document.getElementById(
+    'song-title'
+  ).value =
+    song.title;
+
+  document.getElementById(
+    'song-category'
+  ).value =
+    song.category;
+
+  document.getElementById(
+    'song-content'
+  ).value =
+    song.content;
+
+}
+
 /* GENERATE JSON */
 function generateJSON(){
 
-  const id =
-    document.getElementById('song-id')
-      .value
-      .replace("Song ID - ","");
+const id =
+  editingID ||
+
+  document.getElementById('song-id')
+    .value
+    .replace("Song ID - ","");
 
   const title =
     document.getElementById('song-title')
