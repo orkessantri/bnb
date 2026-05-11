@@ -50,3 +50,26 @@ pre{
   overflow:auto;
   white-space:pre-wrap;
 }
+
+/* FLOAT BUTTON */
+.floating-buttons{
+  position:fixed;
+  right:16px;
+  top:30px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:999;
+}
+
+.floating-buttons button{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:12px;
+  background:#1f1f1f;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
