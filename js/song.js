@@ -28,8 +28,9 @@ async function loadSong(){
     await res.json();
 
   const song =
+    songs.find(s => s.id == id);
     songs.find(s => s.id == songId);
-  
+
   console.log(songId);
 console.log(song);
 
@@ -82,8 +83,8 @@ function renderSong(text){
     }
 
     // DETEKSI CHORD
-const chordPattern =
-  /^([A-G][#bmM7susdimaug0-9\/ -]*)$/;
+    const chordPattern =
+      /^([A-G][#b]?m?(maj7|7|sus4|dim|aug)?\s?)+$/;
 
     if(chordPattern.test(line)){
 
