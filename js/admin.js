@@ -2,7 +2,7 @@ document.addEventListener(
   "DOMContentLoaded",
   function(){
 
-    fetch('songs.json')
+    fetch("assets/songs.json")
       .then(res => res.json())
       .then(data => {
 
