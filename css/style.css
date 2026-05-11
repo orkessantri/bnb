@@ -336,7 +336,7 @@ body.live {
 }
 
 h2 {
-  margin-top: 24px;
+  margin-top: 20px;
   border-bottom: none
   padding-bottom: 4px;
 }
@@ -393,17 +393,13 @@ h2 {
   font-size: 14px;
   width: 28px;
   height: 28px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 6px;
   border: none;
-
   background: #222;
   color: #fff;
-
   cursor: pointer;
 }
 
@@ -414,16 +410,6 @@ h2 {
   overflow: hidden;
   margin: 0 auto;
   max-width: 360px; /* 🔥 fix width */
-}
-
-/* TITLE */
-.category-title {
-  padding: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-
-  border-bottom: 1px solid #eee;
 }
 
 /* CONTENT */
