@@ -57,13 +57,21 @@
 
 [Outro]</textarea>
 
-<button onclick="generateJSON()">
-  GENERATE JSON
-</button>
+<div class="admin-actions">
 
-<button onclick="copyJSON()" style="margin-top:10px;">
-  COPY JSON
-</button>
+  <button onclick="generateJSON()">
+    GENERATE
+  </button>
+
+  <button onclick="copyJSON()">
+    COPY
+  </button>
+
+  <button onclick="clearForm()">
+    CLEAR
+  </button>
+
+</div>
 
   <pre id="output"></pre>
 
