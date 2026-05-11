@@ -60,6 +60,33 @@
   font-size:16px;
 }
 
+.fret{
+  position:relative;
+  overflow:hidden;
+}
+
+.fret-marker{
+  position:absolute;
+  bottom:4px;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:rgba(255,255,255,.35);
+}
+
+.fret-marker.double::before{
+  content:'';
+  position:absolute;
+  top:-10px;
+  left:0;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:rgba(255,255,255,.35);
+}
+
 @media(max-width:768px){
 
   .fret{
