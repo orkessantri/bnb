@@ -258,6 +258,11 @@ function renderCurrentSong(){
   currentKey =
     notes[currentIndex];
 
+  document.getElementById(
+  'song-key'
+).innerText =
+  `DO = ${currentKey}`;
+  
   if(currentKey === "A#"){
     currentKey = "Bb";
   }
