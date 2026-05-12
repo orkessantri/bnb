@@ -84,8 +84,8 @@ function renderSong(text){
     }
 
     // CHORD DETECT
-    const chordPattern =
-      /^([A-G][#bmM7susdimaug0-9\/\- ]*)$/;
+const chordPattern =
+  /^([A-G][#b]?(m|maj7|7|sus4|dim|aug)?(\/[A-G][#b]?)?[\s\-]*)+$/;
 
     // CHORD LINE
     if(chordPattern.test(line)){
