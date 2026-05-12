@@ -1,41 +1,47 @@
 [
 {
   "id": 1,
-  "title": "WAKAFA - KIAI KANJENG",
+  "title": "ALLAHU ROBBI",
+  "artist": "Kiai Kanjeng",
+  "category": "ISLAMIC",
+  "key":"G",
+  "content": "[Intro]\nE… E G E\nE. C#BA BAG AGF# B.AGA GFG F#EF#E.\nA. BAG AGF# GF#E B.AGA GFG F#EF#E. E…\n[SULUK]\nE\n[Chorus]\nE F# G (2x) G A F# E\n[Verse]\nE F#B (2x)\nF# C# B F# - D F# AGF#GE\nBack to Chorus – Verse – Chorus - Intro"
+},
+  
+  {
+  "id": 2,
+  "title": "WAKAFA",
+  "artist": "Kiai Kanjeng",
   "category": "ISLAMIC",
   "key":"C",
   "content": "[Intro]\nC G D\n[Verse]\nG D C G D G\nRepeat 2x\n[Bridge Instrument]\nG F D# D\n[Chorus]\nG F C G / C G D G\n[Interlude]\nG C F Bb D# C D\nG D# F D D# C D\nBackto Verse - bridge - chorus\n[Outro]\nG\n\n\n"
 },
  
  {
-  "id": 2,
-  "title": "NAADI’ ALIYYAN - KIAI KANJENG",
+  "id": 3,
+  "title": "NAADI’ ALIYYAN",
+  "artist": "Kiai Kanjeng",
   "category": "ISLAMIC",
   "key":"G",
   "content": "[Intro]\nE C D\n[Verse]\nE C E [2x]\nA G F# E A C D E\n[Interlude Gamelan]\nA D G C F# B E -2x-\n[Chorus]\nE C E C E C A B 1x\nC A B E 2x\nBack to Verse - Verse Gamelan\n[Bridge]\nE C D E\nVerse gamelan (break) – Verse – Interlude Gamelan (1x) – Chorus (1x) – Verse – Bridge - End"
 },
 
 {
-  "id": 3,
-  "title": "RINDU MUHAMMAD - HADAD ALWI",
+  "id": 4,
+  "title": "RINDU MUHAMMAD",
+  "artist": "Haddad Alwi",
   "category": "ISLAMIC",
   "key":"C",
   "content": "[Intro Drums]\nC\n[Verse]\nYa Robbi : F D F C 2x\nYa Rasul : F Bb F D C 2x\nBack to Ya Robbi 1X\n[Rap]\nF... C... D Bb C\nBak to Ya Robbi - Ya Rasul - Ya Robbi & Rap 4\nOutro : F"
 },
 
 {
-  "id": 4,
+  "id": 5,
   "title": "OST HARI SANTRI",
+  "artist": "Nahdliyyin",
   "category": "ISLAMIC",
   "key":"C",
   "content": "[Intro]\nG A D D# C D D# D\n[Verse]\nG C F Bb D# C D 2x\n[Chorus]\nG C F Bb D# C A D\n[Interlude]\nG G# - C Bb G\nVerse - Chorus\n"
-},
-
-{
-  "id": 5,
-  "title": "ALLAHU ROBBI - KIAI KANJENG",
-  "category": "ISLAMIC",
-  "key":"G",
-  "content": "[Intro]\nE… E G E\nE. C#BA BAG AGF# B.AGA GFG F#EF#E.\nA. BAG AGF# GF#E B.AGA GFG F#EF#E. E…\n[SULUK]\nE\n[Chorus]\nE F# G (2x) G A F# E\n[Verse]\nE F#B (2x)\nF# C# B F# - D F# AGF#GE\nBack to Chorus – Verse – Chorus - Intro"
 }
+
 ]
