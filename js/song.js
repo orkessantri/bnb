@@ -322,37 +322,66 @@ function transposeText(text, step){
     "Ab":"G#"
   };
 
-  return text.replace(
-    /([A-G][#b]?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?/g,
-    (match, root, suffix = "") => {
+  const chordRegex =
+    /^([A-G][#b]?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?$/;
 
-      let chordRoot = root;
+  return text
+    .split('\n')
+    .map(line => {
 
-      if(flats[chordRoot]){
-        chordRoot = flats[chordRoot];
+      // SECTION JANGAN DIUBAH
+      if(
+        line.startsWith('[') &&
+        line.endsWith(']')
+      ){
+        return line;
       }
 
-      let index =
-        notes.indexOf(chordRoot);
+      return line
+        .split(' ')
+        .map(token => {
 
-      if(index === -1){
-        return match;
-      }
+          let match =
+            token.match(chordRegex);
 
-      let newIndex =
-        (index + step + 12) % 12;
+          if(!match){
+            return token;
+          }
 
-      let finalChord =
-        notes[newIndex];
+          let root =
+            match[1];
 
-      if(finalChord === "A#"){
-        finalChord = "Bb";
-      }
+          let suffix =
+            match[2] || "";
 
-      return finalChord + suffix;
+          if(flats[root]){
+            root = flats[root];
+          }
 
-    }
-  );
+          let index =
+            notes.indexOf(root);
+
+          if(index === -1){
+            return token;
+          }
+
+          let newIndex =
+            (index + step + 12) % 12;
+
+          let finalChord =
+            notes[newIndex];
+
+          if(finalChord === "A#"){
+            finalChord = "Bb";
+          }
+
+          return finalChord + suffix;
+
+        })
+        .join(' ');
+
+    })
+    .join('\n');
 
 }
 
