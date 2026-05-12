@@ -108,14 +108,36 @@
   margin-bottom:4px;
 }
 
-.floating-tools{
+.floating-menu{
   position:fixed;
   right:10px;
   bottom:30px;
-  display:flex;
+  z-index:999;
+}
+
+.floating-tools{
+  display:none;
   flex-direction:column-reverse;
   gap:6px;
-  z-index:999;
+  margin-bottom:10px;
+}
+
+.floating-tools.show{
+  display:flex;
+}
+
+.menu-toggle{
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:14px;
+  background:black;
+  color:white;
+  font-size:22px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
 }
 
 .floating-tools button{
