@@ -436,7 +436,7 @@ return text.replace(
         finalChord = "Bb";
       }
 
-      return finalChord + suffix;
+return finalChord + (suffix || "");
 
     }
   );
