@@ -37,13 +37,13 @@
 .song-wrapper{
   background:white;
   padding-top:8px;
-  min-height:80vh;
+  min-height:
+    calc(100vh - 50px - 28px);
 }
 
 .song-content{
   background:white;
   color:black;
-  min-height:80vh;
   margin-top:8px;
   padding:
     10px
