@@ -5,6 +5,14 @@ body{
   padding:20px;
 }
 
+.admin-top-grid{
+  display:grid;
+  grid-template-columns:
+    1fr 1fr;
+  gap:12px;
+  margin-bottom:12px;
+}
+
 .admin-box{
   max-width:600px;
   margin:auto;
