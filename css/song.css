@@ -112,16 +112,16 @@
   position:fixed;
   right:10px;
   bottom:30px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:10px;
   z-index:999;
 }
 
 .floating-tools{
+  position:absolute;
+  bottom:60px;
+  right:0;
+
   display:none;
-  flex-direction:column-reverse;
+  flex-direction:column;
   gap:6px;
 }
 
