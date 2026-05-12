@@ -298,8 +298,8 @@ function transpose(step){
 function transposeText(text, step){
 
   return text.replace(
-    /\b([A-G](#|b)?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?\b/g,
-    (match, root, _, suffix = "") => {
+    /\b([A-G][#b]?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?\b/g,
+    (match, root, suffix = "") => {
 
       const flats = {
         "Bb":"A#",
@@ -309,12 +309,10 @@ function transposeText(text, step){
         "Ab":"G#"
       };
 
-      let chordRoot =
-        root;
+      let chordRoot = root;
 
       if(flats[chordRoot]){
-        chordRoot =
-          flats[chordRoot];
+        chordRoot = flats[chordRoot];
       }
 
       let index =
