@@ -42,7 +42,41 @@
   "category": "ISLAMIC",
   "key":"C",
   "content": "[Intro]\nG A D D# C D D# D\n[Verse]\nG C F Bb D# C D 2x\n[Chorus]\nG C F Bb D# C A D\n[Interlude]\nG G# - C Bb G\nVerse - Chorus\n"
-}
+},
 
-  
+  {
+  "id": 6,
+  "title": "SHOLAWAT NARIYAH",
+  "artist": "Kiai Kanjeng",
+  "category": "ISLAMIC",
+  "key": "C",
+  "content": "[Intro]\nA D G C A B E [2x]\n[Chorus]\nAllahumma Sholli\nE A C E - A B E\nWasohbihi fi\nE C A E - A B E\n[Intro Short]\nA B E\n[Verse]\nE C A E - A B E\nSholawat - Short Intro - Sholawat - Intro"
+},
+
+  {
+  "id": 7,
+  "title": "SHOLAWAT ASYGHIL",
+  "artist": "Sawtha Sastro Adi",
+  "category": "ISLAMIC",
+  "key": "D",
+  "content": "[Intro]\nKeyboard Only\n[Verse]\nB F# E B [2x]\n[Pre Chorus]\nG E F#\n[Chorus]\nF# -- B F# E B\nVerse - Pre Chorus - Chorus\n[Interlude]\nF# - (F-G#-A#-B-C#-D)\n[Bridge]\nB F# E B - D A E F#\nChorus Drum & Perc\n[HIT]\nF#-G#-Bb\nChorus all"
+},
+
+  {
+  "id": 8,
+  "title": "LONTONG TAHU",
+  "artist": "Kalijogo",
+  "category": "ISLAMIC",
+  "key": "C",
+  "content": "[Intro]\nA G D A\n[Verse]\nA G F A\n[Chorus]\nA D G C E - G A\n "
+},
+
+  {
+  "id": 9,
+  "title": "YA RASULALLAH",
+  "artist": "Not 7",
+  "category": "",
+  "key": "C",
+  "content": "Keyboard and Rall and Drums Beat\n[Intro]\nA G A G A - A - Bb G A\nG A G A - Fill Break ( D-E-F-G-A )\n[Verse]\nD A G D - Bb A Bb G A [2X]\n[Interlude]\nG (Walk) C* (E blues) F* (walk) B\nA G A G A - Fill Break ( D-E-F-G-A )\nBack to Verse - (solo drums) - Interlude - Verse - Fill Drums\n[OUTRO]\nA G A G A - Fill Break ( D-E-F-G-A )"
+},
 ]
