@@ -8,10 +8,10 @@
 /* TITLE */
 .page-title{
   text-align:center;
-  font-size:26px;
+  font-size:20px;
   font-weight:800;
   margin-top:2px;
-  margin-bottom:18px;
+  margin-bottom:10px;
 }
 
 /* SEARCH */
@@ -20,9 +20,9 @@
   padding:10px 16px;
   border:none;
   border-radius:14px;
-  font-size:16px;
+  font-size:14px;
   outline:none;
-  margin-bottom:14px;
+  margin-bottom:10px;
 }
 
 /* FILTER */
@@ -59,7 +59,7 @@
 .song-item{
   background:white;
   border-radius:14px;
-  padding:6px 16px;
+  padding:5px 8px;
   cursor:pointer;
   transition:.2s;
 }
@@ -71,7 +71,7 @@
 /* TITLE */
 .song-name{
   color:black;
-  font-size:16px;
+  font-size:14px;
   font-weight:700;
 }
 
@@ -119,7 +119,7 @@
   padding:4px 8px;
   display:flex;
   align-items:center;
-  gap:6px;
+  gap:5px;
   cursor:pointer;
   transition:.2s;
 }
