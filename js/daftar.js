@@ -170,7 +170,10 @@ if(activeCategory !== "ALL"){
         ></div>
 
         <div class="song-name">
-          ${index + 1}. ${song.title}
+          ${index + 1}.
+          ${song.title}
+          - 
+          ${song.artist || "-"}
         </div>
 
       </div>
