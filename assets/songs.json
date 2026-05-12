@@ -2,7 +2,7 @@
 {
   "id": 1,
   "title": "ALLAHU ROBBI",
-  "artist": "",
+  "artist": "Kiai Kanjeng",
   "category": "ISLAMIC",
   "key": "",
   "content": "[Intro]\nE - E G E\nHIT - C#BA BAG AGF# B.AGA GFG F#EF#E.\nA - \nHIT - BAG AGF# GF#E B.AGA GFG F#EF#E. E…\n[SULUK]\nE\n[Chorus]\nE F# G (2x) G A F# E\n[Verse]\nE F# B (2x)\nF# C# B F# - D F# - (HIT A G F# G E )\nBack to Chorus – Verse – Chorus - Intro"
@@ -29,10 +29,10 @@
 {
   "id": 4,
   "title": "RINDU MUHAMMAD",
-  "artist": "Haddad Alwi",
+  "artist": "Haddad Alwi & Sulis",
   "category": "ISLAMIC",
-  "key":"C",
-  "content": "[Intro Drums]\nC\n[Verse]\nYa Robbi : F D F C 2x\nYa Rasul : F Bb F D C 2x\nBack to Ya Robbi 1X\n[Rap]\nF... C... D Bb C\nBak to Ya Robbi - Ya Rasul - Ya Robbi & Rap 4\nOutro : F"
+  "key": "",
+  "content": "[Intro Drums]\nC\n[Verse Ya Robbi]\nF D F C 2x\n[Chorus Ya Rasul]\nF Bb F D C 2x\nBack to Ya Robbi 1X\n[Rap]\nF -- C -- D Bb C\nBak to Ya Robbi - Ya Rasul - Ya Robbi & Rap 4\nOutro : F"
 },
 
 {
@@ -44,4 +44,5 @@
   "content": "[Intro]\nG A D D# C D D# D\n[Verse]\nG C F Bb D# C D 2x\n[Chorus]\nG C F Bb D# C A D\n[Interlude]\nG G# - C Bb G\nVerse - Chorus\n"
 }
 
+  
 ]
