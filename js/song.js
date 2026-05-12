@@ -160,32 +160,40 @@ function transpose(step){
       let chords =
         el.innerText.split(/\s+/);
 
-      let result = chords.map(chord => {
+     let result = chords.map(chord => {
 
-        let match =
-          chord.match(/^([A-G]#?)(.*)$/);
+  // skip non chord
+  if(
+    chord === '-' ||
+    chord === '/' ||
+    chord.trim() === ''
+  ){
+    return chord;
+  }
 
-        if(!match){
-          return chord;
-        }
+  let match =
+    chord.match(/^([A-G](#|b)?)(.*)$/);
 
-        let root = match[1];
-        let suffix = match[2];
+  if(!match){
+    return chord;
+  }
 
-        let index =
-          notes.indexOf(root);
+  let root = match[1];
+  let suffix = match[2];
 
-        if(index === -1){
-          return chord;
-        }
+  let index =
+    notes.indexOf(root);
 
-        let newIndex =
-          (index + step + 12) % 12;
+  if(index === -1){
+    return chord;
+  }
 
-        return notes[newIndex] + suffix;
+  let newIndex =
+    (index + step + 12) % 12;
 
-      });
+  return notes[newIndex] + suffix;
 
+});
       el.innerText =
         result.join(' ');
 
