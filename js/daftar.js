@@ -1,5 +1,7 @@
 let songs = [];
 
+let shuffledSongs = [];
+
 let activeCategory = "ALL";
 
 async function loadSongs(){
@@ -9,6 +11,11 @@ async function loadSongs(){
 
   songs = await res.json();
 
+  shuffledSongs =
+  [...songs].sort(
+    () => Math.random() - 0.5
+  );
+  
 }
 
 /* OPEN SONG */
@@ -85,7 +92,12 @@ function renderSongs(){
   if(!container) return;
 
   let filtered = songs;
-
+  
+let filtered =
+  activeCategory === "ALL"
+    ? shuffledSongs
+    : [...songs];
+  
   /* SEARCH */
   const keyword =
     document
@@ -105,15 +117,20 @@ function renderSongs(){
   }
 
   /* FILTER CATEGORY */
-  if(activeCategory !== "ALL"){
+if(activeCategory !== "ALL"){
 
-    filtered =
-      filtered.filter(
+  filtered =
+    filtered
+      .filter(
         song =>
           song.category === activeCategory
+      )
+      .sort(
+        (a,b)=>
+          a.title.localeCompare(b.title)
       );
 
-  }
+}
 
   /* AUTO COLORS */
   const autoColors = [
