@@ -1,11 +1,12 @@
-let currentSize = 24;
+let chordSize = 24;
 
-const chords = [
+/* NOTES */
+const notes = [
   "C","C#","D","D#","E",
   "F","F#","G","G#","A","A#","B"
 ];
 
-/* LOAD SONG */
+/* URL PARAM */
 const params =
   new URLSearchParams(
     window.location.search
@@ -14,12 +15,8 @@ const params =
 const songId =
   params.get("id");
 
+/* LOAD SONG */
 async function loadSong(){
-
-  const params =
-    new URLSearchParams(window.location.search);
-
-  const id = params.get('id');
 
   const res =
     await fetch("assets/songs.json");
@@ -28,33 +25,37 @@ async function loadSong(){
     await res.json();
 
   const song =
-    songs.find(s => s.id == id);
-    songs.find(s => s.id == songId);
+    songs.find(
+      s => s.id == songId
+    );
 
   console.log(songId);
-console.log(song);
+  console.log(song);
 
   if(!song){
 
-    document.getElementById('song-content')
-      .innerHTML = 'Song not found';
+    document.getElementById(
+      'song-content'
+    ).innerHTML = 'Song not found';
 
     return;
   }
 
-  document.getElementById('song-title')
-    .innerText = song.title;
+  document.getElementById(
+    'song-title'
+  ).innerText = song.title;
 
   renderSong(song.content);
 
 }
 
-/* RENDER */
+/* RENDER SONG */
 function renderSong(text){
 
   if(!text) return;
 
-  const lines = text.split('\n');
+  const lines =
+    text.split('\n');
 
   let html = '';
 
@@ -62,7 +63,7 @@ function renderSong(text){
 
     line = line.trim();
 
-    // kosong
+    // EMPTY
     if(line === ''){
       return;
     }
@@ -82,10 +83,11 @@ function renderSong(text){
       return;
     }
 
-    // DETEKSI CHORD
-const chordPattern =
-  /^([A-G][#bmM7susdimaug0-9\/\- ]*)$/;
+    // CHORD DETECT
+    const chordPattern =
+      /^([A-G][#bmM7susdimaug0-9\/\- ]*)$/;
 
+    // CHORD LINE
     if(chordPattern.test(line)){
 
       html += `
@@ -94,7 +96,10 @@ const chordPattern =
         </div>
       `;
 
-    }else{
+    }
+
+    // LYRIC LINE
+    else{
 
       html += `
         <div class="lyric">
@@ -106,28 +111,29 @@ const chordPattern =
 
   });
 
-  document.getElementById('song-content')
-    .innerHTML = html;
+  document.getElementById(
+    'song-content'
+  ).innerHTML = html;
 
 }
 
-/* ZOOM */
-let chordSize = 24;
-
+/* ZOOM IN */
 function zoomIn(){
 
   chordSize += 2;
 
-  document.querySelectorAll('.chord')
-    .forEach(el => {
+  document.querySelectorAll(
+    '.chord'
+  ).forEach(el => {
 
-      el.style.fontSize =
-        chordSize + 'px';
+    el.style.fontSize =
+      chordSize + 'px';
 
-    });
+  });
 
 }
 
+/* ZOOM OUT */
 function zoomOut(){
 
   chordSize -= 2;
@@ -136,44 +142,64 @@ function zoomOut(){
     chordSize = 12;
   }
 
-  document.querySelectorAll('.chord')
-    .forEach(el => {
+  document.querySelectorAll(
+    '.chord'
+  ).forEach(el => {
 
-      el.style.fontSize =
-        chordSize + 'px';
+    el.style.fontSize =
+      chordSize + 'px';
 
-    });
+  });
 
 }
 
 /* TRANSPOSE */
 function transpose(step){
 
-  const notes = [
-    "C","C#","D","D#","E",
-    "F","F#","G","G#","A","A#","B"
-  ];
+  document.querySelectorAll(
+    '.chord'
+  ).forEach(el => {
 
-  document.querySelectorAll('.chord')
-    .forEach(el => {
+    let chordList =
+      el.innerText.split(/\s+/);
 
-      let chords =
-        el.innerText.split(/\s+/);
+    let result =
+      chordList.map(chord => {
 
-      let result = chords.map(chord => {
+        // SKIP SYMBOL
+        if(
+          chord === '-' ||
+          chord === '/' ||
+          chord.trim() === ''
+        ){
+          return chord;
+        }
 
-let match =
-  chord.match(/^([A-G](#|b)?)(.*)$/);
+        // MATCH ROOT
+        let match =
+          chord.match(
+            /^([A-G](#|b)?)(.*)$/
+          );
 
         if(!match){
           return chord;
         }
 
-        let root = match[1];
-        let suffix = match[2];
+        let root =
+          match[1];
+
+        let suffix =
+          match[3];
 
         let index =
           notes.indexOf(root);
+
+        // FLAT CONVERT
+        if(root === "Bb") index = 10;
+        if(root === "Db") index = 1;
+        if(root === "Eb") index = 3;
+        if(root === "Gb") index = 6;
+        if(root === "Ab") index = 8;
 
         if(index === -1){
           return chord;
@@ -186,25 +212,29 @@ let match =
 
       });
 
-      el.innerText =
-        result.join(' ');
+    el.innerText =
+      result.join(' ');
 
-    });
+  });
 
 }
 
-loadSong();
-
+/* DARK MODE */
 function toggleTheme(){
 
-  document.body.classList.toggle('dark-mode');
+  document.body.classList.toggle(
+    'dark-mode'
+  );
+
 }
 
+/* FULLSCREEN */
 function toggleFullscreen(){
 
-  const elem = document.documentElement;
+  const elem =
+    document.documentElement;
 
-  // masuk fullscreen
+  // ENTER
   if(
     !document.fullscreenElement &&
     !document.webkitFullscreenElement &&
@@ -215,30 +245,46 @@ function toggleFullscreen(){
 
       elem.requestFullscreen();
 
-    }else if(elem.webkitRequestFullscreen){
+    }else if(
+      elem.webkitRequestFullscreen
+    ){
 
       elem.webkitRequestFullscreen();
 
-    }else if(elem.msRequestFullscreen){
+    }else if(
+      elem.msRequestFullscreen
+    ){
 
       elem.msRequestFullscreen();
+
     }
+
   }
 
-  // keluar fullscreen
+  // EXIT
   else{
 
     if(document.exitFullscreen){
 
       document.exitFullscreen();
 
-    }else if(document.webkitExitFullscreen){
+    }else if(
+      document.webkitExitFullscreen
+    ){
 
       document.webkitExitFullscreen();
 
-    }else if(document.msExitFullscreen){
+    }else if(
+      document.msExitFullscreen
+    ){
 
       document.msExitFullscreen();
+
     }
+
   }
+
 }
+
+/* INIT */
+loadSong();
