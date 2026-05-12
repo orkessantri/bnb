@@ -83,13 +83,12 @@ function renderSong(text){
       return;
     }
 
-    // CHORD DETECT
 // DETECT CHORD LINE
 const firstToken =
   line.split(' ')[0];
 
 const chordPattern =
-  /^[A-G](#|b)?/;
+  /^[A-G](#|b)?(m|maj7|7|sus|dim|aug)?/;
 
 if(chordPattern.test(firstToken)){
 
@@ -109,29 +108,7 @@ if(chordPattern.test(firstToken)){
 
 }
     
-    // CHORD LINE
-    if(chordPattern.test(line)){
-
-      html += `
-        <div class="chord">
-          ${line}
-        </div>
-      `;
-
-    }
-
-    // LYRIC LINE
-    else{
-
-      html += `
-        <div class="lyric">
-          ${line}
-        </div>
-      `;
-
-    }
-
-  });
+});
 
   document.getElementById(
     'song-content'
