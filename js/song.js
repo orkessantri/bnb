@@ -477,3 +477,12 @@ function toggleFullscreen(){
 
 /* INIT */
 loadSong();
+
+function toggleMenu(){
+
+  document
+    .getElementById('floating-tools')
+    .classList
+    .toggle('show');
+
+}
