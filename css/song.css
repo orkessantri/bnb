@@ -38,7 +38,7 @@
   background:white;
   padding-top:8px;
   min-height:
-    calc(100vh - 50px - 28px);
+    calc(100dvh - 50px - 28px);
 }
 
 .song-content{
@@ -64,9 +64,8 @@
   font-size:24px;
   font-weight:700;
   text-align:center;
-  margin:0 0 2px;
+  margin:0;
   padding:0;
-  line-height:1.1;
 }
 
 #song-artist{
@@ -83,7 +82,7 @@
   font-size:16px;
   font-weight:bold;
   opacity:0.8;
-  margin-top:1px;
+  margin-top:0;
   margin-bottom:2px;
 }
 
@@ -193,10 +192,9 @@ body{
 }
 
 body{
-
+  min-height:100dvh;
   margin:0;
   padding:0;
-
   overflow-x:hidden;
 }
 
