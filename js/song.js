@@ -297,9 +297,9 @@ function transpose(step){
 
 function transposeText(text, step){
 
-return text.replace(
-  /\b([A-G](#|b)?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?\b/g,
-  (match, root, accidental, suffix) => {
+  return text.replace(
+    /\b([A-G](#|b)?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?\b/g,
+    (match, root, _, suffix = "") => {
 
       const flats = {
         "Bb":"A#",
@@ -334,7 +334,7 @@ return text.replace(
         finalChord = "Bb";
       }
 
-return finalChord + (suffix || "");
+      return finalChord + suffix;
 
     }
   );
