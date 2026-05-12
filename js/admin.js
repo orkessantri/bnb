@@ -134,19 +134,24 @@ const id =
     document.getElementById('song-category')
       .value;
 
+    const key =
+  document.getElementById('song-key')
+    .value;
+  
   const content =
     document.getElementById('song-content')
       .value
       .replace(/\n/g, '\\n');
 
-  const result =
+const result =
 `{
   "id": ${id},
   "title": "${title}",
   "category": "${category}",
+  "key": "${key}",
   "content": "${content}"
 },`;
-
+  
   document.getElementById('output')
     .innerText = result;
 
