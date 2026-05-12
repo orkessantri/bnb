@@ -116,10 +116,10 @@
 .song-item{
   background:white;
   border-radius:14px;
-  padding:10px 16px;
+  padding:4px 8px;
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
   cursor:pointer;
   transition:.2s;
 }
@@ -131,7 +131,7 @@
 /* STRIP */
 .song-strip{
   width:6px;
-  height:16px;
+  height:14px;
   border-radius:999px;
   flex-shrink:0;
 }
@@ -139,6 +139,6 @@
 /* TITLE */
 .song-name{
   color:black;
-  font-size:16px;
+  font-size:14px;
   font-weight:700;
 }
