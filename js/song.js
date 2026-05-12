@@ -30,6 +30,7 @@ async function loadSong(){
   const song =
     songs.find(s => s.id == id);
     songs.find(s => s.id == songId);
+  
 
   console.log(songId);
 console.log(song);
@@ -83,6 +84,8 @@ function renderSong(text){
     }
 
     // DETEKSI CHORD
+const chordPattern =
+  /^([A-G][#bmM7susdimaug0-9\/ -]*)$/;
     const chordPattern =
       /^([A-G][#b]?m?(maj7|7|sus4|dim|aug)?\s?)+$/;
 
@@ -160,40 +163,32 @@ function transpose(step){
       let chords =
         el.innerText.split(/\s+/);
 
-     let result = chords.map(chord => {
+      let result = chords.map(chord => {
 
-  // skip non chord
-  if(
-    chord === '-' ||
-    chord === '/' ||
-    chord.trim() === ''
-  ){
-    return chord;
-  }
+        let match =
+          chord.match(/^([A-G]#?)(.*)$/);
 
-  let match =
-    chord.match(/^([A-G](#|b)?)(.*)$/);
+        if(!match){
+          return chord;
+        }
 
-  if(!match){
-    return chord;
-  }
+        let root = match[1];
+        let suffix = match[2];
 
-  let root = match[1];
-  let suffix = match[2];
+        let index =
+          notes.indexOf(root);
 
-  let index =
-    notes.indexOf(root);
+        if(index === -1){
+          return chord;
+        }
 
-  if(index === -1){
-    return chord;
-  }
+        let newIndex =
+          (index + step + 12) % 12;
 
-  let newIndex =
-    (index + step + 12) % 12;
+        return notes[newIndex] + suffix;
 
-  return notes[newIndex] + suffix;
+      });
 
-});
       el.innerText =
         result.join(' ');
 
