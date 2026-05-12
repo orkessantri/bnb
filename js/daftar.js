@@ -91,8 +91,6 @@ function renderSongs(){
 
   if(!container) return;
 
-  let filtered = songs;
-  
 let filtered =
   activeCategory === "ALL"
     ? shuffledSongs
