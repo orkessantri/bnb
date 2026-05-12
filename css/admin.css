@@ -9,8 +9,8 @@ body{
   display:grid;
   grid-template-columns:
     1fr 1fr;
-  gap:12px;
-  margin-bottom:12px;
+  gap:10px;
+  margin-bottom:10px;
 }
 
 .admin-box{
