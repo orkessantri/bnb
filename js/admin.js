@@ -130,6 +130,9 @@ const id =
     document.getElementById('song-title')
       .value;
 
+  const artist =
+    document.getElementById('song-artist').value;
+  
   const category =
     document.getElementById('song-category')
       .value;
@@ -147,6 +150,7 @@ const result =
 `{
   "id": ${id},
   "title": "${title}",
+  "artist": "${artist}",
   "category": "${category}",
   "key": "${key}",
   "content": "${content}"
