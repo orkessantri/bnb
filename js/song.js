@@ -72,6 +72,11 @@ async function loadSong(){
     'song-title'
   ).innerText = song.title;
 
+  document.getElementById(
+  'song-artist'
+).innerText =
+  song.artist || "";
+
   renderCurrentSong();
 
 }
