@@ -21,6 +21,8 @@ let currentKey = "C";
 
 let transposeValue = 0;
 
+let currentSong = null;
+
 let chordSize = 24;
 
 /* NOTES */
@@ -52,6 +54,8 @@ async function loadSong(){
       s => s.id == songId
     );
 
+  currentSong = song;
+
   console.log(songId);
   console.log(song);
 
@@ -68,51 +72,7 @@ async function loadSong(){
     'song-title'
   ).innerText = song.title;
 
-  originalKey = song.key || "C";
-
-  const flats = {
-  "Bb":"A#",
-  "Db":"C#",
-  "Eb":"D#",
-  "Gb":"F#",
-  "Ab":"G#"
-};
-
-let normalizedOriginalKey =
-  originalKey;
-
-if(flats[normalizedOriginalKey]){
-  normalizedOriginalKey =
-    flats[normalizedOriginalKey];
-}
-  
-let originalIndex =
-notes.indexOf(normalizedOriginalKey);
-
-let currentIndex =
-  (originalIndex + transposeValue + 12) % 12;
-
-currentKey =
-  notes[currentIndex];
-
-if(currentKey === "A#"){
-  currentKey = "Bb";
-}
-
-  let renderedContent =
-  song.content;
-
-for(let i = 0; i < Math.abs(transposeValue); i++){
-
-  renderedContent =
-    transposeText(
-      renderedContent,
-      transposeValue > 0 ? 1 : -1
-    );
-
-}
-  
-renderSong(renderedContent);
+  renderCurrentSong();
 
 }
 
@@ -155,7 +115,7 @@ const firstToken =
   line.split(' ')[0];
 
 const chordPattern =
-  /^[A-G](#|b)?(m|maj7|7|sus|dim|aug)?$/;
+  /^[A-G](#|b)?(maj7|m7|m|7|sus|sus4|dim|aug|add9)?$/;
 
 if(chordPattern.test(firstToken)){
 
@@ -266,6 +226,63 @@ function zoomIn(){
 
 }
 
+function renderCurrentSong(){
+
+  if(!currentSong) return;
+
+  originalKey =
+    currentSong.key || "C";
+
+  const flats = {
+    "Bb":"A#",
+    "Db":"C#",
+    "Eb":"D#",
+    "Gb":"F#",
+    "Ab":"G#"
+  };
+
+  let normalizedOriginalKey =
+    originalKey;
+
+  if(flats[normalizedOriginalKey]){
+    normalizedOriginalKey =
+      flats[normalizedOriginalKey];
+  }
+
+  let originalIndex =
+    notes.indexOf(normalizedOriginalKey);
+
+  let currentIndex =
+    (originalIndex + transposeValue + 12) % 12;
+
+  currentKey =
+    notes[currentIndex];
+
+  if(currentKey === "A#"){
+    currentKey = "Bb";
+  }
+
+  let renderedContent =
+    currentSong.content;
+
+  for(
+    let i = 0;
+    i < Math.abs(transposeValue);
+    i++
+  ){
+
+    renderedContent =
+      transposeText(
+        renderedContent,
+        transposeValue > 0 ? 1 : -1
+      );
+
+  }
+
+  renderSong(renderedContent);
+
+}
+
 /* ZOOM OUT */
 function zoomOut(){
 
@@ -291,7 +308,7 @@ function transpose(step){
 
   transposeValue += step;
 
-  loadSong();
+  renderCurrentSong();
 
 }
 
@@ -353,16 +370,12 @@ function toggleTheme(){
 function toggleNashville(){
 
   if(displayMode === "chord"){
-
     displayMode = "nashville";
-
   }else{
-
     displayMode = "chord";
-
   }
 
-  loadSong();
+  renderCurrentSong();
 
 }
 
