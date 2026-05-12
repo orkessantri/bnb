@@ -156,66 +156,73 @@ function zoomOut(){
 /* TRANSPOSE */
 function transpose(step){
 
-  document.querySelectorAll(
-    '.chord'
-  ).forEach(el => {
+  document.querySelectorAll('.chord')
+    .forEach(el => {
 
-    let chordList =
-      el.innerText.split(/\s+/);
+      let chordList =
+        el.innerText.split(/\s+/);
 
-    let result =
-      chordList.map(chord => {
+      let result =
+        chordList.map(token => {
 
-        // SKIP SYMBOL
-        if(
-          chord === '-' ||
-          chord === '/' ||
-          chord.trim() === ''
-        ){
-          return chord;
-        }
+          // SKIP SIMBOL
+          if(
+            token === '/' ||
+            token === '-' ||
+            token.includes('2x') ||
+            token.includes('1x')
+          ){
+            return token;
+          }
 
-        // MATCH ROOT
-        let match =
-          chord.match(
-            /^([A-G](#|b)?)(.*)$/
-          );
+          // MATCH CHORD
+          let match =
+            token.match(
+              /^([A-G](#|b)?)(.*)$/
+            );
 
-        if(!match){
-          return chord;
-        }
+          // BUKAN CHORD
+          if(!match){
+            return token;
+          }
 
-        let root =
-          match[1];
+          let root =
+            match[1];
 
-        let suffix =
-          match[3];
+          let suffix =
+            match[3];
 
-        let index =
-          notes.indexOf(root);
+          // FLAT SUPPORT
+          const flats = {
+            "Bb":"A#",
+            "Db":"C#",
+            "Eb":"D#",
+            "Gb":"F#",
+            "Ab":"G#"
+          };
 
-        // FLAT CONVERT
-        if(root === "Bb") index = 10;
-        if(root === "Db") index = 1;
-        if(root === "Eb") index = 3;
-        if(root === "Gb") index = 6;
-        if(root === "Ab") index = 8;
+          if(flats[root]){
+            root = flats[root];
+          }
 
-        if(index === -1){
-          return chord;
-        }
+          let index =
+            notes.indexOf(root);
 
-        let newIndex =
-          (index + step + 12) % 12;
+          if(index === -1){
+            return token;
+          }
 
-        return notes[newIndex] + suffix;
+          let newIndex =
+            (index + step + 12) % 12;
 
-      });
+          return notes[newIndex] + suffix;
 
-    el.innerText =
-      result.join(' ');
+        });
 
-  });
+      el.innerText =
+        result.join(' ');
+
+    });
 
 }
 
