@@ -13,7 +13,7 @@ const nashvilleMap = {
   11: "7"
 };
 
-let displayMode = "chord";
+let displayMode = "nashville";
 
 let originalKey = "C";
 
