@@ -214,7 +214,15 @@ function transpose(step){
           let newIndex =
             (index + step + 12) % 12;
 
-          return notes[newIndex] + suffix;
+let finalChord =
+  notes[newIndex];
+
+// CONVERT A# → Bb
+if(finalChord === "A#"){
+  finalChord = "Bb";
+}
+
+return finalChord + suffix;
 
         });
 
