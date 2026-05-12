@@ -162,8 +162,8 @@ function transpose(step){
 
       let result = chords.map(chord => {
 
-        let match =
-          chord.match(/^([A-G]#?)(.*)$/);
+let match =
+  chord.match(/^([A-G](#|b)?)(.*)$/);
 
         if(!match){
           return chord;
