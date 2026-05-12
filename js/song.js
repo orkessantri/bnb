@@ -3,7 +3,7 @@ let chordSize = 24;
 /* NOTES */
 const notes = [
   "C","C#","D","D#","E",
-  "F","F#","G","G#","A","A#","B"
+  "F","F#","G","G#","A","Bb","B"
 ];
 
 /* URL PARAM */
