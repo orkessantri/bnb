@@ -1,3 +1,26 @@
+const nashvilleMap = {
+  0: "1",
+  1: "#1",
+  2: "2",
+  3: "b3",
+  4: "3",
+  5: "4",
+  6: "#4",
+  7: "5",
+  8: "b6",
+  9: "6",
+  10: "b7",
+  11: "7"
+};
+
+let displayMode = "chord";
+
+let originalKey = "C";
+
+let currentKey = "C";
+
+let transposeValue = 0;
+
 let chordSize = 24;
 
 /* NOTES */
@@ -45,7 +68,51 @@ async function loadSong(){
     'song-title'
   ).innerText = song.title;
 
-  renderSong(song.content);
+  originalKey = song.key || "C";
+
+  const flats = {
+  "Bb":"A#",
+  "Db":"C#",
+  "Eb":"D#",
+  "Gb":"F#",
+  "Ab":"G#"
+};
+
+let normalizedOriginalKey =
+  originalKey;
+
+if(flats[normalizedOriginalKey]){
+  normalizedOriginalKey =
+    flats[normalizedOriginalKey];
+}
+  
+let originalIndex =
+notes.indexOf(normalizedOriginalKey);
+
+let currentIndex =
+  (originalIndex + transposeValue + 12) % 12;
+
+currentKey =
+  notes[currentIndex];
+
+if(currentKey === "A#"){
+  currentKey = "Bb";
+}
+
+  let renderedContent =
+  song.content;
+
+for(let i = 0; i < Math.abs(transposeValue); i++){
+
+  renderedContent =
+    transposeText(
+      renderedContent,
+      transposeValue > 0 ? 1 : -1
+    );
+
+}
+  
+renderSong(renderedContent);
 
 }
 
@@ -74,11 +141,11 @@ function renderSong(text){
       line.endsWith(']')
     ){
 
-      html += `
-        <div class="section">
-          ${line}
-        </div>
-      `;
+    html += `
+  <div class="section">
+    ${line}
+  </div>
+`;
 
       return;
     }
@@ -88,15 +155,22 @@ const firstToken =
   line.split(' ')[0];
 
 const chordPattern =
-  /^[A-G](#|b)?(m|maj7|7|sus|dim|aug)?/;
+  /^[A-G](#|b)?(m|maj7|7|sus|dim|aug)?$/;
 
 if(chordPattern.test(firstToken)){
 
-  html += `
-    <div class="chord">
-      ${line}
-    </div>
-  `;
+html += `
+  <div class="chord">
+    ${
+      displayMode === "nashville"
+        ? line
+            .split(' ')
+            .map(convertToNashville)
+            .join(' ')
+        : line
+    }
+  </div>
+`;
 
 }else{
 
@@ -113,6 +187,66 @@ if(chordPattern.test(firstToken)){
   document.getElementById(
     'song-content'
   ).innerHTML = html;
+
+}
+
+function convertToNashville(chord){
+
+  const flats = {
+    "Bb":"A#",
+    "Db":"C#",
+    "Eb":"D#",
+    "Gb":"F#",
+    "Ab":"G#"
+  };
+
+  let match =
+    chord.match(
+      /^([A-G](#|b)?)(.*)$/
+    );
+
+  if(!match){
+    return chord;
+  }
+
+  let root =
+    match[1];
+
+  let suffix =
+    match[3];
+
+  if(flats[root]){
+    root = flats[root];
+  }
+
+  let chordIndex =
+    notes.indexOf(root);
+
+  let normalizedKey =
+  currentKey;
+
+if(flats[normalizedKey]){
+  normalizedKey =
+    flats[normalizedKey];
+}
+  
+let keyIndex =
+  notes.indexOf(normalizedKey);
+
+  if(
+    chordIndex === -1 ||
+    keyIndex === -1
+  ){
+    return chord;
+  }
+
+  let interval =
+    (chordIndex - keyIndex + 12) % 12;
+
+  let number =
+    nashvilleMap[interval];
+
+  return number + suffix;
 
 }
 
@@ -154,7 +288,37 @@ function zoomOut(){
 
 /* TRANSPOSE */
 function transpose(step){
+  
+transposeValue += step;
 
+  const flats = {
+  "Bb":"A#",
+  "Db":"C#",
+  "Eb":"D#",
+  "Gb":"F#",
+  "Ab":"G#"
+};
+
+let normalizedOriginalKey =
+  originalKey;
+
+if(flats[normalizedOriginalKey]){
+  normalizedOriginalKey =
+    flats[normalizedOriginalKey];
+}
+  
+  let keyIndex =
+notes.indexOf(normalizedOriginalKey);
+
+let newKeyIndex =
+  (keyIndex + transposeValue + 12) % 12;
+
+currentKey =
+  notes[newKeyIndex];
+
+if(currentKey === "A#"){
+  currentKey = "Bb";
+}
   document.querySelectorAll('.chord')
     .forEach(el => {
 
@@ -233,12 +397,75 @@ return finalChord + suffix;
 
 }
 
+function transposeText(text, step){
+
+return text.replace(
+  /\b([A-G](#|b)?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?\b/g,
+  (match, root, accidental, suffix) => {
+
+      const flats = {
+        "Bb":"A#",
+        "Db":"C#",
+        "Eb":"D#",
+        "Gb":"F#",
+        "Ab":"G#"
+      };
+
+      let chordRoot =
+        root;
+
+      if(flats[chordRoot]){
+        chordRoot =
+          flats[chordRoot];
+      }
+
+      let index =
+        notes.indexOf(chordRoot);
+
+      if(index === -1){
+        return match;
+      }
+
+      let newIndex =
+        (index + step + 12) % 12;
+
+      let finalChord =
+        notes[newIndex];
+
+      if(finalChord === "A#"){
+        finalChord = "Bb";
+      }
+
+      return finalChord + suffix;
+
+    }
+  );
+
+}
+
 /* DARK MODE */
 function toggleTheme(){
 
   document.body.classList.toggle(
     'dark-mode'
   );
+
+}
+
+/* NASHVILLE MODE */
+function toggleNashville(){
+
+  if(displayMode === "chord"){
+
+    displayMode = "nashville";
+
+  }else{
+
+    displayMode = "chord";
+
+  }
+
+  loadSong();
 
 }
 
