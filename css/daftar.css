@@ -115,11 +115,11 @@
 /* SONG ITEM */
 .song-item{
   background:white;
-  border-radius:14px;
+  border-radius:10px;
   padding:4px 8px;
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:6px;
   cursor:pointer;
   transition:.2s;
 }
