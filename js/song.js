@@ -23,6 +23,8 @@ let transposeValue = 0;
 
 let currentSong = null;
 
+let songsData = [];
+
 let chordSize = 24;
 
 /* NOTES */
@@ -40,20 +42,27 @@ const params =
 const songId =
   params.get("id");
 
-/* LOAD SONG */
-async function loadSong(){
+/* INIT */
+async function init(){
 
   const res =
     await fetch("assets/songs.json");
 
-  const songs =
+  songsData =
     await res.json();
 
-  const song =
-    songs.find(
-      s => s.id == songId
-    );
+  loadSong();
 
+}
+
+/* LOAD SONG */
+async function loadSong(){
+
+const song =
+  songsData.find(
+    s => s.id == songId
+  );
+  
   currentSong = song;
 
   console.log(songId);
@@ -475,8 +484,9 @@ function toggleFullscreen(){
 
 }
 
+
 /* INIT */
-loadSong();
+init();
 
 
 function toggleMenu(){
