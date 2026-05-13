@@ -109,15 +109,26 @@ function renderKategori(){
               ${song.title}
             </span>
 
-            <button
-              class="add-btn"
-              onclick="addSetlist(
-                '${song.title}',
-                ${song.id}
-              )"
-            >
-              +
-            </button>
+<button
+  class="
+    add-btn
+    ${
+      isSongAdded(song.id)
+        ? 'added'
+        : ''
+    }
+  "
+  onclick="addSetlist(
+    '${song.title}',
+    ${song.id}
+  )"
+>
+  ${
+    isSongAdded(song.id)
+      ? '✓'
+      : '+'
+  }
+</button>
 
           </div>
 
@@ -195,6 +206,19 @@ function openSong(id){
 
   window.location.href =
     `song.html?id=${id}`;
+
+}
+
+function isSongAdded(id){
+
+  const setlist =
+    JSON.parse(
+      localStorage.getItem('setlist')
+    ) || [];
+
+  return setlist.some(
+    song => song.id == id
+  );
 
 }
 
