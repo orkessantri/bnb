@@ -38,19 +38,28 @@ function addSetlist(title,id){
   });
 
   saveSetlist();
-  
+
   renderPreviewSetlist();
+
+  // 🔥 UPDATE BUTTON REALTIME
+  renderKategori();
 
 }
 
 function removeSetlist(id){
+
   setlist =
     setlist.filter(
       song => song.id != id
     );
 
   saveSetlist();
+
   renderPreviewSetlist();
+
+  // 🔥 UPDATE BUTTON REALTIME
+  renderKategori();
+
 }
 
 function renderKategori(){
