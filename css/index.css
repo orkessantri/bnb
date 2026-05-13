@@ -14,8 +14,8 @@ body.home{
   background:#000;
   color:#fff;
   font-family:
-    Arial,
-    sans-serif;
+    Rubik Marker Hatch,
+     Arial;
   min-height:100dvh;
   display:flex;
   align-items:center;
@@ -35,7 +35,7 @@ body.home{
   gap:8px;
   transform:translateY(-10px);
   animation:
-    fadeIn .8s ease;
+    fadeIn .5s ease;
 }
 
 /* =========================
