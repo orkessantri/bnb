@@ -125,13 +125,10 @@ function renderSong(text){
     }
 
 // DETECT CHORD LINE
-const firstToken =
-  line.split(' ')[0];
+const chordLinePattern =
+  /^[A-G#b\s.\-/()]+$/;
 
-const chordPattern =
-  /^[A-G](#|b)?(maj7|m7|m|7|sus|sus4|dim|aug|add9)?$/;
-
-if(chordPattern.test(firstToken)){
+if(chordLinePattern.test(line)){
 
 html += `
   <div class="chord">
@@ -345,10 +342,26 @@ function transposeText(text, step){
 
   let insideBracket = false;
 
+  let insideSection = false;
+
   for(let i = 0; i < text.length; i++){
 
     let char = text[i];
 
+    // SECTION START
+if(char === "["){
+  insideSection = true;
+  result += char;
+  continue;
+}
+
+// SECTION END
+if(char === "]"){
+  insideSection = false;
+  result += char;
+  continue;
+}
+    
     // BRACKET START
     if(char === "("){
       insideBracket = true;
@@ -364,10 +377,10 @@ function transposeText(text, step){
     }
 
     // SKIP TEXT INSIDE BRACKET
-    if(insideBracket){
-      result += char;
-      continue;
-    }
+   if(
+  insideBracket ||
+  insideSection
+){
 
     // CHORD DETECT
     if(/[A-G]/.test(char)){
