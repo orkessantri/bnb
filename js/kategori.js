@@ -102,12 +102,20 @@ function renderKategori(){
 
           <div class="song-item">
 
-            <span
-              class="song-title"
-              onclick="openSong(${song.id})"
-            >
+          <span
+            class="song-title"
+            onclick="openSong(${song.id})"
+          >
+          
+            <span class="song-main">
               ${song.title}
             </span>
+          
+            <span class="song-artist">
+              - ${song.artist}
+            </span>
+          
+          </span>
 
 <button
   class="
