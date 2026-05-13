@@ -131,7 +131,7 @@ html += `
   <div class="chord">
     ${
       displayMode === "nashville"
-convertChordLineToNashville(line)
+        ? convertChordLineToNashville(line)
         : line
     }
   </div>
