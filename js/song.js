@@ -125,19 +125,13 @@ function renderSong(text){
     }
 
 // DETECT CHORD LINE
-const chordLinePattern =
-  /^[A-G#b\s.\-/()]+$/;
-
-if(chordLinePattern.test(line)){
+if(isChordLine(line)){
 
 html += `
   <div class="chord">
     ${
       displayMode === "nashville"
-        ? line
-            .split(' ')
-            .map(convertToNashville)
-            .join(' ')
+convertChordLineToNashville(line)
         : line
     }
   </div>
@@ -345,7 +339,12 @@ function transposeText(text, step){
   const lines =
     text.split('\n');
 
-  return lines.map(line => {
+ return lines.map(line => {
+
+  // ONLY TRANSPOSE CHORD LINE
+  if(!isChordLine(line)){
+    return line;
+  }
 
     // SKIP SECTION
     if(
@@ -513,6 +512,50 @@ function transpose(step){
 
 }
 
+/* =========================
+   IS CHORDLINE
+========================= */
+function isChordLine(line){
+
+  // SECTION
+  if(
+    line.startsWith('[') &&
+    line.endsWith(']')
+  ){
+    return false;
+  }
+
+  // REMOVE TEXT INSIDE ()
+  let clean =
+    line.replace(/\(.*?\)/g, '');
+
+  // SPLIT TOKENS
+  const tokens =
+    clean.split(/\s+/);
+
+  let chordCount = 0;
+
+  tokens.forEach(token => {
+
+    // REMOVE DOTS / DASH
+    let t =
+      token.replace(/[.\-\/]/g,'');
+
+    // MATCH CHORD STYLE
+    if(
+      /^([A-G][#b]?)+$/.test(t)
+    ){
+      chordCount++;
+    }
+
+  });
+
+  // chord dominan
+  return chordCount >=
+    Math.ceil(tokens.length * 0.6);
+
+}
+
 /* DARK MODE */
 function toggleTheme(){
 
@@ -603,4 +646,12 @@ function toggleMenu(){
   document
     .getElementById('floatingTools')
     .classList.toggle('show');
+}
+
+function convertChordLineToNashville(line){
+
+  return line.replace(
+    /([A-G](#|b)?)/g,
+    match => convertToNashville(match)
+  );
 }
