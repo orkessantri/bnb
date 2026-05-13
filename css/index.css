@@ -42,9 +42,9 @@ body.home{
    TITLE
 ========================= */
 .title{
-  font-size:120px;
-  line-height:1.05;
-  font-weight:900;
+  font-size:150px;
+  line-height:0.8;
+  font-weight:600;
   letter-spacing:2px;
 }
 
@@ -66,7 +66,7 @@ body.home{
   text-decoration:none;
   border-radius:10px;
   font-size:18px;
-  font-weight:700;
+  font-weight:400;
   transition:.2s;
 }
 
