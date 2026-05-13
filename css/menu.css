@@ -1,0 +1,147 @@
+/* =========================
+   MENU WRAPPER
+========================= */
+.menu-wrapper{
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  padding:
+    16px
+    16px
+    100px;
+  flex:1;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+.page-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:22px;
+  color:white;
+}
+
+/* =========================
+   MENU CONTAINER
+========================= */
+.menu-container{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* =========================
+   MENU CARD
+========================= */
+.menu-card{
+  background:white;
+  color:black;
+  text-decoration:none;
+  border-radius:16px;
+  padding:
+    16px
+    18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:58px;
+  font-size:20px;
+  font-weight:700;
+  transition:.2s;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.15);
+  animation:
+    fadeInUp .35s ease forwards;
+}
+
+/* =========================
+   HOVER
+========================= */
+.menu-card:hover{
+  transform:scale(1.01);
+}
+
+.menu-card:active{
+  transform:scale(.98);
+}
+
+/* =========================
+   ANIMATION DELAY
+========================= */
+.menu-card:nth-child(1){
+  animation-delay:.05s;
+}
+
+.menu-card:nth-child(2){
+  animation-delay:.10s;
+}
+
+.menu-card:nth-child(3){
+  animation-delay:.15s;
+}
+
+.menu-card:nth-child(4){
+  animation-delay:.20s;
+}
+
+.menu-card:nth-child(5){
+  animation-delay:.25s;
+}
+
+/* =========================
+   ICON
+========================= */
+.icon{
+  font-size:20px;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+body.dark-mode .menu-card{
+  background:#1c1c1c;
+  color:white;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeInUp{
+
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:768px){
+
+  .menu-wrapper{
+    padding:
+      14px
+      14px
+      90px;
+  }
+
+  .page-title{
+    font-size:24px;
+  }
+
+  .menu-card{
+    font-size:18px;
+    border-radius:14px;
+    min-height:54px;
+  }
+
+}
