@@ -61,6 +61,29 @@
   border:none;
 }
 
+.song-title{
+  display:flex;
+  align-items:baseline;
+  gap:4px;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.song-main{
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.song-artist{
+  font-size:10px;
+  opacity:.8;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
 .add-btn{
   width:24px;
   height:24px;
@@ -82,17 +105,6 @@
 
 .add-btn:active{
   transform:scale(.92);
-}
-
-.song-link{
-  color:white;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:500;
-}
-
-.song-link:hover{
-  color:#ffd54f;
 }
 
 .preview-title{
