@@ -133,11 +133,11 @@ if(activeCategory !== "ALL"){
   /* AUTO COLORS */
   const autoColors = [
     "#03dbfc",
-    "#fff830",
+    "#fcc305",
     "#f98816",
-    "#eab308",
     "#ff0385",
     "#5b29ff",
+    "#fff830",
     "#e60505"
   ];
 
