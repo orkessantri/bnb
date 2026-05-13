@@ -1,22 +1,10 @@
-.kategori-wrapper{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  padding:0 16px 100px;
-}
-
-.kategori-page{
-  padding-bottom:20px;
-  flex:1;
-}
-
-/* TITLE */
-.page-title{
-  text-align:center;
-  font-size:26px;
-  font-weight:800;
-  margin-top:2px;
-  margin-bottom:18px;
+/* =========================
+   PAGE
+========================= */
+.page-wrapper{
+  min-height:
+    calc(100dvh - 50px - 28px);
+  padding-bottom:30px;
 }
 
 .kategori-box{
@@ -156,30 +144,6 @@
   font-size:18px;
   font-weight:700;
   cursor:pointer;
-}
-
-.floating-buttons{
-  position:fixed;
-  right:16px;
-  bottom:30px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:999;
-}
-
-.floating-buttons button{
-  width:44px;
-  height:44px;
-  border:none;
-  border-radius:12px;
-  background:#1f1f1f;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:
-    0 4px 10px rgba(0,0,0,.4);
 }
 
 @media(max-width:768px){
