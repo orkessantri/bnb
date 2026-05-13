@@ -1,15 +1,15 @@
 const nashvilleMap = {
   0: "1",
-  1: "#1",
+  1: "1#",
   2: "2",
-  3: "b3",
+  3: "3b",
   4: "3",
   5: "4",
-  6: "#4",
+  6: "4#",
   7: "5",
-  8: "b6",
+  8: "6b",
   9: "6",
-  10: "b7",
+  10: "7b",
   11: "7"
 };
 
@@ -341,69 +341,81 @@ function transposeText(text, step){
     "Ab":"G#"
   };
 
-  const chordRegex =
-    /^([A-G][#b]?)(maj7|m7|m|7|sus|dim|aug|add9|sus4)?$/;
+  let result = "";
 
-  return text
-    .split('\n')
-    .map(line => {
+  let insideBracket = false;
 
-      // SECTION JANGAN DIUBAH
+  for(let i = 0; i < text.length; i++){
+
+    let char = text[i];
+
+    // BRACKET START
+    if(char === "("){
+      insideBracket = true;
+      result += char;
+      continue;
+    }
+
+    // BRACKET END
+    if(char === ")"){
+      insideBracket = false;
+      result += char;
+      continue;
+    }
+
+    // SKIP TEXT INSIDE BRACKET
+    if(insideBracket){
+      result += char;
+      continue;
+    }
+
+    // CHORD DETECT
+    if(/[A-G]/.test(char)){
+
+      let chord = char;
+
+      // SHARP / FLAT
       if(
-        line.startsWith('[') &&
-        line.endsWith(']')
+        text[i + 1] === "#" ||
+        text[i + 1] === "b"
       ){
-        return line;
+        chord += text[i + 1];
+        i++;
       }
 
-      return line
-        .split(' ')
-        .map(token => {
+      let normalized =
+        flats[chord] || chord;
 
-          let match =
-            token.match(chordRegex);
+      let index =
+        notes.indexOf(normalized);
 
-          if(!match){
-            return token;
-          }
+      if(index !== -1){
 
-          let root =
-            match[1];
+        let newIndex =
+          (index + step + 12) % 12;
 
-          let suffix =
-            match[2] || "";
+        let finalChord =
+          notes[newIndex];
 
-          if(flats[root]){
-            root = flats[root];
-          }
+        if(finalChord === "A#"){
+          finalChord = "Bb";
+        }
 
-          let index =
-            notes.indexOf(root);
+        result += finalChord;
 
-          if(index === -1){
-            return token;
-          }
+        continue;
+      }
 
-          let newIndex =
-            (index + step + 12) % 12;
+    }
 
-          let finalChord =
-            notes[newIndex];
+    // DEFAULT
+    result += char;
 
-          if(finalChord === "A#"){
-            finalChord = "Bb";
-          }
+  }
 
-          return finalChord + suffix;
-
-        })
-        .join(' ');
-
-    })
-    .join('\n');
+  return result;
 
 }
-
 /* DARK MODE */
 function toggleTheme(){
 
