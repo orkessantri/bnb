@@ -272,6 +272,11 @@ function renderCurrentSong(){
     currentKey = "Bb";
   }
 
+  document.getElementById(
+  'song-key'
+).innerText =
+  `DO = ${currentKey}`;
+  
   let renderedContent =
     currentSong.content;
 
