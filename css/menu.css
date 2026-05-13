@@ -1,131 +1,45 @@
-/* =========================
-   BODY
-========================= */
-body{
-  background:#000;
-  color:white;
-}
-
-/* =========================
-   WRAPPER
-========================= */
-.menu-wrapper{
-  width:100%;
-  max-width:520px;
-  margin:0 auto;
-  padding:
-    24px
-    18px
-    40px;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  min-height:
-    calc(100dvh - 50px - 28px);
-}
-
-/* =========================
-   PAGE TITLE
-========================= */
-.page-title{
-  text-align:center;
-  font-size:30px;
-  font-weight:800;
-  margin-bottom:26px;
-  color:white;
-  letter-spacing:1px;
-}
-
-/* =========================
-   MENU CONTAINER
-========================= */
 .menu-container{
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:14px;
 }
 
-/* =========================
-   MENU CARD
-========================= */
+/* MENU CARD */
 .menu-card{
   background:white;
   color:black;
   text-decoration:none;
-  border-radius:16px;
-  min-height:58px;
+  border-radius:18px;
+  min-height:68px;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:14px 18px;
-  font-size:19px;
+  font-size:20px;
   font-weight:700;
   transition:.2s;
-  box-shadow:
-    0 2px 8px rgba(0,0,0,.2);
-  animation:
-    fadeInUp .35s ease forwards;
 }
 
-/* =========================
-   HOVER
-========================= */
 .menu-card:hover{
-  transform:scale(1.015);
+  transform:scale(1.02);
 }
 
 .menu-card:active{
   transform:scale(.98);
 }
 
-/* =========================
-   DARK MODE
-========================= */
-body.dark-mode .menu-card{
-  background:#1d1d1d;
-  color:white;
-}
+/* MOBILE */
+@media(max-width:600px){
 
-/* =========================
-   ANIMATION
-========================= */
-@keyframes fadeInUp{
-
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media(max-width:768px){
-
-  .menu-wrapper{
-    padding:
-      20px
-      16px
-      36px;
-
-  }
-
-  .page-title{
-    font-size:26px;
-    margin-bottom:22px;
+  .menu-container{
+    max-width:100%;
   }
 
   .menu-card{
-    min-height:54px;
-    font-size:17px;
-    border-radius:14px;
+    min-height:62px;
+    font-size:18px;
   }
 
 }
