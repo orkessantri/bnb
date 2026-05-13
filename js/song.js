@@ -231,73 +231,6 @@ function zoomIn(){
 
 }
 
-function renderCurrentSong(){
-
-  if(!currentSong) return;
-
-  originalKey =
-    currentSong.key || "C";
-
-  const flats = {
-    "Bb":"A#",
-    "Db":"C#",
-    "Eb":"D#",
-    "Gb":"F#",
-    "Ab":"G#"
-  };
-
-  let normalizedOriginalKey =
-    originalKey;
-
-  if(flats[normalizedOriginalKey]){
-    normalizedOriginalKey =
-      flats[normalizedOriginalKey];
-  }
-
-  let originalIndex =
-    notes.indexOf(normalizedOriginalKey);
-
-  let currentIndex =
-    (originalIndex + transposeValue + 12) % 12;
-
-  currentKey =
-    notes[currentIndex];
-
-  document.getElementById(
-  'song-key'
-).innerText =
-  `DO = ${currentKey}`;
-  
-  if(currentKey === "A#"){
-    currentKey = "Bb";
-  }
-
-  document.getElementById(
-  'song-key'
-).innerText =
-  `DO = ${currentKey}`;
-  
-  let renderedContent =
-    currentSong.content;
-
-  for(
-    let i = 0;
-    i < Math.abs(transposeValue);
-    i++
-  ){
-
-    renderedContent =
-      transposeText(
-        renderedContent,
-        transposeValue > 0 ? 1 : -1
-      );
-
-  }
-
-  renderSong(renderedContent);
-
-}
-
 /* ZOOM OUT */
 function zoomOut(){
 
@@ -315,15 +248,6 @@ function zoomOut(){
       chordSize + 'px';
 
   });
-
-}
-
-/* TRANSPOSE */
-function transpose(step){
-
-  transposeValue += step;
-
-  renderCurrentSong();
 
 }
 
