@@ -71,6 +71,19 @@
   cursor:pointer;
 }
 
+.add-btn.added{
+  background:#ff8800;
+  color:white;
+}
+
+.add-btn{
+  transition:.2s;
+}
+
+.add-btn:active{
+  transform:scale(.92);
+}
+
 .song-link{
   color:white;
   text-decoration:none;
