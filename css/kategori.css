@@ -99,7 +99,7 @@
   max-width:100%;
   margin:20px auto;
   color:white;
-  font-size:8px;
+  font-size:10px;
   line-height:0.8;
 }
 
@@ -148,8 +148,8 @@
 
 @media(max-width:768px){
   #preview-setlist{
-    gap:6px 30px;
-    font-size:18px;
+    gap:6px 20px;
+    font-size:10px;
     padding:0 20px;
   }
 }
