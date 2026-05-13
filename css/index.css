@@ -1,0 +1,113 @@
+/* =========================
+   RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body.home{
+  background:#000;
+  color:#fff;
+  font-family:
+    Arial,
+    sans-serif;
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* =========================
+   HOME SCREEN
+========================= */
+.home-screen{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:8px;
+  transform:translateY(-10px);
+  animation:
+    fadeIn .8s ease;
+}
+
+/* =========================
+   TITLE
+========================= */
+.title{
+  font-size:120px;
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.title span{
+  display:block;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.enter-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:
+    14px
+    28px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.enter-btn:hover{
+  transform:scale(1.03);
+}
+
+.enter-btn:active{
+  transform:scale(.97);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:768px){
+
+  .title{
+    font-size:72px;
+  }
+
+  .enter-btn{
+    font-size:16px;
+    padding:
+      12px
+      24px;
+  }
+
+}
