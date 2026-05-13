@@ -70,7 +70,7 @@
 }
 
 .song-main{
-  font-size:14px;
+  font-size:16px;
   font-weight:600;
   white-space:nowrap;
   overflow:hidden;
@@ -78,7 +78,7 @@
 }
 
 .song-artist{
-  font-size:10px;
+  font-size:12px;
   opacity:.8;
   white-space:nowrap;
   flex-shrink:0;
