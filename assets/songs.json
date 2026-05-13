@@ -5,8 +5,8 @@
   "title": "ALLAHU ROBBI",
   "artist": "Kiai Kanjeng",
   "category": "ISLAMIC",
-  "key": "",
-  "content": "[Intro]\nE - E G E\nHIT - C#BA BAG AGF# B.AGA GFG F#EF#E.\nA - \nHIT - BAG AGF# GF#E B.AGA GFG F#EF#E. E…\n[SULUK]\nE\n[Chorus]\nE F# G (2x) G A F# E\n[Verse]\nE F# B (2x)\nF# C# B F# - D F# - (HIT A G F# G E )\nBack to Chorus – Verse – Chorus - Intro"
+  "key": "G",
+  "content": "[Intro]\nE - E G E\n(HIT) C#BA BAG AGF# B.AGA GFG F#EF#E. A..\n(HIT) BAG AGF# GF#E B.AGA GFG F#EF#E. E..\n[SULUK]\nE\n[Chorus]\nE F# G (2x) G A F# E\n[Verse]\nE F# B (2x)\nF# C# B F# - D F# - (HIT) AGF# GE\nBack to Chorus – Verse – Chorus - Intro"
 },
   
   {
@@ -18,22 +18,22 @@
   "content": "[Intro]\nC G D\n[Verse]\nG D C G D G\nRepeat 2x\n[Bridge Instrument]\nG F D# D\n[Chorus]\nG F C G / C G D G\n[Interlude]\nG C F Bb D# C D\nG D# F D D# C D\nBackto Verse - bridge - chorus\n[Outro]\nG\n\n\n"
 },
  
- {
+{
   "id": 3,
   "title": "NAADI’ ALIYYAN",
   "artist": "Kiai Kanjeng",
   "category": "ISLAMIC",
-  "key":"G",
-  "content": "[Intro]\nE C D\n[Verse]\nE C E [2x]\nA G F# E A C D E\n[Interlude Gamelan]\nA D G C F# B E -2x-\n[Chorus]\nE C E C E C A B 1x\nC A B E 2x\nBack to Verse - Verse Gamelan\n[Bridge]\nE C D E\nVerse gamelan (break) – Verse – Interlude Gamelan (1x) – Chorus (1x) – Verse – Bridge - End"
+  "key": "G",
+  "content": "[Intro]\nE C D\n[Verse]\nE C E (2x)\nA G F# E A C D E\n[Interlude Gamelan]\nA D G C F# B E (2x)\n[Chorus]\nE C E C E C A B (1x)\nC A B E 2x\nBack to Verse - Verse Gamelan\n[Bridge]\nE C D E\nVerse gamelan (break) – Verse – Interlude Gamelan (1x) – Chorus (1x) – Verse – Bridge - End"
 },
 
 {
   "id": 4,
   "title": "RINDU MUHAMMAD",
-  "artist": "Haddad Alwi & Sulis",
+  "artist": "Hadad Alwi",
   "category": "ISLAMIC",
-  "key": "",
-  "content": "[Intro Drums]\nC\n[Verse Ya Robbi]\nF D F C 2x\n[Chorus Ya Rasul]\nF Bb F D C 2x\nBack to Ya Robbi 1X\n[Rap]\nF -- C -- D Bb C\nBak to Ya Robbi - Ya Rasul - Ya Robbi & Rap 4\nOutro : F"
+  "key": "C",
+  "content": "[Intro Drums]\nC\n[Verse Ya Robbi]\nF D F C (2x)\n[Chorus Ya Rasul]\nF Bb F D C (2x)\nBack to Ya Robbi 1X\n[Rap]\nF.. C.. D Bb C\nBak to Ya Robbi - Ya Rasul - Ya Robbi & Rap 4\nOutro : F"
 },
 
 {
@@ -51,16 +51,16 @@
   "artist": "Kiai Kanjeng",
   "category": "ISLAMIC",
   "key": "C",
-  "content": "[Intro]\nA D G C A B E [2x]\n[Chorus]\nAllahumma Sholli\nE A C E - A B E\nWasohbihi fi\nE C A E - A B E\n[Intro Short]\nA B E\n[Verse]\nE C A E - A B E\nSholawat - Short Intro - Sholawat - Intro"
+  "content": "[Intro]\nA D G C A B E (2x)\n[Chorus]\nAllahumma Sholli ala\nE A C E - A B E\nWasohbihi fikulli\nE C A E - A B E\n[Intro Short]\nA B E\n[Verse]\nE C A E - A B E\nSholawat - Short Intro - Sholawat - Intro"
 },
 
-  {
+{
   "id": 7,
   "title": "SHOLAWAT ASYGHIL",
   "artist": "Sawtha Sastro Adi",
   "category": "ISLAMIC",
   "key": "D",
-  "content": "[Intro]\nKeyboard Only\n[Verse]\nB F# E B [2x]\n[Pre Chorus]\nG E F#\n[Chorus]\nF# -- B F# E B\nVerse - Pre Chorus - Chorus\n[Interlude]\nF# - (F-G#-A#-B-C#-D)\n[Bridge]\nB F# E B - D A E F#\nChorus Drum & Perc\n[HIT]\nF#-G#-Bb\nChorus all"
+  "content": "[Intro]\nKeyboard Only\n[Verse]\nB F# E B (2x)\n[Pre Chorus]\nG E F#\n[Chorus]\nF#.. B F# E B\nVerse - Pre Chorus - Chorus\n[Interlude]\nF#.. (HIT) FG#A#BC#D\n[Bridge]\nB F# E B - D A E F#\nChorus Drum & Perc\n[HIT]\nF#G#Bb\nBack to Chorus all"
 },
 
   {
@@ -72,31 +72,31 @@
   "content": "[Intro]\nA G D A\n[Verse]\nA G F A\n[Chorus]\nA D G C E - G A\n "
 },
 
-  {
+{
   "id": 9,
   "title": "YA RASULALLAH",
-  "artist": "Not 7",
+  "artist": "Not Tujuh",
   "category": "ISLAMIC",
   "key": "C",
-  "content": "Keyboard and Rall and Drums Beat\n[Intro]\nA G A G A - A - Bb G A\nG A G A - fill break ( D-E-F-G-A )\n[Verse]\nD A G D - Bb A Bb G A [2X]\n[Interlude]\nG (Walk) C* (E blues) F* (walk) B\nA G A G A - fill break ( D-E-F-G-A )\nBack to Verse - (solo drums) - Interlude - Verse - Fill Drums\n[OUTRO]\nA G A G A - Fill Break ( D-E-F-G-A )"
-},
-
-  {
-  "id": 10,
-  "title": "NURUL MUSTHOFA",
-  "artist": "Not 7",
-  "category": "ISLAMIC",
-  "key": "D#",
-  "content": "[Intro]\nC-A-F-D--G-G-G\n[Verse]\nC Bb F G\n[Pre Chorus]\nC D D* F - Bb-B-C\nVerse - Pre Chorus\n[Interlude]\nC G [2x] - C F G\nVerse - Pre Chorus\n[Outro]\nC Bb F - C G - Bb-B-C"
+  "content": "Keyboard and Rall and Drums Beat\n[Intro]\nA G A G A - A - Bb G A\nG A G A - (Fill Break) (HIT) DEFGA\n[Verse]\nD A G D - Bb A Bb G A (2X)\n[Interlude]\nG (Walk) C* (E blues) F* (Walk) B\nA G A G A (Fill Break) (HIT) DEFGA\nBack to Verse - Solo Drums - Interlude - Verse - Fill Drums\n[OUTRO]\nA G A G A (Fill Break) (HIT) DEFGA"
 },
 
 {
+  "id": 10,
+  "title": "NURUL MUSTHOFA",
+  "artist": "Not Tujuh",
+  "category": "ISLAMIC",
+  "key": "D#",
+  "content": "[Intro]\n(HIT) CAFD - GGG - C\n[Verse]\nC Bb F G\n[Pre Chorus]\nC D D# F - BbBC\nVerse - Pre Chorus\n[Interlude]\nC G (2x) - C F G\nVerse - Pre Chorus\n[Outro]\nC Bb F - C G - BbBC"
+},
+  
+{
   "id": 11,
-  "title": "COBA CHORD",
-  "artist": "TES",
-  "category": "INDO",
-  "key": "C",
-  "content": "[Intro]\nC A F G - C G F G\n[Verse]\nC.. F. G. FG C\nSesungguhnya cinta itu buta\n[Pre Chorus]\nF G F G A G C\n[Interlude]\nA F G F G (HIT) AGFG F.. G.. A\nJangan pernah kau mengerti\nBack to verse - Chorus - Interlude\n"
+  "title": "TOMBO ATI",
+  "artist": "DC Musik",
+  "category": "ISLAMIC",
+  "key": "F",
+  "content": "[Intro Keys]\nF D# Bb - Bbm\n[Intro]\nF D EF\n[Verse Keys]\nF E DEF - F C Bb C F\n[Fill]\nBb C F\n[Verse Drums]\nF E Bb F - F C Bb C F\n[Bridge Interlude]\nF D# Bb/D F\n[Verse DD]\nF C Bb F - C Bb C F (4X)\n[Interlude]\nF E Bb F - C Bb C F\nBack to verse DD\n[Outro]\nF D# Bb Bbm D# F"
 }
   
 ]
