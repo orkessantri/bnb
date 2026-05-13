@@ -105,6 +105,16 @@ function editSong(id){
     song.title;
 
   document.getElementById(
+    'song-artist'
+  ).value =
+    song.artist;
+
+  document.getElementById(
+    'song-key'
+  ).value =
+    song.key;
+  
+  document.getElementById(
     'song-category'
   ).value =
     song.category;
@@ -177,8 +187,18 @@ function copyJSON(){
 /* CLEAR JSON */
 function clearForm(){
 
+  editingID = null;
+
+  document.getElementById(
+    'song-artist'
+  ).value = '';
+  
   document.getElementById(
     'song-title'
+  ).value = '';
+
+  document.getElementById(
+    'song-key'
   ).value = '';
 
   document.getElementById(
@@ -203,5 +223,21 @@ function clearForm(){
   document.getElementById(
     'output'
   ).innerText = '';
+
+  // REFRESH SONG ID
+  let maxId = 0;
+
+  songs.forEach(song => {
+
+    if(song.id > maxId){
+      maxId = song.id;
+    }
+
+  });
+
+  document.getElementById(
+    'song-id'
+  ).value =
+    "Song ID - " + (maxId + 1);
 
 }
