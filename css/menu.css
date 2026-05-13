@@ -1,15 +1,28 @@
 /* =========================
-   MENU WRAPPER
+   BODY
+========================= */
+body{
+  background:#000;
+  color:white;
+}
+
+/* =========================
+   WRAPPER
 ========================= */
 .menu-wrapper{
   width:100%;
-  max-width:900px;
+  max-width:520px;
   margin:0 auto;
   padding:
-    16px
-    16px
-    100px;
+    24px
+    18px
+    40px;
   flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:
+    calc(100dvh - 50px - 28px);
 }
 
 /* =========================
@@ -17,10 +30,11 @@
 ========================= */
 .page-title{
   text-align:center;
-  font-size:28px;
+  font-size:30px;
   font-weight:800;
-  margin-bottom:22px;
+  margin-bottom:26px;
   color:white;
+  letter-spacing:1px;
 }
 
 /* =========================
@@ -29,7 +43,7 @@
 .menu-container{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
 }
 
 /* =========================
@@ -40,18 +54,16 @@
   color:black;
   text-decoration:none;
   border-radius:16px;
-  padding:
-    16px
-    18px;
+  min-height:58px;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:58px;
-  font-size:20px;
+  padding:14px 18px;
+  font-size:19px;
   font-weight:700;
   transition:.2s;
   box-shadow:
-    0 2px 8px rgba(0,0,0,.15);
+    0 2px 8px rgba(0,0,0,.2);
   animation:
     fadeInUp .35s ease forwards;
 }
@@ -60,7 +72,7 @@
    HOVER
 ========================= */
 .menu-card:hover{
-  transform:scale(1.01);
+  transform:scale(1.015);
 }
 
 .menu-card:active{
@@ -68,40 +80,10 @@
 }
 
 /* =========================
-   ANIMATION DELAY
-========================= */
-.menu-card:nth-child(1){
-  animation-delay:.05s;
-}
-
-.menu-card:nth-child(2){
-  animation-delay:.10s;
-}
-
-.menu-card:nth-child(3){
-  animation-delay:.15s;
-}
-
-.menu-card:nth-child(4){
-  animation-delay:.20s;
-}
-
-.menu-card:nth-child(5){
-  animation-delay:.25s;
-}
-
-/* =========================
-   ICON
-========================= */
-.icon{
-  font-size:20px;
-}
-
-/* =========================
    DARK MODE
 ========================= */
 body.dark-mode .menu-card{
-  background:#1c1c1c;
+  background:#1d1d1d;
   color:white;
 }
 
@@ -129,19 +111,21 @@ body.dark-mode .menu-card{
 
   .menu-wrapper{
     padding:
-      14px
-      14px
-      90px;
+      20px
+      16px
+      36px;
+
   }
 
   .page-title{
-    font-size:24px;
+    font-size:26px;
+    margin-bottom:22px;
   }
 
   .menu-card{
-    font-size:18px;
-    border-radius:14px;
     min-height:54px;
+    font-size:17px;
+    border-radius:14px;
   }
 
 }
