@@ -4,6 +4,8 @@
 .page-wrapper{
   min-height:
     calc(100dvh - 50px - 28px);
+
+  padding-bottom:20px;
 }
 
 /* TITLE */
