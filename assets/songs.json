@@ -115,6 +115,52 @@
   "category": "ISLAMIC",
   "key": "G#",
   "content": "[Intro]\nF D# C# C (2x)\n(HIT) CC#D# G#G.G#GD#C\n[Verse]\nF D# C# C\n[Chorus]\nF C D# Bb C# C\n"
+},
+
+  {
+  "id": 14,
+  "title": "AYANG-AYANG",
+  "artist": "Risang Gotho",
+  "category": "DUNGDAT",
+  "key": "A",
+  "content": "[Intro]\nF# A - F# A \n[Verse]\nF# A B D E\nF# A B D C#\n[Pre Chorus]\nF# A E D C# (2x)\n[Chorus]\nF# D A E\n[Interlude]\nF# A B D C# - F# A B C#\nBack to Pre - Chorus - End"
+},
+
+  {
+  "id": 15,
+  "title": "",
+  "artist": "Denny Caknan",
+  "category": "DUNGDAT",
+  "key": "E",
+  "content": "[Intro 1]\nE A E\n[Verse]\nE C# A B - G# C# F# B\n[Intro 2]\nC# D E(walk)A F# B\n[Pre Chorus 1]\nA B E(G#) C# F#. E -\nA B G# C# F# A B E\n[Chorus]\nA B G# C# F# B E -\nA B G# C# F#-G# A B E\nBack to Intro 1 - Verse\n[Pre Chorus 2]\nA B C# E(hit up) G#A B C# B\n[Bridge Intro]\nA (bass)\nBack to Pre Chorus 1 - Chorus 2x\n[Outro]\nA - Am E"
+},
+
+  {
+  "id": 16,
+  "title": "GERIGIS",
+  "artist": "Dini Kurnia",
+  "category": "DUNGDAT",
+  "key": "A",
+  "content": "[Intro]\nA D G E A - G\n[Verse]\nA D G E A - G\n[Interlude]\nA D - A D G E A\n[Chorus]\nA D G A, A D G E A\n\n"
+},
+
+  {
+  "id": 17,
+  "title": "PERTEMUAN 2",
+  "artist": "Rita Sugiarto",
+  "category": "DUNGDAT",
+  "key": "Bb",
+  "content": "[Intro]\nG D# F D# G (2x)\nG F D# (2x)\n[Verse]\nG C G* G (HIT) GCD#D\nG C G* G\n[Interlude]\nG F G F\n[FLUTE]\nF G C D# G\n[Chorus]\nG F D# D D# D\n[FLUTE]\nF G C D# G\n[Chorus]\nG F D# D D# D\nG C D# G\n"
+},
+
+  {
+  "id": 18,
+  "title": "LINTANG ASMORO",
+  "artist": "Dru Wendra Wedhatama",
+  "category": "DUNGDAT",
+  "key": "D",
+  "content": "[Intro]\nD A. G E C A D\n[Verse]\nD A. G E C A D - G A D\n[Chorus]\nB F# B F#\nG F# G A D\nChorus repeat.\nBack to intro"
 }
+
   
 ]
