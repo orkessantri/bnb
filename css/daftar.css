@@ -1,8 +1,10 @@
-.daftar-wrapper{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  padding:0px 16px 100px;
+/* =========================
+   PAGE
+========================= */
+
+.page-wrapper{
+  min-height:
+    calc(100dvh - 50px - 28px);
 }
 
 /* TITLE */
@@ -55,54 +57,11 @@
   gap:10px;
 }
 
-/* ITEM */
-.song-item{
-  background:white;
-  border-radius:14px;
-  padding:5px 8px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.song-item:hover{
-  transform:scale(1.01);
-}
-
-/* TITLE */
-.song-name{
-  color:black;
-  font-size:14px;
-  font-weight:700;
-}
-
 /* CATEGORY */
 .song-category{
   color:#666;
   font-size:14px;
   margin-top:4px;
-}
-
-/* FLOAT BUTTON */
-.floating-buttons{
-  position:fixed;
-  right:16px;
-  bottom:30px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:999;
-}
-
-.floating-buttons button{
-  width:44px;
-  height:44px;
-  border:none;
-  border-radius:12px;
-  background:#1f1f1f;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
 }
 
 /* MOBILE */
