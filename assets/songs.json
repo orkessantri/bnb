@@ -4,7 +4,7 @@
   "id": 1,
   "title": "ALLAHU ROBBI",
   "artist": "Kiai Kanjeng",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "G",
   "content": "[Intro]\nE - E G E\n(HIT) C#BA BAG AGF# B.AGA GFG F#EF#E. A..\n(HIT) BAG AGF# GF#E B.AGA GFG F#EF#E. E..\n[SULUK]\nE\n[Chorus]\nE F# G (2x) G A F# E\n[Verse]\nE F# B (2x)\nF# C# B F# - D F# - (HIT) AGF# GE\nBack to Chorus – Verse – Chorus - Intro"
 },
@@ -13,7 +13,7 @@
   "id": 2,
   "title": "WAKAFA",
   "artist": "Kiai Kanjeng",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key":"C",
   "content": "[Intro]\nC G D\n[Verse]\nG D C G D G\nRepeat 2x\n[Bridge Instrument]\nG F D# D\n[Chorus]\nG F C G / C G D G\n[Interlude]\nG C F Bb D# C D\nG D# F D D# C D\nBackto Verse - bridge - chorus\n[Outro]\nG\n\n\n"
 },
@@ -22,7 +22,7 @@
   "id": 3,
   "title": "NAADI’ ALIYYAN",
   "artist": "Kiai Kanjeng",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "G",
   "content": "[Intro]\nE C D\n[Verse]\nE C E (2x)\nA G F# E A C D E\n[Interlude Gamelan]\nA D G C F# B E (2x)\n[Chorus]\nE C E C E C A B (1x)\nC A B E 2x\nBack to Verse - Verse Gamelan\n[Bridge]\nE C D E\nVerse gamelan (break) – Verse – Interlude Gamelan (1x) – Chorus (1x) – Verse – Bridge - End"
 },
@@ -31,7 +31,7 @@
   "id": 4,
   "title": "RINDU MUHAMMAD",
   "artist": "Hadad Alwi",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "C",
   "content": "[Intro Drums]\nC\n[Verse Ya Robbi]\nF D F C (2x)\n[Chorus Ya Rasul]\nF Bb F D C (2x)\nBack to Ya Robbi 1X\n[Rap]\nF.. C.. D Bb C\nBak to Ya Robbi - Ya Rasul - Ya Robbi & Rap 4\nOutro : F"
 },
@@ -40,7 +40,7 @@
   "id": 5,
   "title": "OST HARI SANTRI",
   "artist": "Nahdliyyin",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key":"C",
   "content": "[Intro]\nG A D D# C D D# D\n[Verse]\nG C F Bb D# C D 2x\n[Chorus]\nG C F Bb D# C A D\n[Interlude]\nG G# - C Bb G\nVerse - Chorus\n"
 },
@@ -49,7 +49,7 @@
   "id": 6,
   "title": "SHOLAWAT NARIYAH",
   "artist": "Kiai Kanjeng",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "C",
   "content": "[Intro]\nA D G C A B E (2x)\n[Chorus]\nAllahumma Sholli ala\nE A C E - A B E\nWasohbihi fikulli\nE C A E - A B E\n[Intro Short]\nA B E\n[Verse]\nE C A E - A B E\nSholawat - Short Intro - Sholawat - Intro"
 },
@@ -58,7 +58,7 @@
   "id": 7,
   "title": "SHOLAWAT ASYGHIL",
   "artist": "Sawtha Sastro Adi",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "D",
   "content": "[Intro]\nKeyboard Only\n[Verse]\nB F# E B (2x)\n[Pre Chorus]\nG E F#\n[Chorus]\nF#.. B F# E B\nVerse - Pre Chorus - Chorus\n[Interlude]\nF#.. (HIT) FG#A#BC#D\n[Bridge]\nB F# E B - D A E F#\nChorus Drum & Perc\n[HIT]\nF#G#Bb\nBack to Chorus all"
 },
@@ -67,7 +67,7 @@
   "id": 8,
   "title": "LONTONG TAHU",
   "artist": "Kalijogo",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "C",
   "content": "[Intro]\nA G D A\n[Verse]\nA G F A\n[Chorus]\nA D G C E - G A\n "
 },
@@ -76,7 +76,7 @@
   "id": 9,
   "title": "YA RASULALLAH",
   "artist": "Not Tujuh",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "C",
   "content": "Keyboard and Rall and Drums Beat\n[Intro]\nA G A G A - A - Bb G A\nG A G A - (Fill Break) (HIT) DEFGA\n[Verse]\nD A G D - Bb A Bb G A (2X)\n[Interlude]\nG (Walk) C* (E blues) F* (Walk) B\nA G A G A (Fill Break) (HIT) DEFGA\nBack to Verse - Solo Drums - Interlude - Verse - Fill Drums\n[OUTRO]\nA G A G A (Fill Break) (HIT) DEFGA"
 },
@@ -85,7 +85,7 @@
   "id": 10,
   "title": "NURUL MUSTHOFA",
   "artist": "Not Tujuh",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "D#",
   "content": "[Intro]\n(HIT) CAFD - GGG - C\n[Verse]\nC Bb F G\n[Pre Chorus]\nC D D# F - BbBC\nVerse - Pre Chorus\n[Interlude]\nC G (2x) - C F G\nVerse - Pre Chorus\n[Outro]\nC Bb F - C G - BbBC"
 },
@@ -94,7 +94,7 @@
   "id": 11,
   "title": "TOMBO ATI",
   "artist": "DC Musik",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "F",
   "content": "[Intro Keys]\nF D# Bb - Bbm\n[Intro]\nF D EF\n[Verse Keys]\nF E DEF - F C Bb C F\n[Fill]\nBb C F\n[Verse Drums]\nF E Bb F - F C Bb C F\n[Bridge Interlude]\nF D# Bb/D F\n[Verse DD]\nF C Bb F - C Bb C F (4X)\n[Interlude]\nF E Bb F - C Bb C F\nBack to verse DD\n[Outro]\nF D# Bb Bbm D# F"
 },
@@ -103,7 +103,7 @@
   "id": 12,
   "title": "SERAT PENJAJAH",
   "artist": "DC Musik",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "G#",
   "content": "[Intro]\nF. CC#C BbBbG#G F (4X)\n[Verse]\nF D# C# C\n[Chorus]\nG# D# C# F\nG# D# C# C\n[Interlude]\nF D# C# C\nOutro=Intro"
 },
@@ -112,7 +112,7 @@
   "id": 13,
   "title": "HABBITAK 'ALA BALI",
   "artist": "Ongkress",
-  "category": "ISLAMIC",
+  "category": "KASIDAH",
   "key": "G#",
   "content": "[Intro]\nF D# C# C (2x)\n(HIT) CC#D# G#G.G#GD#C\n[Verse]\nF D# C# C\n[Chorus]\nF C D# Bb C# C\n"
 },
@@ -160,7 +160,113 @@
   "category": "DUNGDAT",
   "key": "D",
   "content": "[Intro]\nD A. G E C A D\n[Verse]\nD A. G E C A D - G A D\n[Chorus]\nB F# B F#\nG F# G A D\nChorus repeat.\nBack to intro"
-}
+},
 
-  
+  {
+  "id": 19,
+  "title": "AIR BUNGA",
+  "artist": "Rita Sugiarto",
+  "category": "DUNGDAT",
+  "key": "Bb",
+  "content": "[Intro]\nD… F… - D A \nD G D\n[Verse]\nD Bb A D (2x)\nG A Bb C D\nD Bb A D (2x)\n[Interlude]\nD G. Bb C D\n[Flute]\nG D# D (2x) D G D\n[Chorus]\nD. G. D# C D 2x\n[Bridge]\nG D\n[Chorus]\nD. G. D# C D 2x\nG F D - A Bb D\n"
+},
+
+  {
+  "id": 20,
+  "title": "CAMELIA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "A",
+  "content": "[Intro]\nA.. D.. G F A\n[Verse]\nB A B A - G F G F A\n[Interlude]\nA.. G D. A\n[Chorus]\nA G A F A (2x)\nBack to Verse"
+},
+
+  {
+  "id": 21,
+  "title": "DATANG UNTUK PERGI",
+  "artist": "Elvy Sukaesih",
+  "category": "DUNGDAT",
+  "key": "G#",
+  "content": "[Intro]\nC F C (2x) C G# C\n[Verse]\nC F C - F C\nC Bb C\n[Intro Bridge]\nC G# C\nBack to Verse\n[Interlude]\nC. Fm.. C - C G# C (2x)\n[Chorus]\nC F C (3x)\nC Bb F G# \nBack to verse - Interlude Chorus\n[Outro]\nC"
+},
+
+  {
+  "id": 22,
+  "title": "HARI BERBANGKIT",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nE D C (2x)\n[Hit]\nEE DD CC DD GF#E\n[Verse]\nE..D.C A E (2x)\n[Chorus]\nE D C-D E\nIntro - Verse - Chorus\n[Interlude Hook]\nEDE FGE - AGA BbCA 2x \nEFEGF#FE (2x)\nBCBDC#CB (2x)\n[Flute]\nD A D E 2x\n[Verse 2]\nE F D E\nFlute - Verse 2\n[Bridge]\nB A B E - B A C E\nIntro - Verse - Chorus - intrl hook\n[Outro]\nE F F# F E"
+},
+
+  {
+  "id": 23,
+  "title": "HARAM",
+  "artist": "Rhoma Irama ft. Noer Halimah",
+  "category": "DUNGDAT",
+  "key": "F",
+  "content": "[Intro]\nD . ACBbCDFECD ED\nG F - BbFEDCABbCD ED\n[Intro hook]\nD\n[Verse]\nD C D . G F D\n[Bridge]\nG F G F A. \nG A D - G A Bb D\n[Lead]\nD G Bb C D\n[Interlude Hook]\nC D C D [2x]\n[Chorus]\nD G Bb A \nInterlude hook - Chorus\nG A G A Bb C A D\nIntro hook - Verse - Bridge - Intro hook End"
+},
+
+  {
+  "id": 24,
+  "title": "GHIBAH",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "",
+  "content": "[Intro]\nA GA GA FGA C A\nD CD CD BbCD F D (fill 1/16 AGFE)\n[Verse]\nA. F E - A. F G\nD A D A - F E A..\n[Break Intro 1]\nCAGE.DEG EA\nBack Verse\nBridge diatonis down : G C (2x)\n[Break intro 2]\nCAGE.DEG EF GA\nInterlude solo : CDE A - FGA 5x\nFill major F pentatonic & A up 2x\n[Flute]\nG C G A (fill Diatonis A-F) 2x\n[Fill intrl] EA DG CF BFE DC BAG\n[Chorus]\nG D A (2x) (fill intrl - Chorus)\nE F G A - (fill fast AGFE)\nVerse - Break Intro 2"
+},
+
+  {
+  "id": 25,
+  "title": "BUTA TULI",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nEDFE - GFEFDEBDFE 2x\nEFGE - EFGA. A\n[Verse]\nA F G A - F G\nD A - D A - E F E F A..\nBack to Verse\nInterlude Rock : A\n[Flute]\nG F G A (Fill F)\n[Chorus]\nG A G A (Fill F)\nback chorus - hook voc (Am penta)\nE F E F A.\nBridge - Verse 2x - Outro (A)"
+},
+
+  {
+  "id": 26,
+  "title": "LAAILAHA ILLALLAH",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "D#",
+  "content": "[Intro]\nFGCFGG#G - C 2x\nFG#C#FG#BbG# - C#\nFGCFGG#G (C) 1x\n[Hit]\nD#DCBbG#GF - C G# CC\n[Verse]\nC G# Bb G# C\n[Verse Fill]\nD#DCBbFBbG#G\n[Chorus]\nC G# C - G# Bb C\n[Interlude solo] G Bb D# C\n[Interlude fill]\nFGFG FGDFG#GG - FGFG DFG#GG\n[Interlude string]\nF . G#Bb G# C - G# Bb G# C\n[Verse 2]\nC G# G\n[Fill verse 2]\nG#F BG - FD#DB GC\nBackto Verse 2\n[Bridge Alam]\nFG# FG# G (Hit) GG#CB G#GC\nVerse Fill - Verse & fill 2x - Chorus"
+},
+
+  {
+  "id": 27,
+  "title": "BOLEH SAJA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro A]\nE - DCB AGF#EF# ABD\nD - CBA GF#EDE ABE - E\n[Intro B]\nE D C E (2x) EED AGF#E\n[Verse]\nE A E - EEF#F#GGG F#F#AACCCB - E\nBack to Intro B - Verse\n[Interlude]\nD. G. 2x - E. D. - AGF#E (2X)\n[Lead]\nE F# G A E (2x) EDCBAD\n[Chorus 1]\nD C A DCB\n[Fill] AB.-CB - AB.-D#B - EDCBAD\n[Chorus 2] \nD C A DCB - D C B E -EED AGF#E\nVerse - Interlude - Chorus - Verse - Intro B"
+},
+
+  {
+  "id": 28,
+  "title": "",
+  "artist": "",
+  "category": "",
+  "key": "",
+  "content": "[Intro]\nC A# G# C (2X) C F C\n[Verse]\nC A# G# C - G G# G G# C\n[Interlude]\nC F G\n[Flute & Lead]\nF C F C (2x) F G# C\n[Chorus]\nC A# C G# A# C\n[Bridge]\nF G# C\nChorus - C F C"
+},
+
+  {
+  "id": 29,
+  "title": "SETAN PASTI KALAH",
+  "artist": "GBR Cover",
+  "category": "DUNGDAT",
+  "key": "",
+  "content": "[Intro Keys]\nC G G# Bb - C G F D# C# C G G# Bb C\n[Intro 1 HIT Drum]\nCGD#D - DCFD# - CGD#D-CFD#-D#GF-BbGBbC\n[Intro 2]\nC Bb Fm Cm\n[Intro Fill]\nCGD#D Bb G F D#D D# C\n[Verse]\nC G# Bb C (Intro Fill) C G# Bb C\n[Interlude]\nC.... G-G#-G-G#\n[Interlude Fill]\nCDD#FGG#B#CDD# - DD#F\n[Chorus 1] \nF C F C (Interlude Fill)\n[Chorus 2]\nF C F C - Bb F G C (Intro Fill)\nVerse - Interlude - Fill - Chorus 1\nFill - Chorus 2 - Intro Fill End"
+},
+
+  {
+  "id": 30,
+  "title": "SENI",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro Hit]\nAFGA - GACBGA - AFGA - GACBGE\n[Khotbah]\nA GA 12X -\n[Intro 1]\nABDBGBA - DB.GA (10X)\nADB - GA 2X - ADBADBADBADBGA 2X\n[Verse]\nEGA - A - E - A - E\n[Bridge]\nF G F G\n[Chorus]\nA G A G\n[Chorus Hit]\nABCECB-GABDB - ABCECB-GABDBGA\nSolo Sing with Gendang\n[Solo Hit]\nEFGE - ABbCBbC - EFGE - ADAD GC\n[Solo Gitar]\nA.. - DEFGAB - F E F E F E F AGC (2x) E\n[Flute]\nD A D A\nBack Intro 1 - Running to Solo Sing"
+},
 ]
