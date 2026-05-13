@@ -328,6 +328,10 @@ function transpose(step){
 
 }
 
+/* =========================
+   TRANSPOSE TEXT
+========================= */
+
 function transposeText(text, step){
 
   const flats = {
@@ -338,97 +342,177 @@ function transposeText(text, step){
     "Ab":"G#"
   };
 
-  let result = "";
+  const lines =
+    text.split('\n');
 
-  let insideBracket = false;
+  return lines.map(line => {
 
-  let insideSection = false;
-
-  for(let i = 0; i < text.length; i++){
-
-    let char = text[i];
-
-    // SECTION START
-if(char === "["){
-  insideSection = true;
-  result += char;
-  continue;
-}
-
-// SECTION END
-if(char === "]"){
-  insideSection = false;
-  result += char;
-  continue;
-}
-    
-    // BRACKET START
-    if(char === "("){
-      insideBracket = true;
-      result += char;
-      continue;
+    // SKIP SECTION
+    if(
+      line.startsWith('[') &&
+      line.endsWith(']')
+    ){
+      return line;
     }
 
-    // BRACKET END
-    if(char === ")"){
-      insideBracket = false;
-      result += char;
-      continue;
-    }
+    let result = "";
 
-    // SKIP TEXT INSIDE BRACKET
-   if(
-  insideBracket ||
-  insideSection
-){
+    let insideBracket = false;
 
-    // CHORD DETECT
-    if(/[A-G]/.test(char)){
+    for(let i = 0; i < line.length; i++){
 
-      let chord = char;
+      let char = line[i];
 
-      // SHARP / FLAT
-      if(
-        text[i + 1] === "#" ||
-        text[i + 1] === "b"
-      ){
-        chord += text[i + 1];
-        i++;
-      }
-
-      let normalized =
-        flats[chord] || chord;
-
-      let index =
-        notes.indexOf(normalized);
-
-      if(index !== -1){
-
-        let newIndex =
-          (index + step + 12) % 12;
-
-        let finalChord =
-          notes[newIndex];
-
-        if(finalChord === "A#"){
-          finalChord = "Bb";
-        }
-
-        result += finalChord;
-
+      // BRACKET MODE
+      if(char === "("){
+        insideBracket = true;
+        result += char;
         continue;
       }
 
+      if(char === ")"){
+        insideBracket = false;
+        result += char;
+        continue;
+      }
+
+      // SKIP TEXT INSIDE ()
+      if(insideBracket){
+        result += char;
+        continue;
+      }
+
+      // DETECT ROOT
+      if(/[A-G]/.test(char)){
+
+        let root = char;
+
+        let next =
+          line[i + 1];
+
+        // SHARP / FLAT
+        if(next === "#" || next === "b"){
+          root += next;
+          i++;
+        }
+
+        let chordRoot = root;
+
+        if(flats[chordRoot]){
+          chordRoot =
+            flats[chordRoot];
+        }
+
+        let index =
+          notes.indexOf(chordRoot);
+
+        // VALID CHORD
+        if(index !== -1){
+
+          let newIndex =
+            (index + step + 12) % 12;
+
+          let finalChord =
+            notes[newIndex];
+
+          // A# -> Bb
+          if(finalChord === "A#"){
+            finalChord = "Bb";
+          }
+
+          result += finalChord;
+          continue;
+        }
+
+      }
+
+      // DEFAULT CHAR
+      result += char;
+
     }
 
-    // DEFAULT
-    result += char;
+    return result;
+
+  }).join('\n');
+
+}
+
+/* =========================
+   RENDER CURRENT SONG
+========================= */
+
+function renderCurrentSong(){
+
+  if(!currentSong) return;
+
+  originalKey =
+    currentSong.key || "C";
+
+  const flats = {
+    "Bb":"A#",
+    "Db":"C#",
+    "Eb":"D#",
+    "Gb":"F#",
+    "Ab":"G#"
+  };
+
+  let normalizedOriginalKey =
+    originalKey;
+
+  if(flats[normalizedOriginalKey]){
+    normalizedOriginalKey =
+      flats[normalizedOriginalKey];
+  }
+
+  let originalIndex =
+    notes.indexOf(
+      normalizedOriginalKey
+    );
+
+  let currentIndex =
+    (originalIndex + transposeValue + 12) % 12;
+
+  currentKey =
+    notes[currentIndex];
+
+  if(currentKey === "A#"){
+    currentKey = "Bb";
+  }
+
+  let renderedContent =
+    currentSong.content;
+
+  // APPLY TRANSPOSE
+  for(
+    let i = 0;
+    i < Math.abs(transposeValue);
+    i++
+  ){
+
+    renderedContent =
+      transposeText(
+        renderedContent,
+        transposeValue > 0 ? 1 : -1
+      );
 
   }
 
-  return result;
+  renderSong(renderedContent);
 
 }
+
+/* =========================
+   TRANSPOSE
+========================= */
+
+function transpose(step){
+
+  transposeValue += step;
+
+  renderCurrentSong();
+
+}
+
 /* DARK MODE */
 function toggleTheme(){
 
