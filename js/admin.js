@@ -218,6 +218,9 @@ function clearForm(){
 
 [Interlude]
 
+[Flute]
+[Lead]
+
 [Outro]`;
 
   document.getElementById(
