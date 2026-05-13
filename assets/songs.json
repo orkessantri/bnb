@@ -97,6 +97,24 @@
   "category": "ISLAMIC",
   "key": "F",
   "content": "[Intro Keys]\nF D# Bb - Bbm\n[Intro]\nF D EF\n[Verse Keys]\nF E DEF - F C Bb C F\n[Fill]\nBb C F\n[Verse Drums]\nF E Bb F - F C Bb C F\n[Bridge Interlude]\nF D# Bb/D F\n[Verse DD]\nF C Bb F - C Bb C F (4X)\n[Interlude]\nF E Bb F - C Bb C F\nBack to verse DD\n[Outro]\nF D# Bb Bbm D# F"
-}
+},
+
+  {
+  "id": 12,
+  "title": "SERAT PENJAJAH",
+  "artist": "DC Musik",
+  "category": "ISLAMIC",
+  "key": "G#",
+  "content": "[Intro]\nF. CC#C BbBbG#G F (4X)\n[Verse]\nF D# C# C\n[Chorus]\nG# D# C# F\nG# D# C# C\n[Interlude]\nF D# C# C\nOutro=Intro"
+},
+
+  {
+  "id": 13,
+  "title": "HABBITAK 'ALA BALI",
+  "artist": "Ongkress",
+  "category": "ISLAMIC",
+  "key": "G#",
+  "content": "[Intro]\nF D# C# C (2x)\n(HIT) CC#D# G#G.G#GD#C\n[Verse]\nF D# C# C\n[Chorus]\nF C D# Bb C# C\n"
+},
   
 ]
