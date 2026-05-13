@@ -113,7 +113,7 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:2px;
+  gap:6px;
 }
 
 .remove-btn{
@@ -148,8 +148,8 @@
 
 @media(max-width:768px){
   #preview-setlist{
-    gap:6px 10px;
+    gap:8px 10px;
     font-size:12px;
-    padding:0 20px;
+    padding:4 20px;
   }
 }
