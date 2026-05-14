@@ -673,5 +673,50 @@
   "category": "GAMBUZ",
   "key": "Bb",
   "content": "[Chorus]\nG Bb F G (2x)\nG C G C Bb F G\n[Interlude]\nG Bb F G (2x)\nG C G C Bb F G\n[Verse]\nG Bb F G (4x)\nG C G C Bb F G\nChorus - Suluk - Chorus"
-}
+},
+
+  {
+  "id": 76,
+  "title": "BANYU LANGIT",
+  "artist": "Didi Kempot",
+  "category": "DUNGDAT",
+  "key": "E",
+  "content": "[Intro]\nA D A D - C# B E A\n[Verse]\nA C# D E (2x)\n[Pre & Chorus]\nF# C# D E (2x) A\nVerse - Pre Chorus\n[Interlude]\nA C# D E - F# C# D B E\nChorus - Verse - Pre Chorus - Chorus -\n[Outro]\nA C# D E A"
+},
+
+  {
+  "id": 77,
+  "title": "SUKET TEKI",
+  "artist": "Didi Kempot",
+  "category": "DUNGDAT",
+  "key": "E",
+  "content": "[Intro]\nD E A. E\n[Verse 1]\nA E B E A E\n[Verse 2]\nA. D A E A\n[Chorus]\nD E A (3x)\n[Interlude]\nA E B E A E\nVerse 2 - Chorus (2x)\n[Outro]\nA D E . A"
+},
+
+  {
+  "id": 78,
+  "title": "KALUNG EMAS",
+  "artist": "Didi Kempot",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nC A F G (2x)\n[Verse 1]\nC E F G C - D.G E.A F.D Bb G\n[Verse 2]\nC E F G C - D.G E.A F.G C\n[Chorus 1]\nG A E F G C\n[Interlude Piano]\nD G C\n[Chorus 2]\nG A.E F D G... (Break)\n[Interlude]\nC F G\nVerse 1 Piano - Verse 2 - Chorus 1 - Int - Chorus 2\nOutro\n[C F G C]"
+},
+
+  {
+  "id": 79,
+  "title": "TATU",
+  "artist": "Didi Kempot",
+  "category": "DUNGDAT",
+  "key": "E",
+  "content": "[Intro]\nA (Slide A) D E\n[Verse 1]\nA. D. E A (B E)\n[Verse 2]\nA. D. E A\n[Interlude]\nB E AF# - B E A\n[Chorus]\nD A - B E A (2x)\nVerse 1 Musik - Verse 2 - Interlude - Chorus\n[Outro]\nB E A"
+},
+
+  {
+  "id": 80,
+  "title": "LAYANG KANGEN",
+  "artist": "Didi Kempot",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nC D F C G - E A D G\n[Verse 1]\nC F C A E F G E A F D G\n[Inter]\nF G\n[Verse 2]\nC F C A E F G E A F D C\n[Interlude]\nA E F A - A E F G C\n[Chorus]\nC E F - D G - F G C\nC E F - D G - F G E A - F G C\nVerse 2 - Interlude - Chorus"
+},
 ]
