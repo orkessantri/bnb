@@ -121,7 +121,7 @@
   "id": 14,
   "title": "AYANG-AYANG",
   "artist": "Risang Gotho",
-  "category": "DUNGDAT",
+  "category": "INDO",
   "key": "A",
   "content": "[Intro]\nF# A - F# A \n[Verse]\nF# A B D E\nF# A B D C#\n[Pre Chorus]\nF# A E D C# (2x)\n[Chorus]\nF# D A E\n[Interlude]\nF# A B D C# - F# A B C#\nBack to Pre - Chorus - End"
 },
@@ -628,5 +628,50 @@
   "category": "KASIDAH",
   "key": "D",
   "content": "[Intro]\nD A E A (2x)\n[Verse]\nA E D A E A - D A E A (2x)\n[Chorus]\nA D A - A D A\nD A E A - D A E A\n[Allah]\nA... G F. G A\n[Interlude]\nF G A - F G E A\nBack Allah - Verse"
+},
+
+  {
+  "id": 71,
+  "title": "YA NABI SALAM",
+  "artist": "Hamid Uye",
+  "category": "GAMBUZ",
+  "key": "Bb",
+  "content": "[Rall]\nD# C G# D# C G F G\n[Intro]\nG Bb C G - F G\n[Chorus]\nD# C G# D# C G F G"
+},
+
+  {
+  "id": 72,
+  "title": "BILMUHAIMIN",
+  "artist": "Hamid Uye",
+  "category": "GAMBUZ",
+  "key": "Bb",
+  "content": "[Intro]\nC F D# Bb C\n[Verse]\nD# Bb C (3x)\nFD#C#G#Bb"
+},
+
+  {
+  "id": 73,
+  "title": "AL-AQLU",
+  "artist": "Hamid Uye",
+  "category": "GAMBUZ",
+  "key": "F",
+  "content": "[Intro]\nD\n[Chorus]\nD A C D - A GAD\n[Verse]\nG D E F D - G A D"
+},
+
+  {
+  "id": 74,
+  "title": "AHBAB ROSULILLAH",
+  "artist": "Hamid Uye",
+  "category": "GAMBUZ",
+  "key": "F",
+  "content": "[Intro]\nA - A G - D G A\n[Verse]\nA D C G A\n[Interlude]\nA\n[Allah]\nA D C D C D G A\n[Waqsid]\nA C D A - D C G A\n"
+},
+
+  {
+  "id": 75,
+  "title": "AL QOLBU MUTAYYAM",
+  "artist": "Hamid Uye",
+  "category": "GAMBUZ",
+  "key": "Bb",
+  "content": "[Chorus]\nG Bb F G (2x)\nG C G C Bb F G\n[Interlude]\nG Bb F G (2x)\nG C G C Bb F G\n[Verse]\nG Bb F G (4x)\nG C G C Bb F G\nChorus - Suluk - Chorus"
 }
 ]
