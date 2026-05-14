@@ -413,4 +413,85 @@
   "key": "C",
   "content": "[Intro]\nA E E A (2x)\n[Verse]\nA F A - A F A\nD C E A\nVerse Repeat\n[Interlude]\nA E E A (2x)\nF A D A (2x)\n[Chorus]\nA F D G F A (2x)\nE F-E A (2x)\nBack to Verse\n"
 },
+
+  {
+  "id": 47,
+  "title": "GULALI",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nE... E. B E. B... E...\n[Verse]\nE. D A E - B G D E (2X)\n[Suling]\nE B E - D A. E (2x)\n[Chorus]\nG. D C E (2x) \nG A E\nBack verse Gulali\n[Interlude]\nE B C A G\nG D E - G D E\nBack to Chorus - Verse gulali"
+},
+
+  {
+  "id": 48,
+  "title": "MILIKKU",
+  "artist": "A. Rafiq",
+  "category": "DUNGDAT",
+  "key": "Bb",
+  "content": "[Intro]\nG F D# D\n[Verse]\nGFG Bb D# C G\n[Interlude]\nGFG - G F C G\n[Chorus]\nG F G - F D# G\nG F G - F D# G - Bb FD# G\nBack to Verse"
+},
+
+  {
+  "id": 49,
+  "title": "DERITA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nC E F C\n[Verse]\nC F C - GCBbA GFG\n[Pre Chorus]\nE F Bb C (2x)\nVerse again\n[Interlude]\nCDEFG - Bb C (2x)\n[Chorus]\nC E F C\n[Flute}\nBb F C\n[Chorus]\nC E F C - D C E F C\nBack to verse"
+},
+
+  {
+  "id": 50,
+  "title": "GELANDANGAN",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "F",
+  "content": "[Intro]\nF A Bb C F (2x) C F\n[Verse]\nF.. D (DC) Bb C F (2x)\n[Chorus]\nA D A D Bb C Bb F (2x)\nVerse - Intro - Verse - Chorus - Verse\nOutro : Bb C F"
+},
+
+  {
+  "id": 51,
+  "title": "SERIBU SATU MACAM",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "Bb",
+  "content": "[Intro]\nG F G (2x)\nFF#GBb.G FF#GC.G FF#GBb.DCBb.GFG (2x)\nGGF D#D#D G\n[Verse]\nG D# G - D# F G FG 2x\n[Pre Chorus]\nD A D# F A - D A D# F G\nBack verse\n[Interlude]\nD D# F G\n[Lead]\nG D D# G - C G F G\n[Hit]\nGF. GGGG\n[Chorus]\nG F - D# F G (Break) 2x\nF D# F D# G\nBack to Verse"
+},
+
+  {
+  "id": 52,
+  "title": "SERIGALA BULU DOMBA",
+  "artist": "Rita Sugiarto",
+  "category": "DUNGDAT",
+  "key": "G#",
+  "content": "[Intro]\nBbBbF C# F - C# D# C# F\n[Verse]\nF D# F - F D# F\nC C# C C# - C C# D# - F D# F\nBack Verse\n[Interlude]\nF C# D# F (2x)\n[Flute]\nF C# F\n[Chorus]\nF  A# C (2x) F C# D# F\nBack verse"
+},
+
+  {
+  "id": 53,
+  "title": "AKHIR SEBUAH CERITA",
+  "artist": "Imron Sadewo",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nAm F - Am F\n[Verse]\nA F G A (2x)\nE F G A - E F D C\nA F G A (2x)\nBack Short Intro - Verse\n[Interlude]\nE. F G A\n[Flute]\nG F - Dm - FE\n[Chorus]\nA.. F G F A (FE)\nA.. F G F A\nE F G A (2x)\nA CBA F\nBack to Verse - Interlude\n"
+},
+
+  {
+  "id": 54,
+  "title": "KANDAS",
+  "artist": "Evie Tamala ft. Imron S.",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nE C E C - C D E (2x)\n[Verse]\nE C E C - A D C\nAB C B E\n[Intro]\nE C D E\nBack to Verse\n[Interlude]\nE A D. C\nD C D-C-E C C#m-C-Em\n[Chorus]\nE D A E - C E C E\n[Bridge]\nEm C C#m-C-Em\nBack Chorus - Verse - Interlude\nChorus - End"
+},
+
+  {
+  "id": 55,
+  "title": "JANGAN TUNGGU LAMA-LAMA",
+  "artist": "Cici Faramida",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nA D G A (3x) D A\n[Verse]\nA G D A (2x)\nD C G A (2x)\n[Chorus]\nA F G A (2x)\n[Lead]\nA D G A\n[Flute]\nD C E A (2x) F a\n[Chorus 2]\nA G F A (2x)\nD C G A (2x)\nBack to Chorus 1 - Fill\nBack to Verse"
+}
 ]
