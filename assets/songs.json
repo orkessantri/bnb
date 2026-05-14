@@ -358,5 +358,59 @@
   "category": "DUNGDAT",
   "key": "G",
   "content": "[Intro]\nE A D G C A B\n[Verse]\nE D B - E A C B (2x)\n[Chorus]\nA D G C A B E. (2x)\n[Interlude]\nE D G B (2x)\n[Lead]\nA D G C A B E. B.\nBack to verse - chorus - interlude - verse - chorus\n[Outro end chorus]\nC A B E"
-}
+},
+
+  {
+  "id": 41,
+  "title": "YA THOIBAH",
+  "artist": "Kiai Kanjeng",
+  "category": "KASIDAH",
+  "key": "D",
+  "content": "[Intro]\nD ADC GA (3x) DFDF GG#A\n[Verse]\nD. A C A D (2x)\nBack Intro - Verse\n[Chorus]\nD G C A D (2x)\nVerse - Fill\n[Interlude]\nD G C F A - D G C A\nChorus - End"
+},
+
+  {
+  "id": 42,
+  "title": "NEGORO ANGIN",
+  "artist": "Denny Caknan",
+  "category": "DUNGDAT",
+  "key": "G#",
+  "content": "[Intro]\nBb C A D - G A GC\n[Verse 1]\nF D G CB A - D G A Bb CB F\n[Sax]\nG A D C F\n[Verse 2]\nF D G CB A - D G A Bb CE F (C)\n[Chorus]\nF A D CF - Bb C A D G C\nF A D CF - Bb C A D G CF\n[Hit fill] CD# F\n[String]\nG A F - (HIT) Eb D\n[Pre Chorus 1]\nG A Bb C F E Bb C\n[Lead]\nG A D C\n[Pre Chorus 2]\nG A DCBb C\n[Keroncong]\nG A Bb C\nBack to Chorus 2 x\n[Outro]\nBb C F"
+},
+
+  {
+  "id": 43,
+  "title": "TERPAKSA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nA.. G. A (2x)\n[Verse]\nA G C G F A\n[Intro] A\nBack to verse\n[Pre Chorus]\nA D G A (2x)\nInt - Verse\n[Interlude]\nA. G. A. F. A - G A F A\nD C D A\n[Chorus]\nA E F A (2x) FEFE - EGFE\nA E F A (2x)\nF E F A"
+},
+
+  {
+  "id": 44,
+  "title": "YANG",
+  "artist": "Wali Band",
+  "category": "INDO",
+  "key": "Bb",
+  "content": "[Intro]\nG F Eb D - G F Eb F G\n[Verse]\nC G C G C G C D\n[Chorus]\nG F C D (2x)\n[Intro]\nG F Eb F G\nVerse - Chorus\n[Interlude]\nG F Eb D - G F C D (2x)\nBack to Chorus 4 x\n[Outro] \nG"
+},
+
+  {
+  "id": 45,
+  "title": "GADIS MANIS KALIMANTAN",
+  "artist": "Syahriyadi",
+  "category": "INDO",
+  "key": "G",
+  "content": "[Rall]\nA D G C A B E\n[Intro]\nE.. E C D B - E C D B\n[Verse]\nE D C B (2x)\n[Chorus]\nA D G C A B E \nA D G C A B. E\n[Interlude]\nA D G C A B E 2x\nBack verse - chorus - Interlude\nbreak kendang verse - Chorus"
+},
+
+  {
+  "id": 46,
+  "title": "PEMUDA IDAMAN",
+  "artist": "Hj. Nengsih",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]\nA E E A (2x)\n[Verse]\nA F A - A F A\nD C E A\nVerse Repeat\n[Interlude]\nA E E A (2x)\nF A D A (2x)\n[Chorus]\nA F D G F A (2x)\nE F-E A (2x)\nBack to Verse\n"
+},
 ]
