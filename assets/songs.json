@@ -295,5 +295,68 @@
   "category": "DUNGDAT",
   "key": "G",
   "content": "[Intro]\nE D E D - C B C\nB... GF#E\n[Verse]\nE.. C B (Fill) E.. C B\nB G C B (2x) - B E B E (Fill)\nBack to Verse\n[Interlude]\nD C D E\nG B C B - G B C E\nChorus: E.. - AGB\nA G C B (DBAB DBAG)\nBack to Interlude (G) - Chorus\n[Raal]\nG C B C B E (Bass Follow)\nVerse 2X\n"
-}
+},
+
+  {
+  "id": 34,
+  "title": "SINGKONG KEJU",
+  "artist": "Arie Wibowo",
+  "category": "DUNGDAT",
+  "key": "D#",
+  "content": "[Intro]\nC. G. - GBbC\n[Verse]\nC Bb G# Bb C\n[Pre Chorus]\nF Bb C Bb\n[Chorus]\nD# G# Bb (2x)\nC Bb G# G G# Bb C\nInterlude = verse"
+},
+
+  {
+  "id": 35,
+  "title": "BOJO LORO",
+  "artist": "Didi Kempot",
+  "category": "DUNGDAT",
+  "key": "D#",
+  "content": "[Intro]\nC.. C G D# F G C\n[Verse]\nC G C - C G D#. F D# C G# G\n[Chorus]\nC F Bb D# G# Bb D# G\nC F Bb D# F G C\nBack to Intro"
+},
+
+  {
+  "id": 36,
+  "title": "CINTA MERAH JAMBU",
+  "artist": "Nia Lavenia",
+  "category": "DUNGDAT",
+  "key": "D#",
+  "content": "[Intro]\nC F Bb C (2x)\nBb C Bb C\n[Verse]\nC F C (2X)\nD# Bb C (2X) Bb C\nBack to intro\n[Chorus]\nC Bb C\n[Bridge]\nF Bb C\n[Chorus]\nC Bb C - F C F C\n"
+},
+
+  {
+  "id": 37,
+  "title": "SALAHMU SENDIRI",
+  "artist": "Cut Rani",
+  "category": "DUNGDAT",
+  "key": "F",
+  "content": "[Intro]\nD Bb C F G D Bb A\n[Verse]\nD G C F A D (2x)\n[Bridge]\nBb C A D - Bb C F A\n[Chorus]\nD G C A - D G Bb C D\n[Flute]\nBb C A Bb G A. D\n[Interlude]\nD G Bb C D\nBridge - Chorus - Putar\n[Outro Chorus]\nBb C D\n[Outro]\nBb C A Bb G A. D"
+},
+
+  {
+  "id": 38,
+  "title": "REMBULAN MALAM",
+  "artist": "Evie Tamala",
+  "category": "DUNGDAT",
+  "key": "F",
+  "content": "[Intro]\nAD . Bb..C D D# - D C Bb A D\nD A Bb F - G A Bb F G A Bb D#. D\n[Flute]\nBb G A D\n[Verse]\nA D F A Bb C D\n[Pre Chorus]\nA F A D - G D Bb A D\n[Interlude]\nBb C F Bb G A Bb\n[Flute interlude]\nC D C Bb-C-D\n[Chorus 1]\nD. Bb G F A D\n[Interlude]\nG C D\n[Chorus 2]\nD. Bb G F A D - G F D\nBack to Verse - Interlude - Chorus - Verse - Pre\n[Outro] G A D"
+},
+
+  {
+  "id": 39,
+  "title": "CUNDAMANI",
+  "artist": "Denny Caknan",
+  "category": "DUNGDAT",
+  "key": "F",
+  "content": "[Rall pre]\nBb C A D, Bb C F\n[Intro] \nBb D. A Bb D\n[Verse]\nD C Bb C (2x)\n[Pre Chorus]\nBb C A D - Bb C F\n[Chorus]\nBb C D C - Bb C F (2x)\n[Interlude]\nBb A Bb F\nD.Bb.C (2x)\nPre - Chorus - Pre raal outro"
+},
+
+  {
+  "id": 40,
+  "title": "BAHTERA MAHLIGAI CINTA",
+  "artist": "Tri Suaka",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nE A D G C A B\n[Verse]\nE D B - E A C B (2x)\n[Chorus]\nA D G C A B E. (2x)\n[Interlude]\nE D G B (2x)\n[Lead]\nA D G C A B E. B.\nBack to verse - chorus - interlude - verse - chorus\n[Outro end chorus]\nC A B E"
+},
 ]
