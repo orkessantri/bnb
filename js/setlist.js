@@ -23,6 +23,19 @@ function renderSetlist(){
 
   let html = "";
 
+  if(setlist.length === 0){
+
+  container.innerHTML = `
+  
+    <div class="empty-setlist">
+      Umak gorong nggae Setlist!
+    </div>
+  
+  `;
+
+  return;
+}
+  
   setlist.forEach((song,i)=>{
 
 html += `
