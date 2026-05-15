@@ -37,10 +37,11 @@ function addSetlist(id){
 
   if(!song) return;
 
-  setlist.push({
-    id: song.id,
-    title: song.title
-  });
+setlist.push({
+  id: song.id,
+  title: song.title,
+  artist: song.artist
+});
 
   saveSetlist();
 
