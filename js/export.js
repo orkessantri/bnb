@@ -306,7 +306,7 @@ async function exportPDF(){
     "normal"
   );
 
-  doc.setFontSize(15);
+  doc.setFontSize(14);
 
   doc.text(
     event || "Nama Acara",
@@ -314,6 +314,13 @@ async function exportPDF(){
     32
   );
 
+  doc.setFont(
+    "helvetica",
+    "normal"
+  );
+
+  doc.setFontSize(11);
+  
   doc.text(
   `${date}  •  ${location}`,
   20,
@@ -340,7 +347,7 @@ y += 14;
 
   doc.setTextColor(255);
 
-  doc.setFontSize(14);
+  doc.setFontSize(12);
 
   doc.text("NO",22,y+6);
   doc.text("SONG",38,y+6);
