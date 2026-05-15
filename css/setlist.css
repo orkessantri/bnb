@@ -23,18 +23,13 @@
 /* EMPTY STATE */
 .empty-setlist{
   flex:1;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
   font-size:20px;
   font-weight:700;
-
-  opacity:.5;
-
+  opacity:.7;
   min-height:300px;
 }
 
