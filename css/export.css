@@ -70,18 +70,14 @@
 .export-row{
   display:grid;
 
-  grid-template-columns:
-    50px
-    1fr
-    120px
-    90px;
-
+grid-template-columns:
+  50px
+  1fr
+  160px
+  90px;
   gap:10px;
-
   align-items:center;
-
   padding:10px 14px;
-
   border-bottom:
     1px solid #eee;
 }
@@ -94,16 +90,28 @@
 
 .singer-input{
   width:100%;
-
   border:none;
-
   background:#f2f2f2;
-
   border-radius:8px;
-
   padding:6px 8px;
-
   outline:none;
+}
+
+.song-cell{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.song-name{
+  font-size:14px;
+  font-weight:700;
+  color:black;
+}
+
+.song-artist{
+  font-size:11px;
+  color:#777;
 }
 
 .table-actions{
