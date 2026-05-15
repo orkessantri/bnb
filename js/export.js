@@ -1,3 +1,5 @@
+let sortable = null;
+
 let setlist =
   JSON.parse(
     localStorage.getItem(
@@ -5,7 +7,14 @@ let setlist =
     )
   ) || [];
 
-renderTable();
+const exportTable =
+  document.getElementById(
+    "export-table"
+  );
+
+if(exportTable){
+  renderTable();
+}
 
 function renderTable(){
 
@@ -23,13 +32,11 @@ function renderTable(){
       "
     >
 
-      <div>No</div>
-
-      <div>Lagu</div>
-
-      <div>Singer</div>
-
-      <div>Action</div>
+<div>NO</div>
+<div>SONG</div>
+<div>SINGER</div>
+<div>KEY</div>
+<div></div>
 
     </div>
 
@@ -45,7 +52,7 @@ function renderTable(){
           ${index + 1}
         </div>
 
-        <div class="song-cell">
+  <div class="song-cell">
 
   <div class="song-name">
     ${song.title}
@@ -58,7 +65,6 @@ function renderTable(){
 </div>
 
         <div>
-
           <input
             class="singer-input"
             type="text"
@@ -74,34 +80,40 @@ function renderTable(){
               )
             "
           >
-
         </div>
 
-        <div class="table-actions">
+<div>
+<input
+  class="key-input"
+  type="text"
+  placeholder="Key"
 
-          <button
-            class="table-btn"
-            onclick="moveUp(${index})"
-          >
-            ↑
-          </button>
+  value="${
+    song.key || ''
+  }"
 
-          <button
-            class="table-btn"
-            onclick="moveDown(${index})"
-          >
-            ↓
-          </button>
+  onchange="
+    updateKey(
+      ${song.id},
+      this.value
+    )
+  "
+>
+</div>
 
-        </div>
+<div class="drag-handle">
+  ☰
+</div>
 
-      </div>
+</div>
 
     `;
 
   });
 
   container.innerHTML = html;
+  
+  initSortable();
 
 }
 
@@ -116,40 +128,22 @@ function updateSinger(id,value){
 
   song.singer = value;
 
-}
-
-function moveUp(index){
-
-  if(index === 0) return;
-
-  [
-    setlist[index-1],
-    setlist[index]
-  ] = [
-    setlist[index],
-    setlist[index-1]
-  ];
-
-  renderTable();
+  saveSetlist();
 
 }
 
-function moveDown(index){
+function updateKey(id,value){
 
-  if(
-    index ===
-    setlist.length - 1
-  ) return;
+  const song =
+    setlist.find(
+      s => s.id == id
+    );
 
-  [
-    setlist[index+1],
-    setlist[index]
-  ] = [
-    setlist[index],
-    setlist[index+1]
-  ];
+  if(!song) return;
 
-  renderTable();
+  song.key = value;
+
+  saveSetlist();
 
 }
 
@@ -189,3 +183,60 @@ document
 
     }
   );
+
+function initSortable(){
+
+  if(sortable){
+    sortable.destroy();
+  }
+
+  sortable = new Sortable(
+
+    document.getElementById(
+      "export-table"
+    ),
+
+   {
+  animation:150,
+
+  handle:'.drag-handle',
+
+  filter:'.export-header',
+
+  onEnd:function(evt){
+
+        if(evt.oldIndex === 0)
+          return;
+
+        const movedItem =
+          setlist.splice(
+            evt.oldIndex - 1,
+            1
+          )[0];
+
+        setlist.splice(
+          evt.newIndex - 1,
+          0,
+          movedItem
+        );
+
+        saveSetlist();
+        
+        renderTable();
+
+      }
+
+    }
+
+  );
+
+}
+
+function saveSetlist(){
+
+  localStorage.setItem(
+    "setlist",
+    JSON.stringify(setlist)
+  );
+
+}
