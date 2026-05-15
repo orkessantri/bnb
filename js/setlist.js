@@ -157,8 +157,9 @@ function toggleMenu(){
     .classList.toggle('show');
 }
 
-function exportPDF(){
-  alert("Coming Soon 🔥");
+function goExport(){
+  window.location.href =
+    "export.html";
 }
 
 function saveSetlistFile(){
