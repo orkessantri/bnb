@@ -337,12 +337,21 @@ function goToSetlist(){
 }
 
 window.addEventListener(
-  "setlistUpdated",
-  () => {
+  "storage",
+  function(e){
 
-    renderPreviewSetlist();
+    if(e.key === "setlist"){
 
-    renderKategori();
+      setlist =
+        JSON.parse(
+          localStorage.getItem("setlist")
+        ) || [];
+
+      renderPreviewSetlist();
+
+      renderKategori();
+
+    }
 
   }
 );
