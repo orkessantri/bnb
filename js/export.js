@@ -147,39 +147,20 @@ function updateKey(id,value){
 
 }
 
+
 document
   .getElementById(
-    "logoInput"
+    "logo-select"
   )
   .addEventListener(
     "change",
-    function(e){
+    function(){
 
-      const file =
-        e.target.files[0];
-
-      if(!file) return;
-
-      const reader =
-        new FileReader();
-
-      reader.onload =
-        function(event){
-
-          const preview =
-            document.getElementById(
-              "logoPreview"
-            );
-
-          preview.src =
-            event.target.result;
-
-          preview.style.display =
-            "block";
-
-        };
-
-      reader.readAsDataURL(file);
+      document
+        .getElementById(
+          "logoPreview"
+        )
+        .src = this.value;
 
     }
   );
