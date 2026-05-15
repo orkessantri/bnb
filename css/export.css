@@ -74,7 +74,7 @@
 }
 
 .export-row:nth-child(odd):not(.export-header){
-  background:#f5f5f5;
+  background:#fcfcfc;
 }
 
 .export-row:nth-child(even):not(.export-header){
