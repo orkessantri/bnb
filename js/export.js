@@ -345,12 +345,17 @@ doc.text(
 
   doc.setTextColor(255);
 
-  doc.setFontSize(12);
+doc.setFont(
+  "helvetica",
+  "bold"
+);
 
-  doc.text("NO",22,y+6);
-  doc.text("SONG",38,y+6);
-  doc.text("SINGER",135,y+6);
-  doc.text("KEY",175,y+6);
+doc.setFontSize(14);
+
+doc.text("NO",22,y + 6.5,{align:"center"});
+doc.text("SONG",38,y + 6.5);
+doc.text("SINGER",135,y + 6.5);
+doc.text("KEY",175,y + 6.5,{align:"center"});
 
   y += 11;
 
@@ -410,11 +415,14 @@ doc.roundedRect(
 
     doc.setFontSize(12);
 
-    doc.text(
-      String(index + 1),
-      22,
-      y + 6.5
-    );
+doc.text(
+  String(index + 1),
+  22,
+  y + 6.5,
+  {
+    align:"center"
+  }
+);
 
     // SONG + ARTIST
     doc.setFont(
@@ -438,11 +446,14 @@ doc.roundedRect(
     );
 
     // KEY
-    doc.text(
-      song.key || '-',
-      175,
-      y + 6.5
-    );
+doc.text(
+  song.key || '-',
+  175,
+  y + 6.5,
+  {
+    align:"center"
+  }
+);
 
     y += 16;
 
