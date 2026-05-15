@@ -60,16 +60,6 @@
   flex:1;
   line-height:1.1;
 }
-}
-
-/* =========================
-   BUTTON AREA
-========================= */
-
-.setlist-actions{
-  display:flex;
-  gap:4px;
-}
 
 /* =========================
    BUTTON
@@ -148,15 +138,26 @@
 ========================= */
 
 @media(max-width:600px){
-
   .song-title{
     font-size:17px;
   }
+}
 
-  .action-btn{
-    width:34px;
-    height:34px;
-    font-size:15px;
-  }
+.drag-handle{
+  width:28px;
+  text-align:center;
+  cursor:grab;
+  user-select:none;
+  font-size:18px;
+  color:#666;
+}
 
+.drag-handle:active{
+  cursor:grabbing;
+}
+
+.setlist-actions{
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
