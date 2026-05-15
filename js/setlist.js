@@ -10,6 +10,10 @@ function saveSetlist(){
     JSON.stringify(setlist)
   );
 
+  window.dispatchEvent(
+    new Event("setlistUpdated")
+  );
+
 }
 
 function renderSetlist(){
