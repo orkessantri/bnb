@@ -85,7 +85,6 @@ html += `
   });
 
   container.innerHTML = html;
-
 }
 
 function removeSong(id){
@@ -97,7 +96,6 @@ function removeSong(id){
 
   saveSetlist();
   renderSetlist();
-
 }
 
 function moveUp(index){
@@ -114,7 +112,6 @@ function moveUp(index){
 
   saveSetlist();
   renderSetlist();
-
 }
 
 function moveDown(index){
@@ -132,7 +129,6 @@ function moveDown(index){
 
   saveSetlist();
   renderSetlist();
-
 }
 
 renderSetlist();
@@ -144,12 +140,27 @@ function clearSetlist(){
   saveSetlist();
 
   renderSetlist();
-
 }
 
 function openSong(id){
 
   window.location.href =
     `song.html?id=${id}`;
+}
 
+function toggleMenu(){
+
+  document
+    .getElementById(
+      'floatingTools'
+    )
+    .classList.toggle('show');
+}
+
+function exportPDF(){
+  alert("Coming Soon 🔥");
+}
+
+function saveSetlistFile(){
+  alert("Coming Soon 🔥");
 }
