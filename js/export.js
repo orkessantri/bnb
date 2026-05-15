@@ -247,9 +247,11 @@ async function exportPDF(){
 
   const doc = new jsPDF();
 
-  let y = 20;
+  const logo =
+    document.getElementById(
+      "logoPreview"
+    );
 
-  // BAND
   const band =
     document.getElementById(
       "band-name"
@@ -265,66 +267,167 @@ async function exportPDF(){
       "event-date"
     ).value;
 
-  doc.setFontSize(18);
-  doc.text(band, 20, y);
+  const location =
+    document.getElementById(
+      "event-location"
+    ).value;
 
-  y += 10;
+  let y = 20;
+
+  // =====================
+  // LOGO
+  // =====================
+
+  if(
+    logo &&
+    logo.src &&
+    logo.src.startsWith("data:image")
+  ){
+
+    doc.addImage(
+      logo.src,
+      'PNG',
+      20,
+      15,
+      24,
+      24
+    );
+
+  }
+
+  // =====================
+  // HEADER
+  // =====================
+
+  doc.setFontSize(20);
+  doc.setFont(
+    "helvetica",
+    "bold"
+  );
+
+  doc.text(
+    band || "BAND NAME",
+    52,
+    24
+  );
 
   doc.setFontSize(12);
-  doc.text(event, 20, y);
 
-  y += 8;
+  doc.setFont(
+    "helvetica",
+    "normal"
+  );
 
-  doc.text(date, 20, y);
+  doc.text(
+    event || "Nama Acara",
+    52,
+    32
+  );
 
-  y += 14;
+  doc.text(
+    date || "Tanggal",
+    52,
+    39
+  );
 
-  // TABLE HEADER
-  doc.setFontSize(11);
+  doc.text(
+    location || "Lokasi",
+    52,
+    46
+  );
 
-  doc.text("NO",20,y);
-  doc.text("SONG",35,y);
-  doc.text("SINGER",120,y);
-  doc.text("KEY",170,y);
+  y = 62;
 
-  y += 8;
+  // =====================
+  // SONG LIST
+  // =====================
 
   setlist.forEach((song,index)=>{
 
-    doc.text(
-      String(index+1),
-      20,
-      y
-    );
-
-    doc.text(
-      song.title,
-      35,
-      y
-    );
-
-    doc.text(
-      song.singer || '',
-      120,
-      y
-    );
-
-    doc.text(
-      song.key || '',
-      170,
-      y
-    );
-
-    y += 8;
-
     // AUTO PAGE
-    if(y > 270){
+    if(y > 250){
 
       doc.addPage();
 
       y = 20;
 
     }
+
+    // CARD BG
+    doc.setFillColor(
+      index % 2 === 0
+        ? 245
+        : 235
+    );
+
+    doc.roundedRect(
+      15,
+      y,
+      180,
+      24,
+      4,
+      4,
+      'F'
+    );
+
+    // NUMBER
+    doc.setFontSize(12);
+
+    doc.setFont(
+      "helvetica",
+      "bold"
+    );
+
+    doc.text(
+      `${index + 1}.`,
+      22,
+      y + 9
+    );
+
+    // TITLE
+    doc.setFontSize(13);
+
+    doc.text(
+      song.title || '',
+      34,
+      y + 9
+    );
+
+    // ARTIST
+    doc.setFontSize(9);
+
+    doc.setFont(
+      "helvetica",
+      "normal"
+    );
+
+    doc.text(
+      song.artist || '',
+      34,
+      y + 15
+    );
+
+    // SINGER
+    doc.setFontSize(10);
+
+    doc.text(
+      `Singer : ${
+        song.singer || '-'
+      }`,
+      120,
+      y + 9
+    );
+
+    // KEY
+    doc.text(
+      `Key : ${
+        song.key || '-'
+      }`,
+      120,
+      y + 15
+    );
+
+    y += 30;
 
   });
 
