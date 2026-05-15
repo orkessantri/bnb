@@ -259,23 +259,31 @@ async function exportPDF(){
   // LOGO
   // =====================
 
-  if(
-    logo &&
-    logo.src &&
-    logo.src.startsWith("data:image")
-  ){
+ if(
+  logo.src &&
+  !logo.src.endsWith('/')
+){
 
-    doc.addImage(
-      logo.src,
-      'PNG',
-      20,
-      15,
-      22,
-      22
-    );
+  const img = new Image();
 
-  }
+  img.src = logo.src;
 
+  await new Promise(resolve => {
+
+    img.onload = resolve;
+
+  });
+
+  doc.addImage(
+    img,
+    'PNG',
+    20,
+    15,
+    24,
+    24
+  );
+
+}
   // =====================
   // HEADER
   // =====================
@@ -285,7 +293,7 @@ async function exportPDF(){
     "bold"
   );
 
-  doc.setFontSize(18);
+  doc.setFontSize(22);
 
   doc.text(
     band || "BAND NAME",
@@ -298,7 +306,7 @@ async function exportPDF(){
     "normal"
   );
 
-  doc.setFontSize(11);
+  doc.setFontSize(15);
 
   doc.text(
     event || "Nama Acara",
@@ -307,12 +315,12 @@ async function exportPDF(){
   );
 
   doc.text(
-    `${date} - ${location}`,
-    50,
-    39
-  );
+  `${date}  •  ${location}`,
+  20,
+  y
+);
 
-  y = 55;
+y += 14;
 
   // =====================
   // TABLE HEADER
@@ -332,7 +340,7 @@ async function exportPDF(){
 
   doc.setTextColor(255);
 
-  doc.setFontSize(10);
+  doc.setFontSize(14);
 
   doc.text("NO",22,y+6);
   doc.text("SONG",38,y+6);
@@ -395,7 +403,7 @@ async function exportPDF(){
       "bold"
     );
 
-    doc.setFontSize(10);
+    doc.setFontSize(12);
 
     doc.text(
       String(index + 1),
