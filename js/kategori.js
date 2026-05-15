@@ -335,3 +335,14 @@ function goToSetlist(){
     "setlist.html";
 
 }
+
+window.addEventListener(
+  "setlistUpdated",
+  () => {
+
+    renderPreviewSetlist();
+
+    renderKategori();
+
+  }
+);
