@@ -60,38 +60,68 @@ rel="stylesheet">
 
   </header>
 
-  <main class="page-wrapper">
+<main class="page-wrapper">
 
-    <h1 class="page-title">
-      Export Setlist
-    </h1>
+  <h1 class="page-title">
+    Export Setlist
+  </h1>
 
-    <div class="export-form">
+  <div class="export-header-box">
+
+    <label class="upload-logo">
 
       <input
-        id="event-name"
+        type="file"
+        id="logoInput"
+        accept="image/*"
+        hidden
+      >
+
+      <img
+        id="logoPreview"
+        src=""
+      >
+
+      <span>
+        Upload Logo
+      </span>
+
+    </label>
+
+    <div class="event-form">
+
+      <input
         type="text"
+        id="band-name"
+        placeholder="Nama Band"
+      >
+
+      <input
+        type="text"
+        id="event-name"
         placeholder="Nama Acara"
       >
 
       <input
-        id="event-date"
         type="text"
+        id="event-date"
         placeholder="Tanggal Acara"
       >
 
       <input
-        id="event-location"
         type="text"
+        id="event-location"
         placeholder="Lokasi Acara"
       >
 
     </div>
 
-    <div id="export-table">
-    </div>
+  </div>
 
-  </main>
+  <div id="export-table">
+  </div>
+
+</main>
 
   <script src="export.js"></script>
 
