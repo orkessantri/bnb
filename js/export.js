@@ -45,9 +45,17 @@ function renderTable(){
           ${index + 1}
         </div>
 
-        <div>
-          ${song.title}
-        </div>
+        <div class="song-cell">
+
+  <div class="song-name">
+    ${song.title}
+  </div>
+
+  <div class="song-artist">
+    ${song.artist || ''}
+  </div>
+
+</div>
 
         <div>
 
