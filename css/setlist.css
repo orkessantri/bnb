@@ -1,60 +1,76 @@
-.setlist-wrapper{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  padding:0px 16px 16px;
+/* =========================
+   PAGE
+========================= */
+
+.page-wrapper{
+  min-height:
+    calc(100dvh - 50px - 28px);
 }
 
-.setlist-title{
-  text-align:center;
-  font-size:26px;
-  font-weight:800;
-  margin-top:6px;
-  margin-bottom:18px;
-}
+/* =========================
+   LIST
+========================= */
 
-/* LIST */
 #setlist-container{
   display:flex;
   flex-direction:column;
   gap:14px;
 }
 
-/* ITEM */
+/* =========================
+   ITEM
+========================= */
+
 .setlist-item{
   background:white;
   border-radius:14px;
   padding:8px 12px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
 }
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
+
 .song-title{
   color:black;
-  font-size:22px;
+  font-size:20px;
   font-weight:700;
+
   cursor:pointer;
   flex:1;
 }
 
-/* BUTTON AREA */
+/* =========================
+   BUTTON AREA
+========================= */
+
 .setlist-actions{
   display:flex;
   gap:8px;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
+
 .action-btn{
-  width:30px;
-  height:30px;
+  width:32px;
+  height:32px;
+
   border:none;
   border-radius:10px;
+
   background:#111;
   color:white;
+
   font-size:15px;
+  font-weight:bold;
+
   cursor:pointer;
   transition:.2s;
 }
@@ -63,40 +79,20 @@
   transform:scale(1.05);
 }
 
-/* FLOAT BUTTON */
-.floating-buttons{
-  position:fixed;
-  right:16px;
-  bottom:30px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:999;
-}
+/* =========================
+   MOBILE
+========================= */
 
-.floating-buttons button{
-  width:44px;
-  height:44px;
-  border:none;
-  border-radius:12px;
-  background:#1f1f1f;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* MOBILE */
 @media(max-width:600px){
 
   .song-title{
-    font-size:18px;
+    font-size:17px;
   }
 
   .action-btn{
-    width:36px;
-    height:36px;
-    font-size:16px;
+    width:34px;
+    height:34px;
+    font-size:15px;
   }
 
 }
