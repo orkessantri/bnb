@@ -352,7 +352,7 @@ doc.text(
   doc.text("SINGER",135,y+6);
   doc.text("KEY",175,y+6);
 
-  y += 13;
+  y += 11;
 
   // RESET TEXT COLOR
   doc.setTextColor(0);
@@ -392,15 +392,15 @@ doc.text(
     }
 
     // ROW
-    doc.roundedRect(
-      15,
-      y,
-      180,
-      10,
-      3,
-      3,
-      'F'
-    );
+doc.roundedRect(
+  15,
+  y,
+  180,
+  10,
+  3,
+  3,
+  'F'
+);
 
     // NUMBER
     doc.setFont(
@@ -413,7 +413,7 @@ doc.text(
     doc.text(
       String(index + 1),
       22,
-      y + 8
+      y + 6.5
     );
 
     // SONG + ARTIST
@@ -427,21 +427,21 @@ doc.text(
         song.artist || ''
       }`,
       38,
-      y + 8
+      y + 6.5
     );
 
     // SINGER
     doc.text(
       song.singer || '-',
       135,
-      y + 8
+      y + 6.5
     );
 
     // KEY
     doc.text(
       song.key || '-',
       175,
-      y + 8
+      y + 6.5
     );
 
     y += 16;
