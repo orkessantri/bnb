@@ -2,37 +2,27 @@
   display:flex;
   gap:16px;
   align-items:flex-start;
-
   margin-bottom:20px;
 }
 
 .upload-logo{
   width:120px;
   height:120px;
-
   background:white;
-
   border-radius:14px;
-
   display:flex;
   flex-direction:column;
-
   align-items:center;
   justify-content:center;
-
   cursor:pointer;
-
   overflow:hidden;
-
   flex-shrink:0;
 }
 
 .upload-logo img{
   width:100%;
   height:100%;
-
   object-fit:contain;
-
   display:none;
 }
 
@@ -43,7 +33,6 @@
 
 .event-form{
   flex:1;
-
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -51,110 +40,171 @@
 
 .event-form input{
   border:none;
-
   border-radius:10px;
-
   padding:10px 14px;
-
   font-size:14px;
 }
 
 #export-table{
-  background:white;
-
+  background:transparent;
   border-radius:14px;
-
   overflow:hidden;
+}
+
+.export-table{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
 }
 
 .export-row{
   display:grid;
-
-grid-template-columns:
-  50px
-  1fr
-  160px
-  90px;
-  gap:10px;
+  grid-template-columns:
+    34px
+    1fr
+    130px
+    70px
+    34px;
+  gap:6px;
   align-items:center;
-  padding:10px 14px;
-  border-bottom:
-    1px solid #eee;
+  background:transparent;
+  border-radius:12px;
+  padding:8px 10px;
+}
+
+.export-row:not(.export-header){
+  background:white;
 }
 
 .export-header{
-  background:black;
+  background:#111;
   color:white;
-  font-weight:bold;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.5px;
 }
 
-.singer-input{
-  width:100%;
-  border:none;
-  background:#f2f2f2;
-  border-radius:8px;
-  padding:6px 8px;
-  outline:none;
+.export-header div{
+  text-align:center;
+}
+
+.export-row > div:first-child,
+.drag-handle{
+  text-align:center;
+}
+
+.export-row:not(.export-header){
+  box-shadow:
+    0 1px 4px rgba(0,0,0,.04);
 }
 
 .song-cell{
   display:flex;
   flex-direction:column;
   gap:2px;
+  min-width:0;
 }
 
 .song-name{
   font-size:14px;
   font-weight:700;
   color:black;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .song-artist{
-  font-size:11px;
+  font-size:10px;
   color:#777;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.table-actions{
-  display:flex;
-  gap:6px;
-}
-
-.table-btn{
-  width:28px;
-  height:28px;
-
+.singer-input,
+.key-input{
+  width:100%;
   border:none;
-
+  background:#f3f3f3;
   border-radius:8px;
+  padding:6px 8px;
+  outline:none;
+  font-size:12px;
+}
 
-  background:black;
+.key-input{
+  text-align:center;
+  font-weight:700;
+}
 
-  color:white;
+.singer-input:focus,
+.key-input:focus{
+  background:#eaeaea;
+}
 
-  cursor:pointer;
+.drag-handle{
+  cursor:grab;
+  user-select:none;
+  text-align:center;
+  font-size:18px;
+  color:#666;
+}
+
+.drag-handle:active{
+  cursor:grabbing;
+}
+
+.sortable-ghost{
+  opacity:.3;
+}
+
+.sortable-chosen{
+  background:#f5f5f5;
+}
+
+@media(max-width:768px){
+
+  .export-row{
+    grid-template-columns:
+      28px
+      1fr
+      90px
+      56px
+      28px;
+    gap:4px;
+    padding:6px;
+  }
+
+  .song-name{
+    font-size:12px;
+  }
+
+  .song-artist{
+    font-size:9px;
+  }
+
+  .singer-input,
+  .key-input{
+    font-size:11px;
+    padding:5px 6px;
+  }
 }
 
 @media(max-width:768px){
 
   .export-header-box{
     flex-direction:column;
+    align-items:center;
   }
 
   .upload-logo{
-    width:100px;
-    height:100px;
+    width:90px;
+    height:90px;
   }
 
-  .export-row{
-    grid-template-columns:
-      40px
-      1fr;
-
-    gap:6px;
+  .event-form{
+    width:100%;
   }
-
-  .table-actions{
-    grid-column:span 2;
-  }
-
 }
