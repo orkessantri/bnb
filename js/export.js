@@ -277,10 +277,10 @@ async function exportPDF(){
   doc.addImage(
     img,
     'PNG',
-    20,
-    15,
-    24,
-    24
+15,
+12,
+30,
+30
   );
 
 }
@@ -293,7 +293,7 @@ async function exportPDF(){
     "bold"
   );
 
-  doc.setFontSize(22);
+  doc.setFontSize(24);
 
   doc.text(
     band || "BAND NAME",
@@ -306,7 +306,7 @@ async function exportPDF(){
     "normal"
   );
 
-  doc.setFontSize(14);
+  doc.setFontSize(17);
 
   doc.text(
     event || "Nama Acara",
@@ -319,7 +319,7 @@ async function exportPDF(){
     "normal"
   );
 
-  doc.setFontSize(11);
+  doc.setFontSize(13);
   
 doc.text(
   `${date}  •  ${location}`,
@@ -353,7 +353,7 @@ doc.setFont(
 doc.setFontSize(14);
 
 doc.text("NO",22,y + 6.5,{align:"center"});
-doc.text("SONG",38,y + 6.5);
+doc.text("SONG",32,y + 6.5);
 doc.text("SINGER",135,y + 6.5);
 doc.text("KEY",175,y + 6.5,{align:"center"});
 
@@ -434,7 +434,7 @@ doc.text(
       `${song.title} - ${
         song.artist || ''
       }`,
-      38,
+      32,
       y + 6.5
     );
 
