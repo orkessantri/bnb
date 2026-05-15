@@ -31,6 +31,8 @@ function renderSetlist(){
 
   container.innerHTML = `
   
+  initSortable();
+  
     <div class="empty-setlist">
       Umak gorong nggae Setlist!
     </div>
@@ -53,32 +55,20 @@ html += `
       ${i + 1}. ${song.title}
     </div>
 
-    <div class="setlist-actions">
+<div class="setlist-actions">
 
-      <button
-        class="action-btn"
-        onclick="moveUp(${i})"
-      >
-        ↑
-      </button>
+  <button
+    class="action-btn remove-btn"
+    onclick="removeSong(${song.id})"
+  >
+    ×
+  </button>
 
-      <button
-        class="action-btn"
-        onclick="moveDown(${i})"
-      >
-        ↓
-      </button>
-
-      <button
-        class="action-btn"
-        onclick="removeSong(${song.id})"
-      >
-        ×
-      </button>
-
-    </div>
-
+  <div class="drag-handle">
+    ☰
   </div>
+
+</div>
 
 `;
 
@@ -98,40 +88,50 @@ function removeSong(id){
   renderSetlist();
 }
 
-function moveUp(index){
-
-  if(index === 0) return;
-
-  [
-    setlist[index-1],
-    setlist[index]
-  ] = [
-    setlist[index],
-    setlist[index-1]
-  ];
-
-  saveSetlist();
-  renderSetlist();
-}
-
-function moveDown(index){
-
-  if(index === setlist.length-1)
-    return;
-
-  [
-    setlist[index+1],
-    setlist[index]
-  ] = [
-    setlist[index],
-    setlist[index+1]
-  ];
-
-  saveSetlist();
-  renderSetlist();
-}
-
 renderSetlist();
+
+let sortable = null;
+
+function initSortable(){
+
+  if(sortable){
+    sortable.destroy();
+  }
+
+  sortable = new Sortable(
+
+    document.getElementById(
+      "setlist-container"
+    ),
+
+    {
+      animation:150,
+
+      handle:'.drag-handle',
+
+      onEnd:function(evt){
+
+        const movedItem =
+          setlist.splice(
+            evt.oldIndex,
+            1
+          )[0];
+
+        setlist.splice(
+          evt.newIndex,
+          0,
+          movedItem
+        );
+
+        saveSetlist();
+
+        renderSetlist();
+
+      }
+    }
+  );
+}
+
 
 function clearSetlist(){
 
