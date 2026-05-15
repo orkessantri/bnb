@@ -64,19 +64,56 @@ rel="stylesheet">
 
 </div>
 
-  <div class="floating-buttons">
+<div class="floating-menu">
 
-  <button onclick="clearSetlist()">
-    x
+  <button
+    class="menu-toggle"
+    onclick="toggleMenu()"
+  >
+    ☰
   </button>
 
-  <button onclick="location.href='menu.html'">
-      🏠
-  </button>
+  <div
+    class="floating-tools"
+    id="floatingTools"
+  >
+
+    <button
+      onclick="clearSetlist()"
+      title="Clear Setlist"
+    >
+      ✖
+    </button>
+
+    <button
+      onclick="exportPDF()"
+      title="Export PDF"
+    >
+      📄
+    </button>
+
+    <button
+      onclick="saveSetlistFile()"
+      title="Save"
+    >
+      💾
+    </button>
     
-  <button onclick="history.back()">
-    «
-  </button>
+        <button
+      onclick="history.back()"
+      title="Back"
+    >
+      «
+    </button>
+
+  <button
+  onclick="window.location.href='menu.html'"
+  title="Home"
+>
+  🏠
+</button>
+
+  </div>
 
 </div>
   
