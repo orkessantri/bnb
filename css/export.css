@@ -200,6 +200,27 @@
   }
 }
 
+.export-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.secondary-btn{
+  border:none;
+  background:#ddd;
+  color:black;
+  border-radius:10px;
+  padding:10px 16px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.secondary-btn:hover{
+  background:#cfcfcf;
+}
+
 @media(max-width:768px){
 
   .export-header-box{
