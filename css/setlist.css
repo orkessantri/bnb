@@ -92,6 +92,58 @@
 }
 
 /* =========================
+   FLOATING
+========================= */
+.floating-menu{
+  position:fixed;
+  right:10px;
+  bottom:30px;
+  z-index:999;
+}
+
+/* HAMBURGER */
+.menu-toggle{
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:14px;
+  background:black;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  position:relative;
+  z-index:2;
+}
+
+/* TOOLS */
+.floating-tools{
+  position:absolute;
+  bottom:60px;
+  right:0;
+  display:none;
+  flex-direction:column;
+  gap:6px;
+}
+
+.floating-tools.show{
+  display:flex;
+}
+
+.floating-tools button{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:12px;
+  background:black;
+  color:white;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
+}
+
+/* =========================
    MOBILE
 ========================= */
 
