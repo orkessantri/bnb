@@ -25,16 +25,21 @@ function saveSetlist(){
 
 }
 
-function addSetlist(title,id){
+function addSetlist(id){
 
   const exists =
     setlist.some(s => s.id == id);
 
   if(exists) return;
 
+  const song =
+    songs.find(s => s.id == id);
+
+  if(!song) return;
+
   setlist.push({
-    title,
-    id
+    id: song.id,
+    title: song.title
   });
 
   saveSetlist();
@@ -135,10 +140,7 @@ function renderKategori(){
         : ''
     }
   "
-  onclick="addSetlist(
-    '${song.title}',
-    ${song.id}
-  )"
+onclick="addSetlist(${song.id})"
 >
   ${
     isSongAdded(song.id)
