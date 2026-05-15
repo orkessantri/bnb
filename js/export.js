@@ -240,3 +240,94 @@ function saveSetlist(){
   );
 
 }
+
+async function exportPDF(){
+
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  let y = 20;
+
+  // BAND
+  const band =
+    document.getElementById(
+      "band-name"
+    ).value;
+
+  const event =
+    document.getElementById(
+      "event-name"
+    ).value;
+
+  const date =
+    document.getElementById(
+      "event-date"
+    ).value;
+
+  doc.setFontSize(18);
+  doc.text(band, 20, y);
+
+  y += 10;
+
+  doc.setFontSize(12);
+  doc.text(event, 20, y);
+
+  y += 8;
+
+  doc.text(date, 20, y);
+
+  y += 14;
+
+  // TABLE HEADER
+  doc.setFontSize(11);
+
+  doc.text("NO",20,y);
+  doc.text("SONG",35,y);
+  doc.text("SINGER",120,y);
+  doc.text("KEY",170,y);
+
+  y += 8;
+
+  setlist.forEach((song,index)=>{
+
+    doc.text(
+      String(index+1),
+      20,
+      y
+    );
+
+    doc.text(
+      song.title,
+      35,
+      y
+    );
+
+    doc.text(
+      song.singer || '',
+      120,
+      y
+    );
+
+    doc.text(
+      song.key || '',
+      170,
+      y
+    );
+
+    y += 8;
+
+    // AUTO PAGE
+    if(y > 270){
+
+      doc.addPage();
+
+      y = 20;
+
+    }
+
+  });
+
+  doc.save("setlist.pdf");
+
+}
