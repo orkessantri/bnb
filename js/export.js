@@ -253,7 +253,7 @@ async function exportPDF(){
       "event-location"
     ).value;
 
-  let y = 20;
+  let y = 55;
 
   // =====================
   // LOGO
@@ -321,13 +321,11 @@ async function exportPDF(){
 
   doc.setFontSize(11);
   
-  doc.text(
+doc.text(
   `${date}  •  ${location}`,
-  20,
-  y
+  50,
+  39
 );
-
-y += 14;
 
   // =====================
   // TABLE HEADER
@@ -354,7 +352,7 @@ y += 14;
   doc.text("SINGER",135,y+6);
   doc.text("KEY",175,y+6);
 
-  y += 16;
+  y += 13;
 
   // RESET TEXT COLOR
   doc.setTextColor(0);
@@ -398,7 +396,7 @@ y += 14;
       15,
       y,
       180,
-      12,
+      10,
       3,
       3,
       'F'
