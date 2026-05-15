@@ -293,7 +293,7 @@ async function exportPDF(){
     "bold"
   );
 
-  doc.setFontSize(24);
+  doc.setFontSize(26);
 
   doc.text(
     band || "BAND NAME",
@@ -306,7 +306,7 @@ async function exportPDF(){
     "normal"
   );
 
-  doc.setFontSize(17);
+  doc.setFontSize(19);
 
   doc.text(
     event || "Nama Acara",
@@ -319,7 +319,7 @@ async function exportPDF(){
     "normal"
   );
 
-  doc.setFontSize(13);
+  doc.setFontSize(14);
   
 doc.text(
   `${date}  •  ${location}`,
@@ -355,9 +355,9 @@ doc.setFontSize(14);
 doc.text("NO",22,y + 6.5,{align:"center"});
 doc.text("SONG",32,y + 6.5);
 doc.text("SINGER",135,y + 6.5);
-doc.text("KEY",175,y + 6.5,{align:"center"});
+doc.text("KEY",182,y + 6.5,{align:"center"});
 
-  y += 11;
+  y += 13;
 
   // RESET TEXT COLOR
   doc.setTextColor(0);
@@ -448,14 +448,14 @@ doc.text(
     // KEY
 doc.text(
   song.key || '-',
-  175,
+  182,
   y + 6.5,
   {
     align:"center"
   }
 );
 
-    y += 16;
+    y += 11;
 
   });
 
