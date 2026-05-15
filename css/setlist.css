@@ -17,7 +17,7 @@
 #setlist-container{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:8px;
 }
 
 /* EMPTY STATE */
@@ -40,12 +40,12 @@
 .setlist-item{
   background:white;
   border-radius:10px;
-  padding:4px 10px;
+  padding:3px 8px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:8px;
-  min-height:42px;
+  gap:6px;
+  min-height:38px;
 }
 
 /* =========================
@@ -54,7 +54,7 @@
 
 .song-title{
   color:black;
-  font-size:18px;
+  font-size:16px;
   font-weight:700;
   cursor:pointer;
   flex:1;
@@ -68,7 +68,7 @@
 
 .setlist-actions{
   display:flex;
-  gap:8px;
+  gap:4px;
 }
 
 /* =========================
@@ -76,18 +76,13 @@
 ========================= */
 
 .action-btn{
-  width:32px;
-  height:32px;
-
+  width:26px;
+  height:26px;
   border:none;
-  border-radius:10px;
-
+  border-radius:8px;
   background:#111;
   color:white;
-
-  font-size:15px;
-  font-weight:bold;
-
+  font-size:14px;
   cursor:pointer;
   transition:.2s;
 }
