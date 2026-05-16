@@ -62,9 +62,9 @@ function renderSetlist(){
             ×
           </button>
 
-          <div class="drag-handle">
+          <button class="drag-handle">
             ☰
-          </div>
+          </button>
 
         </div>
 
@@ -113,6 +113,8 @@ function initSortable(){
     draggable:'.draggable-item',
 
     handle:'.drag-handle',
+
+    forceFallback:true,
 
     onEnd:function(evt){
 
