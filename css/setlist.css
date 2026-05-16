@@ -42,8 +42,8 @@
   padding:8px 10px;
   display:flex;
   align-items:center;
-  gap:10px;
-  min-height:48px;
+  gap:8px;
+  min-height:40px;
 }
 
 /* =========================
@@ -65,11 +65,11 @@
 ========================= */
 
 .action-btn{
-  width:26px;
-  height:26px;
+  width:24px;
+  height:24px;
   border:none;
   border-radius:8px;
-  background:#ff0000;
+  background:#aa2222;
   color:white;
   font-size:14px;
   cursor:pointer;
@@ -155,7 +155,7 @@
 ========================= */
 
 .drag-handle{
-  width:28px;
+  width:26px;
   text-align:center;
   cursor:grab;
   user-select:none;
