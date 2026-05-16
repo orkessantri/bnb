@@ -29,52 +29,55 @@ function renderSetlist(){
 
   if(setlist.length === 0){
 
-  container.innerHTML = `
-  
-  initSortable();
-  
-    <div class="empty-setlist">
-      Umak gorong nggae Setlist!
-    </div>
-  
-  `;
+    container.innerHTML = `
 
-  return;
-}
-  
+      <div class="empty-setlist">
+        Umak gorong nggae Setlist!
+      </div>
+
+    `;
+
+    return;
+  }
+
   setlist.forEach((song,i)=>{
 
-html += `
+    html += `
 
-  <div class="setlist-item">
+      <div class="setlist-item">
 
-    <div
-      class="song-title"
-      onclick="openSong(${song.id})"
-    >
-      ${i + 1}. ${song.title}
-    </div>
+        <div
+          class="song-title"
+          onclick="openSong(${song.id})"
+        >
+          ${i + 1}. ${song.title}
+        </div>
 
-<div class="setlist-actions">
+        <div class="setlist-actions">
 
-  <button
-    class="action-btn remove-btn"
-    onclick="removeSong(${song.id})"
-  >
-    ×
-  </button>
+          <button
+            class="action-btn remove-btn"
+            onclick="removeSong(${song.id})"
+          >
+            ×
+          </button>
 
-  <div class="drag-handle">
-    ☰
-  </div>
+          <div class="drag-handle">
+            ☰
+          </div>
 
-</div>
+        </div>
 
-`;
+      </div>
+
+    `;
 
   });
 
   container.innerHTML = html;
+
+  initSortable();
+
 }
 
 function removeSong(id){
