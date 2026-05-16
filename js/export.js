@@ -477,68 +477,267 @@ window.open(url);
 // =====================
 // EXPORT IMAGE
 // =====================
-async function exportImage(){
-
-  const target =
-    document.querySelector(
-      ".page-wrapper"
-    );
-
-  const canvas =
-    await html2canvas(
-      target,
-      {
-        scale:2,
-        backgroundColor:"#1a1a1a"
-      }
-    );
-
-  const link =
-    document.createElement("a");
-
-  link.download =
-    "setlist.png";
-
-  link.href =
-    canvas.toDataURL();
-
-  link.click();
-
-}
-
-// =====================
-// EXPORT JPG
-// =====================
 async function exportJPG(){
 
-  const target =
-    document.querySelector(
-      ".page-wrapper"
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  // =====================
+  // COPY SEMUA ISI
+  // DARI exportPDF()
+  // =====================
+
+  const logo =
+    document.getElementById(
+      "logoPreview"
     );
 
-  const canvas =
-    await html2canvas(
-      target,
-      {
-        scale:2,
-        useCORS:true,
-        backgroundColor:"#111"
-      }
+  const band =
+    document.getElementById(
+      "band-name"
+    ).value;
+
+  const event =
+    document.getElementById(
+      "event-name"
+    ).value;
+
+  const date =
+    document.getElementById(
+      "event-date"
+    ).value;
+
+  const location =
+    document.getElementById(
+      "event-location"
+    ).value;
+
+  let y = 20;
+
+  // LOGO
+  if(
+    logo.src &&
+    !logo.src.endsWith('/')
+  ){
+
+    const img = new Image();
+
+    img.src = logo.src;
+
+    await new Promise(resolve=>{
+      img.onload = resolve;
+    });
+
+    doc.addImage(
+      img,
+      'PNG',
+      20,
+      15,
+      28,
+      28
     );
+  }
+
+  // HEADER
+  doc.setFont(
+    "helvetica",
+    "bold"
+  );
+
+  doc.setFontSize(24);
+
+  doc.text(
+    band || "BAND NAME",
+    55,
+    24
+  );
+
+  doc.setFont(
+    "helvetica",
+    "normal"
+  );
+
+  doc.setFontSize(15);
+
+  doc.text(
+    event || "Nama Acara",
+    55,
+    33
+  );
+
+  doc.setFontSize(12);
+
+  doc.text(
+    `${date} • ${location}`,
+    20,
+    48
+  );
+
+  y = 58;
+
+  // HEADER TABLE
+  doc.setFillColor(20,20,20);
+
+  doc.roundedRect(
+    15,
+    y,
+    180,
+    10,
+    3,
+    3,
+    'F'
+  );
+
+  doc.setTextColor(255);
+
+  doc.setFont(
+    "helvetica",
+    "bold"
+  );
+
+  doc.setFontSize(13);
+
+  doc.text("NO",22,y+6);
+  doc.text("SONG",36,y+6);
+  doc.text("SINGER",132,y+6);
+  doc.text("KEY",176,y+6);
+
+  y += 12;
+
+  doc.setTextColor(0);
+
+  // SONGS
+  setlist.forEach((song,index)=>{
+
+    if(index % 2 === 0){
+
+      doc.setFillColor(
+        245,
+        245,
+        245
+      );
+
+    }else{
+
+      doc.setFillColor(
+        235,
+        235,
+        235
+      );
+
+    }
+
+    doc.roundedRect(
+      15,
+      y,
+      180,
+      10,
+      3,
+      3,
+      'F'
+    );
+
+    doc.setFont(
+      "helvetica",
+      "bold"
+    );
+
+    doc.setFontSize(11);
+
+    doc.text(
+      String(index+1),
+      22,
+      y+6.5
+    );
+
+    doc.setFont(
+      "helvetica",
+      "normal"
+    );
+
+    doc.text(
+      `${song.title} - ${
+        song.artist || ''
+      }`,
+      36,
+      y+6.5
+    );
+
+    doc.text(
+      song.singer || '-',
+      132,
+      y+6.5
+    );
+
+    doc.text(
+      song.key || '-',
+      176,
+      y+6.5
+    );
+
+    y += 11;
+
+  });
+
+  // =====================
+  // PDF -> JPG
+  // =====================
+
+  const pdfBlob =
+    doc.output('blob');
+
+  const pdfUrl =
+    URL.createObjectURL(pdfBlob);
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+  const pdf =
+    await pdfjsLib
+      .getDocument(pdfUrl)
+      .promise;
+
+  const page =
+    await pdf.getPage(1);
+
+  const viewport =
+    page.getViewport({
+      scale:3
+    });
+
+  const canvas =
+    document.createElement(
+      'canvas'
+    );
+
+  const context =
+    canvas.getContext('2d');
+
+  canvas.width =
+    viewport.width;
+
+  canvas.height =
+    viewport.height;
+
+  await page.render({
+    canvasContext:context,
+    viewport:viewport
+  }).promise;
 
   const image =
     canvas.toDataURL(
-      "image/jpeg",
+      'image/jpeg',
       1.0
     );
 
   const link =
-    document.createElement("a");
+    document.createElement('a');
 
   link.href = image;
 
   link.download =
-    "setlist.jpg";
+    'setlist.jpg';
 
   link.click();
 
