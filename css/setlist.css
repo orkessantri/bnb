@@ -36,39 +36,28 @@
 /* =========================
    ITEM
 ========================= */
-
 .setlist-item{
   background:white;
   border-radius:10px;
-  padding:3px 8px;
+  padding:8px 10px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:6px;
-  min-height:38px;
+  gap:10px;
+  min-height:48px;
 }
 
 /* =========================
    TITLE
 ========================= */
-
 .song-title{
   color:black;
   font-size:16px;
   font-weight:700;
   cursor:pointer;
   flex:1;
-  line-height:1.1;
-}
-}
-
-/* =========================
-   BUTTON AREA
-========================= */
-
-.setlist-actions{
-  display:flex;
-  gap:4px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 /* =========================
@@ -150,15 +139,21 @@
 @media(max-width:600px){
 
   .song-title{
-    font-size:17px;
-  }
-}
-
-  .action-btn{
-    width:34px;
-    height:34px;
     font-size:15px;
   }
+
+  .action-btn{
+    width:30px;
+    height:30px;
+    font-size:14px;
+  }
+
+}
+
+/* =========================
+   DRAG
+========================= */
+
 .drag-handle{
   width:28px;
   text-align:center;
@@ -172,8 +167,13 @@
   cursor:grabbing;
 }
 
+/* =========================
+   ACTIONS
+========================= */
+
 .setlist-actions{
   display:flex;
   align-items:center;
-  gap:6px;
+  flex-shrink:0;
+  gap:4px;
 }
