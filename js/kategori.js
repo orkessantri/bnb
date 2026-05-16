@@ -79,10 +79,16 @@ function renderKategori(){
 
   container.innerHTML = "";
 
-  const kategoriList =
-    [...new Set(
-      songs.map(song => song.category)
-    )];
+const kategoriList =
+  kategoriConfig
+    .map(k => k.name)
+    .filter(kategori =>
+
+      songs.some(
+        song =>
+          song.category === kategori
+      )
+    );
 
   kategoriList.forEach(kategori => {
 
