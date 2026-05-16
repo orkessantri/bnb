@@ -102,7 +102,6 @@ const laguKategori =
     }
   )
 )
-    );
 
     const box =
       document.createElement("div");
