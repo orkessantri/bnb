@@ -26,17 +26,19 @@ rel="stylesheet">
   <span>-not-</span>
   <span>BOSS</span>
 </h1>
-<button onclick="enterApp()">
+<button
+  class="enter-btn"
+  onclick="enterApp()"
+>
   ENTER
 </button>
 </div>
-
-    <script>
 
 <script>
 
 async function enterApp(){
 
+  // FULLSCREEN
   if(
     document.documentElement
       .requestFullscreen
@@ -48,6 +50,7 @@ async function enterApp(){
 
   }
 
+  // DELAY
   setTimeout(() => {
 
     window.location.href =
