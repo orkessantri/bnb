@@ -2,7 +2,7 @@ const kategoriConfig = [
   { name:"KASIDAH" },
   { name:"GAMBUZ" },
   { name:"DUNGDAT" },
-  { name:"POPINDO" }
+  { name:"POPINDO" },
   { name:"POPMANCA" }
 ];
 
