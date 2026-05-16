@@ -86,10 +86,23 @@ function renderKategori(){
 
   kategoriList.forEach(kategori => {
 
-    const laguKategori =
-      songs.filter(
-        song => song.category === kategori
-      );
+const laguKategori =
+  songs
+    .filter(
+      song =>
+        song.category === kategori
+    )
+.sort((a,b)=>
+
+  a.title.localeCompare(
+    b.title,
+    'id',
+    {
+      sensitivity:'base'
+    }
+  )
+)
+    );
 
     const box =
       document.createElement("div");
