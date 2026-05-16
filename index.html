@@ -38,26 +38,15 @@ rel="stylesheet">
 
 function enterApp(){
 
-  const el =
-    document.documentElement;
+  // FLAG
+  sessionStorage.setItem(
+    "bnbFullscreen",
+    "true"
+  );
 
-  if(el.requestFullscreen){
-
-    el.requestFullscreen()
-      .catch(err => {
-
-        console.log(err);
-
-      });
-
-  }
-
-  setTimeout(() => {
-
-    window.location.href =
-      "menu.html";
-
-  }, 300);
+  // REDIRECT
+  window.location.href =
+    "menu.html";
 
 }
 
