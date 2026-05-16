@@ -698,8 +698,18 @@ async function exportJPG(){
       .getDocument(pdfUrl)
       .promise;
 
+  const totalPages = pdf.numPages;
+
+let pages = [];
+
+let totalHeight = 0;
+let maxWidth = 0;
+
+// RENDER SEMUA PAGE
+for(let i = 1; i <= totalPages; i++){
+
   const page =
-    await pdf.getPage(1);
+    await pdf.getPage(i);
 
   const viewport =
     page.getViewport({
@@ -707,9 +717,7 @@ async function exportJPG(){
     });
 
   const canvas =
-    document.createElement(
-      'canvas'
-    );
+    document.createElement('canvas');
 
   const context =
     canvas.getContext('2d');
@@ -725,20 +733,56 @@ async function exportJPG(){
     viewport:viewport
   }).promise;
 
-  const image =
-    canvas.toDataURL(
-      'image/jpeg',
-      1.0
-    );
+  pages.push(canvas);
 
-  const link =
-    document.createElement('a');
+  totalHeight += canvas.height;
 
-  link.href = image;
+  if(canvas.width > maxWidth){
+    maxWidth = canvas.width;
+  }
 
-  link.download =
-    'setlist.jpg';
+}
 
-  link.click();
+// GABUNG SEMUA PAGE
+const finalCanvas =
+  document.createElement('canvas');
+
+const finalContext =
+  finalCanvas.getContext('2d');
+
+finalCanvas.width = maxWidth;
+
+finalCanvas.height = totalHeight;
+
+let currentY = 0;
+
+pages.forEach(canvas => {
+
+  finalContext.drawImage(
+    canvas,
+    0,
+    currentY
+  );
+
+  currentY += canvas.height;
+
+});
+
+// EXPORT JPG
+const image =
+  finalCanvas.toDataURL(
+    'image/jpeg',
+    1.0
+  );
+
+const link =
+  document.createElement('a');
+
+link.href = image;
+
+link.download =
+  'setlist.jpg';
+
+link.click();
 
 }
