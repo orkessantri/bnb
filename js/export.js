@@ -222,6 +222,9 @@ function saveSetlist(){
 
 }
 
+// =====================
+// EXPORT PDF
+// =====================
 async function exportPDF(){
 
   const { jsPDF } = window.jspdf;
@@ -459,10 +462,21 @@ doc.text(
 
   });
 
+  const pdfBlob =
+  doc.output('blob');
+
+const url =
+  URL.createObjectURL(pdfBlob);
+
+window.open(url);
+  
   doc.save("setlist.pdf");
 
 }
 
+// =====================
+// EXPORT IMAGE
+// =====================
 async function exportImage(){
 
   const target =
@@ -487,6 +501,76 @@ async function exportImage(){
 
   link.href =
     canvas.toDataURL();
+
+  link.click();
+
+}
+
+// =====================
+// EXPORT JPG
+// =====================
+async function exportJPG(){
+
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  // 🔥 COPY ISI exportPDF
+  // semua layout sama persis
+
+  // jangan doc.save()
+
+  const pdfBlob =
+    doc.output('blob');
+
+  const pdfUrl =
+    URL.createObjectURL(pdfBlob);
+
+  const pdfjsLib =
+    window['pdfjs-dist/build/pdf'];
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+  const pdf =
+    await pdfjsLib.getDocument(pdfUrl).promise;
+
+  const page =
+    await pdf.getPage(1);
+
+  const viewport =
+    page.getViewport({
+      scale:2
+    });
+
+  const canvas =
+    document.createElement('canvas');
+
+  const context =
+    canvas.getContext('2d');
+
+  canvas.width =
+    viewport.width;
+
+  canvas.height =
+    viewport.height;
+
+  await page.render({
+    canvasContext:context,
+    viewport:viewport
+  }).promise;
+
+  const link =
+    document.createElement('a');
+
+  link.download =
+    'setlist.jpg';
+
+  link.href =
+    canvas.toDataURL(
+      'image/jpeg',
+      1.0
+    );
 
   link.click();
 
