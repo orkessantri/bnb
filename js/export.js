@@ -462,3 +462,32 @@ doc.text(
   doc.save("setlist.pdf");
 
 }
+
+async function exportImage(){
+
+  const target =
+    document.querySelector(
+      ".page-wrapper"
+    );
+
+  const canvas =
+    await html2canvas(
+      target,
+      {
+        scale:2,
+        backgroundColor:"#1a1a1a"
+      }
+    );
+
+  const link =
+    document.createElement("a");
+
+  link.download =
+    "setlist.png";
+
+  link.href =
+    canvas.toDataURL();
+
+  link.click();
+
+}
