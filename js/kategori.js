@@ -14,7 +14,7 @@ async function loadSongs(){
 
   songs = await res.json();
 
-  validateSongsCategories(songs);
+validateSongsData(songs);
 
 }
 
