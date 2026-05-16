@@ -6,7 +6,37 @@ const kategoriConfig = [
   { name:"POPMANCA" }
 ];
 
-function validateSongsCategories(songs){
+const validKeys = [
+
+  "C",
+  "C#",
+  "Db",
+
+  "D",
+  "D#",
+  "Eb",
+
+  "E",
+
+  "F",
+  "F#",
+  "Gb",
+
+  "G",
+  "G#",
+  "Ab",
+
+  "A",
+  "A#",
+  "Bb",
+
+  "B"
+
+];
+
+function validateSongsData(songs){
+
+  const ids = [];
 
   const validCategories =
 
@@ -16,6 +46,52 @@ function validateSongsCategories(songs){
 
   songs.forEach(song => {
 
+    // =====================
+    // DUPLICATE ID
+    // =====================
+
+    if(ids.includes(song.id)){
+
+      console.warn(
+
+`DUPLICATE ID
+
+Song:
+${song.title}
+
+ID:
+${song.id}`
+
+      );
+
+    }
+
+    ids.push(song.id);
+
+    // =====================
+    // EMPTY TITLE
+    // =====================
+
+    if(
+      !song.title ||
+      song.title.trim() === ''
+    ){
+
+      console.warn(
+
+`EMPTY TITLE
+
+ID:
+${song.id}`
+
+      );
+
+    }
+
+    // =====================
+    // INVALID CATEGORY
+    // =====================
+
     if(
       !validCategories.includes(
         song.category
@@ -24,16 +100,61 @@ function validateSongsCategories(songs){
 
       console.warn(
 
-        `
-UNKNOWN CATEGORY
+`INVALID CATEGORY
 
 Song:
 ${song.title}
 
 Category:
-${song.category}
-        `
+${song.category}`
+
       );
+
     }
+
+    // =====================
+    // INVALID KEY
+    // =====================
+
+    if(
+      song.key &&
+      !validKeys.includes(song.key)
+    ){
+
+      console.warn(
+
+`INVALID KEY
+
+Song:
+${song.title}
+
+Key:
+${song.key}`
+
+      );
+
+    }
+
+    // =====================
+    // EMPTY CONTENT
+    // =====================
+
+    if(
+      !song.content ||
+      song.content.trim() === ''
+    ){
+
+      console.warn(
+
+`EMPTY CONTENT
+
+Song:
+${song.title}`
+
+      );
+
+    }
+
   });
+
 }
