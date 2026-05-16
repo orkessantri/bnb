@@ -3,6 +3,7 @@ const kategoriConfig = [
   { name:"GAMBUZ" },
   { name:"DUNGDAT" },
   { name:"POPINDO" }
+  { name:"POPMANCA" }
 ];
 
 function validateSongsCategories(songs){
