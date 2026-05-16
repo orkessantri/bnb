@@ -36,21 +36,22 @@ rel="stylesheet">
 
 <script>
 
-async function enterApp(){
+function enterApp(){
 
-  // FULLSCREEN
-  if(
-    document.documentElement
-      .requestFullscreen
-  ){
+  const el =
+    document.documentElement;
 
-    await document
-      .documentElement
-      .requestFullscreen();
+  if(el.requestFullscreen){
+
+    el.requestFullscreen()
+      .catch(err => {
+
+        console.log(err);
+
+      });
 
   }
 
-  // DELAY
   setTimeout(() => {
 
     window.location.href =
