@@ -44,7 +44,7 @@ function renderSetlist(){
 
     html += `
 
-      <div class="setlist-item">
+<div class="setlist-item draggable-item">
 
         <div
           class="song-title"
@@ -103,36 +103,38 @@ function initSortable(){
 
   sortable = new Sortable(
 
-    document.getElementById(
-      "setlist-container"
-    ),
+  document.getElementById(
+    "setlist-container"
+  ),
 
-    {
-      animation:150,
+  {
+    animation:150,
 
-      handle:'.drag-handle',
+    draggable:'.draggable-item',
 
-      onEnd:function(evt){
+    handle:'.drag-handle',
 
-        const movedItem =
-          setlist.splice(
-            evt.oldIndex,
-            1
-          )[0];
+    onEnd:function(evt){
 
+      const movedItem =
         setlist.splice(
-          evt.newIndex,
-          0,
-          movedItem
-        );
+          evt.oldIndex,
+          1
+        )[0];
 
-        saveSetlist();
+      setlist.splice(
+        evt.newIndex,
+        0,
+        movedItem
+      );
 
-        renderSetlist();
+      saveSetlist();
 
-      }
+      renderSetlist();
+
     }
-  );
+  }
+);
 }
 
 
