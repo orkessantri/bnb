@@ -26,8 +26,38 @@ rel="stylesheet">
   <span>-not-</span>
   <span>BOSS</span>
 </h1>
-  <a href="menu.html" class="enter-btn">ENTER</a>
+<button onclick="enterApp()">
+  ENTER
+</button>
 </div>
 
+    <script>
+
+<script>
+
+async function enterApp(){
+
+  if(
+    document.documentElement
+      .requestFullscreen
+  ){
+
+    await document
+      .documentElement
+      .requestFullscreen();
+
+  }
+
+  setTimeout(() => {
+
+    window.location.href =
+      "menu.html";
+
+  }, 300);
+
+}
+
+</script>
+    
 </body>
 </html>
