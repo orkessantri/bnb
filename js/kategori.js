@@ -14,6 +14,8 @@ async function loadSongs(){
 
   songs = await res.json();
 
+  validateSongsCategories(songs);
+
 }
 
 function saveSetlist(){
