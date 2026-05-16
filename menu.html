@@ -86,45 +86,5 @@ rel="stylesheet">
 
   <script src="js/daftar.js"></script>
 
-  <script>
-
-window.addEventListener(
-  "load",
-  () => {
-
-    const shouldFullscreen =
-
-      sessionStorage.getItem(
-        "bnbFullscreen"
-      );
-
-    if(shouldFullscreen){
-
-      const el =
-        document.documentElement;
-
-      if(el.requestFullscreen){
-
-        el.requestFullscreen()
-          .catch(err => {
-
-            console.log(err);
-
-          });
-
-      }
-
-      // CLEAR FLAG
-      sessionStorage.removeItem(
-        "bnbFullscreen"
-      );
-
-    }
-
-  }
-);
-
-</script>
-  
 </body>
 </html>
