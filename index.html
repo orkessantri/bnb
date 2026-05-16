@@ -36,20 +36,42 @@ rel="stylesheet">
 
 <script>
 
-function enterApp(){
+let fullscreenReady = false;
 
-  // FLAG
-  sessionStorage.setItem(
-    "bnbFullscreen",
-    "true"
-  );
+async function enterApp(){
 
-  // REDIRECT
+  // STEP 1
+  if(!fullscreenReady){
+
+    const el =
+      document.documentElement;
+
+    if(el.requestFullscreen){
+
+      try{
+
+        await el.requestFullscreen();
+
+      }catch(err){
+
+        console.log(err);
+      }
+    }
+
+    fullscreenReady = true;
+
+    document.querySelector(
+      ".enter-btn"
+    ).innerText =
+      "ENTER APP";
+
+    return;
+  }
+
+  // STEP 2
   window.location.href =
     "menu.html";
-
 }
-
 </script>
     
 </body>
