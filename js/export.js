@@ -511,66 +511,34 @@ async function exportImage(){
 // =====================
 async function exportJPG(){
 
-  const { jsPDF } = window.jspdf;
-
-  const doc = new jsPDF();
-
-  // 🔥 COPY ISI exportPDF
-  // semua layout sama persis
-
-  // jangan doc.save()
-
-  const pdfBlob =
-    doc.output('blob');
-
-  const pdfUrl =
-    URL.createObjectURL(pdfBlob);
-
-  const pdfjsLib =
-    window['pdfjs-dist/build/pdf'];
-
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-
-  const pdf =
-    await pdfjsLib.getDocument(pdfUrl).promise;
-
-  const page =
-    await pdf.getPage(1);
-
-  const viewport =
-    page.getViewport({
-      scale:2
-    });
+  const target =
+    document.querySelector(
+      ".page-wrapper"
+    );
 
   const canvas =
-    document.createElement('canvas');
+    await html2canvas(
+      target,
+      {
+        scale:2,
+        useCORS:true,
+        backgroundColor:"#111"
+      }
+    );
 
-  const context =
-    canvas.getContext('2d');
-
-  canvas.width =
-    viewport.width;
-
-  canvas.height =
-    viewport.height;
-
-  await page.render({
-    canvasContext:context,
-    viewport:viewport
-  }).promise;
-
-  const link =
-    document.createElement('a');
-
-  link.download =
-    'setlist.jpg';
-
-  link.href =
+  const image =
     canvas.toDataURL(
-      'image/jpeg',
+      "image/jpeg",
       1.0
     );
+
+  const link =
+    document.createElement("a");
+
+  link.href = image;
+
+  link.download =
+    "setlist.jpg";
 
   link.click();
 
