@@ -39,7 +39,7 @@
 .setlist-item{
   background:white;
   border-radius:10px;
-  padding:8px 10px;
+  padding:5px 8px;
   display:flex;
   align-items:center;
   gap:8px;
@@ -71,7 +71,7 @@
   border-radius:8px;
   background:#aa2222;
   color:white;
-  font-size:14px;
+  font-size:15px;
   cursor:pointer;
   transition:.2s;
 }
@@ -170,7 +170,6 @@
 /* =========================
    ACTIONS
 ========================= */
-
 .setlist-actions{
   display:flex;
   align-items:center;
