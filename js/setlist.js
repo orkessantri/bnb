@@ -1,3 +1,5 @@
+let sortable = null;
+
 let setlist =
   JSON.parse(
     localStorage.getItem("setlist")
@@ -62,7 +64,10 @@ function renderSetlist(){
             ×
           </button>
 
-          <button class="drag-handle">
+          <button
+            class="drag-handle"
+            type="button"
+          >
             ☰
           </button>
 
@@ -93,8 +98,6 @@ function removeSong(id){
 
 renderSetlist();
 
-let sortable = null;
-
 function initSortable(){
 
   if(sortable){
@@ -115,6 +118,10 @@ function initSortable(){
     handle:'.drag-handle',
 
     forceFallback:true,
+
+    delay: 100,
+    
+    delayOnTouchOnly: true,
 
     onEnd:function(evt){
 
