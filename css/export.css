@@ -268,33 +268,16 @@
     padding:6px;
   }
 
-  .insert-row{
+.insert-row{
+  display:grid;
   grid-template-columns:
-    28px
+    34px
     1fr
-    90px
-    56px
-    28px;
-  gap:4px;
-  padding:6px;
+    70px
+    34px;
+  gap:6px;
 }
 
-.insert-input{
-  font-size:12px;
-  padding:6px 8px;
-}
-
-.remove-insert{
-  width:28px;
-  height:28px;
-  font-size:14px;
-}
-
-.insert-row .drag-handle{
-  width:28px;
-  height:28px;
-}
-  
   .song-name{
     font-size:12px;
   }
