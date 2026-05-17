@@ -152,6 +152,14 @@
   background:#eaeaea;
 }
 
+.sortable-ghost{
+  opacity:.3;
+}
+
+.sortable-chosen{
+  background:#f5f5f5;
+}
+
 .drag-handle{
   width:40px;
   height:40px;
@@ -168,39 +176,39 @@
   cursor:grabbing;
 }
 
-.sortable-ghost{
-  opacity:.3;
-}
-
-.sortable-chosen{
-  background:#f5f5f5;
-}
-
 .insert-row{
   display:grid;
   grid-template-columns:
-    40px
+    34px
     1fr
-    140px
-    40px
-    40px;
+    130px
+    70px
+    34px;
+  gap:6px;
   align-items:center;
-  gap:12px;
-  margin-bottom:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:#f7f2e8;
+  margin-bottom:8px;
+  box-sizing:border-box;
 }
 
 .insert-bullet{
-  text-align:center;
-  font-size:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  height:100%;
 }
 
 .insert-input{
   width:100%;
   border:none;
-  border-radius:14px;
-  padding:12px 16px;
-  font-size:18px;
-  background:#fff;
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:14px;
+  background:white;
+  box-sizing:border-box;
 }
 
 .insert-text-wrap{
@@ -229,15 +237,26 @@
 }
 
 .remove-insert{
+  width:34px;
+  height:34px;
   border:none;
-  background:none;
-  color:#c00;
-  font-size:24px;
+  border-radius:10px;
+  background:#fff0f0;
+  color:#cc0000;
+  font-size:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   cursor:pointer;
 }
 
 .remove-insert:hover{
   opacity:.7;
+}
+
+.insert-row .drag-handle{
+  width:34px;
+  height:34px;
 }
 
 @media(max-width:768px){
@@ -253,6 +272,33 @@
     padding:6px;
   }
 
+  .insert-row{
+  grid-template-columns:
+    28px
+    1fr
+    90px
+    56px
+    28px;
+  gap:4px;
+  padding:6px;
+}
+
+.insert-input{
+  font-size:12px;
+  padding:6px 8px;
+}
+
+.remove-insert{
+  width:28px;
+  height:28px;
+  font-size:14px;
+}
+
+.insert-row .drag-handle{
+  width:28px;
+  height:28px;
+}
+  
   .song-name{
     font-size:12px;
   }
