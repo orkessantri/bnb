@@ -123,17 +123,19 @@ html += `
 
   <div></div>
 
-  <div></div>
+  <div class="insert-actions">
 
-  <button
-    class="remove-insert"
-    onclick="removeInsert(${index})"
-  >
-    ✕
-  </button>
+    <button
+      class="remove-insert"
+      onclick="removeInsert(${index})"
+    >
+      ✕
+    </button>
 
-  <div class="drag-handle">
-    ☰
+    <div class="drag-handle">
+      ☰
+    </div>
+
   </div>
 
 </div>
