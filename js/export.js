@@ -121,21 +121,15 @@ html += `
     placeholder="Insert Text"
   >
 
-  <div></div>
+  <button
+    class="remove-insert"
+    onclick="removeInsert(${index})"
+  >
+    ✕
+  </button>
 
-  <div class="insert-actions">
-
-    <button
-      class="remove-insert"
-      onclick="removeInsert(${index})"
-    >
-      ✕
-    </button>
-
-    <div class="drag-handle">
-      ☰
-    </div>
-
+  <div class="drag-handle">
+    ☰
   </div>
 
 </div>
