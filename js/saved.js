@@ -21,7 +21,7 @@ function renderSaved(){
     container.innerHTML = `
 
       <div class="empty-setlist">
-        Belum ada setlist tersimpan
+        Umak Gorong Save Setlist!
       </div>
 
     `;
@@ -115,7 +115,7 @@ function deleteSetlist(id){
   const confirmDelete =
 
     confirm(
-      "Hapus setlist?"
+      "Remove Setlist?"
     );
 
   if(!confirmDelete) return;
