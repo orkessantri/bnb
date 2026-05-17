@@ -190,7 +190,6 @@
   border-radius:12px;
   background:#f7f2e8;
   margin-bottom:8px;
-  box-sizing:border-box;
 }
 
 .insert-bullet{
@@ -218,9 +217,8 @@
 .insert-actions{
   display:flex;
   align-items:center;
-  justify-content:flex-end;
-  gap:10px;
-  width:100%;
+  justify-content:space-between;
+  width:70px;
 }
 
 .insert-btn{
