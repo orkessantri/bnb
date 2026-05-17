@@ -768,9 +768,433 @@ async function exportPDF(){
   );
 }
 
-async function previewPDF(){
+async function exportJPG(){
 
-  await exportPDF();
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  const logo =
+    document.getElementById(
+      "logoPreview"
+    );
+
+  const band =
+    document.getElementById(
+      "band-name"
+    ).value;
+
+  const event =
+    document.getElementById(
+      "event-name"
+    ).value;
+
+  const date =
+    document.getElementById(
+      "event-date"
+    ).value;
+
+  const location =
+    document.getElementById(
+      "event-location"
+    ).value;
+
+  let y = 55;
+
+  // =====================
+  // LOGO
+  // =====================
+
+  if(
+    logo.src &&
+    !logo.src.endsWith('/')
+  ){
+
+    const img = new Image();
+
+    img.src = logo.src;
+
+    await new Promise(resolve=>{
+      img.onload = resolve;
+    });
+
+    doc.addImage(
+      img,
+      'PNG',
+      15,
+      12,
+      30,
+      30
+    );
+  }
+
+  // =====================
+  // HEADER
+  // =====================
+
+  doc.setFont(
+    "helvetica",
+    "bold"
+  );
+
+  doc.setFontSize(26);
+
+  doc.text(
+    band || "BAND NAME",
+    50,
+    24
+  );
+
+  doc.setFont(
+    "helvetica",
+    "normal"
+  );
+
+  doc.setFontSize(19);
+
+  doc.text(
+    event || "Nama Acara",
+    50,
+    32
+  );
+
+  doc.setFontSize(14);
+
+  doc.text(
+    `${date} • ${location}`,
+    50,
+    39
+  );
+
+  // =====================
+  // TABLE HEADER
+  // =====================
+
+  doc.setFillColor(20,20,20);
+
+  doc.roundedRect(
+    15,
+    y,
+    180,
+    10,
+    3,
+    3,
+    'F'
+  );
+
+  doc.setTextColor(255);
+
+  doc.setFont(
+    "helvetica",
+    "bold"
+  );
+
+  doc.setFontSize(14);
+
+  doc.text(
+    "NO",
+    22,
+    y + 6.5,
+    {align:"center"}
+  );
+
+  doc.text(
+    "SONG",
+    32,
+    y + 6.5
+  );
+
+  doc.text(
+    "SINGER",
+    135,
+    y + 6.5
+  );
+
+  doc.text(
+    "KEY",
+    182,
+    y + 6.5,
+    {align:"center"}
+  );
+
+  y += 13;
+
+  doc.setTextColor(0);
+
+  // =====================
+  // ITEMS
+  // =====================
+
+  let songNumber = 1;
+
+  exportItems.forEach((item,index)=>{
+
+    // PAGE BREAK
+    if(y > 270){
+
+      doc.addPage();
+
+      y = 20;
+    }
+
+    // =====================
+    // INSERT ITEM
+    // =====================
+
+    if(item.type === "insert"){
+
+      doc.setFillColor(
+        255,
+        240,
+        200
+      );
+
+      doc.roundedRect(
+        15,
+        y,
+        180,
+        10,
+        3,
+        3,
+        'F'
+      );
+
+      doc.setFont(
+        "helvetica",
+        "bold"
+      );
+
+      doc.setFontSize(12);
+
+      doc.text(
+        item.text || "INSERT",
+        20,
+        y + 6.5
+      );
+
+      y += 11;
+
+      return;
+    }
+
+    // =====================
+    // SONG ITEM
+    // =====================
+
+    const song = item.data;
+
+    if(index % 2 === 0){
+
+      doc.setFillColor(
+        245,
+        245,
+        245
+      );
+
+    }else{
+
+      doc.setFillColor(
+        235,
+        235,
+        235
+      );
+    }
+
+    doc.roundedRect(
+      15,
+      y,
+      180,
+      10,
+      3,
+      3,
+      'F'
+    );
+
+    // NUMBER
+    doc.setFont(
+      "helvetica",
+      "bold"
+    );
+
+    doc.setFontSize(12);
+
+    doc.text(
+      String(songNumber++),
+      22,
+      y + 6.5,
+      {
+        align:"center"
+      }
+    );
+
+    // SONG
+    doc.setFont(
+      "helvetica",
+      "normal"
+    );
+
+    doc.text(
+      `${song.title} - ${song.artist || ''}`,
+      32,
+      y + 6.5
+    );
+
+    // SINGER
+    doc.text(
+      song.singer || '-',
+      135,
+      y + 6.5
+    );
+
+    // KEY
+    doc.text(
+      song.key || '-',
+      182,
+      y + 6.5,
+      {
+        align:"center"
+      }
+    );
+
+    y += 11;
+
+  });
+
+  // =====================
+  // PDF -> IMAGE
+  // =====================
+
+  const pdfBlob =
+    doc.output('blob');
+
+  const pdfUrl =
+    URL.createObjectURL(pdfBlob);
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+  const pdf =
+    await pdfjsLib
+      .getDocument(pdfUrl)
+      .promise;
+
+  const totalPages =
+    pdf.numPages;
+
+  let pages = [];
+
+  let totalHeight = 0;
+
+  let maxWidth = 0;
+
+  // =====================
+  // RENDER ALL PAGES
+  // =====================
+
+  for(
+    let i = 1;
+    i <= totalPages;
+    i++
+  ){
+
+    const page =
+      await pdf.getPage(i);
+
+    const viewport =
+      page.getViewport({
+        scale:3
+      });
+
+    const canvas =
+      document.createElement(
+        'canvas'
+      );
+
+    const context =
+      canvas.getContext('2d');
+
+    canvas.width =
+      viewport.width;
+
+    canvas.height =
+      viewport.height;
+
+    await page.render({
+
+      canvasContext:context,
+
+      viewport:viewport
+
+    }).promise;
+
+    pages.push(canvas);
+
+    totalHeight +=
+      canvas.height;
+
+    if(
+      canvas.width > maxWidth
+    ){
+
+      maxWidth =
+        canvas.width;
+    }
+  }
+
+  // =====================
+  // MERGE ALL PAGES
+  // =====================
+
+  const finalCanvas =
+    document.createElement(
+      'canvas'
+    );
+
+  const finalContext =
+    finalCanvas.getContext(
+      '2d'
+    );
+
+  finalCanvas.width =
+    maxWidth;
+
+  finalCanvas.height =
+    totalHeight;
+
+  let currentY = 0;
+
+  pages.forEach(canvas => {
+
+    finalContext.drawImage(
+      canvas,
+      0,
+      currentY
+    );
+
+    currentY +=
+      canvas.height;
+
+  });
+
+  // =====================
+  // EXPORT JPG
+  // =====================
+
+  const image =
+    finalCanvas.toDataURL(
+      'image/jpeg',
+      1.0
+    );
+
+  const link =
+    document.createElement('a');
+
+  link.href = image;
+
+  link.download =
+    'setlist.jpg';
+
+  link.click();
 
 }
 
