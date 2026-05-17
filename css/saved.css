@@ -9,11 +9,9 @@
   background:white;
   border-radius:12px;
   padding:12px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:10px;
 }
 
@@ -41,14 +39,16 @@
 .saved-btn{
   width:36px;
   height:36px;
-
   border:none;
   border-radius:10px;
-
-  /* EMPTY STATE */
-#saved-container:empty{
-  flex:1;
+  background:#111;
+  color:white;
+  cursor:pointer;
 }
+
+/* =========================
+   EMPTY STATE
+========================= */
 
 .empty-setlist{
   flex:1;
@@ -61,9 +61,16 @@
   opacity:.7;
   min-height:300px;
 }
-  
+
+/* =========================
+   IMPORT
+========================= */
+
 .import-area{
-  margin-bottom:16px;
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+  margin-bottom:20px;
 }
 
 .import-btn{
