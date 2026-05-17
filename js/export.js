@@ -93,62 +93,53 @@ let songNumber = 1;
     // INSERT ITEM
     // =====================
 
-    if(item.type === "insert"){
+if(item.type === "insert"){
 
-      html += `
+  html += `
 
-      <div class="insert-row">
+  <div class="insert-row">
 
-        <div>
-          •
-        </div>
+    <div class="insert-bullet">
+      •
+    </div>
 
-        <div class="insert-text-wrap">
+    <input
+      type="text"
+      class="insert-input"
 
-          <input
-            type="text"
-            class="insert-input"
+      value="${
+        item.text || ''
+      }"
 
-            value="${
-              item.text || ''
-            }"
+      onchange="
+        updateInsert(
+          ${index},
+          this.value
+        )
+      "
 
-            onchange="
-              updateInsert(
-                ${index},
-                this.value
-              )
-            "
+      placeholder="Insert Text"
+    >
 
-            placeholder="Insert Text"
-          >
+    <div></div>
 
-        </div>
+    <button
+      class="remove-insert"
+      onclick="removeInsert(${index})"
+    >
+      ✕
+    </button>
 
-        <div></div>
-        <div></div>
+    <div class="drag-handle">
+      ☰
+    </div>
 
-<div class="insert-actions">
-
-  <button
-    class="remove-insert"
-    onclick="removeInsert(${index})"
-  >
-    ✕
-  </button>
-
-  <div class="drag-handle">
-    ☰
   </div>
 
-</div>
+  `;
 
-      </div>
-
-      `;
-
-      return;
-    }
+  return;
+}
 
     // =====================
     // SONG ITEM
