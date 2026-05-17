@@ -193,6 +193,29 @@
   box-sizing:border-box;
 }
 
+.insert-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+.remove-insert{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:10px;
+  background:#ffdddd;
+  color:#b00000;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.remove-insert:hover{
+  background:#ffbdbd;
+}
+
 @media(max-width:768px){
 
   .export-row{
