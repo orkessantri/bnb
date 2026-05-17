@@ -72,15 +72,24 @@ rel="stylesheet">
     <div class="floating-buttons">
 
   <!-- IMPORT -->
-  <label class="floating-buttons">
-    📥
-    <input
-      type="file"
-      id="importInput"
-      accept=".bnb,.json"
-      hidden
-    >
-  </label>
+ <button
+  onclick="
+    document
+      .getElementById(
+        'importInput'
+      )
+      .click()
+  "
+>
+  📥
+</button>
+
+<input
+  type="file"
+  id="importInput"
+  accept=".bnb,.json"
+  hidden
+>
 
   <!-- BACK -->
  <button
