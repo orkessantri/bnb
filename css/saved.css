@@ -1,0 +1,52 @@
+#saved-container{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.saved-item{
+  background:white;
+  border-radius:12px;
+  padding:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:10px;
+}
+
+.saved-info{
+  flex:1;
+}
+
+.saved-name{
+  color:black;
+  font-size:18px;
+  font-weight:700;
+}
+
+.saved-date{
+  color:#666;
+  font-size:13px;
+  margin-top:4px;
+}
+
+.saved-actions{
+  display:flex;
+  gap:6px;
+}
+
+.saved-btn{
+  width:36px;
+  height:36px;
+
+  border:none;
+  border-radius:10px;
+
+  background:#111;
+  color:white;
+
+  font-size:16px;
+  cursor:pointer;
+}
