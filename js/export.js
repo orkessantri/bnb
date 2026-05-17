@@ -1,3 +1,5 @@
+let exportItems = [];
+
 let sortable = null;
 
 let setlist =
@@ -6,6 +8,49 @@ let setlist =
       "setlist"
     )
   ) || [];
+
+const savedExportItems =
+  JSON.parse(
+    localStorage.getItem(
+      "exportItems"
+    )
+  );
+
+if(savedExportItems){
+
+  exportItems =
+    savedExportItems.map(item => {
+
+      if(item.type === "song"){
+
+        const freshSong =
+          setlist.find(
+            s => s.id === item.data.id
+          );
+
+        return {
+          type:"song",
+          data:freshSong || item.data
+        };
+
+      }
+
+      return item;
+
+    });
+
+}else{
+
+  exportItems = [
+
+    ...setlist.map(song => ({
+      type:"song",
+      data:song
+    }))
+
+  ];
+
+}
 
 const exportTable =
   document.getElementById(
@@ -32,89 +77,150 @@ function renderTable(){
       "
     >
 
-<div>NO</div>
-<div>SONG</div>
-<div>SINGER</div>
-<div>KEY</div>
-<div></div>
+      <div>NO</div>
+      <div>SONG</div>
+      <div>SINGER</div>
+      <div>KEY</div>
+      <div></div>
 
     </div>
 
   `;
+let songNumber = 1;
+  exportItems.forEach((item,index)=>{
 
-  setlist.forEach((song,index)=>{
+    // =====================
+    // INSERT ITEM
+    // =====================
 
-    html += `
+    if(item.type === "insert"){
 
-      <div class="export-row">
+      html += `
+
+      <div class="insert-row">
 
         <div>
-          ${index + 1}
+          •
         </div>
 
-  <div class="song-cell">
+        <div class="insert-text-wrap">
 
-  <div class="song-name">
-    ${song.title}
-  </div>
-
-  <div class="song-artist">
-    ${song.artist || ''}
-  </div>
-
-</div>
-
-        <div>
           <input
-            class="singer-input"
             type="text"
-            placeholder="Singer"
+            class="insert-input"
+
             value="${
-              song.singer || ''
+              item.text || ''
             }"
 
             onchange="
-              updateSinger(
-                ${song.id},
+              updateInsert(
+                ${index},
                 this.value
               )
             "
+
+            placeholder="Insert Text"
           >
+
         </div>
 
-<div>
-<input
-  class="key-input"
-  type="text"
-  placeholder="Key"
+        <div></div>
+        <div></div>
 
-  value="${
-    song.key || ''
-  }"
+        <div class="drag-handle">
+          ☰
+        </div>
 
-  onchange="
-    updateKey(
-      ${song.id},
-      this.value
-    )
-  "
->
-</div>
+      </div>
 
-<div class="drag-handle">
-  ☰
-</div>
+      `;
 
-</div>
+      return;
+    }
+
+    // =====================
+    // SONG ITEM
+    // =====================
+
+    const song = item.data;
+
+    html += `
+
+    <div class="export-row">
+
+      <div>
+        ${songNumber++}
+      </div>
+
+      <div class="song-cell">
+
+        <div class="song-name">
+          ${song.title}
+        </div>
+
+        <div class="song-artist">
+          ${song.artist || ''}
+        </div>
+
+      </div>
+
+      <div>
+
+        <input
+          class="singer-input"
+          type="text"
+
+          placeholder="Singer"
+
+          value="${
+            song.singer || ''
+          }"
+
+          onchange="
+            updateSinger(
+              ${song.id},
+              this.value
+            )
+          "
+        >
+
+      </div>
+
+      <div>
+
+        <input
+          class="key-input"
+          type="text"
+
+          placeholder="Key"
+
+          value="${
+            song.key || ''
+          }"
+
+          onchange="
+            updateKey(
+              ${song.id},
+              this.value
+            )
+          "
+        >
+
+      </div>
+
+      <div class="drag-handle">
+        ☰
+      </div>
+
+    </div>
 
     `;
-
   });
 
   container.innerHTML = html;
-  
-  initSortable();
 
+  initSortable();
 }
 
 function updateSinger(id,value){
@@ -165,6 +271,20 @@ saveExportDraft();
     }
   );
 
+function addInsert(){
+
+  exportItems.push({
+
+    type:"insert",
+
+    text:"Talk"
+
+  });
+saveExportItems();
+  renderTable();
+
+}
+
 function initSortable(){
 
   if(sortable){
@@ -186,27 +306,26 @@ function initSortable(){
 
   onEnd:function(evt){
 
-        if(evt.oldIndex === 0)
-          return;
+  if(evt.oldIndex === 0)
+    return;
 
-        const movedItem =
-          setlist.splice(
-            evt.oldIndex - 1,
-            1
-          )[0];
+  const movedItem =
 
-        setlist.splice(
-          evt.newIndex - 1,
-          0,
-          movedItem
-        );
+    exportItems.splice(
+      evt.oldIndex - 1,
+      1
+    )[0];
 
-        saveSetlist();
-        
-        renderTable();
+  exportItems.splice(
+    evt.newIndex - 1,
+    0,
+    movedItem
+  );
 
-      }
+    saveExportItems();
+  renderTable();
 
+}
     }
 
   );
@@ -219,7 +338,7 @@ function saveSetlist(){
     "setlist",
     JSON.stringify(setlist)
   );
-
+saveExportItems();
 }
 
 // =====================
@@ -330,10 +449,16 @@ function loadExportDraft(){
     );
 });
 
+function updateInsert(
+  index,
+  value
+){
 
-// =====================
-// EXPORT PDF
-// =====================
+  exportItems[index].text =
+    value;
+saveExportItems();
+}
+
 async function exportPDF(){
 
   const { jsPDF } = window.jspdf;
@@ -371,31 +496,29 @@ async function exportPDF(){
   // LOGO
   // =====================
 
- if(
-  logo.src &&
-  !logo.src.endsWith('/')
-){
+  if(
+    logo.src &&
+    !logo.src.endsWith('/')
+  ){
 
-  const img = new Image();
+    const img = new Image();
 
-  img.src = logo.src;
+    img.src = logo.src;
 
-  await new Promise(resolve => {
+    await new Promise(resolve=>{
+      img.onload = resolve;
+    });
 
-    img.onload = resolve;
+    doc.addImage(
+      img,
+      'PNG',
+      15,
+      12,
+      30,
+      30
+    );
+  }
 
-  });
-
-  doc.addImage(
-    img,
-    'PNG',
-15,
-12,
-30,
-30
-  );
-
-}
   // =====================
   // HEADER
   // =====================
@@ -426,18 +549,13 @@ async function exportPDF(){
     32
   );
 
-  doc.setFont(
-    "helvetica",
-    "normal"
-  );
-
   doc.setFontSize(14);
-  
-doc.text(
-  `${date}  •  ${location}`,
-  50,
-  39
-);
+
+  doc.text(
+    `${date} • ${location}`,
+    50,
+    39
+  );
 
   // =====================
   // TABLE HEADER
@@ -457,269 +575,104 @@ doc.text(
 
   doc.setTextColor(255);
 
-doc.setFont(
-  "helvetica",
-  "bold"
-);
+  doc.setFont(
+    "helvetica",
+    "bold"
+  );
 
-doc.setFontSize(14);
+  doc.setFontSize(14);
 
-doc.text("NO",22,y + 6.5,{align:"center"});
-doc.text("SONG",32,y + 6.5);
-doc.text("SINGER",135,y + 6.5);
-doc.text("KEY",182,y + 6.5,{align:"center"});
+  doc.text(
+    "NO",
+    22,
+    y + 6.5,
+    {align:"center"}
+  );
+
+  doc.text(
+    "SONG",
+    32,
+    y + 6.5
+  );
+
+  doc.text(
+    "SINGER",
+    135,
+    y + 6.5
+  );
+
+  doc.text(
+    "KEY",
+    182,
+    y + 6.5,
+    {align:"center"}
+  );
 
   y += 13;
 
-  // RESET TEXT COLOR
   doc.setTextColor(0);
 
   // =====================
-  // SONGS
+  // ITEMS
   // =====================
 
-  setlist.forEach((song,index)=>{
+  let songNumber = 1;
+  
+  exportItems.forEach((item,index)=>{
 
-    // AUTO PAGE
+    // PAGE BREAK
     if(y > 270){
 
       doc.addPage();
 
       y = 20;
-
     }
 
-    // BG COLOR
-    if(index % 2 === 0){
+    // =====================
+    // INSERT ITEM
+    // =====================
+
+    if(item.type === "insert"){
 
       doc.setFillColor(
-        245,
-        245,
-        245
+        255,
+        240,
+        200
       );
 
-    }else{
-
-      doc.setFillColor(
-        235,
-        235,
-        235
+      doc.roundedRect(
+        15,
+        y,
+        180,
+        10,
+        3,
+        3,
+        'F'
       );
 
+      doc.setFont(
+        "helvetica",
+        "bold"
+      );
+
+      doc.setFontSize(12);
+
+      doc.text(
+        item.text || "INSERT",
+        20,
+        y + 6.5
+      );
+
+      y += 11;
+
+      return;
     }
 
-    // ROW
-doc.roundedRect(
-  15,
-  y,
-  180,
-  10,
-  3,
-  3,
-  'F'
-);
+    // =====================
+    // SONG ITEM
+    // =====================
 
-    // NUMBER
-    doc.setFont(
-      "helvetica",
-      "bold"
-    );
-
-    doc.setFontSize(12);
-
-doc.text(
-  String(index + 1),
-  22,
-  y + 6.5,
-  {
-    align:"center"
-  }
-);
-
-    // SONG + ARTIST
-    doc.setFont(
-      "helvetica",
-      "normal"
-    );
-
-    doc.text(
-      `${song.title} - ${
-        song.artist || ''
-      }`,
-      32,
-      y + 6.5
-    );
-
-    // SINGER
-    doc.text(
-      song.singer || '-',
-      135,
-      y + 6.5
-    );
-
-    // KEY
-doc.text(
-  song.key || '-',
-  182,
-  y + 6.5,
-  {
-    align:"center"
-  }
-);
-
-    y += 11;
-
-  });
-
-  const pdfBlob =
-  doc.output('blob');
-
-const url =
-  URL.createObjectURL(pdfBlob);
-
-window.open(url);
-  
-  doc.save("setlist.pdf");
-  localStorage.removeItem(
-  "exportDraft"
-);
-}
-
-// =====================
-// EXPORT IMAGE
-// =====================
-async function exportJPG(){
-
-  const { jsPDF } = window.jspdf;
-
-  const doc = new jsPDF();
-
-  // =====================
-  // COPY SEMUA ISI
-  // DARI exportPDF()
-  // =====================
-
-  const logo =
-    document.getElementById(
-      "logoPreview"
-    );
-
-  const band =
-    document.getElementById(
-      "band-name"
-    ).value;
-
-  const event =
-    document.getElementById(
-      "event-name"
-    ).value;
-
-  const date =
-    document.getElementById(
-      "event-date"
-    ).value;
-
-  const location =
-    document.getElementById(
-      "event-location"
-    ).value;
-
-  let y = 20;
-
-  // LOGO
-  if(
-    logo.src &&
-    !logo.src.endsWith('/')
-  ){
-
-    const img = new Image();
-
-    img.src = logo.src;
-
-    await new Promise(resolve=>{
-      img.onload = resolve;
-    });
-
-    doc.addImage(
-      img,
-      'PNG',
-      20,
-      15,
-      28,
-      28
-    );
-  }
-
-  // HEADER
-  doc.setFont(
-    "helvetica",
-    "bold"
-  );
-
-  doc.setFontSize(24);
-
-  doc.text(
-    band || "BAND NAME",
-    55,
-    24
-  );
-
-  doc.setFont(
-    "helvetica",
-    "normal"
-  );
-
-  doc.setFontSize(15);
-
-  doc.text(
-    event || "Nama Acara",
-    55,
-    33
-  );
-
-  doc.setFontSize(12);
-
-  doc.text(
-    `${date} • ${location}`,
-    20,
-    48
-  );
-
-  y = 58;
-
-  // HEADER TABLE
-  doc.setFillColor(20,20,20);
-
-  doc.roundedRect(
-    15,
-    y,
-    180,
-    10,
-    3,
-    3,
-    'F'
-  );
-
-  doc.setTextColor(255);
-
-  doc.setFont(
-    "helvetica",
-    "bold"
-  );
-
-  doc.setFontSize(13);
-
-  doc.text("NO",22,y+6);
-  doc.text("SONG",36,y+6);
-  doc.text("SINGER",132,y+6);
-  doc.text("KEY",176,y+6);
-
-  y += 12;
-
-  doc.setTextColor(0);
-
-  // SONGS
-  setlist.forEach((song,index)=>{
+    const song = item.data;
 
     if(index % 2 === 0){
 
@@ -736,7 +689,6 @@ async function exportJPG(){
         235,
         235
       );
-
     }
 
     doc.roundedRect(
@@ -749,42 +701,50 @@ async function exportJPG(){
       'F'
     );
 
+    // NUMBER
     doc.setFont(
       "helvetica",
       "bold"
     );
 
-    doc.setFontSize(11);
+    doc.setFontSize(12);
 
     doc.text(
-      String(index+1),
+      String(songNumber++),
       22,
-      y+6.5
+      y + 6.5,
+      {
+        align:"center"
+      }
     );
 
+    // SONG
     doc.setFont(
       "helvetica",
       "normal"
     );
 
     doc.text(
-      `${song.title} - ${
-        song.artist || ''
-      }`,
-      36,
-      y+6.5
+      `${song.title} - ${song.artist || ''}`,
+      32,
+      y + 6.5
     );
 
+    // SINGER
     doc.text(
       song.singer || '-',
-      132,
-      y+6.5
+      135,
+      y + 6.5
     );
 
+    // KEY
     doc.text(
       song.key || '-',
-      176,
-      y+6.5
+      182,
+      y + 6.5,
+      {
+        align:"center"
+      }
     );
 
     y += 11;
@@ -792,112 +752,37 @@ async function exportJPG(){
   });
 
   // =====================
-  // PDF -> JPG
+  // SAVE
   // =====================
 
   const pdfBlob =
     doc.output('blob');
 
-  const pdfUrl =
+  const url =
     URL.createObjectURL(pdfBlob);
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+  window.open(url);
 
-  const pdf =
-    await pdfjsLib
-      .getDocument(pdfUrl)
-      .promise;
+  doc.save("setlist.pdf");
 
-  const totalPages = pdf.numPages;
+  localStorage.removeItem(
+    "exportDraft"
+  );
+}
 
-let pages = [];
+async function previewPDF(){
 
-let totalHeight = 0;
-let maxWidth = 0;
-
-// RENDER SEMUA PAGE
-for(let i = 1; i <= totalPages; i++){
-
-  const page =
-    await pdf.getPage(i);
-
-  const viewport =
-    page.getViewport({
-      scale:3
-    });
-
-  const canvas =
-    document.createElement('canvas');
-
-  const context =
-    canvas.getContext('2d');
-
-  canvas.width =
-    viewport.width;
-
-  canvas.height =
-    viewport.height;
-
-  await page.render({
-    canvasContext:context,
-    viewport:viewport
-  }).promise;
-
-  pages.push(canvas);
-
-  totalHeight += canvas.height;
-
-  if(canvas.width > maxWidth){
-    maxWidth = canvas.width;
-  }
+  await exportPDF();
 
 }
 
-// GABUNG SEMUA PAGE
-const finalCanvas =
-  document.createElement('canvas');
+function saveExportItems(){
 
-const finalContext =
-  finalCanvas.getContext('2d');
-
-finalCanvas.width = maxWidth;
-
-finalCanvas.height = totalHeight;
-
-let currentY = 0;
-
-pages.forEach(canvas => {
-
-  finalContext.drawImage(
-    canvas,
-    0,
-    currentY
+  localStorage.setItem(
+    "exportItems",
+    JSON.stringify(exportItems)
   );
 
-  currentY += canvas.height;
-
-});
-
-// EXPORT JPG
-const image =
-  finalCanvas.toDataURL(
-    'image/jpeg',
-    1.0
-  );
-
-const link =
-  document.createElement('a');
-
-link.href = image;
-
-link.download =
-  'setlist.jpg';
-
-link.click();
-localStorage.removeItem(
-  "exportDraft"
-);
 }
 
 loadExportDraft();
