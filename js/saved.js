@@ -64,6 +64,20 @@ function renderSaved(){
 
           <button
             class="saved-btn"
+            onclick="renameSetlist(${setlist.id})"
+          >
+            ✎
+          </button>
+
+          <button
+            class="saved-btn"
+            onclick="duplicateSetlist(${setlist.id})"
+          >
+            ⧉
+          </button>
+
+          <button
+            class="saved-btn"
             onclick="deleteSetlist(${setlist.id})"
           >
             ✕
@@ -133,11 +147,78 @@ function deleteSetlist(id){
     JSON.stringify(
       savedSetlists
     )
+  );
+  renderSaved();
+}
 
+function renameSetlist(id){
+
+  const selected =
+
+    savedSetlists.find(
+      s => s.id === id
+    );
+
+  if(!selected) return;
+
+  const newName = prompt(
+    "Rename Setlist",
+    selected.name
   );
 
-  renderSaved();
+  if(!newName) return;
 
+  selected.name = newName;
+
+  localStorage.setItem(
+
+    "savedSetlists",
+
+    JSON.stringify(
+      savedSetlists
+    )
+  );
+  renderSaved();
+}
+
+function duplicateSetlist(id){
+
+  const selected =
+
+    savedSetlists.find(
+      s => s.id === id
+    );
+
+  if(!selected) return;
+
+  const duplicated = {
+
+    ...selected,
+
+    id: Date.now(),
+
+    name:
+      selected.name +
+      " COPY",
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+  savedSetlists.push(
+    duplicated
+  );
+
+  localStorage.setItem(
+
+    "savedSetlists",
+
+    JSON.stringify(
+      savedSetlists
+    )
+  );
+  renderSaved();
 }
 
 renderSaved();
