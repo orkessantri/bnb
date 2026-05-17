@@ -763,9 +763,7 @@ async function exportPDF(){
 
   window.open(url);
 
-  doc.save("setlist.pdf");
-
-  localStorage.removeItem(
+    localStorage.removeItem(
     "exportDraft"
   );
 }
