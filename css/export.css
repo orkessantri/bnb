@@ -153,11 +153,15 @@
 }
 
 .drag-handle{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  color:#666;
   cursor:grab;
   user-select:none;
-  text-align:center;
-  font-size:18px;
-  color:#666;
 }
 
 .drag-handle:active{
@@ -177,15 +181,22 @@
   grid-template-columns:
     40px
     1fr
-    140px
+    120px
     70px
-    60px;
+    40px;
   align-items:center;
   gap:12px;
-  padding:10px 14px;
-  border-radius:18px;
-  background:#f7f2e8;
+  padding:0 16px;
+  min-height:58px;
   margin-bottom:10px;
+}
+
+.insert-bullet{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  height:100%;
 }
 
 .insert-text-wrap{
@@ -194,11 +205,12 @@
 
 .insert-input{
   width:100%;
-  height:40px;
+  height:42px;
   border:none;
   border-radius:12px;
   padding:0 14px;
   font-size:16px;
+  background:#f5f5f5;
   box-sizing:border-box;
 }
 
@@ -211,17 +223,16 @@
 }
 
 .remove-insert{
-  width:24px;
-  height:24px;
+  width:34px;
+  height:34px;
   border:none;
-  border-radius:10px;
-  color:#c40000;
-  font-size:18px;
+  background:transparent;
+  color:#d10000;
+  font-size:22px;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-  transition:0.2s;
 }
 
 .remove-insert:hover{
