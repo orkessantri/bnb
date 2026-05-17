@@ -1,4 +1,5 @@
 #saved-container{
+  flex:1;
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -60,7 +61,7 @@
   opacity:.7;
   min-height:300px;
 }
-
+  
 .import-area{
   margin-bottom:16px;
 }
