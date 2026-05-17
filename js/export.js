@@ -95,48 +95,50 @@ let songNumber = 1;
 
 if(item.type === "insert"){
 
-  html += `
+html += `
 
-  <div class="insert-row">
+<div class="insert-row">
 
-    <div class="insert-bullet">
-      •
-    </div>
-
-    <input
-      type="text"
-      class="insert-input"
-
-      value="${
-        item.text || ''
-      }"
-
-      onchange="
-        updateInsert(
-          ${index},
-          this.value
-        )
-      "
-
-      placeholder="Insert Text"
-    >
-
-    <div></div>
-
-    <button
-      class="remove-insert"
-      onclick="removeInsert(${index})"
-    >
-      ✕
-    </button>
-
-    <div class="drag-handle">
-      ☰
-    </div>
-
+  <div class="insert-bullet">
+    •
   </div>
 
-  `;
+  <input
+    type="text"
+    class="insert-input"
+
+    value="${
+      item.text || ''
+    }"
+
+    onchange="
+      updateInsert(
+        ${index},
+        this.value
+      )
+    "
+
+    placeholder="Insert Text"
+  >
+
+  <div></div>
+
+  <div></div>
+
+  <button
+    class="remove-insert"
+    onclick="removeInsert(${index})"
+  >
+    ✕
+  </button>
+
+  <div class="drag-handle">
+    ☰
+  </div>
+
+</div>
+
+`;
 
   return;
 }
