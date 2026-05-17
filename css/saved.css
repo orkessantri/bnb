@@ -50,7 +50,6 @@
 ========================= */
 
 .empty-setlist{
-  flex:1;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -58,7 +57,7 @@
   font-size:20px;
   font-weight:700;
   opacity:.7;
-  min-height:300px;
+  min-height:220px;
 }
 
 /* =========================
@@ -69,9 +68,9 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:12px;
-  margin-top:auto;
-  margin-bottom:6px;
+  gap:14px;
+  margin-top:40px;
+  margin-bottom:10px;
 }
 
 .import-btn{
