@@ -128,9 +128,20 @@ let songNumber = 1;
         <div></div>
         <div></div>
 
-        <div class="drag-handle">
-          ☰
-        </div>
+<div class="insert-actions">
+
+  <button
+    class="remove-insert"
+    onclick="removeInsert(${index})"
+  >
+    ✕
+  </button>
+
+  <div class="drag-handle">
+    ☰
+  </div>
+
+</div>
 
       </div>
 
@@ -457,6 +468,16 @@ function updateInsert(
   exportItems[index].text =
     value;
 saveExportItems();
+}
+
+function removeInsert(index){
+
+  exportItems.splice(index,1);
+
+  saveExportItems();
+
+  renderTable();
+
 }
 
 async function exportPDF(){
