@@ -161,7 +161,7 @@ document
           "logoPreview"
         )
         .src = this.value;
-
+saveExportDraft();
     }
   );
 
@@ -221,6 +221,115 @@ function saveSetlist(){
   );
 
 }
+
+// =====================
+// AUTO SAVE FORM DRAFT
+// =====================
+function saveExportDraft(){
+
+  const draft = {
+
+    band:
+      document.getElementById(
+        "band-name"
+      ).value,
+
+    event:
+      document.getElementById(
+        "event-name"
+      ).value,
+
+    date:
+      document.getElementById(
+        "event-date"
+      ).value,
+
+    location:
+      document.getElementById(
+        "event-location"
+      ).value,
+
+    logo:
+      document.getElementById(
+        "logoPreview"
+      ).src
+
+  };
+
+  localStorage.setItem(
+
+    "exportDraft",
+
+    JSON.stringify(draft)
+  );
+}
+
+// =====================
+// LOAD DRAFT
+// =====================
+function loadExportDraft(){
+
+  const draft =
+
+    JSON.parse(
+
+      localStorage.getItem(
+        "exportDraft"
+      )
+
+    );
+
+  if(!draft) return;
+
+  document.getElementById(
+    "band-name"
+  ).value =
+    draft.band || '';
+
+  document.getElementById(
+    "event-name"
+  ).value =
+    draft.event || '';
+
+  document.getElementById(
+    "event-date"
+  ).value =
+    draft.date || '';
+
+  document.getElementById(
+    "event-location"
+  ).value =
+    draft.location || '';
+
+  if(draft.logo){
+
+    document.getElementById(
+      "logoPreview"
+    ).src =
+      draft.logo;
+  }
+}
+
+[
+  "band-name",
+  "event-name",
+  "event-date",
+  "event-location"
+]
+
+.forEach(id => {
+
+  document
+    .getElementById(id)
+
+    .addEventListener(
+
+      "input",
+
+      saveExportDraft
+    );
+});
+
 
 // =====================
 // EXPORT PDF
@@ -471,7 +580,9 @@ const url =
 window.open(url);
   
   doc.save("setlist.pdf");
-
+  localStorage.removeItem(
+  "exportDraft"
+);
 }
 
 // =====================
@@ -784,5 +895,9 @@ link.download =
   'setlist.jpg';
 
 link.click();
-
+localStorage.removeItem(
+  "exportDraft"
+);
 }
+
+loadExportDraft();
