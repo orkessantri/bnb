@@ -177,5 +177,67 @@ function goExport(){
 }
 
 function saveSetlistFile(){
-  alert("Coming Soon 🔥");
+
+  // VALIDASI
+  if(setlist.length === 0){
+
+    alert(
+      "Setlist kosong!"
+    );
+
+    return;
+  }
+
+  // INPUT NAMA
+  const name = prompt(
+    "Nama Setlist?"
+  );
+
+  if(!name) return;
+
+  // AMBIL STORAGE
+  let savedSetlists =
+
+    JSON.parse(
+
+      localStorage.getItem(
+        "savedSetlists"
+      )
+
+    ) || [];
+
+  // OBJECT BARU
+  const newSetlist = {
+
+    id: Date.now(),
+
+    name: name,
+
+    createdAt:
+      new Date().toISOString(),
+
+    songs: setlist
+
+  };
+
+  // PUSH
+  savedSetlists.push(
+    newSetlist
+  );
+
+  // SAVE
+  localStorage.setItem(
+
+    "savedSetlists",
+
+    JSON.stringify(
+      savedSetlists
+    )
+
+  );
+
+  alert(
+    "Setlist Saved 🔥"
+  );
+
 }
