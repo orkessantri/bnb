@@ -791,4 +791,31 @@
   "key": "C",
   "content": "[Intro]\nG F G F (2x) G\n[Verse]\nG B C GFG (2x)\n[Chorus]\nG B C D G (2x)\n[Interlude]\nG F G F (2x) G F\nBack to Intro\n[Outro]\nG F G F"
 },
+
+  {
+  "id": 89,
+  "title": "RAMPAK OSING",
+  "artist": "Kiai Kanjeng",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nE G A B - A B E\nE A B\n[Verse]\nE... G D G E - E D B\n[HIT] B B B E\nBack to Verse\n[Chorus]\nE G E (2x)\nA E A E - A C B\nBack to Verse"
+},
+
+  {
+  "id": 90,
+  "title": "ALAIKASALAM SYALOM",
+  "artist": "Kiai Kanjeng",
+  "category": "KASIDAH",
+  "key": "C",
+  "content": "[Intro 1]\nE... D C A B E\n[Verse 1]\nE A B E - C B C B E\nVerse 1 - Verse Gamelan\n[Intro Verse 2]\nE A E A - E A B E A B\nVerse 2 \n[Interlude Verse 2]\nE D C B - E D C B\nBack to Verse 2 - Interlude 2\n[Intro Verse 3]\nE...\n[Verse 3]\nE... G# F# E"
+},
+
+  {
+  "id": 91,
+  "title": "ANNABI SHOLLU'ALAIH",
+  "artist": "Kiai Kanjeng",
+  "category": "KASIDAH",
+  "key": "G",
+  "content": "[Intro]\nE... E D E D E B\n[Chorus]\nE A D C B E\n[Verse]\nE A E A\nE D C B\nBack to Verse - Chorus"
+}
 ]
