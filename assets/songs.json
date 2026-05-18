@@ -772,5 +772,23 @@
   "category": "POPINDO",
   "key": "NN",
   "content": "Intro & verse piano\nDrums beat\n[Verse]\nG F# E D - C B A D\n[Chorus]\nE B C D (3x) - EDC D\n[Interlude]\nC G A... B - G# D# D\nChorus - End"
-}
+},
+
+  {
+  "id": 87,
+  "title": "ILIR - ILIR",
+  "artist": "Kiai Kanjeng",
+  "category": "KASIDAH",
+  "key": "Bb",
+  "content": "[Intro]\nG D# G D# D G - D G\n[Verse]\nG D F D# C G - D#D G\n[Chorus]\nBb F D#D G"
+},
+
+  {
+  "id": 88,
+  "title": "MARHABAN",
+  "artist": "Kiai Kanjeng",
+  "category": "KASIDAH",
+  "key": "C",
+  "content": "[Intro]\nG F G F (2x) G\n[Verse]\nG B C GFG (2x)\n[Chorus]\nG B C D G (2x)\n[Interlude]\nG F G F (2x) G F\nBack to Intro\n[Outro]\nG F G F"
+},
 ]
