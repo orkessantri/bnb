@@ -215,6 +215,7 @@
 
 .insert-row .drag-handle{
   align-self:center;
+  margin-top:-1px;
   display:flex;
   align-items:center;
   justify-content:center;
