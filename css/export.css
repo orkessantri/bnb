@@ -213,6 +213,14 @@
   width:100%;
 }
 
+.insert-row .drag-handle{
+  align-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+}
+
 .insert-actions{
   display:flex;
   align-items:center;
