@@ -185,6 +185,7 @@
     34px;
   gap:6px;
   align-items:center;
+  min-height:56px;
   padding:10px 12px;
   border-radius:12px;
   background:#f7f2e8;
@@ -201,6 +202,7 @@
 
 .insert-input{
   width:100%;
+  display:block;
   border:none;
   border-radius:10px;
   padding:10px 14px;
@@ -214,12 +216,9 @@
 }
 
 .insert-row .drag-handle{
-  align-self:center;
-  margin-top:-1px;
   display:flex;
   align-items:center;
   justify-content:center;
-  height:100%;
 }
 
 .insert-actions{
@@ -259,11 +258,6 @@
   opacity:.7;
 }
 
-.insert-row .drag-handle{
-  width:34px;
-  height:34px;
-}
-
 @media(max-width:768px){
 
   .export-row{
@@ -277,15 +271,15 @@
     padding:6px;
   }
 
-.insert-row{
-  display:grid;
-  grid-template-columns:
-    34px
-    1fr
-    70px
-    34px;
-  gap:6px;
-}
+  .insert-row{
+    grid-template-columns:
+      28px
+      1fr
+      56px
+      28px;
+    gap:4px;
+    padding:6px;
+  }
 
   .song-name{
     font-size:12px;
