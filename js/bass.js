@@ -216,7 +216,7 @@ const numberRow =
   document.createElement('div')
 
 numberRow.className =
-  'string-row'
+  'fret-number-row'
 
 const empty =
   document.createElement('div')
