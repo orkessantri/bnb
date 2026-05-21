@@ -238,6 +238,13 @@ for(let fret = 0; fret <= 12; fret++){
   fretNumber.textContent =
     fret
 
+if(fret === 0 || fret === 12){
+
+  fretNumber.classList.add(
+    'special'
+  )
+}
+
   numberRow.appendChild(
     fretNumber
   )
