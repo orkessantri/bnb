@@ -205,16 +205,6 @@ const numberRow =
 numberRow.className =
   'fret-number-row'
 
-const spacer =
-  document.createElement('div')
-
-spacer.className =
-  'fret-number-spacer'
-
-numberRow.appendChild(
-  spacer
-)
-
 for(let fret = 0; fret <= 12; fret++){
 
   const fretNumber =
