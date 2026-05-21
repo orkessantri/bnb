@@ -207,32 +207,6 @@ document.getElementById(
     }
 
     fretboard.appendChild(row)
-
-/* INLAY MARKERS */
-
-if(
-  fret === 3 ||
-  fret === 5 ||
-  fret === 7 ||
-  fret === 9 ||
-  fret === 12
-){
-
-  const marker =
-    document.createElement('div')
-
-  marker.className =
-    'fret-marker'
-
-  if(fret === 12){
-
-    marker.classList.add(
-      'double'
-    )
-  }
-
-  fretDiv.appendChild(marker)
-}
   })
 
   /* FRET NUMBERS */
@@ -243,11 +217,15 @@ const numberRow =
 numberRow.className =
   'fret-number-row'
 
-const empty =
+const spacer =
   document.createElement('div')
 
-empty.className =
-  'string-label'
+spacer.className =
+  'fret-number-spacer'
+
+numberRow.appendChild(
+  spacer
+)
 
 numberRow.appendChild(empty)
 
