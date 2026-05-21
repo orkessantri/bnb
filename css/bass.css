@@ -1,3 +1,8 @@
+```css
+/* ========================================
+   BASS WRAPPER
+======================================== */
+
 .bass-wrapper{
   width:100%;
   max-width:1000px;
@@ -5,43 +10,9 @@
   padding:0 16px 100px;
 }
 
-#fretboard{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:20px;
-}
-
-.string-row{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.string-label{
-  width:20px;
-  font-weight:bold;
-  text-align:center;
-}
-
-.fret{
-  width:48px;
-  height:48px;
-  border-radius:10px;
-  background:#1f1f1f;
-  border:1px solid #333;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-  color:white;
-}
-
-.fret.open{
-  background:#ff6600;
-  color:black;
-  font-weight:bold;
-}
+/* ========================================
+   SCALE CONTROLS
+======================================== */
 
 .scale-controls{
   display:flex;
@@ -52,40 +23,19 @@
 
 .scale-controls select{
   flex:1;
-  padding:12px;
+  padding:12px 14px;
   border:none;
-  border-radius:12px;
+  outline:none;
+  border-radius:14px;
   background:#1f1f1f;
   color:white;
   font-size:16px;
+  font-weight:600;
 }
 
-.fret{
-  position:relative;
-  overflow:hidden;
-}
-
-.fret-marker{
-  position:absolute;
-  bottom:4px;
-  left:50%;
-  transform:translateX(-50%);
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:rgba(255,255,255,.35);
-}
-
-.fret-marker.double::before{
-  content:'';
-  position:absolute;
-  top:-10px;
-  left:0;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:rgba(255,255,255,.35);
-}
+/* ========================================
+   SCALE INFO
+======================================== */
 
 #scale-info{
   display:flex;
@@ -100,7 +50,6 @@
 }
 
 #scale-notes,
-#scale-formula,
 #scale-intervals{
   font-size:14px;
   color:#d0d0d0;
@@ -111,47 +60,211 @@
   font-weight:600;
 }
 
-/* =========================
-   ACTIVE SCALE NOTE
-========================= */
-.active-note{
-  background:#296dff;
-  border-color:#4d88ff;
-  color:white;
-  box-shadow:
-    0 0 12px rgba(41,109,255,.35);
+/* ========================================
+   FRETBOARD
+======================================== */
+
+#fretboard{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:20px;
+  padding:18px;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      180deg,
+      #262626,
+      #1a1a1a
+    );
+  border:1px solid #2f2f2f;
+  overflow-x:auto;
 }
 
-/* =========================
-   ROOT NOTE
-========================= */
-.root-note{
-  background:#ff7a00;
-  border-color:#ff9d42;
-  color:black;
+/* ========================================
+   STRING ROW
+======================================== */
+
+.string-row{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:max-content;
+}
+
+/* STRING LINE */
+
+.string-row::before{
+  content:'';
+  position:absolute;
+  left:40px;
+  right:0;
+  height:2px;
+  background:
+    rgba(255,255,255,.15);
+  z-index:0;
+}
+
+/* ========================================
+   STRING LABEL
+======================================== */
+
+.string-label{
+  position:relative;
+  z-index:2;
+  width:24px;
+  font-size:14px;
   font-weight:700;
-  box-shadow:
-    0 0 14px rgba(255,122,0,.45);
-
+  text-align:center;
+  color:#bcbcbc;
 }
+
+/* ========================================
+   FRET
+======================================== */
 
 .fret{
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+  width:44px;
+  height:44px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:#111;
+  border:1px solid #303030;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:600;
+  color:#777;
   transition:
     background .2s,
     border-color .2s,
-    transform .15s;
+    transform .15s,
+    box-shadow .2s;
 }
+
+/* ========================================
+   FRET HOVER
+======================================== */
 
 .fret:hover{
-  transform:scale(1.05);
+  transform:scale(1.08);
 }
 
+/* ========================================
+   ACTIVE NOTE
+======================================== */
+
+.active-note{
+  background:#296dff;
+  border-color:#5c8fff;
+  color:white;
+  box-shadow:
+    0 0 14px rgba(41,109,255,.35);
+}
+
+/* ========================================
+   ROOT NOTE
+======================================== */
+
+.root-note{
+  background:#ff7a00;
+  border-color:#ffb067;
+  color:black;
+  font-weight:700;
+  box-shadow:
+    0 0 16px rgba(255,122,0,.45);
+}
+
+/* ========================================
+   FRET MARKERS
+======================================== */
+
+.fret-marker{
+  position:absolute;
+  bottom:4px;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:
+    rgba(255,255,255,.35);
+}
+
+.fret-marker.double::before{
+  content:'';
+  position:absolute;
+  top:-10px;
+  left:0;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:
+    rgba(255,255,255,.35);
+}
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+#fretboard::-webkit-scrollbar{
+  height:8px;
+}
+
+#fretboard::-webkit-scrollbar-track{
+  background:#1b1b1b;
+  border-radius:20px;
+}
+
+#fretboard::-webkit-scrollbar-thumb{
+  background:#444;
+  border-radius:20px;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
 @media(max-width:768px){
+  .bass-wrapper{
+    padding:0 12px 100px;
+  }
+
+  #fretboard{
+    padding:14px;
+    gap:12px;
+  }
 
   .fret{
     width:38px;
     height:38px;
+    font-size:11px;
+  }
+
+  .string-label{
+    width:22px;
     font-size:12px;
   }
 
+  #scale-info{
+    gap:10px;
+    padding:10px 12px;
+  }
+
+  #scale-notes,
+  #scale-intervals{
+    font-size:12px;
+  }
+
+  .scale-controls select{
+    font-size:14px;
+    padding:10px 12px;
+  }
+
 }
+```
