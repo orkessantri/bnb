@@ -212,50 +212,25 @@ overflow-y:hidden;
    FRET MARKERS
 ======================================== */
 
-.fret-marker{
-  position:absolute;
-  bottom:-12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:
-    rgba(255,255,255,.22);
+.fret-number-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
 }
 
-.fret-marker.double::before{
-  content:'';
-  position:absolute;
-  top:-8px;
-  left:0;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:
-    rgba(255,255,255,.22);
-}
-
-.fret-marker.double::before{
-  content:'';
-  position:absolute;
-  top:-8px;
-  left:0;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:
-    rgba(255,255,255,.25);
+.fret-number-spacer{
+  width:24px;
+  flex-shrink:0;
 }
 
 .fret-number{
-  width:32px;
+  width:26px;
   flex-shrink:0;
   text-align:center;
   font-size:10px;
   color:#555;
 }
-
 
 /* ========================================
    SCROLLBAR
