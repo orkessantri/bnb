@@ -157,19 +157,7 @@ document.getElementById(
     row.className =
       'string-row'
 
-    /* LABEL */
-    const label =
-      document.createElement('div')
-
-    label.className =
-      'string-label'
-
-    label.textContent =
-      stringNote
-
-    row.appendChild(label)
-
-    /* FRETS */
+        /* FRETS */
     for(let fret = 0; fret <= 12; fret++){
 
       const note =
