@@ -17,8 +17,8 @@
   display:flex;
   justify-content:center;
   gap:10px;
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top:14px;
+  margin-bottom:10px;
   flex-wrap:wrap;
 }
 
@@ -44,7 +44,7 @@
   align-items:center;
   gap:18px;
   width:max-content;
-  margin:18px auto 24px;
+  margin:10px auto 14px;
   padding:12px 20px;
   border-radius:14px;
   background:#151515;
