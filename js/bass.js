@@ -220,6 +220,44 @@ document.getElementById(
   })
 }
 
+
+/* FRET NUMBERS */
+
+const numberRow =
+  document.createElement('div')
+
+numberRow.className =
+  'string-row'
+
+const empty =
+  document.createElement('div')
+
+empty.className =
+  'string-label'
+
+numberRow.appendChild(empty)
+
+for(let fret = 0; fret <= 12; fret++){
+
+  const fretNumber =
+    document.createElement('div')
+
+  fretNumber.className =
+    'fret-number'
+
+  fretNumber.textContent =
+    fret
+
+  numberRow.appendChild(
+    fretNumber
+  )
+}
+
+fretboard.appendChild(
+  numberRow
+)
+
+
 /* =========================
    EVENTS
 ========================= */
