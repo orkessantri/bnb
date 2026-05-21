@@ -147,15 +147,6 @@ document.getElementById(
   </span>
   ${scale.formula.join(' - ')}`
 
-  document.getElementById(
-  'scale-intervals'
-).innerHTML =
-  `<span class="scale-label">
-    Intervals:
-  </span>
-  ${scale.intervals.join(' - ')}`
-
-
   fretboard.innerHTML = ''
 
   tuning.forEach(stringNote => {
@@ -218,10 +209,8 @@ document.getElementById(
     fretboard.appendChild(row)
 
   })
-}
 
-
-/* FRET NUMBERS */
+  /* FRET NUMBERS */
 
 const numberRow =
   document.createElement('div')
@@ -256,7 +245,7 @@ for(let fret = 0; fret <= 12; fret++){
 fretboard.appendChild(
   numberRow
 )
-
+}
 
 /* =========================
    EVENTS
