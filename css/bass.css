@@ -66,6 +66,8 @@
 #fretboard{
   display:flex;
   flex-direction:column;
+   width:max-content;
+   max-width:100%;
   gap:14px;
   margin-top:20px;
   padding:18px;
@@ -98,7 +100,7 @@ overflow-y:hidden;
 .string-row::before{
   content:'';
   position:absolute;
-  left:40px;
+  left:0px;
   right:0;
   height:2px;
   background:
