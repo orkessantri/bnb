@@ -86,10 +86,11 @@ overflow-y:hidden;
 ======================================== */
 
 .string-row{
-  position:relative;
   display:flex;
   align-items:center;
   gap:8px;
+  width:max-content;
+  position:relative;
 }
 
 /* STRING LINE */
@@ -163,6 +164,13 @@ overflow-y:hidden;
   margin-left:34px;
 }
 
+.fret-number.special{
+  background:#1f1f1f;
+  border:1px solid #333;
+  border-radius:6px;
+  color:#fff;
+  padding:2px 0;
+}
 
 .fret::after{
   content:'';
