@@ -227,8 +227,6 @@ numberRow.appendChild(
   spacer
 )
 
-numberRow.appendChild(empty)
-
 for(let fret = 0; fret <= 12; fret++){
 
   const fretNumber =
