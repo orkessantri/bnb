@@ -70,6 +70,8 @@
    max-width:100%;
   gap:14px;
   margin-top:20px;
+   margin-left:auto;
+   margin-right:auto;
   padding:18px;
   border-radius:16px;
   background:
@@ -162,12 +164,8 @@ overflow-y:hidden;
   margin-top:8px;
 }
 
-.fret-number-row .fret-number:first-child{
-  margin-left:34px;
-}
-
 .fret-number.special{
-  background:#1f1f1f;
+  background:#ff8000;
   border:1px solid #333;
   border-radius:6px;
   color:#fff;
@@ -227,11 +225,6 @@ overflow-y:hidden;
   align-items:center;
   gap:8px;
   margin-top:10px;
-}
-
-.fret-number-spacer{
-  width:24px;
-  flex-shrink:0;
 }
 
 .fret-number{
