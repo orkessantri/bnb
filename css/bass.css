@@ -126,31 +126,43 @@ overflow-y:hidden;
 .fret{
   position:relative;
   z-index:2;
-  overflow:hidden;
-  width:44px;
-  height:44px;
+  width:32px;
+  height:32px;
   flex-shrink:0;
   border-radius:50%;
   background:#111;
-  border:1px solid #303030;
+  border:1px solid #2f2f2f;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:13px;
+  font-size:11px;
   font-weight:600;
-  color:#777;
+  color:#666;
   transition:
-    background .2s,
-    border-color .2s,
-    transform .15s,
-    box-shadow .2s;
+    all .22s ease;
+
 }
+
+.fret::after{
+  content:'';
+  position:absolute;
+  right:-5px;
+  top:-10px;
+  bottom:-10px;
+  width:1px;
+  background:
+    rgba(255,255,255,.08);
+}
+
 
 /* ========================================
    FRET HOVER
 ======================================== */
 
 .fret:hover{
+}
+
+.active-note{
   transform:scale(1.08);
 }
 
@@ -164,6 +176,7 @@ overflow-y:hidden;
   color:white;
   box-shadow:
     0 0 14px rgba(41,109,255,.35);
+   transform:scale(1.08);
 }
 
 /* ========================================
@@ -179,33 +192,47 @@ overflow-y:hidden;
     0 0 16px rgba(255,122,0,.45);
 }
 
+.root-note{
+  animation:
+    rootPulse 1.8s infinite;
+}
+
 /* ========================================
    FRET MARKERS
 ======================================== */
 
 .fret-marker{
   position:absolute;
-  bottom:4px;
+  bottom:-10px;
   left:50%;
   transform:translateX(-50%);
-  width:6px;
-  height:6px;
+  width:4px;
+  height:4px;
   border-radius:50%;
   background:
-    rgba(255,255,255,.35);
+    rgba(255,255,255,.25);
 }
 
 .fret-marker.double::before{
   content:'';
   position:absolute;
-  top:-10px;
+  top:-8px;
   left:0;
-  width:6px;
-  height:6px;
+  width:4px;
+  height:4px;
   border-radius:50%;
   background:
-    rgba(255,255,255,.35);
+    rgba(255,255,255,.25);
 }
+
+.fret-number{
+  width:32px;
+  flex-shrink:0;
+  text-align:center;
+  font-size:10px;
+  color:#555;
+}
+
 
 /* ========================================
    SCROLLBAR
@@ -224,6 +251,22 @@ overflow-y:hidden;
   background:#444;
   border-radius:20px;
 }
+
+@keyframes rootPulse{
+  0%{
+    box-shadow:
+      0 0 0 rgba(255,122,0,.25);
+  }
+  50%{
+    box-shadow:
+      0 0 18px rgba(255,122,0,.55);
+  }
+  100%{
+    box-shadow:
+      0 0 0 rgba(255,122,0,.25);
+  }
+}
+
 
 /* ========================================
    MOBILE
