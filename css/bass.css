@@ -328,3 +328,39 @@ background:
   }
 
 }
+
+#chords-section{
+  margin-top:20px;
+  text-align:center;
+}
+
+.section-title{
+  margin-bottom:12px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.4px;
+  color:#666;
+}
+
+#scale-chords{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.chord-chip{
+  padding:10px 14px;
+  border:none;
+  border-radius:999px;
+  background:#1f1f1f;
+  color:white;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.chord-chip:hover{
+  background:#296dff;
+}
