@@ -370,3 +370,25 @@ background:
   transform:translateY(-1px);
 }
 
+/* =========================
+   CHORD ACTIVE
+========================= */
+
+.chord-active{
+  background:#7c4dff;
+  border-color:#9f7cff;
+  color:white;
+  box-shadow:
+    0 0 10px rgba(124,77,255,.30);
+}
+
+/* CHORD ROOT */
+
+.chord-root{
+  background:#00c896;
+  border-color:#5ff0c7;
+  color:black;
+  font-weight:700;
+  box-shadow:
+    0 0 10px rgba(0,200,150,.30);
+}
