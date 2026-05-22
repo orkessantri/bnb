@@ -27,6 +27,8 @@ const scaleSelect =
 let scalesData = []
 let chordsData = []
 
+let activeChordNotes = []
+let activeChordRoot = null
 
 /* =========================
    LOAD JSON
@@ -140,6 +142,20 @@ function buildMajor7Chords(scaleNotes){
   ]
 }
 
+function buildChord(root, intervals){
+
+  const rootIndex =
+    notes.indexOf(root)
+
+  return intervals.map(interval => {
+
+    return notes[
+      (rootIndex + interval) % 12
+    ]
+
+  })
+}
+
 /* =========================
    RENDER
 ========================= */
@@ -190,6 +206,63 @@ chords.forEach(chord => {
   chip.textContent =
     chord.name
 
+  chip.addEventListener(
+    'click',
+    () => {
+
+      let chordType = null
+
+      if(chord.name.includes('m7b5')){
+
+        chordType =
+          chordsData.find(
+            c => c.id === 'm7b5'
+          )
+
+      }else if(
+        chord.name.includes('maj7')
+      ){
+
+        chordType =
+          chordsData.find(
+            c => c.id === 'maj7'
+          )
+
+      }else if(
+        chord.name.includes('m7')
+      ){
+
+        chordType =
+          chordsData.find(
+            c => c.id === 'm7'
+          )
+
+      }else{
+
+        chordType =
+          chordsData.find(
+            c => c.id === '7'
+          )
+      }
+
+      const chordRoot =
+        chord.name.replace(
+          /maj7|m7b5|m7|7/g,
+          ''
+        )
+
+      activeChordRoot =
+        chordRoot
+
+      activeChordNotes =
+        buildChord(
+          chordRoot,
+          chordType.intervals
+        )
+      renderFretboard()
+    }
+  )
+
   chordsContainer.appendChild(
     chip
   )
@@ -238,21 +311,42 @@ document.getElementById(
       fretDiv.className =
         'fret'
 
-      /* ACTIVE NOTE */
-      if(scaleNotes.includes(note)){
+/* SCALE NOTES */
 
-        fretDiv.classList.add(
-          'active-note'
-        )
-      }
+if(scaleNotes.includes(note)){
 
-      /* ROOT NOTE */
-      if(note === root){
+  fretDiv.classList.add(
+    'active-note'
+  )
+}
 
-        fretDiv.classList.add(
-          'root-note'
-        )
-      }
+/* ACTIVE CHORD NOTES */
+
+if(
+  activeChordNotes.includes(note)
+){
+
+  fretDiv.classList.add(
+    'chord-active'
+  )
+}
+/* SCALE ROOT */
+
+if(note === root){
+
+  fretDiv.classList.add(
+    'root-note'
+  )
+}
+
+/* CHORD ROOT */
+
+if(note === activeChordRoot){
+
+  fretDiv.classList.add(
+    'chord-root'
+  )
+}
 
       fretDiv.textContent =
         note
