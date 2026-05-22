@@ -25,6 +25,8 @@ const scaleSelect =
   document.getElementById('scale-select')
 
 let scalesData = []
+let chordsData = []
+
 
 /* =========================
    LOAD JSON
@@ -32,13 +34,25 @@ let scalesData = []
 
 async function loadScales(){
 
-  const response =
+  /* LOAD SCALES */
+
+  const scaleResponse =
     await fetch(
       'data/scales.json'
     )
 
   scalesData =
-    await response.json()
+    await scaleResponse.json()
+
+  /* LOAD CHORDS */
+
+  const chordResponse =
+    await fetch(
+      'data/chords.json'
+    )
+
+  chordsData =
+    await chordResponse.json()
 
   populateScaleSelector()
 
@@ -87,22 +101,43 @@ function getNextNote(note, step){
 ========================= */
 
 function buildScale(root, scaleType){
-
   const rootIndex =
     notes.indexOf(root)
-
   const scale =
     scalesData.find(
       s => s.id === scaleType
     )
-
   return scale.intervals.map(interval => {
-
     return notes[
       (rootIndex + interval) % 12
     ]
-
   })
+}
+
+function buildMajor7Chords(scaleNotes){
+  return [
+    {
+      name:`${scaleNotes[0]}maj7`
+    },
+    {
+      name:`${scaleNotes[1]}m7`
+    },
+    {
+      name:`${scaleNotes[2]}m7`
+    },
+    {
+      name:`${scaleNotes[3]}maj7`
+    },
+    {
+      name:`${scaleNotes[4]}7`
+    },
+    {
+      name:`${scaleNotes[5]}m7`
+    },
+    {
+      name:`${scaleNotes[6]}m7b5`
+    }
+  ]
 }
 
 /* =========================
@@ -129,6 +164,37 @@ function renderFretboard(){
       root,
       scaleType
     )
+
+/* BUILD CHORDS */
+const chords =
+  buildMajor7Chords(
+    scaleNotes
+  )
+
+/* RENDER CHORDS */
+const chordsContainer =
+  document.getElementById(
+    'scale-chords'
+  )
+
+chordsContainer.innerHTML = ''
+
+chords.forEach(chord => {
+
+  const chip =
+    document.createElement('button')
+
+  chip.className =
+    'chord-chip'
+
+  chip.textContent =
+    chord.name
+
+  chordsContainer.appendChild(
+    chip
+  )
+
+})
 
   /* SCALE INFO */
  document.getElementById(
