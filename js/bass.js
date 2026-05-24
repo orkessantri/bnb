@@ -311,55 +311,56 @@ document.getElementById(
       fretDiv.className =
         'fret'
 
-/* SCALE NOTES */
+/* =========================
+   NOTE COLORS PRIORITY
+========================= */
+
+/* SCALE ROOT */
 
 if(
-  activeChordNotes.includes(note) &&
-  note !== activeChordRoot
+  note === root
 ){
 
   fretDiv.classList.add(
-    'chord-active'
+    'root-note'
   )
 
-}else if(
-  scaleNotes.includes(note)
-){
-
-  fretDiv.classList.add(
-    'active-note'
-  )
 }
 
-/* ACTIVE CHORD NOTES */
+/* CHORD ROOT */
 
-if(
+else if(
+  note === activeChordRoot
+){
+
+  fretDiv.classList.add(
+    'chord-selected-root'
+  )
+
+}
+
+/* CHORD NOTES */
+
+else if(
   activeChordNotes.includes(note)
 ){
 
   fretDiv.classList.add(
     'chord-active'
   )
-}
-/* SCALE ROOT */
 
-if(note === root){
-
-  fretDiv.classList.add(
-    'root-note'
-  )
 }
 
-/* CHORD ROOT */
+/* SCALE NOTES */
 
-if(
-  note === activeChordRoot &&
-  note !== root
+else if(
+  scaleNotes.includes(note)
 ){
 
   fretDiv.classList.add(
-    'chord-selected-root'
+    'active-note'
   )
+
 }
 
       fretDiv.textContent =
