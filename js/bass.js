@@ -314,7 +314,8 @@ document.getElementById(
 /* SCALE NOTES */
 
 if(
-  activeChordNotes.includes(note)
+  activeChordNotes.includes(note) &&
+  note !== activeChordRoot
 ){
 
   fretDiv.classList.add(
@@ -349,19 +350,15 @@ if(note === root){
   )
 }
 
-      if(note === activeChordRoot){
-
-  fretDiv.classList.add(
-    'chord-root'
-  )
-}
-
 /* CHORD ROOT */
 
-if(note === activeChordRoot){
+if(
+  note === activeChordRoot &&
+  note !== root
+){
 
   fretDiv.classList.add(
-    'chord-root'
+    'chord-selected-root'
   )
 }
 
