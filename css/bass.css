@@ -371,28 +371,26 @@ background:
 }
 
 /* =========================
-   CHORD ACTIVE
+   SELECTED CHORD NOTES
 ========================= */
 
 .chord-active{
-  background:#f9ff4d !important;
-  border-color:#b89cff !important;
+  background:#7a7a7a !important;
+  border-color:#a5a5a5 !important;
   color:white !important;
   box-shadow:
-    0 0 12px rgba(124,77,255,.45);
-  transform:scale(1.08);
-  z-index:5;
+    0 0 10px rgba(255,255,255,.12);
 }
 
-/* CHORD ROOT */
+/* =========================
+   SELECTED CHORD ROOT
+========================= */
 
-.chord-root{
-  background:#00c896 !important;
-  border-color:#7dffe0 !important;
-  color:black !important;
+.chord-selected-root{
+  background:#ff3b30 !important;
+  border-color:#ff7b73 !important;
+  color:white !important;
   font-weight:700;
   box-shadow:
-    0 0 14px rgba(0,200,150,.45);
-  transform:scale(1.12);
-  z-index:6;
+    0 0 12px rgba(255,59,48,.35);
 }
