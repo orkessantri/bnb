@@ -8,6 +8,16 @@
 
     "intervals":[0,2,4,5,7,9,11],
 
+    "modes":[
+      "ionian",
+      "dorian",
+      "phrygian",
+      "lydian",
+      "mixolydian",
+      "aeolian",
+      "locrian"
+    ],
+
     "triads":[
       "maj",
       "min",
@@ -26,6 +36,32 @@
       "7",
       "m7",
       "m7b5"
+    ],
+
+    "extended":[
+      "maj9",
+      "m9",
+      "m11",
+      "maj9",
+      "13",
+      "m9",
+      "m7b5"
+    ],
+
+    "character":[
+      "bright",
+      "stable",
+      "resolved"
+    ],
+
+    "avoidNotes":[
+      3
+    ],
+
+    "recommendedOver":[
+      "maj7",
+      "6",
+      "maj9"
     ]
   },
 
@@ -56,6 +92,30 @@
       "m7",
       "maj7",
       "7"
+    ],
+
+    "extended":[
+      "m9",
+      "m7b5",
+      "maj9",
+      "m11",
+      "m9",
+      "maj9",
+      "13"
+    ],
+
+    "character":[
+      "dark",
+      "melancholic",
+      "moody"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "m7",
+      "m9",
+      "m11"
     ]
   },
 
@@ -86,6 +146,30 @@
       "7",
       "m7b5",
       "m7b5"
+    ],
+
+    "extended":[
+      "mMaj7",
+      "m9",
+      "maj7#5",
+      "13",
+      "13",
+      "m7b5",
+      "alt"
+    ],
+
+    "character":[
+      "jazzy",
+      "modern",
+      "floating"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "mMaj7",
+      "alt",
+      "maj7#5"
     ]
   },
 
@@ -116,6 +200,30 @@
       "7",
       "maj7",
       "dim7"
+    ],
+
+    "extended":[
+      "mMaj7",
+      "m7b5",
+      "maj7#5",
+      "m11",
+      "7b9",
+      "maj9",
+      "dim7"
+    ],
+
+    "character":[
+      "dramatic",
+      "exotic",
+      "classical"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "7b9",
+      "dim7",
+      "mMaj7"
     ]
   },
 
@@ -130,7 +238,23 @@
 
     "triads":[],
 
-    "sevenths":[]
+    "sevenths":[],
+
+    "extended":[],
+
+    "character":[
+      "open",
+      "simple",
+      "happy"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "maj",
+      "6",
+      "add9"
+    ]
   },
 
   {
@@ -144,7 +268,22 @@
 
     "triads":[],
 
-    "sevenths":[]
+    "sevenths":[],
+
+    "extended":[],
+
+    "character":[
+      "bluesy",
+      "raw",
+      "rock"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "m7",
+      "m9"
+    ]
   },
 
   {
@@ -155,6 +294,8 @@
     "formula":["1","2","3","4","5","6","7"],
 
     "intervals":[0,2,4,5,7,9,11],
+
+    "parent":"major",
 
     "triads":[
       "maj",
@@ -174,6 +315,30 @@
       "7",
       "m7",
       "m7b5"
+    ],
+
+    "extended":[
+      "maj9",
+      "m9",
+      "m11",
+      "maj9",
+      "13",
+      "m9",
+      "m7b5"
+    ],
+
+    "character":[
+      "bright",
+      "resolved"
+    ],
+
+    "avoidNotes":[
+      3
+    ],
+
+    "recommendedOver":[
+      "maj7",
+      "maj9"
     ]
   },
 
@@ -186,6 +351,8 @@
 
     "intervals":[0,2,3,5,7,9,10],
 
+    "parent":"major",
+
     "triads":[
       "min",
       "min",
@@ -204,6 +371,30 @@
       "m7",
       "m7b5",
       "maj7"
+    ],
+
+    "extended":[
+      "m9",
+      "m11",
+      "maj9",
+      "13",
+      "m9",
+      "m7b5",
+      "maj9"
+    ],
+
+    "character":[
+      "funky",
+      "jazzy",
+      "minor"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "m7",
+      "m9",
+      "m11"
     ]
   },
 
@@ -216,6 +407,8 @@
 
     "intervals":[0,1,3,5,7,8,10],
 
+    "parent":"major",
+
     "triads":[
       "min",
       "maj",
@@ -234,6 +427,30 @@
       "m7b5",
       "maj7",
       "m7"
+    ],
+
+    "extended":[
+      "m11",
+      "maj9",
+      "13b9",
+      "m9",
+      "m7b5",
+      "maj9",
+      "m9"
+    ],
+
+    "character":[
+      "spanish",
+      "dark",
+      "tense"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "m7",
+      "7b9",
+      "13b9"
     ]
   },
 
@@ -246,6 +463,8 @@
 
     "intervals":[0,2,4,6,7,9,11],
 
+    "parent":"major",
+
     "triads":[
       "maj",
       "maj",
@@ -264,6 +483,30 @@
       "maj7",
       "m7",
       "m7"
+    ],
+
+    "extended":[
+      "maj9",
+      "7#11",
+      "m9",
+      "m7b5",
+      "maj9",
+      "m9",
+      "m11"
+    ],
+
+    "character":[
+      "dreamy",
+      "floating",
+      "cinematic"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "maj7",
+      "maj9",
+      "7#11"
     ]
   },
 
@@ -275,6 +518,8 @@
     "formula":["1","2","3","4","5","6","b7"],
 
     "intervals":[0,2,4,5,7,9,10],
+
+    "parent":"major",
 
     "triads":[
       "maj",
@@ -294,6 +539,32 @@
       "m7",
       "m7",
       "maj7"
+    ],
+
+    "extended":[
+      "13",
+      "m9",
+      "m7b5",
+      "maj9",
+      "m11",
+      "m9",
+      "maj9"
+    ],
+
+    "character":[
+      "bluesy",
+      "dominant",
+      "funk"
+    ],
+
+    "avoidNotes":[
+      3
+    ],
+
+    "recommendedOver":[
+      "7",
+      "9",
+      "13"
     ]
   },
 
@@ -305,6 +576,8 @@
     "formula":["1","2","b3","4","5","b6","b7"],
 
     "intervals":[0,2,3,5,7,8,10],
+
+    "parent":"major",
 
     "triads":[
       "min",
@@ -324,6 +597,30 @@
       "m7",
       "maj7",
       "7"
+    ],
+
+    "extended":[
+      "m9",
+      "m7b5",
+      "maj9",
+      "m11",
+      "m9",
+      "maj9",
+      "13"
+    ],
+
+    "character":[
+      "sad",
+      "dark",
+      "natural minor"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "m7",
+      "m9",
+      "m11"
     ]
   },
 
@@ -335,6 +632,8 @@
     "formula":["1","b2","b3","4","b5","b6","b7"],
 
     "intervals":[0,1,3,5,6,8,10],
+
+    "parent":"major",
 
     "triads":[
       "dim",
@@ -354,6 +653,29 @@
       "maj7",
       "7",
       "m7"
+    ],
+
+    "extended":[
+      "m7b5",
+      "maj9",
+      "m11",
+      "m9",
+      "maj9",
+      "13",
+      "m9"
+    ],
+
+    "character":[
+      "unstable",
+      "tense",
+      "dissonant"
+    ],
+
+    "avoidNotes":[],
+
+    "recommendedOver":[
+      "m7b5",
+      "alt"
     ]
   }
 ]
