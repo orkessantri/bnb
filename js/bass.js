@@ -29,6 +29,7 @@ let chordsData = []
 
 let activeChordNotes = []
 let activeChordRoot = null
+let activeChordName = null
 
 /* =========================
    LOAD JSON
@@ -203,6 +204,15 @@ chords.forEach(chord => {
   chip.className =
     'chord-chip'
 
+  if(
+  chord.name === activeChordName
+){
+
+  chip.classList.add(
+    'active-chord-chip'
+  )
+}
+
   chip.textContent =
     chord.name
 
@@ -251,15 +261,38 @@ chords.forEach(chord => {
           ''
         )
 
-      activeChordRoot =
-        chordRoot
+/* TOGGLE OFF */
 
-      activeChordNotes =
-        buildChord(
-          chordRoot,
-          chordType.intervals
-        )
-      renderFretboard()
+if(
+  activeChordName === chord.name
+){
+
+  activeChordName = null
+
+  activeChordRoot = null
+
+  activeChordNotes = []
+
+}
+
+/* TOGGLE ON */
+
+else{
+
+  activeChordName =
+    chord.name
+
+  activeChordRoot =
+    chordRoot
+
+  activeChordNotes =
+    buildChord(
+      chordRoot,
+      chordType.intervals
+    )
+}
+
+renderFretboard()
     }
   )
 
