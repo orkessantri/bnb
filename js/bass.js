@@ -215,17 +215,18 @@ chords.forEach(chord => {
 
   chip.addEventListener(
     'click',
+
     () => {
 
-      let chordType = null
-
   const chordType =
-  chordsData.find(
-    c => c.id === chord.type
-  )
+    chordsData.find(
+      c => c.id === chord.type
+    )
+
+if(!chordType) return
       
-const chordRoot =
-  chord.root
+  const chordRoot =
+    chord.root
 
 /* TOGGLE OFF */
 
