@@ -117,30 +117,26 @@ function buildScale(root, scaleType){
   })
 }
 
-function buildMajor7Chords(scaleNotes){
-  return [
-    {
-      name:`${scaleNotes[0]}maj7`
-    },
-    {
-      name:`${scaleNotes[1]}m7`
-    },
-    {
-      name:`${scaleNotes[2]}m7`
-    },
-    {
-      name:`${scaleNotes[3]}maj7`
-    },
-    {
-      name:`${scaleNotes[4]}7`
-    },
-    {
-      name:`${scaleNotes[5]}m7`
-    },
-    {
-      name:`${scaleNotes[6]}m7b5`
+function buildScaleChords(
+  scaleNotes,
+  harmonyTypes
+){
+
+  return scaleNotes.map(
+    (note,index) => {
+
+      return {
+        root:note,
+
+        type:harmonyTypes[index],
+
+        name:
+          note +
+          harmonyTypes[index]
+      }
+
     }
-  ]
+  )
 }
 
 function buildChord(root, intervals){
@@ -184,8 +180,9 @@ function renderFretboard(){
 
 /* BUILD CHORDS */
 const chords =
-  buildMajor7Chords(
-    scaleNotes
+  buildScaleChords(
+    scaleNotes,
+    scale.sevenths
   )
 
 /* RENDER CHORDS */
@@ -222,44 +219,13 @@ chords.forEach(chord => {
 
       let chordType = null
 
-      if(chord.name.includes('m7b5')){
-
-        chordType =
-          chordsData.find(
-            c => c.id === 'm7b5'
-          )
-
-      }else if(
-        chord.name.includes('maj7')
-      ){
-
-        chordType =
-          chordsData.find(
-            c => c.id === 'maj7'
-          )
-
-      }else if(
-        chord.name.includes('m7')
-      ){
-
-        chordType =
-          chordsData.find(
-            c => c.id === 'm7'
-          )
-
-      }else{
-
-        chordType =
-          chordsData.find(
-            c => c.id === '7'
-          )
-      }
-
-      const chordRoot =
-        chord.name.replace(
-          /maj7|m7b5|m7|7/g,
-          ''
-        )
+  const chordType =
+  chordsData.find(
+    c => c.id === chord.type
+  )
+      
+const chordRoot =
+  chord.root
 
 /* TOGGLE OFF */
 
