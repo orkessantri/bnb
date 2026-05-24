@@ -394,3 +394,16 @@ background:
   box-shadow:
     0 0 12px rgba(255,59,48,.35);
 }
+
+/* =========================
+   ACTIVE CHORD CHIP
+========================= */
+
+.active-chord-chip{
+  background:#ff7a00 !important;
+  border-color:#ffb067 !important;
+  color:black !important;
+  font-weight:700;
+  box-shadow:
+    0 0 14px rgba(255,122,0,.35);
+}
