@@ -313,7 +313,17 @@ document.getElementById(
 
 /* SCALE NOTES */
 
-if(scaleNotes.includes(note)){
+if(
+  activeChordNotes.includes(note)
+){
+
+  fretDiv.classList.add(
+    'chord-active'
+  )
+
+}else if(
+  scaleNotes.includes(note)
+){
 
   fretDiv.classList.add(
     'active-note'
@@ -336,6 +346,13 @@ if(note === root){
 
   fretDiv.classList.add(
     'root-note'
+  )
+}
+
+      if(note === activeChordRoot){
+
+  fretDiv.classList.add(
+    'chord-root'
   )
 }
 
