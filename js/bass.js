@@ -161,6 +161,28 @@ function buildChord(root, intervals){
   })
 }
 
+function activateChord(chord){
+
+  const chordType =
+    chordsData.find(
+      c => c.id === chord.type
+    )
+
+  if(!chordType) return
+
+  activeChordName =
+    chord.name
+
+  activeChordRoot =
+    chord.root
+
+  activeChordNotes =
+    buildChord(
+      chord.root,
+      chordType.intervals
+    )
+}
+
 /* =========================
    VALIDATION
 ========================= */
@@ -300,20 +322,10 @@ chords.forEach(chord => {
   chip.textContent =
     chord.name
 
-  chip.addEventListener(
-    'click',
+chip.addEventListener(
+  'click',
 
-    () => {
-
-  const chordType =
-    chordsData.find(
-      c => c.id === chord.type
-    )
-
-if(!chordType) return
-      
-  const chordRoot =
-    chord.root
+  () => {
 
 /* TOGGLE OFF */
 
@@ -333,22 +345,14 @@ if(
 
 else{
 
-  activeChordName =
-    chord.name
+  activateChord(chord)
 
-  activeChordRoot =
-    chordRoot
-
-  activeChordNotes =
-    buildChord(
-      chordRoot,
-      chordType.intervals
-    )
 }
 
 renderFretboard()
-    }
-  )
+
+  }
+)
 
   chordsContainer.appendChild(
     chip
@@ -416,7 +420,13 @@ document.getElementById(
 /* SCALE ROOT */
 
 if(
+
+  harmonyMode !== 'arpeggio'
+
+  &&
+
   note === root
+
 ){
 
   fretDiv.classList.add(
@@ -568,6 +578,43 @@ document
         activeChordNotes = []
         activeChordRoot = null
 
+        if(
+  harmonyMode === 'arpeggio'
+){
+
+  const root =
+    rootSelect.value
+
+  const scaleType =
+    scaleSelect.value
+
+  const scale =
+    scalesData.find(
+      s => s.id === scaleType
+    )
+
+  const scaleNotes =
+    buildScale(
+      root,
+      scaleType
+    )
+
+  const chords =
+    buildScaleChords(
+      scaleNotes,
+      scale.extended
+    )
+
+  if(chords.length){
+
+    activateChord(
+      chords[0]
+    )
+
+  }
+
+}
+        
         renderFretboard()
       }
     )
