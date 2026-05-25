@@ -407,3 +407,30 @@ background:
   box-shadow:
     0 0 14px rgba(255,122,0,.35);
 }
+
+/* =========================
+   HARMONY BUTTON
+========================= */
+.harmony-switch{
+  display:flex;
+  gap:8px;
+  margin-bottom:14px;
+  justify-content:center;
+}
+
+.harmony-btn{
+  border:none;
+  background:#1b1b1b;
+  color:#777;
+  padding:8px 14px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.harmony-btn.active{
+  background:#ff7a00;
+  color:#000;
+}
