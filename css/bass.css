@@ -398,10 +398,8 @@ background:
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  align-items:center;
   gap:8px;
   margin-bottom:8px;
-  max-width:700px;
 }
 
 .chord-chip{
