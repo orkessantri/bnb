@@ -382,8 +382,11 @@ background:
 }
 
 #chords-section{
-  margin-top:18px;
+  margin-top:14px;
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .section-title{
@@ -398,8 +401,10 @@ background:
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:10px;
-  margin-bottom:6px;
+  align-items:center;
+  gap:8px;
+  margin-bottom:2px;
+  max-width:700px;
 }
 
 .chord-chip{
@@ -466,10 +471,11 @@ background:
 ========================= */
 .harmony-switch{
   display:flex;
-  gap:8px;
-  margin-top:2px;
-  margin-bottom:0;
   justify-content:center;
+  align-items:center;
+  gap:6px;
+  margin-top:0;
+  padding-top:0;
 }
 
 .harmony-btn{
