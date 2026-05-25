@@ -308,6 +308,22 @@ document.getElementById(
   </span>
   ${scale.formula.join(' - ')}`
 
+  document.getElementById(
+  'scale-character'
+).innerHTML =
+
+  scale.character
+    .map(character => {
+      return `
+        <span class="
+          character-chip
+        ">
+          ${character}
+        </span>
+      `
+    })
+    .join('')
+  
   fretboard.innerHTML = ''
 
   tuning.forEach(stringNote => {
