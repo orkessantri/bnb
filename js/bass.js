@@ -30,6 +30,7 @@ let chordsData = []
 let activeChordNotes = []
 let activeChordRoot = null
 let activeChordName = null
+let harmonyMode = 'sevenths'
 
 /* =========================
    LOAD JSON
@@ -179,10 +180,31 @@ function renderFretboard(){
     )
 
 /* BUILD CHORDS */
+let harmonyData = []
+
+if(harmonyMode === 'triads'){
+  harmonyData =
+    scale.triads
+}
+
+else if(
+  harmonyMode === 'sevenths'
+){
+  harmonyData =
+    scale.sevenths
+}
+
+else if(
+  harmonyMode === 'extensions'
+){
+  harmonyData =
+    scale.extensions
+}
+
 const chords =
   buildScaleChords(
     scaleNotes,
-    scale.sevenths
+    harmonyData
   )
 
 /* RENDER CHORDS */
@@ -424,3 +446,42 @@ scaleSelect.addEventListener(
 
 /* INIT */
 loadScales()
+
+document
+  .querySelectorAll(
+    '.harmony-btn'
+  )
+  .forEach(btn => {
+
+    btn.addEventListener(
+      'click',
+      () => {
+
+        harmonyMode =
+          btn.dataset.mode
+
+        document
+          .querySelectorAll(
+            '.harmony-btn'
+          )
+          .forEach(b => {
+
+            b.classList.remove(
+              'active'
+            )
+
+          })
+
+        btn.classList.add(
+          'active'
+        )
+
+        activeChordName = null
+        activeChordNotes = []
+        activeChordRoot = null
+
+        renderFretboard()
+      }
+    )
+
+  })
