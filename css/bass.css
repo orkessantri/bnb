@@ -59,7 +59,7 @@
 
 #scale-notes,
 #scale-formula{
-  font-size:10px;
+  font-size:11px;
   color:#d0d0d0;
   text-align:center;
   white-space:nowrap;
@@ -68,7 +68,7 @@
 
 .scale-label{
   color:#6f6f6f;
-  font-size:14px;
+  font-size:11px;
   font-weight:700;
   letter-spacing:.4px;
   text-transform:uppercase;
