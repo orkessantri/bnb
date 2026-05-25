@@ -195,10 +195,10 @@ else if(
 }
 
 else if(
-  harmonyMode === 'extensions'
+  harmonyMode === 'extended'
 ){
   harmonyData =
-    scale.extensions
+    scale.extended
 }
 
 const chords =
