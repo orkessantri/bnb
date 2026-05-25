@@ -40,28 +40,30 @@
 
 #scale-info{
   display:flex;
-  justify-content:center;
   align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
-  width:100%;
+  justify-content:center;
+  gap:14px;
+  width:max-content;
   max-width:100%;
-  margin:10px auto 14px;
+  margin:10px auto 10px;
   padding:12px 16px;
   border-radius:14px;
   background:#151515;
   border:1px solid #242424;
   box-shadow:
     0 4px 20px rgba(0,0,0,.25);
-  overflow:hidden;
+  overflow-x:auto;
+  overflow-y:hidden;
+  white-space:nowrap;
 }
 
 #scale-notes,
 #scale-formula{
-  font-size:14px;
+  font-size:13px;
   color:#d0d0d0;
   text-align:center;
-  word-break:break-word;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 
 .scale-label{
@@ -313,26 +315,23 @@ background:
     padding:10px 12px;
   }
 
-  #scale-info{
-    flex-direction:column;
-    align-items:flex-start;
+#scale-info{
+  justify-content:flex-start;
+  width:100%;
+  padding:10px 12px;
+  gap:10px;
+  overflow-x:auto;
+}
 
-    gap:8px;
+#scale-notes,
+#scale-formula{
+  font-size:11px;
+}
 
-    padding:12px;
-
-    border-radius:12px;
-  }
-
-  #scale-notes,
-  #scale-formula{
-    width:100%;
-
-    text-align:left;
-
-    font-size:12px;
-    line-height:1.5;
-  }
+.character-chip{
+  font-size:9px;
+  padding:4px 8px;
+}
 
   #fretboard{
     width:100%;
@@ -400,7 +399,7 @@ background:
   flex-wrap:wrap;
   justify-content:center;
   gap:10px;
-  margin-bottom:12px;
+  margin-bottom:6px;
 }
 
 .chord-chip{
@@ -468,7 +467,7 @@ background:
 .harmony-switch{
   display:flex;
   gap:8px;
-  margin-top:10px;
+  margin-top:2px;
   margin-bottom:0;
   justify-content:center;
 }
@@ -495,18 +494,20 @@ background:
 ========================= */
 #scale-character{
   display:flex;
-  gap:8px;
-  justify-content:center;
-  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  flex-wrap:nowrap;
+  flex-shrink:0;
 }
 
 .character-chip{
   background:#1b1b1b;
   border:1px solid #2d2d2d;
   color:#9a9a9a;
-  font-size:11px;
+  font-size:10px;
   font-weight:700;
-  padding:6px 10px;
+  padding:5px 9px;
   border-radius:999px;
   text-transform:capitalize;
+  white-space:nowrap;
 }
