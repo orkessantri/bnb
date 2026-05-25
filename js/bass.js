@@ -308,21 +308,16 @@ document.getElementById(
   </span>
   ${scale.formula.join(' - ')}`
 
-  document.getElementById(
+document.getElementById(
   'scale-character'
-).innerHTML =
+).innerHTML = `
 
-  scale.character
-    .map(character => {
-      return `
-        <span class="
-          character-chip
-        ">
-          ${character}
-        </span>
-      `
-    })
-    .join('')
+  <span class="scale-label">
+    Character :
+  </span>
+
+  ${scale.character.join(' - ')}
+`
   
   fretboard.innerHTML = ''
 
