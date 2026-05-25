@@ -152,6 +152,14 @@
   },
 
   {
+  "id":"m11",
+  "name":"Minor 11",
+  "symbol":"m11",
+  "formula":["1","b3","5","b7","9","11"],
+  "intervals":[0,3,7,10,14,17]
+},
+  
+  {
     "id":"13",
     "name":"Dominant 13",
     "symbol":"13",
