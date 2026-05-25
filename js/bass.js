@@ -58,9 +58,11 @@ async function loadScales(){
   chordsData =
     await chordResponse.json()
 
-  populateScaleSelector()
+populateScaleSelector()
 
-  renderFretboard()
+validateScaleHarmony()
+
+renderFretboard()
 }
 
 /* =========================
@@ -123,21 +125,26 @@ function buildScaleChords(
   harmonyTypes
 ){
 
-  return scaleNotes.map(
-    (note,index) => {
+  return scaleNotes
+    .map((note,index) => {
+
+      const type =
+        harmonyTypes[index]
+
+      if(!type) return null
 
       return {
+
         root:note,
 
-        type:harmonyTypes[index],
+        type:type,
 
-        name:
-          note +
-          harmonyTypes[index]
+        name:note + type
+
       }
 
-    }
-  )
+    })
+    .filter(Boolean)
 }
 
 function buildChord(root, intervals){
@@ -152,6 +159,57 @@ function buildChord(root, intervals){
     ]
 
   })
+}
+
+/* =========================
+   VALIDATION
+========================= */
+function validateScaleHarmony(){
+
+  scalesData.forEach(scale => {
+
+    const allHarmony = [
+
+      ...scale.triads,
+
+      ...scale.sevenths,
+
+      ...scale.extended
+
+    ]
+
+    allHarmony.forEach(chordId => {
+
+      const exists =
+        chordsData.find(
+          chord => chord.id === chordId
+        )
+
+      if(!exists){
+
+        console.warn(
+          `Missing chord: ${chordId}`
+        )
+
+      }
+
+    })
+
+  })
+
+}
+
+/* =========================
+   RESET
+========================= */
+function resetActiveChord(){
+
+  activeChordName = null
+
+  activeChordRoot = null
+
+  activeChordNotes = []
+
 }
 
 /* =========================
@@ -447,12 +505,22 @@ fretboard.appendChild(
 
 rootSelect.addEventListener(
   'change',
-  renderFretboard
+  () => {
+
+    resetActiveChord()
+
+    renderFretboard()
+  }
 )
 
 scaleSelect.addEventListener(
   'change',
-  renderFretboard
+  () => {
+
+    resetActiveChord()
+
+    renderFretboard()
+  }
 )
 
 /* INIT */
