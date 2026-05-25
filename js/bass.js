@@ -259,6 +259,13 @@ else if(
     scale.extended
 }
 
+else if(
+  harmonyMode === 'arpeggio'
+){
+  harmonyData =
+    scale.extended
+}
+
 const chords =
   buildScaleChords(
     scaleNotes,
@@ -445,6 +452,8 @@ else if(
 /* SCALE NOTES */
 
 else if(
+  harmonyMode !== 'arpeggio'
+  &&
   scaleNotes.includes(note)
 ){
 
