@@ -469,7 +469,10 @@ function removeInsert(index){
 
 }
 
-async function exportPDF(){
+// =====================
+// LAYOUT PDF
+// =====================
+async function buildPDF(){
 
   const { jsPDF } = window.jspdf;
 
@@ -501,7 +504,7 @@ async function exportPDF(){
     ).value;
 
   let y = 55;
-
+  
   // =====================
   // LOGO
   // =====================
@@ -761,9 +764,16 @@ async function exportPDF(){
 
   });
 
+  return doc;
+}
+
   // =====================
-  // SAVE
-  // =====================
+  // EXPORT PDF
+  // ====================
+async function exportPDF(){
+
+  const doc =
+    await buildPDF();
 
   const pdfBlob =
     doc.output('blob');
@@ -773,9 +783,6 @@ async function exportPDF(){
 
   window.open(url);
 
-    localStorage.removeItem(
-    "exportDraft"
-  );
 }
 
   // =====================
@@ -783,278 +790,10 @@ async function exportPDF(){
   // ====================
 async function exportJPG(){
 
-  const canvas =
-    document.createElement(
-      "canvas"
-    );
+  const doc =
+    await buildPDF();
 
-  const ctx =
-    canvas.getContext("2d");
-
-  canvas.width = 1200;
-
-  const rowHeight = 60;
-
-  const itemCount =
-    exportItems.length;
-
-  canvas.height =
-    260 +
-    (itemCount * rowHeight);
-
-  // background
-
-  ctx.fillStyle =
-    "#ffffff";
-
-  ctx.fillRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-// logo
-  const logo =
-  document.getElementById(
-    "logoPreview"
-  );
-
-if(
-  logo &&
-  logo.src &&
-  !logo.src.endsWith("/")
-){
-
-  try{
-
-    const img =
-      new Image();
-
-    img.crossOrigin =
-      "anonymous";
-
-    img.src =
-      logo.src;
-
-    await new Promise(
-      resolve=>{
-        img.onload =
-          resolve;
-      }
-    );
-
-    ctx.drawImage(
-      img,
-      40,
-      30,
-      100,
-      100
-    );
-
-  }catch(err){
-
-    console.log(
-      "Logo gagal dimuat",
-      err
-    );
-
-  }
-
-}
-  
-  // title
-
-  const band =
-    document.getElementById(
-      "band-name"
-    ).value;
-
-  const event =
-    document.getElementById(
-      "event-name"
-    ).value;
-
-  const date =
-    document.getElementById(
-      "event-date"
-    ).value;
-
-  const location =
-    document.getElementById(
-      "event-location"
-    ).value;
-
-  ctx.fillStyle =
-    "#111";
-
-  ctx.font =
-    "bold 42px Arial";
-
-  ctx.fillText(
-    band || "BAND NAME",
-    170,
-    70
-  );
-
-  ctx.font =
-    "24px Arial";
-
-  ctx.fillText(
-    event || "",
-    170,
-    110
-  );
-
-  ctx.fillText(
-    `${date} • ${location}`,
-    170,
-    145
-  );
-
-  // header
-
-  let y = 190;
-
-  ctx.fillStyle =
-    "#111";
-
-  ctx.fillRect(
-    40,
-    y,
-    1120,
-    45
-  );
-
-  ctx.fillStyle =
-    "#fff";
-
-  ctx.font =
-    "bold 20px Arial";
-
-  ctx.fillText(
-    "NO",
-    60,
-    y + 30
-  );
-
-  ctx.fillText(
-    "SONG",
-    140,
-    y + 30
-  );
-
-  ctx.fillText(
-    "SINGER",
-    820,
-    y + 30
-  );
-
-  ctx.fillText(
-    "KEY",
-    1060,
-    y + 30
-  );
-
-  y += 55;
-
-  let songNumber = 1;
-
-  exportItems.forEach(item=>{
-
-    if(item.type==="insert"){
-
-      ctx.fillStyle =
-        "#fff0c8";
-
-      ctx.fillRect(
-        40,
-        y,
-        1120,
-        45
-      );
-
-      ctx.fillStyle =
-        "#000";
-
-      ctx.font =
-        "bold 18px Arial";
-
-      ctx.fillText(
-        item.text || "INSERT",
-        70,
-        y + 28
-      );
-
-      y += rowHeight;
-
-      return;
-    }
-
-    const song =
-      item.data;
-
-    ctx.fillStyle =
-      "#f2f2f2";
-
-    ctx.fillRect(
-      40,
-      y,
-      1120,
-      45
-    );
-
-    ctx.fillStyle =
-      "#000";
-
-    ctx.font =
-      "18px Arial";
-
-    ctx.fillText(
-      String(songNumber++),
-      60,
-      y + 28
-    );
-
-    ctx.fillText(
-      song.title || "",
-      140,
-      y + 28
-    );
-
-    ctx.fillText(
-      song.singer || "-",
-      820,
-      y + 28
-    );
-
-    ctx.fillText(
-      song.key || "-",
-      1060,
-      y + 28
-    );
-
-    y += rowHeight;
-
-  });
-
-canvas.toBlob(blob => {
-
-  const url =
-    URL.createObjectURL(blob);
-
-  const a =
-    document.createElement("a");
-
-  a.href = url;
-
-  a.download =
-    "setlist.jpg";
-
-  a.click();
-
-}, "image/jpeg", 0.95);
-
+  // render PDF ke JPG
 }
 
 loadExportDraft();
