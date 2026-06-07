@@ -778,16 +778,41 @@ async function exportPDF(){
   );
 }
 
+============EXPORT JPG==============
 async function exportJPG(){
 
-  const { jsPDF } = window.jspdf;
-
-  const doc = new jsPDF();
-
-  const logo =
-    document.getElementById(
-      "logoPreview"
+  const canvas =
+    document.createElement(
+      "canvas"
     );
+
+  const ctx =
+    canvas.getContext("2d");
+
+  canvas.width = 1200;
+
+  const rowHeight = 60;
+
+  const itemCount =
+    exportItems.length;
+
+  canvas.height =
+    260 +
+    (itemCount * rowHeight);
+
+  // background
+
+  ctx.fillStyle =
+    "#ffffff";
+
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  // title
 
   const band =
     document.getElementById(
@@ -809,411 +834,177 @@ async function exportJPG(){
       "event-location"
     ).value;
 
-  let y = 55;
+  ctx.fillStyle =
+    "#111";
 
-  // =====================
-  // LOGO
-  // =====================
+  ctx.font =
+    "bold 42px Arial";
 
-  if(
-    logo.src &&
-    !logo.src.endsWith('/')
-  ){
-
-    const img = new Image();
-
-    img.src = logo.src;
-
-    await new Promise(resolve=>{
-      img.onload = resolve;
-    });
-
-    doc.addImage(
-      img,
-      'PNG',
-      15,
-      12,
-      30,
-      30
-    );
-  }
-
-  // =====================
-  // HEADER
-  // =====================
-
-  doc.setFont(
-    "helvetica",
-    "bold"
-  );
-
-  doc.setFontSize(26);
-
-  doc.text(
+  ctx.fillText(
     band || "BAND NAME",
-    50,
-    24
+    60,
+    70
   );
 
-  doc.setFont(
-    "helvetica",
-    "normal"
+  ctx.font =
+    "24px Arial";
+
+  ctx.fillText(
+    event || "",
+    60,
+    110
   );
 
-  doc.setFontSize(19);
-
-  doc.text(
-    event || "Nama Acara",
-    50,
-    32
-  );
-
-  doc.setFontSize(14);
-
-  doc.text(
+  ctx.fillText(
     `${date} • ${location}`,
-    50,
-    39
+    60,
+    145
   );
 
-  // =====================
-  // TABLE HEADER
-  // =====================
+  // header
 
-  doc.setFillColor(20,20,20);
+  let y = 190;
 
-  doc.roundedRect(
-    15,
+  ctx.fillStyle =
+    "#111";
+
+  ctx.fillRect(
+    40,
     y,
-    180,
-    10,
-    3,
-    3,
-    'F'
+    1120,
+    45
   );
 
-  doc.setTextColor(255);
+  ctx.fillStyle =
+    "#fff";
 
-  doc.setFont(
-    "helvetica",
-    "bold"
-  );
+  ctx.font =
+    "bold 20px Arial";
 
-  doc.setFontSize(14);
-
-  doc.text(
+  ctx.fillText(
     "NO",
-    22,
-    y + 6.5,
-    {align:"center"}
+    60,
+    y + 30
   );
 
-  doc.text(
+  ctx.fillText(
     "SONG",
-    32,
-    y + 6.5
+    140,
+    y + 30
   );
 
-  doc.text(
+  ctx.fillText(
     "SINGER",
-    135,
-    y + 6.5
+    820,
+    y + 30
   );
 
-  doc.text(
+  ctx.fillText(
     "KEY",
-    182,
-    y + 6.5,
-    {align:"center"}
+    1060,
+    y + 30
   );
 
-  y += 13;
-
-  doc.setTextColor(0);
-
-  // =====================
-  // ITEMS
-  // =====================
+  y += 55;
 
   let songNumber = 1;
 
-  exportItems.forEach((item,index)=>{
+  exportItems.forEach(item=>{
 
-    // PAGE BREAK
-    if(y > 270){
+    if(item.type==="insert"){
 
-      doc.addPage();
+      ctx.fillStyle =
+        "#fff0c8";
 
-      y = 20;
-    }
-
-    // =====================
-    // INSERT ITEM
-    // =====================
-
-    if(item.type === "insert"){
-
-      doc.setFillColor(
-        255,
-        240,
-        200
-      );
-
-      doc.roundedRect(
-        15,
+      ctx.fillRect(
+        40,
         y,
-        180,
-        10,
-        3,
-        3,
-        'F'
+        1120,
+        45
       );
 
-      doc.setFont(
-        "helvetica",
-        "bold"
-      );
+      ctx.fillStyle =
+        "#000";
 
-      doc.setFontSize(12);
+      ctx.font =
+        "bold 18px Arial";
 
-      doc.text(
+      ctx.fillText(
         item.text || "INSERT",
-        20,
-        y + 6.5
+        70,
+        y + 28
       );
 
-      y += 11;
+      y += rowHeight;
 
       return;
     }
 
-    // =====================
-    // SONG ITEM
-    // =====================
+    const song =
+      item.data;
 
-    const song = item.data;
+    ctx.fillStyle =
+      "#f2f2f2";
 
-    if(index % 2 === 0){
-
-      doc.setFillColor(
-        245,
-        245,
-        245
-      );
-
-    }else{
-
-      doc.setFillColor(
-        235,
-        235,
-        235
-      );
-    }
-
-    doc.roundedRect(
-      15,
+    ctx.fillRect(
+      40,
       y,
-      180,
-      10,
-      3,
-      3,
-      'F'
+      1120,
+      45
     );
 
-    // NUMBER
-    doc.setFont(
-      "helvetica",
-      "bold"
-    );
+    ctx.fillStyle =
+      "#000";
 
-    doc.setFontSize(12);
+    ctx.font =
+      "18px Arial";
 
-    doc.text(
+    ctx.fillText(
       String(songNumber++),
-      22,
-      y + 6.5,
-      {
-        align:"center"
-      }
+      60,
+      y + 28
     );
 
-    // SONG
-    doc.setFont(
-      "helvetica",
-      "normal"
+    ctx.fillText(
+      song.title || "",
+      140,
+      y + 28
     );
 
-    doc.text(
-      `${song.title} - ${song.artist || ''}`,
-      32,
-      y + 6.5
+    ctx.fillText(
+      song.singer || "-",
+      820,
+      y + 28
     );
 
-    // SINGER
-    doc.text(
-      song.singer || '-',
-      135,
-      y + 6.5
+    ctx.fillText(
+      song.key || "-",
+      1060,
+      y + 28
     );
 
-    // KEY
-    doc.text(
-      song.key || '-',
-      182,
-      y + 6.5,
-      {
-        align:"center"
-      }
-    );
-
-    y += 11;
+    y += rowHeight;
 
   });
-
-  // =====================
-  // PDF -> IMAGE
-  // =====================
-
-  const pdfBlob =
-    doc.output('blob');
-
-  const pdfUrl =
-    URL.createObjectURL(pdfBlob);
-
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-
-  const pdf =
-    await pdfjsLib
-      .getDocument(pdfUrl)
-      .promise;
-
-  const totalPages =
-    pdf.numPages;
-
-  let pages = [];
-
-  let totalHeight = 0;
-
-  let maxWidth = 0;
-
-  // =====================
-  // RENDER ALL PAGES
-  // =====================
-
-  for(
-    let i = 1;
-    i <= totalPages;
-    i++
-  ){
-
-    const page =
-      await pdf.getPage(i);
-
-    const viewport =
-      page.getViewport({
-        scale:3
-      });
-
-    const canvas =
-      document.createElement(
-        'canvas'
-      );
-
-    const context =
-      canvas.getContext('2d');
-
-    canvas.width =
-      viewport.width;
-
-    canvas.height =
-      viewport.height;
-
-    await page.render({
-
-      canvasContext:context,
-
-      viewport:viewport
-
-    }).promise;
-
-    pages.push(canvas);
-
-    totalHeight +=
-      canvas.height;
-
-    if(
-      canvas.width > maxWidth
-    ){
-
-      maxWidth =
-        canvas.width;
-    }
-  }
-
-  // =====================
-  // MERGE ALL PAGES
-  // =====================
-
-  const finalCanvas =
-    document.createElement(
-      'canvas'
-    );
-
-  const finalContext =
-    finalCanvas.getContext(
-      '2d'
-    );
-
-  finalCanvas.width =
-    maxWidth;
-
-  finalCanvas.height =
-    totalHeight;
-
-  let currentY = 0;
-
-  pages.forEach(canvas => {
-
-    finalContext.drawImage(
-      canvas,
-      0,
-      currentY
-    );
-
-    currentY +=
-      canvas.height;
-
-  });
-
-  // =====================
-  // EXPORT JPG
-  // =====================
 
   const image =
-    finalCanvas.toDataURL(
-      'image/jpeg',
-      1.0
+    canvas.toDataURL(
+      "image/jpeg",
+      0.95
     );
 
   const link =
-    document.createElement('a');
+    document.createElement(
+      "a"
+    );
 
-  link.href = image;
+  link.href =
+    image;
 
   link.download =
-    'setlist.jpg';
+    "setlist.jpg";
 
   link.click();
-
-}
-
-function saveExportItems(){
-
-  localStorage.setItem(
-    "exportItems",
-    JSON.stringify(exportItems)
-  );
 
 }
 
