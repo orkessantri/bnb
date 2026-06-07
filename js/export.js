@@ -778,7 +778,9 @@ async function exportPDF(){
   );
 }
 
-============EXPORT JPG==============
+  // =====================
+  // EXPORT JPG
+  // ====================
 async function exportJPG(){
 
   const canvas =
