@@ -796,7 +796,10 @@ async function exportJPG(){
   const pdfBlob =
     doc.output("blob");
 
-  console.log(pdfBlob);
+  console.log(
+    "PDF BLOB:",
+    pdfBlob
+  );
 
 }
 
