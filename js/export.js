@@ -796,10 +796,12 @@ async function exportJPG(){
   const pdfBlob =
     doc.output("blob");
 
-  console.log(
-    "PDF BLOB:",
-    pdfBlob
-  );
+  const pdfUrl =
+    URL.createObjectURL(
+      pdfBlob
+    );
+
+  console.log(pdfUrl);
 
 }
 
