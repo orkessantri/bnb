@@ -793,7 +793,7 @@ async function exportJPG(){
   const doc =
     await buildPDF();
 
-  // render PDF ke JPG
+  alert("JPG START");
 }
 
 loadExportDraft();
