@@ -513,13 +513,13 @@
   "content": "[Intro Keys]\nG D D E A D\n[Verse]\nG FE A C BE A C G\nDD#GACB\nG FE A C BE A C G\n[Chorus]\nG B E D C D B E A D\nG B E D C D B E AD G\n[Interlude]\nG B E D C D B E A D.\nBack to Verse"
 },
 
-  {
+{
   "id": 58,
   "title": "HARTA AMANAT TUHAN",
   "artist": "Noer Halimah",
   "category": "DUNGDAT",
   "key": "G",
-  "content": "[Intro]\nB G F# G B (2x)\nF# E G F# - F# E G F#\nF#F# C#EGBbF#\n[Verse]\nE D G F# (2x)\nE G E B C# F# GF# B\nF# G F# - F#F# C#EGBbF#\n[Interlude]\nE G F# E B (2x)\nA G A B (2x)\n[Chorus]\nB F# E B - F# G E B\n[Lead]\nA G A B\nBack to Chorus - Verse - Roll"
+  "content": "[Intro]\nB G F# G B (2x)\nF# E G F# - F# E G F#\nF#F# C#EGBbF#\n[Verse]\nE D G F# (2x)\nF# G E B C# F# GF# B\nF# G F# - F#F# C#EGBbF#\n[Interlude]\nE G F# E B (2x)\nA G A B (2x)\n[Chorus]\nB F# E B - F# G E B\n[Lead]\nA G A B\nBack to Chorus - Verse - Roll"
 },
 
   {
@@ -729,13 +729,13 @@
   "content": "Verse Piano\n[Chorus]\nAGF G C\n[Interlude Gitar]\nD F Fm\n[Verse]\nC D F G C.\n[Chorus]\nA G F. G C...\n[Bridge]\nE F G\n[Interlude]\nA G C. . . G D\nBack to Chorus\n[Outro bertemu]\nA G..."
 },
 
-  {
+{
   "id": 82,
   "title": "PERMINTAAN HATI",
   "artist": "Letto",
   "category": "POPINDO",
   "key": "NN",
-  "content": "[Intro] A\n[Verse]\nADEF (Walkbass 1/16)\n[Pre Chorus]\nF G F G\nVerse - Bridge Drum Fill gamelan\n[Chorus]\nC A F G - A G F G\nC A G# Bb\nPre - Verse - Fill gamelan - Chorus\n[Interlude]\nF G\nChorus solo - Chorus\n[Outro]\nC Bb A G# (2x)\nFill Gamelan (2x)"
+  "content": "[Intro]\nA\n[Verse]\nADEF (Walkbass 1/16)\n[Pre Chorus]\nF G F G\nVerse - Bridge Drum Fill gamelan\n[Chorus]\nC A F G - A G F G\nC A G# Bb\nPre - Verse - Fill gamelan - Chorus\n[Interlude]\nF G\nChorus solo - Chorus\n[Outro]\nC Bb A G# (2x)\nFill Gamelan (2x)"
 },
 
   {
@@ -826,5 +826,23 @@
   "category": "DUNGDAT",
   "key": "Bb",
   "content": "[Intro]\nD Bb A D C (2x)\nD Bb D\nA A# A D\n[Verse]\nD G D. A\nG D Bb A D\n(Intro)\nA A# A D\nBack to Verse\n[Lead]\nD A# C A# D\n[Flute]\nA A# A A#\nC A# A D\n[Chorus]\nD A G D [HIT] C Bb A D\nD A G D - G F A\nBb D C D (2x)\nBack to Verse\n[Outro]\nD A C A D (2x)"
+},
+
+    {
+  "id": 93,
+  "title": "IMTA ANA SYUFAK",
+  "artist": "Muhajar Oktavia & Muhajir Lamkaruna",
+  "category": "GAMBUZ",
+  "key": "F",
+  "content": "[Intro]\nD ACD#D G ACD#D\nD F C D - C F C D\n[Verse]\nD F C D (2X)\nC F C D (2X)"
+},
+
+  {
+  "id": 94,
+  "title": "PANTUN DUNYA",
+  "artist": "Kalijogo",
+  "category": "KASIDAH",
+  "key": "Bb",
+  "content": "[Intro]\nA\n[Verse]\nWIS APAL KAN???\n"
 }
 ]
