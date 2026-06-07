@@ -801,7 +801,105 @@ async function exportJPG(){
       pdfBlob
     );
 
-  console.log(pdfUrl);
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+  const pdf =
+    await pdfjsLib
+      .getDocument(pdfUrl)
+      .promise;
+
+  const pages = [];
+
+  let totalHeight = 0;
+  let maxWidth = 0;
+
+  for(
+    let i = 1;
+    i <= pdf.numPages;
+    i++
+  ){
+
+    const page =
+      await pdf.getPage(i);
+
+    const viewport =
+      page.getViewport({
+        scale:3
+      });
+
+    const canvas =
+      document.createElement(
+        "canvas"
+      );
+
+    const ctx =
+      canvas.getContext("2d");
+
+    canvas.width =
+      viewport.width;
+
+    canvas.height =
+      viewport.height;
+
+    await page.render({
+
+      canvasContext:ctx,
+      viewport
+
+    }).promise;
+
+    pages.push(canvas);
+
+    totalHeight +=
+      canvas.height;
+
+    maxWidth =
+      Math.max(
+        maxWidth,
+        canvas.width
+      );
+
+  }
+
+  const finalCanvas =
+    document.createElement(
+      "canvas"
+    );
+
+  const finalCtx =
+    finalCanvas.getContext(
+      "2d"
+    );
+
+  finalCanvas.width =
+    maxWidth;
+
+  finalCanvas.height =
+    totalHeight;
+
+  let currentY = 0;
+
+  pages.forEach(canvas=>{
+
+    finalCtx.drawImage(
+      canvas,
+      0,
+      currentY
+    );
+
+    currentY +=
+      canvas.height;
+
+  });
+
+  const image =
+    finalCanvas.toDataURL(
+      "image/jpeg",
+      0.95
+    );
+
+  window.open(image);
 
 }
 
