@@ -987,24 +987,13 @@ async function exportJPG(){
 
   });
 
-  const image =
-    canvas.toDataURL(
-      "image/jpeg",
-      0.95
-    );
+const image =
+  canvas.toDataURL(
+    "image/jpeg",
+    0.95
+  );
 
-  const link =
-    document.createElement(
-      "a"
-    );
-
-  link.href =
-    image;
-
-  link.download =
-    "setlist.jpg";
-
-  link.click();
+window.open(image);
 
 }
 
