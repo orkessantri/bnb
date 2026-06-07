@@ -814,6 +814,55 @@ async function exportJPG(){
     canvas.height
   );
 
+// logo
+  const logo =
+  document.getElementById(
+    "logoPreview"
+  );
+
+if(
+  logo &&
+  logo.src &&
+  !logo.src.endsWith("/")
+){
+
+  try{
+
+    const img =
+      new Image();
+
+    img.crossOrigin =
+      "anonymous";
+
+    img.src =
+      logo.src;
+
+    await new Promise(
+      resolve=>{
+        img.onload =
+          resolve;
+      }
+    );
+
+    ctx.drawImage(
+      img,
+      40,
+      30,
+      100,
+      100
+    );
+
+  }catch(err){
+
+    console.log(
+      "Logo gagal dimuat",
+      err
+    );
+
+  }
+
+}
+  
   // title
 
   const band =
@@ -844,7 +893,7 @@ async function exportJPG(){
 
   ctx.fillText(
     band || "BAND NAME",
-    60,
+    170,
     70
   );
 
@@ -853,13 +902,13 @@ async function exportJPG(){
 
   ctx.fillText(
     event || "",
-    60,
+    170,
     110
   );
 
   ctx.fillText(
     `${date} • ${location}`,
-    60,
+    170,
     145
   );
 
