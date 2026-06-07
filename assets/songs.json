@@ -796,7 +796,7 @@
   "id": 89,
   "title": "RAMPAK OSING",
   "artist": "Kiai Kanjeng",
-  "category": "DUNGDAT",
+  "category": "KASIDAH",
   "key": "G",
   "content": "[Intro]\nE G A B - A B E\nE A B\n[Verse]\nE... G D G E - E D B\n[HIT] B B B E\nBack to Verse\n[Chorus]\nE G E (2x)\nA E A E - A C B\nBack to Verse"
 },
@@ -862,5 +862,49 @@
   "category": "KASIDAH",
   "key": "F",
   "content": "[Intro]\nD\n[Verse]\n\n[Pre Chorus]\n\n[Chorus]\n\n[Interlude]\n\n[Flute]\n[Lead]\n\n[Outro]"
-}
+},
+
+  {
+  "id": 97,
+  "title": "PERJUANGAN DAN DOA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]"
+},
+
+    {
+  "id": 98,
+  "title": "TAQWA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]"
+},
+
+        {
+  "id": 99,
+  "title": "GALA-GALA",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "F",
+  "content": "[Intro]"
+},
+      {
+  "id": 100,
+  "title": "KERAMAT",
+  "artist": "Rhoma Irama",
+  "category": "DUNGDAT",
+  "key": "C",
+  "content": "[Intro]"
+},
+
+  {
+  "id": 101,
+  "title": "",
+  "artist": "Rhoma Irama ft. Noer Halimah",
+  "category": "DUNGDAT",
+  "key": "G",
+  "content": "[Intro]\nE C E C (3x)\nB C B E (2x) D C - D E\n[Verse]\nEm C D E\nEm C D B\nC B C B C B \nF C D# E\n[Interlude]\nE B A D E\nB C D E\n[Chorus]\nE A B A E\n[Int] B C C D D E\nE A B C E\n"
+},
 ]
