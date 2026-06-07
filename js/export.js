@@ -793,7 +793,11 @@ async function exportJPG(){
   const doc =
     await buildPDF();
 
-  alert("JPG START");
+  const pdfBlob =
+    doc.output("blob");
+
+  console.log(pdfBlob);
+
 }
 
 loadExportDraft();
