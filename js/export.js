@@ -989,13 +989,22 @@ async function exportJPG(){
 
   });
 
-const image =
-  canvas.toDataURL(
-    "image/jpeg",
-    0.95
-  );
+canvas.toBlob(blob => {
 
-window.open(image);
+  const url =
+    URL.createObjectURL(blob);
+
+  const a =
+    document.createElement("a");
+
+  a.href = url;
+
+  a.download =
+    "setlist.jpg";
+
+  a.click();
+
+}, "image/jpeg", 0.95);
 
 }
 
