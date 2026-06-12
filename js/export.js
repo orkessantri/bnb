@@ -52,6 +52,68 @@ if(savedExportItems){
 
 }
 
+syncExportItems();
+
+function syncExportItems(){
+
+  const songItems =
+
+    exportItems.filter(
+      item => item.type === "song"
+    );
+
+  const songIds =
+
+    songItems.map(
+      item => item.data.id
+    );
+
+  // tambah lagu baru
+
+  setlist.forEach(song => {
+
+    if(
+      !songIds.includes(song.id)
+    ){
+
+      exportItems.push({
+
+        type:"song",
+
+        data:song
+
+      });
+
+    }
+
+  });
+
+  // hapus lagu yang sudah tidak ada
+
+  exportItems =
+
+    exportItems.filter(item => {
+
+      if(
+        item.type !== "song"
+      ){
+        return true;
+      }
+
+      return setlist.some(
+
+        song =>
+
+          song.id === item.data.id
+
+      );
+
+    });
+
+  saveExportItems();
+
+}
+
 const exportTable =
   document.getElementById(
     "export-table"
