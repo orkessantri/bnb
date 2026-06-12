@@ -1089,20 +1089,35 @@ async function exportJPG(){
     ctx.fillStyle =
       "#000";
 
-    ctx.font =
-      "20px Arial";
+    // nomor
+ctx.font =
+  "bold 20px Arial";
 
-    ctx.fillText(
-      songNo++,
-      80,
-      y + 25
-    );
+ctx.fillText(
+  songNo++,
+  80,
+  y + 25
+);
 
-    ctx.fillText(
-      `${song.title} - ${song.artist || ""}`,
-      150,
-      y + 25
-    );
+// judul
+ctx.font =
+  "bold 20px Arial";
+
+ctx.fillText(
+  song.title,
+  150,
+  y + 25
+);
+
+// artist
+ctx.font =
+  "18px Arial";
+
+ctx.fillText(
+  `- ${song.artist || ""}`,
+  420,
+  y + 25
+);
 
     ctx.fillText(
       song.singer || "-",
