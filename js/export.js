@@ -915,78 +915,78 @@ async function exportJPG(){
 
   ctx.scale(2,2);
 
-  // ==================
-  // LOGO
-  // ==================
+ // ==================
+// LOGO
+// ==================
 
-  const logo =
-    document.getElementById(
-      "logoPreview"
-    );
-
-  if(
-    logo &&
-    logo.complete
-  ){
-
-    ctx.drawImage(
-      logo,
-      50,
-      30,
-      100,
-      100
-    );
-
-  }
-
-  // ==================
-  // HEADER
-  // ==================
-
-  ctx.fillStyle =
-    "#000";
-
-  ctx.font =
-    "bold 26px Arial";
-
-  ctx.fillText(
-
-    document.getElementById(
-      "band-name"
-    ).value || "BAND",
-
-    100,
-    40
-
+const logo =
+  document.getElementById(
+    "logoPreview"
   );
 
-  ctx.font =
-    "19px Arial";
+if(
+  logo &&
+  logo.complete
+){
 
-  ctx.fillText(
-
-    document.getElementById(
-      "event-name"
-    ).value || "",
-
-    100,
-    65
-
+  ctx.drawImage(
+    logo,
+    25,
+    25,
+    70,
+    70
   );
 
-  ctx.font =
-    "14px Arial";
+}
 
-  ctx.fillText(
+// ==================
+// HEADER
+// ==================
 
-    `${document.getElementById("event-date").value}
-     •
-     ${document.getElementById("event-location").value}`,
+ctx.fillStyle =
+  "#000";
 
-    100,
-    85
+ctx.font =
+  "bold 24px Arial";
 
-  );
+ctx.fillText(
+
+  document.getElementById(
+    "band-name"
+  ).value || "BAND",
+
+  110,
+  45
+
+);
+
+ctx.font =
+  "18px Arial";
+
+ctx.fillText(
+
+  document.getElementById(
+    "event-name"
+  ).value || "",
+
+  110,
+  68
+
+);
+
+ctx.font =
+  "12px Arial";
+
+ctx.fillText(
+
+  `${document.getElementById("event-date").value}
+   •
+   ${document.getElementById("event-location").value}`,
+
+  110,
+  88
+
+);
 
   // ==================
   // TABLE HEADER
