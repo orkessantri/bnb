@@ -859,9 +859,9 @@ async function exportPDF(){
 
 }
 
-  // =====================
-  // EXPORT JPG
-  // ====================
+// =====================
+// EXPORT JPG
+// =====================
 async function exportJPG(){
 
   const fileName =
@@ -872,9 +872,9 @@ async function exportJPG(){
 
   if(!fileName) return;
 
-  const rowHeight = 44;
+  const rowHeight = 48;
 
-  const headerHeight = 180;
+  const headerHeight = 190;
 
   const totalRows =
     exportItems.length;
@@ -884,17 +884,20 @@ async function exportJPG(){
       "canvas"
     );
 
-  canvas.width = 1200;
+  // kualitas lebih tajam
+  canvas.width = 2400;
 
   canvas.height =
     headerHeight +
     (totalRows * rowHeight) +
-    80;
+    140;
 
   const ctx =
     canvas.getContext("2d");
 
-  // background
+  // ==================
+  // BACKGROUND
+  // ==================
 
   ctx.fillStyle =
     "#ffffff";
@@ -905,6 +908,12 @@ async function exportJPG(){
     canvas.width,
     canvas.height
   );
+
+  // ==================
+  // SCALE 2X
+  // ==================
+
+  ctx.scale(2,2);
 
   // ==================
   // LOGO
@@ -922,10 +931,10 @@ async function exportJPG(){
 
     ctx.drawImage(
       logo,
-      50,
-      40,
-      120,
-      120
+      25,
+      20,
+      60,
+      60
     );
 
   }
@@ -938,7 +947,7 @@ async function exportJPG(){
     "#000";
 
   ctx.font =
-    "bold 52px Arial";
+    "bold 26px Arial";
 
   ctx.fillText(
 
@@ -946,13 +955,13 @@ async function exportJPG(){
       "band-name"
     ).value || "BAND",
 
-    200,
-    80
+    100,
+    40
 
   );
 
   ctx.font =
-    "36px Arial";
+    "19px Arial";
 
   ctx.fillText(
 
@@ -960,13 +969,13 @@ async function exportJPG(){
       "event-name"
     ).value || "",
 
-    200,
-    125
+    100,
+    65
 
   );
 
   ctx.font =
-    "28px Arial";
+    "14px Arial";
 
   ctx.fillText(
 
@@ -974,8 +983,8 @@ async function exportJPG(){
      •
      ${document.getElementById("event-location").value}`,
 
-    200,
-    165
+    100,
+    85
 
   );
 
@@ -983,169 +992,221 @@ async function exportJPG(){
   // TABLE HEADER
   // ==================
 
-  let y = 220;
+  let y = 110;
 
-  ctx.fillStyle =
-    "#111";
-
-  ctx.roundRect?.(
-    50,
+  drawRoundRect(
+    ctx,
+    25,
     y,
-    1100,
-    50,
-    10
-  );
-
-  ctx.fillRect(
-    50,
-    y,
-    1100,
-    50
+    550,
+    25,
+    6,
+    "#111111"
   );
 
   ctx.fillStyle =
-    "#fff";
+    "#ffffff";
 
   ctx.font =
-    "bold 24px Arial";
+    "bold 12px Arial";
 
   ctx.fillText(
     "NO",
-    80,
-    y + 32
+    40,
+    y + 16
   );
 
   ctx.fillText(
     "SONG",
-    150,
-    y + 32
+    75,
+    y + 16
   );
 
   ctx.fillText(
     "SINGER",
-    780,
-    y + 32
+    390,
+    y + 16
   );
 
   ctx.fillText(
     "KEY",
-    1050,
-    y + 32
+    520,
+    y + 16
   );
 
-  y += 70;
+  y += 35;
 
   // ==================
-  // ROWS
+  // CONTENT
   // ==================
 
   let songNo = 1;
 
-  exportItems.forEach(item=>{
+  exportItems.forEach((item,index)=>{
+
+    // ==================
+    // INSERT
+    // ==================
 
     if(item.type === "insert"){
 
-      ctx.fillStyle =
-        "#f6ebc5";
+      drawRoundRect(
 
-      ctx.fillRect(
-        50,
+        ctx,
+
+        25,
         y,
-        1100,
-        38
+
+        550,
+        22,
+
+        5,
+
+        "#f6ebc5"
+
       );
 
       ctx.fillStyle =
         "#000";
 
       ctx.font =
-        "bold 20px Arial";
+        "bold 11px Arial";
 
       ctx.fillText(
+
         item.text || "INSERT",
-        70,
-        y + 25
+
+        40,
+
+        y + 14
+
       );
 
-      y += rowHeight;
+      y += rowHeight / 2;
 
       return;
-
     }
+
+    // ==================
+    // SONG
+    // ==================
 
     const song =
       item.data;
 
-    ctx.fillStyle =
-      "#eeeeee";
+    const bgColor =
 
-    ctx.fillRect(
-      50,
+      songNo % 2 === 1
+
+      ? "#f5f5f5"
+      : "#ebebeb";
+
+    drawRoundRect(
+
+      ctx,
+
+      25,
       y,
-      1100,
-      38
+
+      550,
+      22,
+
+      5,
+
+      bgColor
+
     );
+
+    // NO
 
     ctx.fillStyle =
       "#000";
 
-    // nomor
-ctx.font =
-  "bold 20px Arial";
-
-ctx.fillText(
-  songNo++,
-  80,
-  y + 25
-);
-
-// JUDUL (BOLD)
-
-ctx.font =
-  "bold 20px Arial";
-
-ctx.fillStyle =
-  "#000";
-
-ctx.fillText(
-  song.title,
-  150,
-  y + 25
-);
-
-// hitung panjang judul
-
-const titleWidth =
-  ctx.measureText(
-    song.title
-  ).width;
-
-// ARTIST (NORMAL)
-
-ctx.font =
-  "18px Arial";
-
-ctx.fillText(
-  ` - ${song.artist || ""}`,
-  150 + titleWidth,
-  y + 25
-);
+    ctx.font =
+      "bold 11px Arial";
 
     ctx.fillText(
+
+      songNo,
+
+      40,
+
+      y + 14
+
+    );
+
+    // TITLE
+
+    ctx.font =
+      "bold 11px Arial";
+
+    ctx.fillText(
+
+      song.title,
+
+      75,
+
+      y + 14
+
+    );
+
+    const titleWidth =
+
+      ctx.measureText(
+        song.title
+      ).width;
+
+    // ARTIST
+
+    ctx.font =
+      "10px Arial";
+
+    ctx.fillText(
+
+      ` - ${song.artist || ""}`,
+
+      75 + titleWidth,
+
+      y + 14
+
+    );
+
+    // SINGER
+
+    ctx.font =
+      "10px Arial";
+
+    ctx.fillText(
+
       song.singer || "-",
-      780,
-      y + 25
+
+      390,
+
+      y + 14
+
     );
+
+    // KEY
 
     ctx.fillText(
+
       song.key || "-",
-      1050,
-      y + 25
+
+      520,
+
+      y + 14
+
     );
 
-    y += rowHeight;
+    songNo++;
+
+    y += rowHeight / 2;
 
   });
+
+  // ==================
+  // EXPORT
+  // ==================
 
   canvas.toBlob(blob=>{
 
@@ -1164,7 +1225,80 @@ ctx.fillText(
 
     URL.revokeObjectURL(url);
 
-  },"image/jpeg",1);
+  },
+
+  "image/jpeg",
+
+  1);
+
+}
+
+// =====================
+// HELPER
+// =====================
+function drawRoundRect(
+  ctx,
+  x,
+  y,
+  w,
+  h,
+  r,
+  color
+){
+
+  ctx.beginPath();
+
+  ctx.moveTo(x+r,y);
+
+  ctx.lineTo(x+w-r,y);
+
+  ctx.quadraticCurveTo(
+    x+w,y,
+    x+w,y+r
+  );
+
+  ctx.lineTo(
+    x+w,
+    y+h-r
+  );
+
+  ctx.quadraticCurveTo(
+    x+w,
+    y+h,
+    x+w-r,
+    y+h
+  );
+
+  ctx.lineTo(
+    x+r,
+    y+h
+  );
+
+  ctx.quadraticCurveTo(
+    x,
+    y+h,
+    x,
+    y+h-r
+  );
+
+  ctx.lineTo(
+    x,
+    y+r
+  );
+
+  ctx.quadraticCurveTo(
+    x,
+    y,
+    x+r,
+    y
+  );
+
+  ctx.closePath();
+
+  ctx.fillStyle =
+    color;
+
+  ctx.fill();
 
 }
   loadExportDraft();
