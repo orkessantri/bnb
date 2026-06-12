@@ -885,7 +885,7 @@ async function exportJPG(){
     );
 
   // kualitas lebih tajam
-  canvas.width = 1250;
+  canvas.width = 1200;
 
   canvas.height =
     headerHeight +
