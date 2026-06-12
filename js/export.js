@@ -893,17 +893,6 @@ async function exportJPG(){
 
   });
 
-let exportItems = [];
-
-let sortable = null;
-
-let setlist =
-  JSON.parse(
-    localStorage.getItem(
-      "setlist"
-    )
-  ) || [];
-
 const savedExportItems =
   JSON.parse(
     localStorage.getItem(
@@ -1820,3 +1809,4 @@ finalCanvas.toBlob(blob=>{
 }
 
 loadExportDraft();
+  }
