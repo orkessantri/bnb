@@ -1194,7 +1194,7 @@ ctx.fillText(
 
       song.key || "-",
 
-      525,
+      530,
 
       y + 14
 
