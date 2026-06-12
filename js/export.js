@@ -940,15 +940,19 @@ function findContentBounds(canvas){
       const b = data[i + 2];
 
       if(
-        r < 250 ||
-        g < 250 ||
-        b < 250
-      ){
+  r < 250 ||
+  g < 250 ||
+  b < 250
+){
 
-        bottom = y;
-        break outerBottom;
+  bottom = Math.min(
+    canvas.height - 1,
+    y + 120
+  );
 
-      }
+  break outerBottom;
+
+}
 
     }
 
