@@ -802,126 +802,72 @@ async function exportPDF(){
   // ====================
 async function exportJPG(){
 
-  const doc =
-    await buildPDF();
+  const fileName = prompt(
 
-  const pdfBlob =
-    doc.output("blob");
+    "Nama file JPG",
 
-  const pdfUrl =
-    URL.createObjectURL(
-      pdfBlob
+    "Setlist"
+
+  );
+
+  if(!fileName) return;
+
+  const target =
+
+    document.querySelector(
+      ".page-wrapper"
     );
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+  const canvas =
 
-  const pdf =
-    await pdfjsLib
-      .getDocument(pdfUrl)
-      .promise;
+    await html2canvas(
 
-  const pages = [];
+      target,
 
-  let totalHeight = 0;
-  let maxWidth = 0;
+      {
 
-  for(
-    let i = 1;
-    i <= pdf.numPages;
-    i++
-  ){
+        scale:2,
 
-    const page =
-      await pdf.getPage(i);
+        backgroundColor:"#ffffff",
 
-    const viewport =
-      page.getViewport({
-        scale:3
-      });
+        useCORS:true
 
-    const canvas =
-      document.createElement(
-        "canvas"
-      );
+      }
 
-    const ctx =
-      canvas.getContext("2d");
-
-    canvas.width =
-      viewport.width;
-
-    canvas.height =
-      viewport.height;
-
-    await page.render({
-
-      canvasContext:ctx,
-      viewport
-
-    }).promise;
-
-    pages.push(canvas);
-
-    totalHeight +=
-      canvas.height;
-
-    maxWidth =
-      Math.max(
-        maxWidth,
-        canvas.width
-      );
-
-  }
-
-  const finalCanvas =
-    document.createElement(
-      "canvas"
     );
 
-  const finalCtx =
-    finalCanvas.getContext(
-      "2d"
-    );
-
-  finalCanvas.width =
-    maxWidth;
-
-  finalCanvas.height =
-    totalHeight;
-
-  let currentY = 0;
-
-  pages.forEach(canvas=>{
-
-    finalCtx.drawImage(
-      canvas,
-      0,
-      currentY
-    );
-
-    currentY +=
-      canvas.height;
-
-  });
-
-  finalCanvas.toBlob(blob=>{
+  canvas.toBlob(blob=>{
 
     const url =
-      URL.createObjectURL(blob);
-  
+
+      URL.createObjectURL(
+        blob
+      );
+
     const a =
-      document.createElement("a");
-  
+
+      document.createElement(
+        "a"
+      );
+
     a.href = url;
-  
+
     a.download =
-      "setlist.jpg";
-  
+
+      `${fileName}.jpg`;
+
     a.click();
-  
-  },"image/jpeg",0.95);
-  
-  }
+
+    URL.revokeObjectURL(
+      url
+    );
+
+  },
+
+  "image/jpeg",
+
+  0.95);
+
+}
 
   loadExportDraft();
