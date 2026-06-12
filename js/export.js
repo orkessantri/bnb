@@ -812,40 +812,135 @@ async function exportJPG(){
 
   if(!fileName) return;
 
-  const target =
+  const doc =
+    await buildPDF();
 
-    document.querySelector(
-      ".page-wrapper"
+  const pdfBlob =
+    doc.output("blob");
+
+  const pdfUrl =
+    URL.createObjectURL(
+      pdfBlob
     );
 
-  const canvas =
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
 
-    await html2canvas(
+  const pdf =
+    await pdfjsLib
+      .getDocument(pdfUrl)
+      .promise;
 
-      target,
+  const pages = [];
 
-      {
+  let totalHeight = 0;
 
-        scale:2,
+  let maxWidth = 0;
 
-        backgroundColor:"#ffffff",
+  for(
+    let i = 1;
+    i <= pdf.numPages;
+    i++
+  ){
 
-        useCORS:true
+    const page =
+      await pdf.getPage(i);
 
-      }
+    const viewport =
+      page.getViewport({
+        scale:3
+      });
+
+    const canvas =
+      document.createElement(
+        "canvas"
+      );
+
+    const ctx =
+      canvas.getContext(
+        "2d"
+      );
+
+    canvas.width =
+      viewport.width;
+
+    canvas.height =
+      viewport.height;
+
+    await page.render({
+
+      canvasContext:ctx,
+
+      viewport
+
+    }).promise;
+
+    pages.push(canvas);
+
+    totalHeight +=
+      canvas.height;
+
+    maxWidth =
+      Math.max(
+        maxWidth,
+        canvas.width
+      );
+
+  }
+
+  const finalCanvas =
+    document.createElement(
+      "canvas"
+    );
+
+  const finalCtx =
+    finalCanvas.getContext(
+      "2d"
+    );
+
+  finalCanvas.width =
+    maxWidth;
+
+  finalCanvas.height =
+    totalHeight;
+
+  finalCtx.fillStyle =
+    "#ffffff";
+
+  finalCtx.fillRect(
+    0,
+    0,
+    maxWidth,
+    totalHeight
+  );
+
+  let currentY = 0;
+
+  pages.forEach(canvas=>{
+
+    finalCtx.drawImage(
+
+      canvas,
+
+      0,
+
+      currentY
 
     );
 
-  canvas.toBlob(blob=>{
+    currentY +=
+      canvas.height;
+
+  });
+
+  finalCanvas.toBlob(blob=>{
 
     const url =
-
       URL.createObjectURL(
         blob
       );
 
     const a =
-
       document.createElement(
         "a"
       );
@@ -853,10 +948,17 @@ async function exportJPG(){
     a.href = url;
 
     a.download =
-
       `${fileName}.jpg`;
 
+    document.body.appendChild(
+      a
+    );
+
     a.click();
+
+    document.body.removeChild(
+      a
+    );
 
     URL.revokeObjectURL(
       url
@@ -866,8 +968,7 @@ async function exportJPG(){
 
   "image/jpeg",
 
-  0.95);
+  0.98);
 
 }
-
   loadExportDraft();
