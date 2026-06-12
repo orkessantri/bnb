@@ -859,7 +859,10 @@ async function exportPDF(){
 
 }
 
-function findContentHeight(canvas){
+  // =====================
+  // HELPER
+  // ====================
+function findContentBounds(canvas){
 
   const ctx =
     canvas.getContext("2d");
@@ -871,6 +874,51 @@ function findContentHeight(canvas){
       canvas.width,
       canvas.height
     ).data;
+
+  let top = 0;
+  let bottom = canvas.height - 1;
+
+  // cari batas atas
+
+  outerTop:
+
+  for(
+    let y = 0;
+    y < canvas.height;
+    y++
+  ){
+
+    for(
+      let x = 0;
+      x < canvas.width;
+      x++
+    ){
+
+      const i =
+        (y * canvas.width + x) * 4;
+
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+
+      if(
+        r < 250 ||
+        g < 250 ||
+        b < 250
+      ){
+
+        top = y;
+        break outerTop;
+
+      }
+
+    }
+
+  }
+
+  // cari batas bawah
+
+  outerBottom:
 
   for(
     let y = canvas.height - 1;
@@ -884,12 +932,12 @@ function findContentHeight(canvas){
       x++
     ){
 
-      const index =
+      const i =
         (y * canvas.width + x) * 4;
 
-      const r = data[index];
-      const g = data[index + 1];
-      const b = data[index + 2];
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
 
       if(
         r < 250 ||
@@ -897,12 +945,23 @@ function findContentHeight(canvas){
         b < 250
       ){
 
-        return y + 20;
+        bottom = y;
+        break outerBottom;
+
       }
+
     }
+
   }
 
-  return canvas.height;
+  return {
+
+    top,
+
+    bottom
+
+  };
+
 }
 
   // =====================
@@ -911,11 +970,8 @@ function findContentHeight(canvas){
 async function exportJPG(){
 
   const fileName = prompt(
-
     "Nama file JPG",
-
     "Setlist"
-
   );
 
   if(!fileName) return;
@@ -927,9 +983,7 @@ async function exportJPG(){
     doc.output("blob");
 
   const pdfUrl =
-    URL.createObjectURL(
-      pdfBlob
-    );
+    URL.createObjectURL(pdfBlob);
 
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
@@ -942,7 +996,6 @@ async function exportJPG(){
   const pages = [];
 
   let totalHeight = 0;
-
   let maxWidth = 0;
 
   for(
@@ -965,9 +1018,7 @@ async function exportJPG(){
       );
 
     const ctx =
-      canvas.getContext(
-        "2d"
-      );
+      canvas.getContext("2d");
 
     canvas.width =
       viewport.width;
@@ -983,24 +1034,35 @@ async function exportJPG(){
 
     }).promise;
 
-const croppedHeight =
-  findContentHeight(canvas);
+    const bounds =
+      findContentBounds(canvas);
 
-pages.push({
+    const croppedHeight =
+      bounds.bottom - bounds.top;
 
-  canvas,
-  height: croppedHeight
+    pages.push({
 
-});
+      canvas,
 
-totalHeight +=
-  croppedHeight;
+      top: bounds.top,
 
-maxWidth =
-  Math.max(
-    maxWidth,
-    canvas.width
-  );
+      height: croppedHeight
+
+    });
+
+    totalHeight +=
+      croppedHeight;
+
+    if(i < pdf.numPages){
+
+      totalHeight += 20;
+    }
+
+    maxWidth =
+      Math.max(
+        maxWidth,
+        canvas.width
+      );
 
   }
 
@@ -1034,59 +1096,49 @@ maxWidth =
 
   pages.forEach(page=>{
 
-  finalCtx.drawImage(
+    finalCtx.drawImage(
 
-    page.canvas,
+      page.canvas,
 
-    0,
-    0,
+      0,
+      page.top,
 
-    page.canvas.width,
-    page.height,
+      page.canvas.width,
+      page.height,
 
-    0,
-    currentY,
+      0,
+      currentY,
 
-    page.canvas.width,
-    page.height
+      page.canvas.width,
+      page.height
 
-  );
+    );
 
-  currentY +=
-    page.height;
+    currentY +=
+      page.height + 20;
 
-});
+  });
 
   finalCanvas.toBlob(blob=>{
 
     const url =
-      URL.createObjectURL(
-        blob
-      );
+      URL.createObjectURL(blob);
 
     const a =
-      document.createElement(
-        "a"
-      );
+      document.createElement("a");
 
     a.href = url;
 
     a.download =
       `${fileName}.jpg`;
 
-    document.body.appendChild(
-      a
-    );
+    document.body.appendChild(a);
 
     a.click();
 
-    document.body.removeChild(
-      a
-    );
+    document.body.removeChild(a);
 
-    URL.revokeObjectURL(
-      url
-    );
+    URL.revokeObjectURL(url);
 
   },
 
