@@ -1817,7 +1817,4 @@ finalCanvas.toBlob(blob=>{
 
 },"image/jpeg",0.95);
 
-}
-
 loadExportDraft();
-  }
