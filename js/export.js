@@ -1816,5 +1816,3 @@ finalCanvas.toBlob(blob=>{
   a.click();
 
 },"image/jpeg",0.95);
-
-loadExportDraft();
