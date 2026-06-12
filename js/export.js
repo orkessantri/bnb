@@ -885,7 +885,7 @@ async function exportJPG(){
     );
 
   // kualitas lebih tajam
-  canvas.width = 2400;
+  canvas.width = 1250;
 
   canvas.height =
     headerHeight +
@@ -931,10 +931,10 @@ async function exportJPG(){
 
     ctx.drawImage(
       logo,
-      25,
-      20,
-      60,
-      60
+      50,
+      30,
+      100,
+      100
     );
 
   }
