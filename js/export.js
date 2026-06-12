@@ -341,6 +341,18 @@ function saveSetlist(){
 saveExportItems();
 }
 
+function saveExportItems(){
+
+  localStorage.setItem(
+
+    "exportItems",
+
+    JSON.stringify(exportItems)
+
+  );
+
+}
+
 // =====================
 // AUTO SAVE FORM DRAFT
 // =====================
