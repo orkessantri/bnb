@@ -859,6 +859,52 @@ async function exportPDF(){
 
 }
 
+function findContentHeight(canvas){
+
+  const ctx =
+    canvas.getContext("2d");
+
+  const data =
+    ctx.getImageData(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    ).data;
+
+  for(
+    let y = canvas.height - 1;
+    y >= 0;
+    y--
+  ){
+
+    for(
+      let x = 0;
+      x < canvas.width;
+      x++
+    ){
+
+      const index =
+        (y * canvas.width + x) * 4;
+
+      const r = data[index];
+      const g = data[index + 1];
+      const b = data[index + 2];
+
+      if(
+        r < 250 ||
+        g < 250 ||
+        b < 250
+      ){
+
+        return y + 20;
+      }
+    }
+  }
+
+  return canvas.height;
+}
+
   // =====================
   // EXPORT JPG
   // ====================
@@ -937,16 +983,24 @@ async function exportJPG(){
 
     }).promise;
 
-    pages.push(canvas);
+const croppedHeight =
+  findContentHeight(canvas);
 
-    totalHeight +=
-      canvas.height;
+pages.push({
 
-    maxWidth =
-      Math.max(
-        maxWidth,
-        canvas.width
-      );
+  canvas,
+  height: croppedHeight
+
+});
+
+totalHeight +=
+  croppedHeight;
+
+maxWidth =
+  Math.max(
+    maxWidth,
+    canvas.width
+  );
 
   }
 
@@ -978,22 +1032,30 @@ async function exportJPG(){
 
   let currentY = 0;
 
-  pages.forEach(canvas=>{
+  pages.forEach(page=>{
 
-    finalCtx.drawImage(
+  finalCtx.drawImage(
 
-      canvas,
+    page.canvas,
 
-      0,
+    0,
+    0,
 
-      currentY
+    page.canvas.width,
+    page.height,
 
-    );
+    0,
+    currentY,
 
-    currentY +=
-      canvas.height;
+    page.canvas.width,
+    page.height
 
-  });
+  );
+
+  currentY +=
+    page.height;
+
+});
 
   finalCanvas.toBlob(blob=>{
 
