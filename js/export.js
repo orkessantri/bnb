@@ -860,270 +860,267 @@ async function exportPDF(){
 }
 
   // =====================
-  // HELPER
-  // ====================
-function findContentBounds(canvas){
-
-  const ctx =
-    canvas.getContext("2d");
-
-  const data =
-    ctx.getImageData(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    ).data;
-
-  let top = 0;
-  let bottom = canvas.height - 1;
-
-  // cari batas atas
-
-  outerTop:
-
-  for(
-    let y = 0;
-    y < canvas.height;
-    y++
-  ){
-
-    for(
-      let x = 0;
-      x < canvas.width;
-      x++
-    ){
-
-      const i =
-        (y * canvas.width + x) * 4;
-
-      const r = data[i];
-      const g = data[i + 1];
-      const b = data[i + 2];
-
-      if(
-        r < 250 ||
-        g < 250 ||
-        b < 250
-      ){
-
-        top = y;
-        break outerTop;
-
-      }
-
-    }
-
-  }
-
-  // cari batas bawah
-
-  outerBottom:
-
-  for(
-    let y = canvas.height - 1;
-    y >= 0;
-    y--
-  ){
-
-    for(
-      let x = 0;
-      x < canvas.width;
-      x++
-    ){
-
-      const i =
-        (y * canvas.width + x) * 4;
-
-      const r = data[i];
-      const g = data[i + 1];
-      const b = data[i + 2];
-
-      if(
-  r < 250 ||
-  g < 250 ||
-  b < 250
-){
-
-  bottom = Math.min(
-    canvas.height - 1,
-    y + 120
-  );
-
-  break outerBottom;
-
-}
-
-    }
-
-  }
-
-  return {
-
-    top,
-
-    bottom
-
-  };
-
-}
-
-  // =====================
   // EXPORT JPG
   // ====================
 async function exportJPG(){
 
-  const fileName = prompt(
-    "Nama file JPG",
-    "Setlist"
-  );
+  const fileName =
+    prompt(
+      "Nama file JPG",
+      "Setlist"
+    );
 
   if(!fileName) return;
 
-  const doc =
-    await buildPDF();
+  const rowHeight = 44;
 
-  const pdfBlob =
-    doc.output("blob");
+  const headerHeight = 180;
 
-  const pdfUrl =
-    URL.createObjectURL(pdfBlob);
+  const totalRows =
+    exportItems.length;
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
-
-  const pdf =
-    await pdfjsLib
-      .getDocument(pdfUrl)
-      .promise;
-
-  const pages = [];
-
-  let totalHeight = 0;
-  let maxWidth = 0;
-
-  for(
-    let i = 1;
-    i <= pdf.numPages;
-    i++
-  ){
-
-    const page =
-      await pdf.getPage(i);
-
-    const viewport =
-      page.getViewport({
-        scale:3
-      });
-
-    const canvas =
-      document.createElement(
-        "canvas"
-      );
-
-    const ctx =
-      canvas.getContext("2d");
-
-    canvas.width =
-      viewport.width;
-
-    canvas.height =
-      viewport.height;
-
-    await page.render({
-
-      canvasContext:ctx,
-
-      viewport
-
-    }).promise;
-
-    const bounds =
-      findContentBounds(canvas);
-
-    const croppedHeight =
-      bounds.bottom - bounds.top;
-
-    pages.push({
-
-      canvas,
-
-      top: bounds.top,
-
-      height: croppedHeight
-
-    });
-
-    totalHeight +=
-      croppedHeight;
-
-    if(i < pdf.numPages){
-
-      totalHeight += 20;
-    }
-
-    maxWidth =
-      Math.max(
-        maxWidth,
-        canvas.width
-      );
-
-  }
-
-  const finalCanvas =
+  const canvas =
     document.createElement(
       "canvas"
     );
 
-  const finalCtx =
-    finalCanvas.getContext(
-      "2d"
-    );
+  canvas.width = 1200;
 
-  finalCanvas.width =
-    maxWidth;
+  canvas.height =
+    headerHeight +
+    (totalRows * rowHeight) +
+    80;
 
-  finalCanvas.height =
-    totalHeight;
+  const ctx =
+    canvas.getContext("2d");
 
-  finalCtx.fillStyle =
+  // background
+
+  ctx.fillStyle =
     "#ffffff";
 
-  finalCtx.fillRect(
+  ctx.fillRect(
     0,
     0,
-    maxWidth,
-    totalHeight
+    canvas.width,
+    canvas.height
   );
 
-  let currentY = 0;
+  // ==================
+  // LOGO
+  // ==================
 
-  pages.forEach(page=>{
-
-    finalCtx.drawImage(
-
-      page.canvas,
-
-      0,
-      page.top,
-
-      page.canvas.width,
-      page.height,
-
-      0,
-      currentY,
-
-      page.canvas.width,
-      page.height
-
+  const logo =
+    document.getElementById(
+      "logoPreview"
     );
 
-    currentY +=
-      page.height + 20;
+  if(
+    logo &&
+    logo.complete
+  ){
+
+    ctx.drawImage(
+      logo,
+      50,
+      40,
+      120,
+      120
+    );
+
+  }
+
+  // ==================
+  // HEADER
+  // ==================
+
+  ctx.fillStyle =
+    "#000";
+
+  ctx.font =
+    "bold 52px Arial";
+
+  ctx.fillText(
+
+    document.getElementById(
+      "band-name"
+    ).value || "BAND",
+
+    200,
+    80
+
+  );
+
+  ctx.font =
+    "36px Arial";
+
+  ctx.fillText(
+
+    document.getElementById(
+      "event-name"
+    ).value || "",
+
+    200,
+    125
+
+  );
+
+  ctx.font =
+    "28px Arial";
+
+  ctx.fillText(
+
+    `${document.getElementById("event-date").value}
+     •
+     ${document.getElementById("event-location").value}`,
+
+    200,
+    165
+
+  );
+
+  // ==================
+  // TABLE HEADER
+  // ==================
+
+  let y = 220;
+
+  ctx.fillStyle =
+    "#111";
+
+  ctx.roundRect?.(
+    50,
+    y,
+    1100,
+    50,
+    10
+  );
+
+  ctx.fillRect(
+    50,
+    y,
+    1100,
+    50
+  );
+
+  ctx.fillStyle =
+    "#fff";
+
+  ctx.font =
+    "bold 24px Arial";
+
+  ctx.fillText(
+    "NO",
+    80,
+    y + 32
+  );
+
+  ctx.fillText(
+    "SONG",
+    150,
+    y + 32
+  );
+
+  ctx.fillText(
+    "SINGER",
+    780,
+    y + 32
+  );
+
+  ctx.fillText(
+    "KEY",
+    1050,
+    y + 32
+  );
+
+  y += 70;
+
+  // ==================
+  // ROWS
+  // ==================
+
+  let songNo = 1;
+
+  exportItems.forEach(item=>{
+
+    if(item.type === "insert"){
+
+      ctx.fillStyle =
+        "#f6ebc5";
+
+      ctx.fillRect(
+        50,
+        y,
+        1100,
+        38
+      );
+
+      ctx.fillStyle =
+        "#000";
+
+      ctx.font =
+        "bold 20px Arial";
+
+      ctx.fillText(
+        item.text || "INSERT",
+        70,
+        y + 25
+      );
+
+      y += rowHeight;
+
+      return;
+
+    }
+
+    const song =
+      item.data;
+
+    ctx.fillStyle =
+      "#eeeeee";
+
+    ctx.fillRect(
+      50,
+      y,
+      1100,
+      38
+    );
+
+    ctx.fillStyle =
+      "#000";
+
+    ctx.font =
+      "20px Arial";
+
+    ctx.fillText(
+      songNo++,
+      80,
+      y + 25
+    );
+
+    ctx.fillText(
+      `${song.title} - ${song.artist || ""}`,
+      150,
+      y + 25
+    );
+
+    ctx.fillText(
+      song.singer || "-",
+      780,
+      y + 25
+    );
+
+    ctx.fillText(
+      song.key || "-",
+      1050,
+      y + 25
+    );
+
+    y += rowHeight;
 
   });
 
-  finalCanvas.toBlob(blob=>{
+  canvas.toBlob(blob=>{
 
     const url =
       URL.createObjectURL(blob);
@@ -1136,19 +1133,11 @@ async function exportJPG(){
     a.download =
       `${fileName}.jpg`;
 
-    document.body.appendChild(a);
-
     a.click();
-
-    document.body.removeChild(a);
 
     URL.revokeObjectURL(url);
 
-  },
-
-  "image/jpeg",
-
-  0.98);
+  },"image/jpeg",1);
 
 }
   loadExportDraft();
