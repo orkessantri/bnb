@@ -1070,7 +1070,7 @@ ctx.fillText(
         "#000";
 
       ctx.font =
-        "bold 11px Arial";
+        "bold 12px Arial";
 
       ctx.fillText(
 
@@ -1138,7 +1138,7 @@ ctx.fillText(
     // TITLE
 
     ctx.font =
-      "bold 11px Arial";
+      "bold 12px Arial";
 
     ctx.fillText(
 
@@ -1159,7 +1159,7 @@ ctx.fillText(
     // ARTIST
 
     ctx.font =
-      "10px Arial";
+      "11px Arial";
 
     ctx.fillText(
 
@@ -1174,7 +1174,7 @@ ctx.fillText(
     // SINGER
 
     ctx.font =
-      "10px Arial";
+      "11px Arial";
 
     ctx.fillText(
 
@@ -1187,12 +1187,14 @@ ctx.fillText(
     );
 
     // KEY
-
+    ctx.font =
+      "11px Arial";
+    
     ctx.fillText(
 
       song.key || "-",
 
-      520,
+      525,
 
       y + 14
 
