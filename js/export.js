@@ -1099,9 +1099,13 @@ ctx.fillText(
   y + 25
 );
 
-// judul
+// JUDUL (BOLD)
+
 ctx.font =
   "bold 20px Arial";
+
+ctx.fillStyle =
+  "#000";
 
 ctx.fillText(
   song.title,
@@ -1109,13 +1113,21 @@ ctx.fillText(
   y + 25
 );
 
-// artist
+// hitung panjang judul
+
+const titleWidth =
+  ctx.measureText(
+    song.title
+  ).width;
+
+// ARTIST (NORMAL)
+
 ctx.font =
   "18px Arial";
 
 ctx.fillText(
-  `- ${song.artist || ""}`,
-  420,
+  ` - ${song.artist || ""}`,
+  150 + titleWidth,
   y + 25
 );
 
